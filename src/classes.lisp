@@ -287,6 +287,7 @@
 
 (defclass xscontrol-reader (ff-pointer-mixin) ())
 
+(defclass step-control-writer (ff-pointer-mixin) ())
 ;;
 
 

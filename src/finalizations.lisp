@@ -557,3 +557,6 @@
 
 (defmethod foreign-free-fn ((object shape-fix-wire))
   #'_wrap_ShapeFix_Wire_Delete)
+  
+(defmethod foreign-free-fn ((object step-control-writer))
+  #'_wrap_delete_STEPControl_Writer)

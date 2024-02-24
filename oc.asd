@@ -164,6 +164,7 @@
    (:file "src/shape-fix/shape-fix-wire")
 
    (:file "src/xscontrol/xscontrol-reader")
+   (:file "src/xscontrol/step-control-Writer")
 
    (:file "src/bnd/bnd-box")
    (:file "src/bnd-lib/bnd-lib")
