@@ -56,6 +56,18 @@
   (cl:setf *signal-lisp-error* (cffi:get-callback 'signal-lisp-error)))
      %}
 
+/**
+ *
+ */
+enum IFSelect_ReturnStatus {
+ IFSelect_RetVoid,
+ IFSelect_RetDone,
+ IFSelect_RetError,
+ IFSelect_RetFail,
+ IFSelect_RetStop
+};
+
+
 %include "standard/standard.i";
 %include "mmgt/mmgt-tshared.i";
 %include "gp/gp.i";
@@ -168,16 +180,6 @@ class BRepGProp
         static Standard_Real SurfaceProperties(const TopoDS_Shape& shape, GProp_GProps& properties, const Standard_Real Eps) ;
 };
 
-/**
- *
- */
-enum IFSelect_ReturnStatus {
- IFSelect_RetVoid,
- IFSelect_RetDone,
- IFSelect_RetError,
- IFSelect_RetFail,
- IFSelect_RetStop
-};
  
 %{#include <ShapeAnalysis_FreeBounds.hxx>%}
 class ShapeAnalysis_FreeBounds

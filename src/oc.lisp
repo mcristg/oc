@@ -65,6 +65,13 @@
   (cl:setf *signal-lisp-error* (cffi:get-callback 'signal-lisp-error)))
      
 
+(cffi:defcenum IFSelect_ReturnStatus
+	:IFSelect_RetVoid
+	:IFSelect_RetDone
+	:IFSelect_RetError
+	:IFSelect_RetFail
+	:IFSelect_RetStop)
+
 (cffi:defcfun ("_wrap_Handle_MMgt_TShared_GetRefCount" _wrap_Handle_MMgt_TShared_GetRefCount) :int
   (self :pointer))
 
@@ -10079,7 +10086,7 @@
 (cffi:defcfun ("_wrap_delete_ShapeBuild_ReShape" _wrap_delete_ShapeBuild_ReShape) :void
   (self :pointer))
 
-(cffi:defcfun ("_wrap_XSControl_Reader_ReadFile" _wrap_XSControl_Reader_ReadFile) :pointer
+(cffi:defcfun ("_wrap_XSControl_Reader_ReadFile" _wrap_XSControl_Reader_ReadFile) IFSelect_ReturnStatus
   (self :pointer)
   (filename :string))
 
@@ -10123,20 +10130,6 @@
 (cffi:defcfun ("_wrap_delete_IGESControl_Reader" _wrap_delete_IGESControl_Reader) :void
   (self :pointer))
 
-(cffi:defcfun ("_wrap_new_STEPControl_Writer" _wrap_new_STEPControl_Writer) :pointer)
-
-(cffi:defcfun ("_wrap_STEPControl_Writer_Write" _wrap_STEPControl_Writer_Write) :unsigned-int
-  (self :pointer)
-  (filename :string))
-
-(cffi:defcfun ("_wrap_STEPControl_Writer_Transfer" _wrap_STEPControl_Writer_Transfer) :unsigned-int
-  (self :pointer)
-  (theShape :pointer)
-  (mode :unsigned-int))
-
-(cffi:defcfun ("_wrap_delete_STEPControl_Writer" _wrap_delete_STEPControl_Writer) :void
-  (self :pointer))
-
 (cffi:defcenum STEPControl_StepModelType
 	:STEPControl_AsIs
 	:STEPControl_ManifoldSolidBrep
@@ -10146,6 +10139,20 @@
 	:STEPControl_ShellBasedSurfaceModel
 	:STEPControl_GeometricCurveSet
 	:STEPControl_Hybrid)
+
+(cffi:defcfun ("_wrap_new_STEPControl_Writer" _wrap_new_STEPControl_Writer) :pointer)
+
+(cffi:defcfun ("_wrap_STEPControl_Writer_Write" _wrap_STEPControl_Writer_Write) IFSelect_ReturnStatus
+  (self :pointer)
+  (filename :string))
+
+(cffi:defcfun ("_wrap_STEPControl_Writer_Transfer" _wrap_STEPControl_Writer_Transfer) IFSelect_ReturnStatus
+  (self :pointer)
+  (theShape :pointer)
+  (mode STEPControl_StepModelType))
+
+(cffi:defcfun ("_wrap_delete_STEPControl_Writer" _wrap_delete_STEPControl_Writer) :void
+  (self :pointer))
 
 (cffi:defcfun ("_wrap_new_IGESControl_Writer__SWIG_0" _wrap_new_IGESControl_Writer__SWIG_0) :pointer)
 
@@ -12013,13 +12020,6 @@
 
 (cffi:defcfun ("_wrap_delete_BRepGProp" _wrap_delete_BRepGProp) :void
   (self :pointer))
-
-(cffi:defcenum IFSelect_ReturnStatus
-	:IFSelect_RetVoid
-	:IFSelect_RetDone
-	:IFSelect_RetError
-	:IFSelect_RetFail
-	:IFSelect_RetStop)
 
 (cffi:defcfun ("_wrap_new_ShapeAnalysis_FreeBounds__SWIG_0" _wrap_new_ShapeAnalysis_FreeBounds__SWIG_0) :pointer
   (shape :pointer)

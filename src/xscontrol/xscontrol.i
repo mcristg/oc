@@ -172,9 +172,17 @@ class IGESControl_Reader: public XSControl_Reader
  %{
 #include <STEPControl_Writer.hxx>
  %}
- 
-%apply unsigned int { STEPControl_StepModelType };
-%apply unsigned int { IFSelect_ReturnStatus }; 
+
+enum STEPControl_StepModelType {
+ STEPControl_AsIs,
+ STEPControl_ManifoldSolidBrep,
+ STEPControl_BrepWithVoids,
+ STEPControl_FacetedBrep,
+ STEPControl_FacetedBrepAndBrepWithVoids,
+ STEPControl_ShellBasedSurfaceModel,
+ STEPControl_GeometricCurveSet,
+ STEPControl_Hybrid
+};
  
 class STEPControl_Writer
 {
@@ -194,16 +202,6 @@ class STEPControl_Writer
 %rename(ShellBasedSurfaceModel) STEPControl_ShellBasedSurfaceModel;
 %rename(GeometricCurveSet) STEPControl_GeometricCurveSet;
 %rename(Hybrid) STEPControl_Hybrid;
-enum STEPControl_StepModelType {
- STEPControl_AsIs,
- STEPControl_ManifoldSolidBrep,
- STEPControl_BrepWithVoids,
- STEPControl_FacetedBrep,
- STEPControl_FacetedBrepAndBrepWithVoids,
- STEPControl_ShellBasedSurfaceModel,
- STEPControl_GeometricCurveSet,
- STEPControl_Hybrid
-};
 
 /**
  * IGESControl_Writer
