@@ -1,5 +1,6 @@
 (in-package :oc)
 
+#|
 (defmethod initialize-instance :after ((obj poly-triangulation) &rest initargs
 				       &key nbNodes nbTriangles
 					 UVNodes
@@ -11,6 +12,7 @@
 	(_wrap_new_Poly_Triangulation nbNodes nbTriangles UvNodes))
   ;;(oc:finalize obj)
   (values))
+|#
 
 (defmethod number-of-triangles ((self poly-triangulation))
   (_wrap_Poly_Triangulation_NbTriangles (ff-pointer self)))

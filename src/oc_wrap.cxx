@@ -52185,7 +52185,7 @@ EXPORT TopoDS_Vertex *_wrap_BRepBuilderAPI_MakeVertex_Vertex (BRepBuilderAPI_Mak
       try
       {
         OCC_CATCH_SIGNALS
-        result = (TopoDS_Vertex *) &((BRepBuilderAPI_MakeVertex const *)arg1)->Vertex();
+        result = (TopoDS_Vertex *) &(arg1)->Vertex();
       }
       catch(Standard_Failure const& error)
       {
@@ -52653,7 +52653,7 @@ EXPORT TopoDS_Wire *_wrap_BRepBuilderAPI_MakeWire_Wire (BRepBuilderAPI_MakeWire 
       try
       {
         OCC_CATCH_SIGNALS
-        result = (TopoDS_Wire *) &((BRepBuilderAPI_MakeWire const *)arg1)->Wire();
+        result = (TopoDS_Wire *) &(arg1)->Wire();
       }
       catch(Standard_Failure const& error)
       {
@@ -54188,7 +54188,7 @@ EXPORT TopoDS_Edge *_wrap_BRepBuilderAPI_MakeEdge_Edge (BRepBuilderAPI_MakeEdge 
       try
       {
         OCC_CATCH_SIGNALS
-        result = (TopoDS_Edge *) &((BRepBuilderAPI_MakeEdge const *)arg1)->Edge();
+        result = (TopoDS_Edge *) &(arg1)->Edge();
       }
       catch(Standard_Failure const& error)
       {
