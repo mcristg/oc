@@ -10125,14 +10125,14 @@
 
 (cffi:defcfun ("_wrap_new_STEPControl_Writer" _wrap_new_STEPControl_Writer) :pointer)
 
-(cffi:defcfun ("_wrap_STEPControl_Writer_Write" _wrap_STEPControl_Writer_Write) :pointer
+(cffi:defcfun ("_wrap_STEPControl_Writer_Write" _wrap_STEPControl_Writer_Write) :unsigned-int
   (self :pointer)
   (filename :string))
 
-(cffi:defcfun ("_wrap_STEPControl_Writer_Transfer" _wrap_STEPControl_Writer_Transfer) :pointer
+(cffi:defcfun ("_wrap_STEPControl_Writer_Transfer" _wrap_STEPControl_Writer_Transfer) :unsigned-int
   (self :pointer)
   (theShape :pointer)
-  (mode :pointer))
+  (mode :unsigned-int))
 
 (cffi:defcfun ("_wrap_delete_STEPControl_Writer" _wrap_delete_STEPControl_Writer) :void
   (self :pointer))
@@ -12563,6 +12563,23 @@
   (theTolOverlap :pointer))
 
 (cffi:defcfun ("_wrap_delete_ShapeAnalysis_Edge" _wrap_delete_ShapeAnalysis_Edge) :void
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_new_BRepAdaptor_Surface__SWIG_0" _wrap_new_BRepAdaptor_Surface__SWIG_0) :pointer)
+
+(cffi:defcfun ("_wrap_new_BRepAdaptor_Surface__SWIG_1" _wrap_new_BRepAdaptor_Surface__SWIG_1) :pointer
+  (F :pointer)
+  (R :bool))
+
+(cffi:defcfun ("_wrap_new_BRepAdaptor_Surface__SWIG_2" _wrap_new_BRepAdaptor_Surface__SWIG_2) :pointer
+  (F :pointer))
+
+(cffi:defcfun ("_wrap_BRepAdaptor_Surface_UIntervals" _wrap_BRepAdaptor_Surface_UIntervals) :void
+  (self :pointer)
+  (t_arg1 :pointer)
+  (S GeomAbs_Shape))
+
+(cffi:defcfun ("_wrap_delete_BRepAdaptor_Surface" _wrap_delete_BRepAdaptor_Surface) :void
   (self :pointer))
 
 

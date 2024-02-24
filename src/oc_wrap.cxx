@@ -52185,7 +52185,7 @@ EXPORT TopoDS_Vertex *_wrap_BRepBuilderAPI_MakeVertex_Vertex (BRepBuilderAPI_Mak
       try
       {
         OCC_CATCH_SIGNALS
-        result = (TopoDS_Vertex *) &(arg1)->Vertex();
+        result = (TopoDS_Vertex *) &((BRepBuilderAPI_MakeVertex const *)arg1)->Vertex();
       }
       catch(Standard_Failure const& error)
       {
@@ -52653,7 +52653,7 @@ EXPORT TopoDS_Wire *_wrap_BRepBuilderAPI_MakeWire_Wire (BRepBuilderAPI_MakeWire 
       try
       {
         OCC_CATCH_SIGNALS
-        result = (TopoDS_Wire *) &(arg1)->Wire();
+        result = (TopoDS_Wire *) &((BRepBuilderAPI_MakeWire const *)arg1)->Wire();
       }
       catch(Standard_Failure const& error)
       {
@@ -54188,7 +54188,7 @@ EXPORT TopoDS_Edge *_wrap_BRepBuilderAPI_MakeEdge_Edge (BRepBuilderAPI_MakeEdge 
       try
       {
         OCC_CATCH_SIGNALS
-        result = (TopoDS_Edge *) &(arg1)->Edge();
+        result = (TopoDS_Edge *) &((BRepBuilderAPI_MakeEdge const *)arg1)->Edge();
       }
       catch(Standard_Failure const& error)
       {
@@ -107035,6 +107035,170 @@ EXPORT void _wrap_delete_ShapeAnalysis_Edge (ShapeAnalysis_Edge *larg1) {
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
         message += "\nwrapper details:\n  * symname: delete_ShapeAnalysis_Edge\n  * wrapname: _wrap_delete_ShapeAnalysis_Edge\n  * fulldecl: ShapeAnalysis_Edge::~ShapeAnalysis_Edge()";
+        signal_lisp_error(message.c_str());
+      }
+    }
+    
+  } catch (...) {
+    
+  }
+}
+
+
+#include <BRepAdaptor_Surface.hxx>
+EXPORT BRepAdaptor_Surface *_wrap_new_BRepAdaptor_Surface__SWIG_0 () {
+  BRepAdaptor_Surface * lresult = (BRepAdaptor_Surface *)0 ;
+  BRepAdaptor_Surface *result = 0 ;
+  
+  try {
+    {
+      try
+      {
+        OCC_CATCH_SIGNALS
+        result = (BRepAdaptor_Surface *)new BRepAdaptor_Surface();
+      }
+      catch(Standard_Failure const& error)
+      {
+        char *error_name = (char*) error.DynamicType()->Name();
+        char *error_message = (char*) error.GetMessageString();
+        std::string message;
+        if (error_name) message += std::string(error_name) + "\n";
+        if (error_message) message += std::string(error_message);
+        // log SWIG specific debug information
+        message += "\nwrapper details:\n  * symname: new_BRepAdaptor_Surface\n  * wrapname: _wrap_new_BRepAdaptor_Surface__SWIG_0\n  * fulldecl: BRepAdaptor_Surface::BRepAdaptor_Surface()";
+        signal_lisp_error(message.c_str());
+      }
+    }
+    lresult = result;
+    return lresult;
+  } catch (...) {
+    return (BRepAdaptor_Surface *)0;
+  }
+}
+
+
+EXPORT BRepAdaptor_Surface *_wrap_new_BRepAdaptor_Surface__SWIG_1 (TopoDS_Face *larg1, bool larg2) {
+  BRepAdaptor_Surface * lresult = (BRepAdaptor_Surface *)0 ;
+  TopoDS_Face *arg1 = 0 ;
+  Standard_Boolean arg2 ;
+  BRepAdaptor_Surface *result = 0 ;
+  
+  arg1 = larg1;
+  arg2 = (bool)larg2;
+  try {
+    {
+      try
+      {
+        OCC_CATCH_SIGNALS
+        result = (BRepAdaptor_Surface *)new BRepAdaptor_Surface((TopoDS_Face const &)*arg1,arg2);
+      }
+      catch(Standard_Failure const& error)
+      {
+        char *error_name = (char*) error.DynamicType()->Name();
+        char *error_message = (char*) error.GetMessageString();
+        std::string message;
+        if (error_name) message += std::string(error_name) + "\n";
+        if (error_message) message += std::string(error_message);
+        // log SWIG specific debug information
+        message += "\nwrapper details:\n  * symname: new_BRepAdaptor_Surface\n  * wrapname: _wrap_new_BRepAdaptor_Surface__SWIG_1\n  * fulldecl: BRepAdaptor_Surface::BRepAdaptor_Surface(TopoDS_Face const &,Standard_Boolean const)";
+        signal_lisp_error(message.c_str());
+      }
+    }
+    lresult = result;
+    return lresult;
+  } catch (...) {
+    return (BRepAdaptor_Surface *)0;
+  }
+}
+
+
+EXPORT BRepAdaptor_Surface *_wrap_new_BRepAdaptor_Surface__SWIG_2 (TopoDS_Face *larg1) {
+  BRepAdaptor_Surface * lresult = (BRepAdaptor_Surface *)0 ;
+  TopoDS_Face *arg1 = 0 ;
+  BRepAdaptor_Surface *result = 0 ;
+  
+  arg1 = larg1;
+  try {
+    {
+      try
+      {
+        OCC_CATCH_SIGNALS
+        result = (BRepAdaptor_Surface *)new BRepAdaptor_Surface((TopoDS_Face const &)*arg1);
+      }
+      catch(Standard_Failure const& error)
+      {
+        char *error_name = (char*) error.DynamicType()->Name();
+        char *error_message = (char*) error.GetMessageString();
+        std::string message;
+        if (error_name) message += std::string(error_name) + "\n";
+        if (error_message) message += std::string(error_message);
+        // log SWIG specific debug information
+        message += "\nwrapper details:\n  * symname: new_BRepAdaptor_Surface\n  * wrapname: _wrap_new_BRepAdaptor_Surface__SWIG_2\n  * fulldecl: BRepAdaptor_Surface::BRepAdaptor_Surface(TopoDS_Face const &)";
+        signal_lisp_error(message.c_str());
+      }
+    }
+    lresult = result;
+    return lresult;
+  } catch (...) {
+    return (BRepAdaptor_Surface *)0;
+  }
+}
+
+
+EXPORT void _wrap_BRepAdaptor_Surface_UIntervals (BRepAdaptor_Surface *larg1, NCollection_Array1< double > *larg2, GeomAbs_Shape larg3) {
+  BRepAdaptor_Surface *arg1 = (BRepAdaptor_Surface *) 0 ;
+  NCollection_Array1< double > *arg2 = 0 ;
+  GeomAbs_Shape arg3 ;
+  
+  arg1 = larg1;
+  arg2 = larg2;
+  arg3 = larg3;
+  try {
+    {
+      try
+      {
+        OCC_CATCH_SIGNALS
+        ((BRepAdaptor_Surface const *)arg1)->UIntervals(*arg2,arg3);
+      }
+      catch(Standard_Failure const& error)
+      {
+        char *error_name = (char*) error.DynamicType()->Name();
+        char *error_message = (char*) error.GetMessageString();
+        std::string message;
+        if (error_name) message += std::string(error_name) + "\n";
+        if (error_message) message += std::string(error_message);
+        // log SWIG specific debug information
+        message += "\nwrapper details:\n  * symname: BRepAdaptor_Surface_UIntervals\n  * wrapname: _wrap_BRepAdaptor_Surface_UIntervals\n  * fulldecl: void BRepAdaptor_Surface::UIntervals(NCollection_Array1< double > &,GeomAbs_Shape) const";
+        signal_lisp_error(message.c_str());
+      }
+    }
+    
+  } catch (...) {
+    
+  }
+}
+
+
+EXPORT void _wrap_delete_BRepAdaptor_Surface (BRepAdaptor_Surface *larg1) {
+  BRepAdaptor_Surface *arg1 = (BRepAdaptor_Surface *) 0 ;
+  
+  arg1 = larg1;
+  try {
+    {
+      try
+      {
+        OCC_CATCH_SIGNALS
+        delete arg1;
+      }
+      catch(Standard_Failure const& error)
+      {
+        char *error_name = (char*) error.DynamicType()->Name();
+        char *error_message = (char*) error.GetMessageString();
+        std::string message;
+        if (error_name) message += std::string(error_name) + "\n";
+        if (error_message) message += std::string(error_message);
+        // log SWIG specific debug information
+        message += "\nwrapper details:\n  * symname: delete_BRepAdaptor_Surface\n  * wrapname: _wrap_delete_BRepAdaptor_Surface\n  * fulldecl: BRepAdaptor_Surface::~BRepAdaptor_Surface()";
         signal_lisp_error(message.c_str());
       }
     }

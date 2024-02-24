@@ -233,3 +233,17 @@ class BRepAlgo
 
 
 %include "shape-analysis/shape-analysis-edge.i";
+
+/**
+ * BRepAdaptor_Surface
+ */
+%{#include <BRepAdaptor_Surface.hxx>%}
+
+class BRepAdaptor_Surface
+{
+    public:	
+    BRepAdaptor_Surface();
+    BRepAdaptor_Surface(const TopoDS_Face &F, const Standard_Boolean R=Standard_True);
+    void BRepAdaptor_Surface::UIntervals(NCollection_Array1<double>& T, GeomAbs_Shape S) const;
+};    
+    

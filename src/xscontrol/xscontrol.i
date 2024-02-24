@@ -172,6 +172,10 @@ class IGESControl_Reader: public XSControl_Reader
  %{
 #include <STEPControl_Writer.hxx>
  %}
+ 
+%apply unsigned int { STEPControl_StepModelType };
+%apply unsigned int { IFSelect_ReturnStatus }; 
+ 
 class STEPControl_Writer
 {
 	public:
