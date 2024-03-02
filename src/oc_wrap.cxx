@@ -187,7 +187,9 @@ template <typename T> T SwigValueInit() {
 #include <stdlib.h>
 
 
-  EXPORT void (* signal_lisp_error) (const char* message) = 0;
+EXPORT void (* signal_lisp_error) (const char* message);
+
+void (* signal_lisp_error) (const char* message) = nullptr;
   
 
 #include <Standard_Failure.hxx>

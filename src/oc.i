@@ -11,7 +11,9 @@
 %typemap(lispclass) double "cl:double-float";
 
 %{
-  EXPORT void (* signal_lisp_error) (const char* message) = 0;
+EXPORT void (* signal_lisp_error) (const char* message);
+
+void (* signal_lisp_error) (const char* message) = nullptr;
   %}
 
 %insert(swiglisp) %{
