@@ -13,4 +13,4 @@
     (values)))
 
 (defmethod add-shape ((make-fillet brep-fillet-api-make-fillet) (radius number) (edge topods-edge))
-  (_wrap_BRepFilletAPI_MakeFillet_Add (ff-pointer make-fillet) (coerce radius 'double-float) (ff-pointer edge)))
+  (_wrap_BRepFilletAPI_MakeFillet_Add__SWIG_1 (ff-pointer make-fillet) (coerce radius 'double-float) (ff-pointer edge)))

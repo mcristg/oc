@@ -53,7 +53,5 @@ public:
 
   Standard_Boolean CheckSameParameter (const TopoDS_Edge& theEdge, const TopoDS_Face& theFace, Standard_Real& theMaxdev, const Standard_Integer theNbControl = 23);
 
-  static Standard_Boolean ComputeDeviation (const Adaptor3d_Curve& CRef, const Adaptor3d_Curve& Other, const Standard_Boolean SameParameter, Standard_Real& dev, const Standard_Integer NCONTROL);
-
   Standard_Boolean CheckOverlapping (const TopoDS_Edge& theEdge1, const TopoDS_Edge& theEdge2, Standard_Real& theTolOverlap, const Standard_Real theDomainDist = 0.0);
 };

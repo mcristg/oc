@@ -15,3 +15,12 @@
     (setf (ff-pointer obj) pointer)
     (oc:finalize obj)
     (values)))
+
+(defmethod shape ((self brep-prim-api-make-cylinder))
+  (let ((shape-copy
+	 (with-topods-shape
+	   (_wrap_TopoDS_Shape_copy_reference
+	    (_wrap_BRepPrimAPI_MakeCylinder_Shape (ff-pointer self))))))
+    (oc:finalize shape-copy)
+    shape-copy))    
+    

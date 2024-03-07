@@ -64,7 +64,6 @@
    (:file "src/collections/poly-array1-of-triangle")
    (:file "src/collections/top-tools-list-of-shape")
    (:file "src/collections/top-tools-map-of-shape")
-   (:file "src/collections/tcollection-basic-map-iterator")
    (:file "src/collections/top-tools-map-iterator-of-map-of-shape")
    
    (:file "src/mmgt/mmgt-tshared")

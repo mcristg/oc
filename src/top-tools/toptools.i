@@ -48,16 +48,10 @@ class TopTools_MapOfShape {
   Standard_Boolean Contains(const TopoDS_Shape &aKey) const;
 };
 %{
-#include <TCollection_BasicMapIterator.hxx>
 #include <TopTools_MapIteratorOfMapOfShape.hxx>
   %}
-class TCollection_BasicMapIterator {
- public:
-  Standard_Boolean More() const;
-  void Next();
-};
 
-class TopTools_MapIteratorOfMapOfShape : public TCollection_BasicMapIterator {
+class TopTools_MapIteratorOfMapOfShape {
  public:
   TopTools_MapIteratorOfMapOfShape (const TopTools_MapOfShape &aMap);
   const TopoDS_Shape & 	Key () const;

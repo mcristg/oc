@@ -16,21 +16,20 @@ class BRepMesh_IncrementalMesh : public BRepMesh_DiscretRoot
 {
 	public:
 	BRepMesh_IncrementalMesh();
-        BRepMesh_IncrementalMesh(const TopoDS_Shape&    theShape,
-                                 const Standard_Real    theLinDeflection,
-                                 const Standard_Boolean isRelative = Standard_False,
-                                 const Standard_Real    theAngDeflection = 0.5,
-                                 const Standard_Boolean isInParallel = Standard_False,
-                                 const Standard_Boolean adaptiveMin = Standard_False);
-	/* BRepMesh_IncrementalMesh(const TopoDS_Shape& S,const Standard_Real D,
-		const Standard_Boolean Relatif = Standard_False,
-		const Standard_Real Ang = 0.5);
-	*/	
+    BRepMesh_IncrementalMesh (const TopoDS_Shape &theShape,
+                              const Standard_Real theLinDeflection,
+                              const Standard_Boolean isRelative = Standard_False,
+                              const Standard_Real theAngDeflection = 0.5,
+                              const Standard_Boolean isInParallel = Standard_False);
+ 	/*BRepMesh_IncrementalMesh (const TopoDS_Shape &theShape,
+ 	                          const IMeshTools_Parameters &theParameters,
+ 	                          const Message_ProgressRange &theRange = Message_ProgressRange());*/
 	void Perform();
 //	void Update(const TopoDS_Shape& S) ;
 	Standard_Boolean IsModified() const;
 };
 
+/*
 %{#include <BRepMesh_FaceAttribute.hxx>%}
 class BRepMesh_FaceAttribute
 {
@@ -84,6 +83,7 @@ class BRepMesh_FaceAttribute
 	       Standard_Integer&              theNodeIndex,
 	       Standard_Integer&              theNodeOnEdgeIndex);
 };
+*/
     
 /*
 %{#include <BRepMesh_FastDiscret.hxx>%}

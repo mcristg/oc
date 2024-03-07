@@ -75,7 +75,7 @@
 %rename(Geom_Plane) Handle_Geom_Plane;
 
 %nodefaultdtor Handle_Geom_Geometry;
-class Handle_Geom_Geometry : public Handle_MMgt_TShared
+class Handle_Geom_Geometry : public Handle_Standard_Transient
 {
   Handle_Geom_Geometry()=0;
 };

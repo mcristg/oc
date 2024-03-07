@@ -33,10 +33,11 @@ class Handle_ShapeAnalysis_Surface {};
 class ShapeFix
 {
  public:
-  static Standard_Boolean SameParameter (const TopoDS_Shape& shape, const Standard_Boolean enforce);
-  static Standard_Boolean SameParameter (const TopoDS_Shape& shape, const Standard_Boolean enforce, const Standard_Real preci);
-  static Standard_Boolean SameParameter (const TopoDS_Shape& shape, const Standard_Boolean enforce, const Standard_Real preci, const Handle_Message_ProgressIndicator& theProgress);
-  static Standard_Boolean SameParameter (const TopoDS_Shape& shape, const Standard_Boolean enforce, const Standard_Real preci, const Handle_Message_ProgressIndicator& theProgress, const Handle_ShapeExtend_BasicMsgRegistrator& theMsgReg);
+  static Standard_Boolean SameParameter(const TopoDS_Shape &shape, 
+                                        const Standard_Boolean enforce,
+                                        const Standard_Real preci = 0.0,
+                                        const Message_ProgressRange &theProgress = Message_ProgressRange(),
+                                        const opencascade::handle< ShapeExtend_BasicMsgRegistrator > &theMsgReg = 0);
   
   static void EncodeRegularity (const TopoDS_Shape& shape, const Standard_Real tolang = 1.0e-10);
   
@@ -70,7 +71,7 @@ class ShapeFix
 %rename(ShapeFix_SplitTool) Handle_ShapeFix_SplitTool;
 
 %nodefaultdtor Handle_ShapeFix_Root;
-class Handle_ShapeFix_Root  : public Handle_MMgt_TShared
+class Handle_ShapeFix_Root  : public Handle_Standard_Transient
 {
 	Handle_ShapeFix_Root()=0;
 };
@@ -144,8 +145,8 @@ class Handle_ShapeFix_Shape  : public Handle_ShapeFix_Root
   }
     Standard_Boolean Perform () {
     return (*self)->Perform();
-  }    
-  Standard_Boolean Perform (const Handle_Message_ProgressIndicator& theProgress) {
+  } 
+  Standard_Boolean Perform (const Message_ProgressRange &theProgress) {
     return (*self)->Perform(theProgress);
   }    
   TopoDS_Shape Shape() {
@@ -171,7 +172,7 @@ class Handle_ShapeFix_Shape  : public Handle_ShapeFix_Root
   }
 }
 %nodefaultdtor Handle_ShapeFix_EdgeProjAux;
-class Handle_ShapeFix_EdgeProjAux  : public Handle_MMgt_TShared
+class Handle_ShapeFix_EdgeProjAux  : public Handle_Standard_Transient
 {
   /* Handle_ShapeFix_EdgeProjAux()=0; */
 };
@@ -212,7 +213,7 @@ class Handle_ShapeFix_EdgeProjAux  : public Handle_MMgt_TShared
 class Handle_ShapeConstruct_ProjectCurveOnSurface {};
 
 %nodefaultdtor Handle_ShapeFix_Edge;
-class Handle_ShapeFix_Edge  : public Handle_MMgt_TShared
+class Handle_ShapeFix_Edge  : public Handle_Standard_Transient
 {
   /* Handle_ShapeFix_Edge()=0; */
 };

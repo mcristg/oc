@@ -39,17 +39,17 @@ class Handle_Poly_Triangulation
   {
     return (*self)->HasUVNodes();
   }
-  const Poly_Array1OfTriangle& Triangles() const
+  const Poly_Triangle & Triangle (Standard_Integer theIndex) const
   {
-    return (*self)->Triangles();
+    return (*self)->Triangle(theIndex);
   }
-  const TColgp_Array1OfPnt& Nodes() const
+  gp_Pnt Node(Standard_Integer theIndex) const
   {
-    return (*self)->Nodes();
+    return (*self)->Node(theIndex);
   }
-  const TColgp_Array1OfPnt2d& UVNodes() const
+  gp_Pnt2d UVNode(Standard_Integer theIndex) const
   {
-    return (*self)->UVNodes();
+    return (*self)->UVNode(theIndex);
   }
 }
 

@@ -32,14 +32,16 @@ class BRepOffsetAPI_MakeOffsetShape  : public BRepBuilderAPI_MakeShape
 public:
 
   BRepOffsetAPI_MakeOffsetShape();
-  BRepOffsetAPI_MakeOffsetShape(const TopoDS_Shape& S, 
-				const Standard_Real Offset, 
-				const Standard_Real Tol, 
-				const BRepOffset_Mode Mode = BRepOffset_Skin, 
-				const Standard_Boolean Intersection = Standard_False, 
-				const Standard_Boolean SelfInter = Standard_False, 
-				const GeomAbs_JoinType Join = GeomAbs_Arc,
-				const Standard_Boolean RemoveIntEdges = Standard_False);
+  void PerformBySimple (const TopoDS_Shape &theS,const Standard_Real theOffsetValue); 
+  void PerformByJoin (const TopoDS_Shape &S,
+                      const Standard_Real Offset,
+                      const Standard_Real Tol,
+                      const BRepOffset_Mode Mode=BRepOffset_Skin,
+                      const Standard_Boolean Intersection=Standard_False,
+                      const Standard_Boolean SelfInter=Standard_False,
+                      const GeomAbs_JoinType Join=GeomAbs_Arc,
+                      const Standard_Boolean RemoveIntEdges=Standard_False,
+                      const Message_ProgressRange &theRange=Message_ProgressRange());				
 };
 
 %{
@@ -50,15 +52,17 @@ class BRepOffsetAPI_MakeThickSolid  : public BRepOffsetAPI_MakeOffsetShape
 {
  public:
   BRepOffsetAPI_MakeThickSolid();
-  BRepOffsetAPI_MakeThickSolid(const TopoDS_Shape& S, 
-			       const TopTools_ListOfShape& ClosingFaces, 
-			       const Standard_Real Offset, 
-			       const Standard_Real Tol, 
-			       const BRepOffset_Mode Mode = BRepOffset_Skin, 
-			       const Standard_Boolean Intersection = Standard_False,
-			       const Standard_Boolean SelfInter = Standard_False, 
-			       const GeomAbs_JoinType Join = GeomAbs_Arc,
-			       const Standard_Boolean RemoveIntEdges = Standard_False);
+  void MakeThickSolidBySimple(const TopoDS_Shape &theS, const Standard_Real theOffsetValue);
+  void MakeThickSolidByJoin(const TopoDS_Shape &S,
+                            const TopTools_ListOfShape &ClosingFaces,
+                            const Standard_Real Offset,
+                            const Standard_Real Tol,
+                            const BRepOffset_Mode Mode = BRepOffset_Skin,
+                            const Standard_Boolean Intersection = Standard_False,
+                            const Standard_Boolean SelfInter = Standard_False,
+                            const GeomAbs_JoinType Join = GeomAbs_Arc,
+                            const Standard_Boolean RemoveIntEdges = Standard_False,
+                            const Message_ProgressRange &theRange = Message_ProgressRange());			       
   virtual void Build();
   
   //! Returns the list  of shapes modified from the shape

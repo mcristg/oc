@@ -17,17 +17,18 @@
 (defmethod number-of-triangles ((self poly-triangulation))
   (_wrap_Poly_Triangulation_NbTriangles (ff-pointer self)))
 
-(defmethod get-triangles ((self poly-triangulation))
-  (let ((array (allocate-instance (load-time-value (find-class 'poly-array1-of-triangle)))))
-    (setf (ff-pointer array) (_wrap_Poly_Triangulation_Triangles (ff-pointer self)))
-    ;;(oc:finalize array)
-    array))
+(defmethod get-triangle ((self poly-triangulation) Index)
+  (let ((triangle (allocate-instance (load-time-value (find-class 'poly-triangle)))))
+    (setf (ff-pointer triangle) (_wrap_Poly_Triangulation_Triangle (ff-pointer self) Index))
+    ;;(oc:finalize triangle)
+    triangle))
 
 (defmethod number-of-nodes ((self poly-triangulation))
   (_wrap_Poly_Triangulation_NbNodes (ff-pointer self)))
 
-(defmethod get-nodes ((self poly-triangulation))
-  (let ((array (allocate-instance (load-time-value (find-class 'tcol-gp-array1-of-pnt)))))
-    (setf (ff-pointer array) (_wrap_Poly_Triangulation_Nodes (ff-pointer self)))
-    ;;(oc:finalize array)
-    array))
+(defmethod get-node ((self poly-triangulation) Index)
+  (let ((node (allocate-instance (load-time-value (find-class 'gp:pnt)))))
+    (setf (ptr node) (_wrap_Poly_Triangulation_Node (ff-pointer self) Index)) 
+    ;;(oc:finalize node :native)
+    node))
+    

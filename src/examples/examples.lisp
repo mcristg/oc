@@ -25,10 +25,9 @@
 			    face-to-remove face))))))
 	   (next a-face-explorer))
       (list-append faces-to-remove face-to-remove)
-      (let ((thick-solid (make-instance 'brep-offset-api-make-thick-solid
-					:S s :ClosingFaces faces-to-remove
-					:Offset -2.5d0
-					:Tol 1.0d-3)))
+      (let ((thick-solid (make-instance 'brep-offset-api-make-thick-solid)))
+	(make-thick-solid-by-Join thick-solid :S s :ClosingFaces faces-to-remove
+					                      :Offset -2.5d0 :Tol 1.0d-3)				
 	(setq s (shape thick-solid)))
       s)))
       
@@ -101,11 +100,9 @@
 				  face-to-remove face))))))
 		 (next a-face-explorer))
 	    (list-append faces-to-remove face-to-remove)
-	    (let ((thick-solid (make-instance 'BRep-Offset-API-Make-Thick-Solid
-					      :S my-body :ClosingFaces faces-to-remove
-					      :Offset (/ (- my-thickness) 50.0d0)
-					      :Tol 1.0d-3)))
-	      
+	    (let ((thick-solid (make-instance 'BRep-Offset-API-Make-Thick-Solid)))
+	      (make-thick-solid-by-Join thick-solid :S my-body :ClosingFaces faces-to-remove
+					                      :Offset (/ (- my-thickness) 50.0d0) :Tol 1.0d-3)
 	      (setq my-body (shape thick-solid))))
 		  
 	  (let* ((a-cyl1 (make-instance 'Geom-Cylindrical-Surface :A2 neck-ax2 :Radius (* my-neck-radius 0.99d0)))

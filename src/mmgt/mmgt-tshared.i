@@ -1,21 +1,20 @@
 %{
 #include <Standard_Transient.hxx>
-#include <MMgt_TShared.hxx>
   %}
 
-%nodefaultdtor MMgt_TShared;
-class MMgt_TShared
+%nodefaultdtor Standard_Transient;
+class Standard_Transient
 {
-  MMgt_TShared()=0;
+  Standard_Transient()=0;
 };
 
-%nodefaultdtor Handle_MMgt_TShared;
-class Handle_MMgt_TShared
+%nodefaultdtor Handle_Standard_Transient;
+class Handle_Standard_Transient
 {
-  Handle_MMgt_TShared()=0;
+  Handle_Standard_Transient()=0;
 };
 
-%extend Handle_MMgt_TShared
+%extend Handle_Standard_Transient
 {
   Standard_Integer GetRefCount() {
     return (*self)->GetRefCount();
@@ -26,9 +25,7 @@ class Handle_MMgt_TShared
   Standard_Integer DecrementRefCounter() {
     return (* self)->DecrementRefCounter();
   }
-  MMgt_TShared *get() {
+  Standard_Transient *get() {
     return self->get();
   }
 }
-
-

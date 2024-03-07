@@ -216,6 +216,9 @@ void (* signal_lisp_error) (const char* message) = nullptr;
 #include <typeinfo>
 #include <stdexcept>
 
+     
+using namespace std;
+  
 
 #include <Standard.hxx>
 #include <Standard_DefineAlloc.hxx>
@@ -224,14 +227,13 @@ void (* signal_lisp_error) (const char* message) = nullptr;
   
 
 #include <Standard_Transient.hxx>
-#include <MMgt_TShared.hxx>
   
-SWIGINTERN Standard_Integer Handle_MMgt_TShared_GetRefCount(Handle_MMgt_TShared *self){
+SWIGINTERN Standard_Integer Handle_Standard_Transient_GetRefCount(Handle_Standard_Transient *self){
     return (*self)->GetRefCount();
   }
-EXPORT Standard_Integer _wrap_Handle_MMgt_TShared_GetRefCount (Handle_MMgt_TShared *larg1) {
+EXPORT Standard_Integer _wrap_Handle_Standard_Transient_GetRefCount (Handle_Standard_Transient *larg1) {
   Standard_Integer lresult = (Standard_Integer)0 ;
-  Handle_MMgt_TShared *arg1 = (Handle_MMgt_TShared *) 0 ;
+  Handle_Standard_Transient *arg1 = (Handle_Standard_Transient *) 0 ;
   Standard_Integer result;
   
   arg1 = larg1;
@@ -240,7 +242,7 @@ EXPORT Standard_Integer _wrap_Handle_MMgt_TShared_GetRefCount (Handle_MMgt_TShar
       try
       {
         OCC_CATCH_SIGNALS
-        result = (Standard_Integer)Handle_MMgt_TShared_GetRefCount(arg1);
+        result = (Standard_Integer)Handle_Standard_Transient_GetRefCount(arg1);
       }
       catch(Standard_Failure const& error)
       {
@@ -250,7 +252,7 @@ EXPORT Standard_Integer _wrap_Handle_MMgt_TShared_GetRefCount (Handle_MMgt_TShar
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Handle_MMgt_TShared_GetRefCount\n  * wrapname: _wrap_Handle_MMgt_TShared_GetRefCount\n  * fulldecl: Standard_Integer Handle_MMgt_TShared::GetRefCount()";
+        message += "\nwrapper details:\n  * symname: Handle_Standard_Transient_GetRefCount\n  * wrapname: _wrap_Handle_Standard_Transient_GetRefCount\n  * fulldecl: Standard_Integer Handle_Standard_Transient::GetRefCount()";
         signal_lisp_error(message.c_str());
       }
     }
@@ -262,11 +264,11 @@ EXPORT Standard_Integer _wrap_Handle_MMgt_TShared_GetRefCount (Handle_MMgt_TShar
 }
 
 
-SWIGINTERN void Handle_MMgt_TShared_IncrementRefCounter(Handle_MMgt_TShared *self){
+SWIGINTERN void Handle_Standard_Transient_IncrementRefCounter(Handle_Standard_Transient *self){
     (*self)->IncrementRefCounter();
   }
-EXPORT void _wrap_Handle_MMgt_TShared_IncrementRefCounter (Handle_MMgt_TShared *larg1) {
-  Handle_MMgt_TShared *arg1 = (Handle_MMgt_TShared *) 0 ;
+EXPORT void _wrap_Handle_Standard_Transient_IncrementRefCounter (Handle_Standard_Transient *larg1) {
+  Handle_Standard_Transient *arg1 = (Handle_Standard_Transient *) 0 ;
   
   arg1 = larg1;
   try {
@@ -274,7 +276,7 @@ EXPORT void _wrap_Handle_MMgt_TShared_IncrementRefCounter (Handle_MMgt_TShared *
       try
       {
         OCC_CATCH_SIGNALS
-        Handle_MMgt_TShared_IncrementRefCounter(arg1);
+        Handle_Standard_Transient_IncrementRefCounter(arg1);
       }
       catch(Standard_Failure const& error)
       {
@@ -284,7 +286,7 @@ EXPORT void _wrap_Handle_MMgt_TShared_IncrementRefCounter (Handle_MMgt_TShared *
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Handle_MMgt_TShared_IncrementRefCounter\n  * wrapname: _wrap_Handle_MMgt_TShared_IncrementRefCounter\n  * fulldecl: void Handle_MMgt_TShared::IncrementRefCounter()";
+        message += "\nwrapper details:\n  * symname: Handle_Standard_Transient_IncrementRefCounter\n  * wrapname: _wrap_Handle_Standard_Transient_IncrementRefCounter\n  * fulldecl: void Handle_Standard_Transient::IncrementRefCounter()";
         signal_lisp_error(message.c_str());
       }
     }
@@ -295,12 +297,12 @@ EXPORT void _wrap_Handle_MMgt_TShared_IncrementRefCounter (Handle_MMgt_TShared *
 }
 
 
-SWIGINTERN Standard_Integer Handle_MMgt_TShared_DecrementRefCounter(Handle_MMgt_TShared *self){
+SWIGINTERN Standard_Integer Handle_Standard_Transient_DecrementRefCounter(Handle_Standard_Transient *self){
     return (* self)->DecrementRefCounter();
   }
-EXPORT Standard_Integer _wrap_Handle_MMgt_TShared_DecrementRefCounter (Handle_MMgt_TShared *larg1) {
+EXPORT Standard_Integer _wrap_Handle_Standard_Transient_DecrementRefCounter (Handle_Standard_Transient *larg1) {
   Standard_Integer lresult = (Standard_Integer)0 ;
-  Handle_MMgt_TShared *arg1 = (Handle_MMgt_TShared *) 0 ;
+  Handle_Standard_Transient *arg1 = (Handle_Standard_Transient *) 0 ;
   Standard_Integer result;
   
   arg1 = larg1;
@@ -309,7 +311,7 @@ EXPORT Standard_Integer _wrap_Handle_MMgt_TShared_DecrementRefCounter (Handle_MM
       try
       {
         OCC_CATCH_SIGNALS
-        result = (Standard_Integer)Handle_MMgt_TShared_DecrementRefCounter(arg1);
+        result = (Standard_Integer)Handle_Standard_Transient_DecrementRefCounter(arg1);
       }
       catch(Standard_Failure const& error)
       {
@@ -319,7 +321,7 @@ EXPORT Standard_Integer _wrap_Handle_MMgt_TShared_DecrementRefCounter (Handle_MM
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Handle_MMgt_TShared_DecrementRefCounter\n  * wrapname: _wrap_Handle_MMgt_TShared_DecrementRefCounter\n  * fulldecl: Standard_Integer Handle_MMgt_TShared::DecrementRefCounter()";
+        message += "\nwrapper details:\n  * symname: Handle_Standard_Transient_DecrementRefCounter\n  * wrapname: _wrap_Handle_Standard_Transient_DecrementRefCounter\n  * fulldecl: Standard_Integer Handle_Standard_Transient::DecrementRefCounter()";
         signal_lisp_error(message.c_str());
       }
     }
@@ -331,13 +333,13 @@ EXPORT Standard_Integer _wrap_Handle_MMgt_TShared_DecrementRefCounter (Handle_MM
 }
 
 
-SWIGINTERN MMgt_TShared *Handle_MMgt_TShared_get(Handle_MMgt_TShared *self){
+SWIGINTERN Standard_Transient *Handle_Standard_Transient_get(Handle_Standard_Transient *self){
     return self->get();
   }
-EXPORT MMgt_TShared *_wrap_Handle_MMgt_TShared_get (Handle_MMgt_TShared *larg1) {
-  MMgt_TShared * lresult = (MMgt_TShared *)0 ;
-  Handle_MMgt_TShared *arg1 = (Handle_MMgt_TShared *) 0 ;
-  MMgt_TShared *result = 0 ;
+EXPORT Standard_Transient *_wrap_Handle_Standard_Transient_get (Handle_Standard_Transient *larg1) {
+  Standard_Transient * lresult = (Standard_Transient *)0 ;
+  Handle_Standard_Transient *arg1 = (Handle_Standard_Transient *) 0 ;
+  Standard_Transient *result = 0 ;
   
   arg1 = larg1;
   try {
@@ -345,7 +347,7 @@ EXPORT MMgt_TShared *_wrap_Handle_MMgt_TShared_get (Handle_MMgt_TShared *larg1) 
       try
       {
         OCC_CATCH_SIGNALS
-        result = (MMgt_TShared *)Handle_MMgt_TShared_get(arg1);
+        result = (Standard_Transient *)Handle_Standard_Transient_get(arg1);
       }
       catch(Standard_Failure const& error)
       {
@@ -355,14 +357,14 @@ EXPORT MMgt_TShared *_wrap_Handle_MMgt_TShared_get (Handle_MMgt_TShared *larg1) 
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Handle_MMgt_TShared_get\n  * wrapname: _wrap_Handle_MMgt_TShared_get\n  * fulldecl: MMgt_TShared * Handle_MMgt_TShared::get()";
+        message += "\nwrapper details:\n  * symname: Handle_Standard_Transient_get\n  * wrapname: _wrap_Handle_Standard_Transient_get\n  * fulldecl: Standard_Transient * Handle_Standard_Transient::get()";
         signal_lisp_error(message.c_str());
       }
     }
     lresult = result;
     return lresult;
   } catch (...) {
-    return (MMgt_TShared *)0;
+    return (Standard_Transient *)0;
   }
 }
 
@@ -45449,10 +45451,10 @@ EXPORT bool _wrap_TopoDS_Shape_IsEqual (TopoDS_Shape *larg1, TopoDS_Shape *larg2
 }
 
 
-EXPORT Handle_TopoDS_TShape *_wrap_TopoDS_Shape_TShape (TopoDS_Shape *larg1) {
-  Handle_TopoDS_TShape * lresult = (Handle_TopoDS_TShape *)0 ;
+EXPORT opencascade::handle< TopoDS_TShape > *_wrap_TopoDS_Shape_TShape (TopoDS_Shape *larg1) {
+  opencascade::handle< TopoDS_TShape > * lresult = (opencascade::handle< TopoDS_TShape > *)0 ;
   TopoDS_Shape *arg1 = (TopoDS_Shape *) 0 ;
-  Handle_TopoDS_TShape *result = 0 ;
+  opencascade::handle< TopoDS_TShape > *result = 0 ;
   
   arg1 = larg1;
   try {
@@ -45460,7 +45462,7 @@ EXPORT Handle_TopoDS_TShape *_wrap_TopoDS_Shape_TShape (TopoDS_Shape *larg1) {
       try
       {
         OCC_CATCH_SIGNALS
-        result = (Handle_TopoDS_TShape *) &((TopoDS_Shape const *)arg1)->TShape();
+        result = (opencascade::handle< TopoDS_TShape > *) &((TopoDS_Shape const *)arg1)->TShape();
       }
       catch(Standard_Failure const& error)
       {
@@ -45470,14 +45472,14 @@ EXPORT Handle_TopoDS_TShape *_wrap_TopoDS_Shape_TShape (TopoDS_Shape *larg1) {
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: TopoDS_Shape_TShape\n  * wrapname: _wrap_TopoDS_Shape_TShape\n  * fulldecl: Handle_TopoDS_TShape const & TopoDS_Shape::TShape() const";
+        message += "\nwrapper details:\n  * symname: TopoDS_Shape_TShape\n  * wrapname: _wrap_TopoDS_Shape_TShape\n  * fulldecl: opencascade::handle< TopoDS_TShape > const & TopoDS_Shape::TShape() const";
         signal_lisp_error(message.c_str());
       }
     }
     lresult = result;
     return lresult;
   } catch (...) {
-    return (Handle_TopoDS_TShape *)0;
+    return (opencascade::handle< TopoDS_TShape > *)0;
   }
 }
 
@@ -45671,41 +45673,6 @@ EXPORT TopoDS_Shape *_wrap_TopoDS_Shape_Reversed (TopoDS_Shape *larg1) {
     return lresult;
   } catch (...) {
     return (TopoDS_Shape *)0;
-  }
-}
-
-
-EXPORT Standard_Integer _wrap_TopoDS_Shape_HashCode (TopoDS_Shape *larg1, Standard_Integer larg2) {
-  Standard_Integer lresult = (Standard_Integer)0 ;
-  TopoDS_Shape *arg1 = (TopoDS_Shape *) 0 ;
-  Standard_Integer arg2 ;
-  Standard_Integer result;
-  
-  arg1 = larg1;
-  arg2 = larg2;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (Standard_Integer)((TopoDS_Shape const *)arg1)->HashCode(arg2);
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: TopoDS_Shape_HashCode\n  * wrapname: _wrap_TopoDS_Shape_HashCode\n  * fulldecl: Standard_Integer TopoDS_Shape::HashCode(Standard_Integer const) const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (Standard_Integer)0;
   }
 }
 
@@ -48088,102 +48055,8 @@ EXPORT void _wrap_delete_TopTools_MapOfShape (TopTools_MapOfShape *larg1) {
 
 
 
-#include <TCollection_BasicMapIterator.hxx>
 #include <TopTools_MapIteratorOfMapOfShape.hxx>
   
-EXPORT bool _wrap_TCollection_BasicMapIterator_More (TCollection_BasicMapIterator *larg1) {
-  bool lresult = (bool)0 ;
-  TCollection_BasicMapIterator *arg1 = (TCollection_BasicMapIterator *) 0 ;
-  Standard_Boolean result;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (Standard_Boolean)((TCollection_BasicMapIterator const *)arg1)->More();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: TCollection_BasicMapIterator_More\n  * wrapname: _wrap_TCollection_BasicMapIterator_More\n  * fulldecl: Standard_Boolean TCollection_BasicMapIterator::More() const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = (bool)result;
-    return lresult;
-  } catch (...) {
-    return (bool)0;
-  }
-}
-
-
-EXPORT void _wrap_TCollection_BasicMapIterator_Next (TCollection_BasicMapIterator *larg1) {
-  TCollection_BasicMapIterator *arg1 = (TCollection_BasicMapIterator *) 0 ;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        (arg1)->Next();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: TCollection_BasicMapIterator_Next\n  * wrapname: _wrap_TCollection_BasicMapIterator_Next\n  * fulldecl: void TCollection_BasicMapIterator::Next()";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    
-  } catch (...) {
-    
-  }
-}
-
-
-EXPORT void _wrap_delete_TCollection_BasicMapIterator (TCollection_BasicMapIterator *larg1) {
-  TCollection_BasicMapIterator *arg1 = (TCollection_BasicMapIterator *) 0 ;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        delete arg1;
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: delete_TCollection_BasicMapIterator\n  * wrapname: _wrap_delete_TCollection_BasicMapIterator\n  * fulldecl: TCollection_BasicMapIterator::~TCollection_BasicMapIterator()";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    
-  } catch (...) {
-    
-  }
-}
-
-
 EXPORT TopTools_MapIteratorOfMapOfShape *_wrap_new_TopTools_MapIteratorOfMapOfShape (TopTools_MapOfShape *larg1) {
   TopTools_MapIteratorOfMapOfShape * lresult = (TopTools_MapIteratorOfMapOfShape *)0 ;
   TopTools_MapOfShape *arg1 = 0 ;
@@ -51975,7 +51848,46 @@ EXPORT BRepBuilderAPI_Transform *_wrap_new_BRepBuilderAPI_Transform__SWIG_0 (gp_
 }
 
 
-EXPORT BRepBuilderAPI_Transform *_wrap_new_BRepBuilderAPI_Transform__SWIG_1 (TopoDS_Shape *larg1, gp_Trsf *larg2, bool larg3) {
+EXPORT BRepBuilderAPI_Transform *_wrap_new_BRepBuilderAPI_Transform__SWIG_1 (TopoDS_Shape *larg1, gp_Trsf *larg2, bool larg3, bool larg4) {
+  BRepBuilderAPI_Transform * lresult = (BRepBuilderAPI_Transform *)0 ;
+  TopoDS_Shape *arg1 = 0 ;
+  gp_Trsf *arg2 = 0 ;
+  Standard_Boolean arg3 ;
+  Standard_Boolean arg4 ;
+  BRepBuilderAPI_Transform *result = 0 ;
+  
+  arg1 = larg1;
+  arg2 = larg2;
+  arg3 = (bool)larg3;
+  arg4 = (bool)larg4;
+  try {
+    {
+      try
+      {
+        OCC_CATCH_SIGNALS
+        result = (BRepBuilderAPI_Transform *)new BRepBuilderAPI_Transform((TopoDS_Shape const &)*arg1,(gp_Trsf const &)*arg2,arg3,arg4);
+      }
+      catch(Standard_Failure const& error)
+      {
+        char *error_name = (char*) error.DynamicType()->Name();
+        char *error_message = (char*) error.GetMessageString();
+        std::string message;
+        if (error_name) message += std::string(error_name) + "\n";
+        if (error_message) message += std::string(error_message);
+        // log SWIG specific debug information
+        message += "\nwrapper details:\n  * symname: new_BRepBuilderAPI_Transform\n  * wrapname: _wrap_new_BRepBuilderAPI_Transform__SWIG_1\n  * fulldecl: BRepBuilderAPI_Transform::BRepBuilderAPI_Transform(TopoDS_Shape const &,gp_Trsf const &,Standard_Boolean const,Standard_Boolean const)";
+        signal_lisp_error(message.c_str());
+      }
+    }
+    lresult = result;
+    return lresult;
+  } catch (...) {
+    return (BRepBuilderAPI_Transform *)0;
+  }
+}
+
+
+EXPORT BRepBuilderAPI_Transform *_wrap_new_BRepBuilderAPI_Transform__SWIG_2 (TopoDS_Shape *larg1, gp_Trsf *larg2, bool larg3) {
   BRepBuilderAPI_Transform * lresult = (BRepBuilderAPI_Transform *)0 ;
   TopoDS_Shape *arg1 = 0 ;
   gp_Trsf *arg2 = 0 ;
@@ -52000,7 +51912,7 @@ EXPORT BRepBuilderAPI_Transform *_wrap_new_BRepBuilderAPI_Transform__SWIG_1 (Top
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: new_BRepBuilderAPI_Transform\n  * wrapname: _wrap_new_BRepBuilderAPI_Transform__SWIG_1\n  * fulldecl: BRepBuilderAPI_Transform::BRepBuilderAPI_Transform(TopoDS_Shape const &,gp_Trsf const &,Standard_Boolean const)";
+        message += "\nwrapper details:\n  * symname: new_BRepBuilderAPI_Transform\n  * wrapname: _wrap_new_BRepBuilderAPI_Transform__SWIG_2\n  * fulldecl: BRepBuilderAPI_Transform::BRepBuilderAPI_Transform(TopoDS_Shape const &,gp_Trsf const &,Standard_Boolean const)";
         signal_lisp_error(message.c_str());
       }
     }
@@ -52012,7 +51924,7 @@ EXPORT BRepBuilderAPI_Transform *_wrap_new_BRepBuilderAPI_Transform__SWIG_1 (Top
 }
 
 
-EXPORT BRepBuilderAPI_Transform *_wrap_new_BRepBuilderAPI_Transform__SWIG_2 (TopoDS_Shape *larg1, gp_Trsf *larg2) {
+EXPORT BRepBuilderAPI_Transform *_wrap_new_BRepBuilderAPI_Transform__SWIG_3 (TopoDS_Shape *larg1, gp_Trsf *larg2) {
   BRepBuilderAPI_Transform * lresult = (BRepBuilderAPI_Transform *)0 ;
   TopoDS_Shape *arg1 = 0 ;
   gp_Trsf *arg2 = 0 ;
@@ -52035,7 +51947,7 @@ EXPORT BRepBuilderAPI_Transform *_wrap_new_BRepBuilderAPI_Transform__SWIG_2 (Top
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: new_BRepBuilderAPI_Transform\n  * wrapname: _wrap_new_BRepBuilderAPI_Transform__SWIG_2\n  * fulldecl: BRepBuilderAPI_Transform::BRepBuilderAPI_Transform(TopoDS_Shape const &,gp_Trsf const &)";
+        message += "\nwrapper details:\n  * symname: new_BRepBuilderAPI_Transform\n  * wrapname: _wrap_new_BRepBuilderAPI_Transform__SWIG_3\n  * fulldecl: BRepBuilderAPI_Transform::BRepBuilderAPI_Transform(TopoDS_Shape const &,gp_Trsf const &)";
         signal_lisp_error(message.c_str());
       }
     }
@@ -52047,7 +51959,43 @@ EXPORT BRepBuilderAPI_Transform *_wrap_new_BRepBuilderAPI_Transform__SWIG_2 (Top
 }
 
 
-EXPORT void _wrap_BRepBuilderAPI_Transform_Perform__SWIG_0 (BRepBuilderAPI_Transform *larg1, TopoDS_Shape *larg2, bool larg3) {
+EXPORT void _wrap_BRepBuilderAPI_Transform_Perform__SWIG_0 (BRepBuilderAPI_Transform *larg1, TopoDS_Shape *larg2, bool larg3, bool larg4) {
+  BRepBuilderAPI_Transform *arg1 = (BRepBuilderAPI_Transform *) 0 ;
+  TopoDS_Shape *arg2 = 0 ;
+  Standard_Boolean arg3 ;
+  Standard_Boolean arg4 ;
+  
+  arg1 = larg1;
+  arg2 = larg2;
+  arg3 = (bool)larg3;
+  arg4 = (bool)larg4;
+  try {
+    {
+      try
+      {
+        OCC_CATCH_SIGNALS
+        (arg1)->Perform((TopoDS_Shape const &)*arg2,arg3,arg4);
+      }
+      catch(Standard_Failure const& error)
+      {
+        char *error_name = (char*) error.DynamicType()->Name();
+        char *error_message = (char*) error.GetMessageString();
+        std::string message;
+        if (error_name) message += std::string(error_name) + "\n";
+        if (error_message) message += std::string(error_message);
+        // log SWIG specific debug information
+        message += "\nwrapper details:\n  * symname: BRepBuilderAPI_Transform_Perform\n  * wrapname: _wrap_BRepBuilderAPI_Transform_Perform__SWIG_0\n  * fulldecl: void BRepBuilderAPI_Transform::Perform(TopoDS_Shape const &,Standard_Boolean const,Standard_Boolean const)";
+        signal_lisp_error(message.c_str());
+      }
+    }
+    
+  } catch (...) {
+    
+  }
+}
+
+
+EXPORT void _wrap_BRepBuilderAPI_Transform_Perform__SWIG_1 (BRepBuilderAPI_Transform *larg1, TopoDS_Shape *larg2, bool larg3) {
   BRepBuilderAPI_Transform *arg1 = (BRepBuilderAPI_Transform *) 0 ;
   TopoDS_Shape *arg2 = 0 ;
   Standard_Boolean arg3 ;
@@ -52070,7 +52018,7 @@ EXPORT void _wrap_BRepBuilderAPI_Transform_Perform__SWIG_0 (BRepBuilderAPI_Trans
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepBuilderAPI_Transform_Perform\n  * wrapname: _wrap_BRepBuilderAPI_Transform_Perform__SWIG_0\n  * fulldecl: void BRepBuilderAPI_Transform::Perform(TopoDS_Shape const &,Standard_Boolean const)";
+        message += "\nwrapper details:\n  * symname: BRepBuilderAPI_Transform_Perform\n  * wrapname: _wrap_BRepBuilderAPI_Transform_Perform__SWIG_1\n  * fulldecl: void BRepBuilderAPI_Transform::Perform(TopoDS_Shape const &,Standard_Boolean const)";
         signal_lisp_error(message.c_str());
       }
     }
@@ -52081,7 +52029,7 @@ EXPORT void _wrap_BRepBuilderAPI_Transform_Perform__SWIG_0 (BRepBuilderAPI_Trans
 }
 
 
-EXPORT void _wrap_BRepBuilderAPI_Transform_Perform__SWIG_1 (BRepBuilderAPI_Transform *larg1, TopoDS_Shape *larg2) {
+EXPORT void _wrap_BRepBuilderAPI_Transform_Perform__SWIG_2 (BRepBuilderAPI_Transform *larg1, TopoDS_Shape *larg2) {
   BRepBuilderAPI_Transform *arg1 = (BRepBuilderAPI_Transform *) 0 ;
   TopoDS_Shape *arg2 = 0 ;
   
@@ -52102,13 +52050,46 @@ EXPORT void _wrap_BRepBuilderAPI_Transform_Perform__SWIG_1 (BRepBuilderAPI_Trans
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepBuilderAPI_Transform_Perform\n  * wrapname: _wrap_BRepBuilderAPI_Transform_Perform__SWIG_1\n  * fulldecl: void BRepBuilderAPI_Transform::Perform(TopoDS_Shape const &)";
+        message += "\nwrapper details:\n  * symname: BRepBuilderAPI_Transform_Perform\n  * wrapname: _wrap_BRepBuilderAPI_Transform_Perform__SWIG_2\n  * fulldecl: void BRepBuilderAPI_Transform::Perform(TopoDS_Shape const &)";
         signal_lisp_error(message.c_str());
       }
     }
     
   } catch (...) {
     
+  }
+}
+
+
+EXPORT TopoDS_Shape *_wrap_BRepBuilderAPI_Transform_Shape (BRepBuilderAPI_Transform *larg1) {
+  TopoDS_Shape * lresult = (TopoDS_Shape *)0 ;
+  BRepBuilderAPI_Transform *arg1 = (BRepBuilderAPI_Transform *) 0 ;
+  TopoDS_Shape *result = 0 ;
+  
+  arg1 = larg1;
+  try {
+    {
+      try
+      {
+        OCC_CATCH_SIGNALS
+        result = (TopoDS_Shape *) &(arg1)->Shape();
+      }
+      catch(Standard_Failure const& error)
+      {
+        char *error_name = (char*) error.DynamicType()->Name();
+        char *error_message = (char*) error.GetMessageString();
+        std::string message;
+        if (error_name) message += std::string(error_name) + "\n";
+        if (error_message) message += std::string(error_message);
+        // log SWIG specific debug information
+        message += "\nwrapper details:\n  * symname: BRepBuilderAPI_Transform_Shape\n  * wrapname: _wrap_BRepBuilderAPI_Transform_Shape\n  * fulldecl: TopoDS_Shape const & BRepBuilderAPI_Transform::Shape()";
+        signal_lisp_error(message.c_str());
+      }
+    }
+    lresult = result;
+    return lresult;
+  } catch (...) {
+    return (TopoDS_Shape *)0;
   }
 }
 
@@ -56761,7 +56742,7 @@ EXPORT void _wrap_delete_BRepOffsetAPI_NormalProjection (BRepOffsetAPI_NormalPro
 
 #include <BRepOffsetAPI_MakeOffsetShape.hxx>
   
-EXPORT BRepOffsetAPI_MakeOffsetShape *_wrap_new_BRepOffsetAPI_MakeOffsetShape__SWIG_0 () {
+EXPORT BRepOffsetAPI_MakeOffsetShape *_wrap_new_BRepOffsetAPI_MakeOffsetShape () {
   BRepOffsetAPI_MakeOffsetShape * lresult = (BRepOffsetAPI_MakeOffsetShape *)0 ;
   BRepOffsetAPI_MakeOffsetShape *result = 0 ;
   
@@ -56780,7 +56761,7 @@ EXPORT BRepOffsetAPI_MakeOffsetShape *_wrap_new_BRepOffsetAPI_MakeOffsetShape__S
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: new_BRepOffsetAPI_MakeOffsetShape\n  * wrapname: _wrap_new_BRepOffsetAPI_MakeOffsetShape__SWIG_0\n  * fulldecl: BRepOffsetAPI_MakeOffsetShape::BRepOffsetAPI_MakeOffsetShape()";
+        message += "\nwrapper details:\n  * symname: new_BRepOffsetAPI_MakeOffsetShape\n  * wrapname: _wrap_new_BRepOffsetAPI_MakeOffsetShape\n  * fulldecl: BRepOffsetAPI_MakeOffsetShape::BRepOffsetAPI_MakeOffsetShape()";
         signal_lisp_error(message.c_str());
       }
     }
@@ -56792,32 +56773,68 @@ EXPORT BRepOffsetAPI_MakeOffsetShape *_wrap_new_BRepOffsetAPI_MakeOffsetShape__S
 }
 
 
-EXPORT BRepOffsetAPI_MakeOffsetShape *_wrap_new_BRepOffsetAPI_MakeOffsetShape__SWIG_1 (TopoDS_Shape *larg1, Standard_Real larg2, Standard_Real larg3, BRepOffset_Mode const *larg4, bool larg5, bool larg6, GeomAbs_JoinType const *larg7, bool larg8) {
-  BRepOffsetAPI_MakeOffsetShape * lresult = (BRepOffsetAPI_MakeOffsetShape *)0 ;
-  TopoDS_Shape *arg1 = 0 ;
-  Standard_Real arg2 ;
+EXPORT void _wrap_BRepOffsetAPI_MakeOffsetShape_PerformBySimple (BRepOffsetAPI_MakeOffsetShape *larg1, TopoDS_Shape *larg2, Standard_Real larg3) {
+  BRepOffsetAPI_MakeOffsetShape *arg1 = (BRepOffsetAPI_MakeOffsetShape *) 0 ;
+  TopoDS_Shape *arg2 = 0 ;
   Standard_Real arg3 ;
-  BRepOffset_Mode arg4 ;
-  Standard_Boolean arg5 ;
+  
+  arg1 = larg1;
+  arg2 = larg2;
+  arg3 = larg3;
+  try {
+    {
+      try
+      {
+        OCC_CATCH_SIGNALS
+        (arg1)->PerformBySimple((TopoDS_Shape const &)*arg2,arg3);
+      }
+      catch(Standard_Failure const& error)
+      {
+        char *error_name = (char*) error.DynamicType()->Name();
+        char *error_message = (char*) error.GetMessageString();
+        std::string message;
+        if (error_name) message += std::string(error_name) + "\n";
+        if (error_message) message += std::string(error_message);
+        // log SWIG specific debug information
+        message += "\nwrapper details:\n  * symname: BRepOffsetAPI_MakeOffsetShape_PerformBySimple\n  * wrapname: _wrap_BRepOffsetAPI_MakeOffsetShape_PerformBySimple\n  * fulldecl: void BRepOffsetAPI_MakeOffsetShape::PerformBySimple(TopoDS_Shape const &,Standard_Real const)";
+        signal_lisp_error(message.c_str());
+      }
+    }
+    
+  } catch (...) {
+    
+  }
+}
+
+
+EXPORT void _wrap_BRepOffsetAPI_MakeOffsetShape_PerformByJoin__SWIG_0 (BRepOffsetAPI_MakeOffsetShape *larg1, TopoDS_Shape *larg2, Standard_Real larg3, Standard_Real larg4, BRepOffset_Mode const *larg5, bool larg6, bool larg7, GeomAbs_JoinType const *larg8, bool larg9, Message_ProgressRange *larg10) {
+  BRepOffsetAPI_MakeOffsetShape *arg1 = (BRepOffsetAPI_MakeOffsetShape *) 0 ;
+  TopoDS_Shape *arg2 = 0 ;
+  Standard_Real arg3 ;
+  Standard_Real arg4 ;
+  BRepOffset_Mode arg5 ;
   Standard_Boolean arg6 ;
-  GeomAbs_JoinType arg7 ;
-  Standard_Boolean arg8 ;
-  BRepOffsetAPI_MakeOffsetShape *result = 0 ;
+  Standard_Boolean arg7 ;
+  GeomAbs_JoinType arg8 ;
+  Standard_Boolean arg9 ;
+  Message_ProgressRange *arg10 = 0 ;
   
   arg1 = larg1;
   arg2 = larg2;
   arg3 = larg3;
-  arg4 = *larg4;
-  arg5 = (bool)larg5;
+  arg4 = larg4;
+  arg5 = *larg5;
   arg6 = (bool)larg6;
-  arg7 = *larg7;
-  arg8 = (bool)larg8;
+  arg7 = (bool)larg7;
+  arg8 = *larg8;
+  arg9 = (bool)larg9;
+  arg10 = larg10;
   try {
     {
       try
       {
         OCC_CATCH_SIGNALS
-        result = (BRepOffsetAPI_MakeOffsetShape *)new BRepOffsetAPI_MakeOffsetShape((TopoDS_Shape const &)*arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8);
+        (arg1)->PerformByJoin((TopoDS_Shape const &)*arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,(Message_ProgressRange const &)*arg10);
       }
       catch(Standard_Failure const& error)
       {
@@ -56827,42 +56844,43 @@ EXPORT BRepOffsetAPI_MakeOffsetShape *_wrap_new_BRepOffsetAPI_MakeOffsetShape__S
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: new_BRepOffsetAPI_MakeOffsetShape\n  * wrapname: _wrap_new_BRepOffsetAPI_MakeOffsetShape__SWIG_1\n  * fulldecl: BRepOffsetAPI_MakeOffsetShape::BRepOffsetAPI_MakeOffsetShape(TopoDS_Shape const &,Standard_Real const,Standard_Real const,BRepOffset_Mode const,Standard_Boolean const,Standard_Boolean const,GeomAbs_JoinType const,Standard_Boolean const)";
+        message += "\nwrapper details:\n  * symname: BRepOffsetAPI_MakeOffsetShape_PerformByJoin\n  * wrapname: _wrap_BRepOffsetAPI_MakeOffsetShape_PerformByJoin__SWIG_0\n  * fulldecl: void BRepOffsetAPI_MakeOffsetShape::PerformByJoin(TopoDS_Shape const &,Standard_Real const,Standard_Real const,BRepOffset_Mode const,Standard_Boolean const,Standard_Boolean const,GeomAbs_JoinType const,Standard_Boolean const,Message_ProgressRange const &)";
         signal_lisp_error(message.c_str());
       }
     }
-    lresult = result;
-    return lresult;
+    
   } catch (...) {
-    return (BRepOffsetAPI_MakeOffsetShape *)0;
+    
   }
 }
 
 
-EXPORT BRepOffsetAPI_MakeOffsetShape *_wrap_new_BRepOffsetAPI_MakeOffsetShape__SWIG_2 (TopoDS_Shape *larg1, Standard_Real larg2, Standard_Real larg3, BRepOffset_Mode const *larg4, bool larg5, bool larg6, GeomAbs_JoinType const *larg7) {
-  BRepOffsetAPI_MakeOffsetShape * lresult = (BRepOffsetAPI_MakeOffsetShape *)0 ;
-  TopoDS_Shape *arg1 = 0 ;
-  Standard_Real arg2 ;
+EXPORT void _wrap_BRepOffsetAPI_MakeOffsetShape_PerformByJoin__SWIG_1 (BRepOffsetAPI_MakeOffsetShape *larg1, TopoDS_Shape *larg2, Standard_Real larg3, Standard_Real larg4, BRepOffset_Mode const *larg5, bool larg6, bool larg7, GeomAbs_JoinType const *larg8, bool larg9) {
+  BRepOffsetAPI_MakeOffsetShape *arg1 = (BRepOffsetAPI_MakeOffsetShape *) 0 ;
+  TopoDS_Shape *arg2 = 0 ;
   Standard_Real arg3 ;
-  BRepOffset_Mode arg4 ;
-  Standard_Boolean arg5 ;
+  Standard_Real arg4 ;
+  BRepOffset_Mode arg5 ;
   Standard_Boolean arg6 ;
-  GeomAbs_JoinType arg7 ;
-  BRepOffsetAPI_MakeOffsetShape *result = 0 ;
+  Standard_Boolean arg7 ;
+  GeomAbs_JoinType arg8 ;
+  Standard_Boolean arg9 ;
   
   arg1 = larg1;
   arg2 = larg2;
   arg3 = larg3;
-  arg4 = *larg4;
-  arg5 = (bool)larg5;
+  arg4 = larg4;
+  arg5 = *larg5;
   arg6 = (bool)larg6;
-  arg7 = *larg7;
+  arg7 = (bool)larg7;
+  arg8 = *larg8;
+  arg9 = (bool)larg9;
   try {
     {
       try
       {
         OCC_CATCH_SIGNALS
-        result = (BRepOffsetAPI_MakeOffsetShape *)new BRepOffsetAPI_MakeOffsetShape((TopoDS_Shape const &)*arg1,arg2,arg3,arg4,arg5,arg6,arg7);
+        (arg1)->PerformByJoin((TopoDS_Shape const &)*arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9);
       }
       catch(Standard_Failure const& error)
       {
@@ -56872,40 +56890,123 @@ EXPORT BRepOffsetAPI_MakeOffsetShape *_wrap_new_BRepOffsetAPI_MakeOffsetShape__S
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: new_BRepOffsetAPI_MakeOffsetShape\n  * wrapname: _wrap_new_BRepOffsetAPI_MakeOffsetShape__SWIG_2\n  * fulldecl: BRepOffsetAPI_MakeOffsetShape::BRepOffsetAPI_MakeOffsetShape(TopoDS_Shape const &,Standard_Real const,Standard_Real const,BRepOffset_Mode const,Standard_Boolean const,Standard_Boolean const,GeomAbs_JoinType const)";
+        message += "\nwrapper details:\n  * symname: BRepOffsetAPI_MakeOffsetShape_PerformByJoin\n  * wrapname: _wrap_BRepOffsetAPI_MakeOffsetShape_PerformByJoin__SWIG_1\n  * fulldecl: void BRepOffsetAPI_MakeOffsetShape::PerformByJoin(TopoDS_Shape const &,Standard_Real const,Standard_Real const,BRepOffset_Mode const,Standard_Boolean const,Standard_Boolean const,GeomAbs_JoinType const,Standard_Boolean const)";
         signal_lisp_error(message.c_str());
       }
     }
-    lresult = result;
-    return lresult;
+    
   } catch (...) {
-    return (BRepOffsetAPI_MakeOffsetShape *)0;
+    
   }
 }
 
 
-EXPORT BRepOffsetAPI_MakeOffsetShape *_wrap_new_BRepOffsetAPI_MakeOffsetShape__SWIG_3 (TopoDS_Shape *larg1, Standard_Real larg2, Standard_Real larg3, BRepOffset_Mode const *larg4, bool larg5, bool larg6) {
-  BRepOffsetAPI_MakeOffsetShape * lresult = (BRepOffsetAPI_MakeOffsetShape *)0 ;
-  TopoDS_Shape *arg1 = 0 ;
-  Standard_Real arg2 ;
+EXPORT void _wrap_BRepOffsetAPI_MakeOffsetShape_PerformByJoin__SWIG_2 (BRepOffsetAPI_MakeOffsetShape *larg1, TopoDS_Shape *larg2, Standard_Real larg3, Standard_Real larg4, BRepOffset_Mode const *larg5, bool larg6, bool larg7, GeomAbs_JoinType const *larg8) {
+  BRepOffsetAPI_MakeOffsetShape *arg1 = (BRepOffsetAPI_MakeOffsetShape *) 0 ;
+  TopoDS_Shape *arg2 = 0 ;
   Standard_Real arg3 ;
-  BRepOffset_Mode arg4 ;
-  Standard_Boolean arg5 ;
+  Standard_Real arg4 ;
+  BRepOffset_Mode arg5 ;
   Standard_Boolean arg6 ;
-  BRepOffsetAPI_MakeOffsetShape *result = 0 ;
+  Standard_Boolean arg7 ;
+  GeomAbs_JoinType arg8 ;
   
   arg1 = larg1;
   arg2 = larg2;
   arg3 = larg3;
-  arg4 = *larg4;
-  arg5 = (bool)larg5;
+  arg4 = larg4;
+  arg5 = *larg5;
+  arg6 = (bool)larg6;
+  arg7 = (bool)larg7;
+  arg8 = *larg8;
+  try {
+    {
+      try
+      {
+        OCC_CATCH_SIGNALS
+        (arg1)->PerformByJoin((TopoDS_Shape const &)*arg2,arg3,arg4,arg5,arg6,arg7,arg8);
+      }
+      catch(Standard_Failure const& error)
+      {
+        char *error_name = (char*) error.DynamicType()->Name();
+        char *error_message = (char*) error.GetMessageString();
+        std::string message;
+        if (error_name) message += std::string(error_name) + "\n";
+        if (error_message) message += std::string(error_message);
+        // log SWIG specific debug information
+        message += "\nwrapper details:\n  * symname: BRepOffsetAPI_MakeOffsetShape_PerformByJoin\n  * wrapname: _wrap_BRepOffsetAPI_MakeOffsetShape_PerformByJoin__SWIG_2\n  * fulldecl: void BRepOffsetAPI_MakeOffsetShape::PerformByJoin(TopoDS_Shape const &,Standard_Real const,Standard_Real const,BRepOffset_Mode const,Standard_Boolean const,Standard_Boolean const,GeomAbs_JoinType const)";
+        signal_lisp_error(message.c_str());
+      }
+    }
+    
+  } catch (...) {
+    
+  }
+}
+
+
+EXPORT void _wrap_BRepOffsetAPI_MakeOffsetShape_PerformByJoin__SWIG_3 (BRepOffsetAPI_MakeOffsetShape *larg1, TopoDS_Shape *larg2, Standard_Real larg3, Standard_Real larg4, BRepOffset_Mode const *larg5, bool larg6, bool larg7) {
+  BRepOffsetAPI_MakeOffsetShape *arg1 = (BRepOffsetAPI_MakeOffsetShape *) 0 ;
+  TopoDS_Shape *arg2 = 0 ;
+  Standard_Real arg3 ;
+  Standard_Real arg4 ;
+  BRepOffset_Mode arg5 ;
+  Standard_Boolean arg6 ;
+  Standard_Boolean arg7 ;
+  
+  arg1 = larg1;
+  arg2 = larg2;
+  arg3 = larg3;
+  arg4 = larg4;
+  arg5 = *larg5;
+  arg6 = (bool)larg6;
+  arg7 = (bool)larg7;
+  try {
+    {
+      try
+      {
+        OCC_CATCH_SIGNALS
+        (arg1)->PerformByJoin((TopoDS_Shape const &)*arg2,arg3,arg4,arg5,arg6,arg7);
+      }
+      catch(Standard_Failure const& error)
+      {
+        char *error_name = (char*) error.DynamicType()->Name();
+        char *error_message = (char*) error.GetMessageString();
+        std::string message;
+        if (error_name) message += std::string(error_name) + "\n";
+        if (error_message) message += std::string(error_message);
+        // log SWIG specific debug information
+        message += "\nwrapper details:\n  * symname: BRepOffsetAPI_MakeOffsetShape_PerformByJoin\n  * wrapname: _wrap_BRepOffsetAPI_MakeOffsetShape_PerformByJoin__SWIG_3\n  * fulldecl: void BRepOffsetAPI_MakeOffsetShape::PerformByJoin(TopoDS_Shape const &,Standard_Real const,Standard_Real const,BRepOffset_Mode const,Standard_Boolean const,Standard_Boolean const)";
+        signal_lisp_error(message.c_str());
+      }
+    }
+    
+  } catch (...) {
+    
+  }
+}
+
+
+EXPORT void _wrap_BRepOffsetAPI_MakeOffsetShape_PerformByJoin__SWIG_4 (BRepOffsetAPI_MakeOffsetShape *larg1, TopoDS_Shape *larg2, Standard_Real larg3, Standard_Real larg4, BRepOffset_Mode const *larg5, bool larg6) {
+  BRepOffsetAPI_MakeOffsetShape *arg1 = (BRepOffsetAPI_MakeOffsetShape *) 0 ;
+  TopoDS_Shape *arg2 = 0 ;
+  Standard_Real arg3 ;
+  Standard_Real arg4 ;
+  BRepOffset_Mode arg5 ;
+  Standard_Boolean arg6 ;
+  
+  arg1 = larg1;
+  arg2 = larg2;
+  arg3 = larg3;
+  arg4 = larg4;
+  arg5 = *larg5;
   arg6 = (bool)larg6;
   try {
     {
       try
       {
         OCC_CATCH_SIGNALS
-        result = (BRepOffsetAPI_MakeOffsetShape *)new BRepOffsetAPI_MakeOffsetShape((TopoDS_Shape const &)*arg1,arg2,arg3,arg4,arg5,arg6);
+        (arg1)->PerformByJoin((TopoDS_Shape const &)*arg2,arg3,arg4,arg5,arg6);
       }
       catch(Standard_Failure const& error)
       {
@@ -56915,38 +57016,35 @@ EXPORT BRepOffsetAPI_MakeOffsetShape *_wrap_new_BRepOffsetAPI_MakeOffsetShape__S
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: new_BRepOffsetAPI_MakeOffsetShape\n  * wrapname: _wrap_new_BRepOffsetAPI_MakeOffsetShape__SWIG_3\n  * fulldecl: BRepOffsetAPI_MakeOffsetShape::BRepOffsetAPI_MakeOffsetShape(TopoDS_Shape const &,Standard_Real const,Standard_Real const,BRepOffset_Mode const,Standard_Boolean const,Standard_Boolean const)";
+        message += "\nwrapper details:\n  * symname: BRepOffsetAPI_MakeOffsetShape_PerformByJoin\n  * wrapname: _wrap_BRepOffsetAPI_MakeOffsetShape_PerformByJoin__SWIG_4\n  * fulldecl: void BRepOffsetAPI_MakeOffsetShape::PerformByJoin(TopoDS_Shape const &,Standard_Real const,Standard_Real const,BRepOffset_Mode const,Standard_Boolean const)";
         signal_lisp_error(message.c_str());
       }
     }
-    lresult = result;
-    return lresult;
+    
   } catch (...) {
-    return (BRepOffsetAPI_MakeOffsetShape *)0;
+    
   }
 }
 
 
-EXPORT BRepOffsetAPI_MakeOffsetShape *_wrap_new_BRepOffsetAPI_MakeOffsetShape__SWIG_4 (TopoDS_Shape *larg1, Standard_Real larg2, Standard_Real larg3, BRepOffset_Mode const *larg4, bool larg5) {
-  BRepOffsetAPI_MakeOffsetShape * lresult = (BRepOffsetAPI_MakeOffsetShape *)0 ;
-  TopoDS_Shape *arg1 = 0 ;
-  Standard_Real arg2 ;
+EXPORT void _wrap_BRepOffsetAPI_MakeOffsetShape_PerformByJoin__SWIG_5 (BRepOffsetAPI_MakeOffsetShape *larg1, TopoDS_Shape *larg2, Standard_Real larg3, Standard_Real larg4, BRepOffset_Mode const *larg5) {
+  BRepOffsetAPI_MakeOffsetShape *arg1 = (BRepOffsetAPI_MakeOffsetShape *) 0 ;
+  TopoDS_Shape *arg2 = 0 ;
   Standard_Real arg3 ;
-  BRepOffset_Mode arg4 ;
-  Standard_Boolean arg5 ;
-  BRepOffsetAPI_MakeOffsetShape *result = 0 ;
+  Standard_Real arg4 ;
+  BRepOffset_Mode arg5 ;
   
   arg1 = larg1;
   arg2 = larg2;
   arg3 = larg3;
-  arg4 = *larg4;
-  arg5 = (bool)larg5;
+  arg4 = larg4;
+  arg5 = *larg5;
   try {
     {
       try
       {
         OCC_CATCH_SIGNALS
-        result = (BRepOffsetAPI_MakeOffsetShape *)new BRepOffsetAPI_MakeOffsetShape((TopoDS_Shape const &)*arg1,arg2,arg3,arg4,arg5);
+        (arg1)->PerformByJoin((TopoDS_Shape const &)*arg2,arg3,arg4,arg5);
       }
       catch(Standard_Failure const& error)
       {
@@ -56956,36 +57054,33 @@ EXPORT BRepOffsetAPI_MakeOffsetShape *_wrap_new_BRepOffsetAPI_MakeOffsetShape__S
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: new_BRepOffsetAPI_MakeOffsetShape\n  * wrapname: _wrap_new_BRepOffsetAPI_MakeOffsetShape__SWIG_4\n  * fulldecl: BRepOffsetAPI_MakeOffsetShape::BRepOffsetAPI_MakeOffsetShape(TopoDS_Shape const &,Standard_Real const,Standard_Real const,BRepOffset_Mode const,Standard_Boolean const)";
+        message += "\nwrapper details:\n  * symname: BRepOffsetAPI_MakeOffsetShape_PerformByJoin\n  * wrapname: _wrap_BRepOffsetAPI_MakeOffsetShape_PerformByJoin__SWIG_5\n  * fulldecl: void BRepOffsetAPI_MakeOffsetShape::PerformByJoin(TopoDS_Shape const &,Standard_Real const,Standard_Real const,BRepOffset_Mode const)";
         signal_lisp_error(message.c_str());
       }
     }
-    lresult = result;
-    return lresult;
+    
   } catch (...) {
-    return (BRepOffsetAPI_MakeOffsetShape *)0;
+    
   }
 }
 
 
-EXPORT BRepOffsetAPI_MakeOffsetShape *_wrap_new_BRepOffsetAPI_MakeOffsetShape__SWIG_5 (TopoDS_Shape *larg1, Standard_Real larg2, Standard_Real larg3, BRepOffset_Mode const *larg4) {
-  BRepOffsetAPI_MakeOffsetShape * lresult = (BRepOffsetAPI_MakeOffsetShape *)0 ;
-  TopoDS_Shape *arg1 = 0 ;
-  Standard_Real arg2 ;
+EXPORT void _wrap_BRepOffsetAPI_MakeOffsetShape_PerformByJoin__SWIG_6 (BRepOffsetAPI_MakeOffsetShape *larg1, TopoDS_Shape *larg2, Standard_Real larg3, Standard_Real larg4) {
+  BRepOffsetAPI_MakeOffsetShape *arg1 = (BRepOffsetAPI_MakeOffsetShape *) 0 ;
+  TopoDS_Shape *arg2 = 0 ;
   Standard_Real arg3 ;
-  BRepOffset_Mode arg4 ;
-  BRepOffsetAPI_MakeOffsetShape *result = 0 ;
+  Standard_Real arg4 ;
   
   arg1 = larg1;
   arg2 = larg2;
   arg3 = larg3;
-  arg4 = *larg4;
+  arg4 = larg4;
   try {
     {
       try
       {
         OCC_CATCH_SIGNALS
-        result = (BRepOffsetAPI_MakeOffsetShape *)new BRepOffsetAPI_MakeOffsetShape((TopoDS_Shape const &)*arg1,arg2,arg3,arg4);
+        (arg1)->PerformByJoin((TopoDS_Shape const &)*arg2,arg3,arg4);
       }
       catch(Standard_Failure const& error)
       {
@@ -56995,51 +57090,13 @@ EXPORT BRepOffsetAPI_MakeOffsetShape *_wrap_new_BRepOffsetAPI_MakeOffsetShape__S
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: new_BRepOffsetAPI_MakeOffsetShape\n  * wrapname: _wrap_new_BRepOffsetAPI_MakeOffsetShape__SWIG_5\n  * fulldecl: BRepOffsetAPI_MakeOffsetShape::BRepOffsetAPI_MakeOffsetShape(TopoDS_Shape const &,Standard_Real const,Standard_Real const,BRepOffset_Mode const)";
+        message += "\nwrapper details:\n  * symname: BRepOffsetAPI_MakeOffsetShape_PerformByJoin\n  * wrapname: _wrap_BRepOffsetAPI_MakeOffsetShape_PerformByJoin__SWIG_6\n  * fulldecl: void BRepOffsetAPI_MakeOffsetShape::PerformByJoin(TopoDS_Shape const &,Standard_Real const,Standard_Real const)";
         signal_lisp_error(message.c_str());
       }
     }
-    lresult = result;
-    return lresult;
+    
   } catch (...) {
-    return (BRepOffsetAPI_MakeOffsetShape *)0;
-  }
-}
-
-
-EXPORT BRepOffsetAPI_MakeOffsetShape *_wrap_new_BRepOffsetAPI_MakeOffsetShape__SWIG_6 (TopoDS_Shape *larg1, Standard_Real larg2, Standard_Real larg3) {
-  BRepOffsetAPI_MakeOffsetShape * lresult = (BRepOffsetAPI_MakeOffsetShape *)0 ;
-  TopoDS_Shape *arg1 = 0 ;
-  Standard_Real arg2 ;
-  Standard_Real arg3 ;
-  BRepOffsetAPI_MakeOffsetShape *result = 0 ;
-  
-  arg1 = larg1;
-  arg2 = larg2;
-  arg3 = larg3;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (BRepOffsetAPI_MakeOffsetShape *)new BRepOffsetAPI_MakeOffsetShape((TopoDS_Shape const &)*arg1,arg2,arg3);
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: new_BRepOffsetAPI_MakeOffsetShape\n  * wrapname: _wrap_new_BRepOffsetAPI_MakeOffsetShape__SWIG_6\n  * fulldecl: BRepOffsetAPI_MakeOffsetShape::BRepOffsetAPI_MakeOffsetShape(TopoDS_Shape const &,Standard_Real const,Standard_Real const)";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (BRepOffsetAPI_MakeOffsetShape *)0;
+    
   }
 }
 
@@ -57077,7 +57134,7 @@ EXPORT void _wrap_delete_BRepOffsetAPI_MakeOffsetShape (BRepOffsetAPI_MakeOffset
 
 #include <BRepOffsetAPI_MakeThickSolid.hxx>
   
-EXPORT BRepOffsetAPI_MakeThickSolid *_wrap_new_BRepOffsetAPI_MakeThickSolid__SWIG_0 () {
+EXPORT BRepOffsetAPI_MakeThickSolid *_wrap_new_BRepOffsetAPI_MakeThickSolid () {
   BRepOffsetAPI_MakeThickSolid * lresult = (BRepOffsetAPI_MakeThickSolid *)0 ;
   BRepOffsetAPI_MakeThickSolid *result = 0 ;
   
@@ -57096,7 +57153,7 @@ EXPORT BRepOffsetAPI_MakeThickSolid *_wrap_new_BRepOffsetAPI_MakeThickSolid__SWI
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: new_BRepOffsetAPI_MakeThickSolid\n  * wrapname: _wrap_new_BRepOffsetAPI_MakeThickSolid__SWIG_0\n  * fulldecl: BRepOffsetAPI_MakeThickSolid::BRepOffsetAPI_MakeThickSolid()";
+        message += "\nwrapper details:\n  * symname: new_BRepOffsetAPI_MakeThickSolid\n  * wrapname: _wrap_new_BRepOffsetAPI_MakeThickSolid\n  * fulldecl: BRepOffsetAPI_MakeThickSolid::BRepOffsetAPI_MakeThickSolid()";
         signal_lisp_error(message.c_str());
       }
     }
@@ -57108,34 +57165,70 @@ EXPORT BRepOffsetAPI_MakeThickSolid *_wrap_new_BRepOffsetAPI_MakeThickSolid__SWI
 }
 
 
-EXPORT BRepOffsetAPI_MakeThickSolid *_wrap_new_BRepOffsetAPI_MakeThickSolid__SWIG_1 (TopoDS_Shape *larg1, TopTools_ListOfShape *larg2, Standard_Real larg3, Standard_Real larg4, BRepOffset_Mode const *larg5, bool larg6, bool larg7, GeomAbs_JoinType const *larg8, bool larg9) {
-  BRepOffsetAPI_MakeThickSolid * lresult = (BRepOffsetAPI_MakeThickSolid *)0 ;
-  TopoDS_Shape *arg1 = 0 ;
-  TopTools_ListOfShape *arg2 = 0 ;
+EXPORT void _wrap_BRepOffsetAPI_MakeThickSolid_MakeThickSolidBySimple (BRepOffsetAPI_MakeThickSolid *larg1, TopoDS_Shape *larg2, Standard_Real larg3) {
+  BRepOffsetAPI_MakeThickSolid *arg1 = (BRepOffsetAPI_MakeThickSolid *) 0 ;
+  TopoDS_Shape *arg2 = 0 ;
   Standard_Real arg3 ;
+  
+  arg1 = larg1;
+  arg2 = larg2;
+  arg3 = larg3;
+  try {
+    {
+      try
+      {
+        OCC_CATCH_SIGNALS
+        (arg1)->MakeThickSolidBySimple((TopoDS_Shape const &)*arg2,arg3);
+      }
+      catch(Standard_Failure const& error)
+      {
+        char *error_name = (char*) error.DynamicType()->Name();
+        char *error_message = (char*) error.GetMessageString();
+        std::string message;
+        if (error_name) message += std::string(error_name) + "\n";
+        if (error_message) message += std::string(error_message);
+        // log SWIG specific debug information
+        message += "\nwrapper details:\n  * symname: BRepOffsetAPI_MakeThickSolid_MakeThickSolidBySimple\n  * wrapname: _wrap_BRepOffsetAPI_MakeThickSolid_MakeThickSolidBySimple\n  * fulldecl: void BRepOffsetAPI_MakeThickSolid::MakeThickSolidBySimple(TopoDS_Shape const &,Standard_Real const)";
+        signal_lisp_error(message.c_str());
+      }
+    }
+    
+  } catch (...) {
+    
+  }
+}
+
+
+EXPORT void _wrap_BRepOffsetAPI_MakeThickSolid_MakeThickSolidByJoin__SWIG_0 (BRepOffsetAPI_MakeThickSolid *larg1, TopoDS_Shape *larg2, TopTools_ListOfShape *larg3, Standard_Real larg4, Standard_Real larg5, BRepOffset_Mode const *larg6, bool larg7, bool larg8, GeomAbs_JoinType const *larg9, bool larg10, Message_ProgressRange *larg11) {
+  BRepOffsetAPI_MakeThickSolid *arg1 = (BRepOffsetAPI_MakeThickSolid *) 0 ;
+  TopoDS_Shape *arg2 = 0 ;
+  TopTools_ListOfShape *arg3 = 0 ;
   Standard_Real arg4 ;
-  BRepOffset_Mode arg5 ;
-  Standard_Boolean arg6 ;
+  Standard_Real arg5 ;
+  BRepOffset_Mode arg6 ;
   Standard_Boolean arg7 ;
-  GeomAbs_JoinType arg8 ;
-  Standard_Boolean arg9 ;
-  BRepOffsetAPI_MakeThickSolid *result = 0 ;
+  Standard_Boolean arg8 ;
+  GeomAbs_JoinType arg9 ;
+  Standard_Boolean arg10 ;
+  Message_ProgressRange *arg11 = 0 ;
   
   arg1 = larg1;
   arg2 = larg2;
   arg3 = larg3;
   arg4 = larg4;
-  arg5 = *larg5;
-  arg6 = (bool)larg6;
+  arg5 = larg5;
+  arg6 = *larg6;
   arg7 = (bool)larg7;
-  arg8 = *larg8;
-  arg9 = (bool)larg9;
+  arg8 = (bool)larg8;
+  arg9 = *larg9;
+  arg10 = (bool)larg10;
+  arg11 = larg11;
   try {
     {
       try
       {
         OCC_CATCH_SIGNALS
-        result = (BRepOffsetAPI_MakeThickSolid *)new BRepOffsetAPI_MakeThickSolid((TopoDS_Shape const &)*arg1,(TopTools_ListOfShape const &)*arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9);
+        (arg1)->MakeThickSolidByJoin((TopoDS_Shape const &)*arg2,(TopTools_ListOfShape const &)*arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10,(Message_ProgressRange const &)*arg11);
       }
       catch(Standard_Failure const& error)
       {
@@ -57145,44 +57238,45 @@ EXPORT BRepOffsetAPI_MakeThickSolid *_wrap_new_BRepOffsetAPI_MakeThickSolid__SWI
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: new_BRepOffsetAPI_MakeThickSolid\n  * wrapname: _wrap_new_BRepOffsetAPI_MakeThickSolid__SWIG_1\n  * fulldecl: BRepOffsetAPI_MakeThickSolid::BRepOffsetAPI_MakeThickSolid(TopoDS_Shape const &,TopTools_ListOfShape const &,Standard_Real const,Standard_Real const,BRepOffset_Mode const,Standard_Boolean const,Standard_Boolean const,GeomAbs_JoinType const,Standard_Boolean const)";
+        message += "\nwrapper details:\n  * symname: BRepOffsetAPI_MakeThickSolid_MakeThickSolidByJoin\n  * wrapname: _wrap_BRepOffsetAPI_MakeThickSolid_MakeThickSolidByJoin__SWIG_0\n  * fulldecl: void BRepOffsetAPI_MakeThickSolid::MakeThickSolidByJoin(TopoDS_Shape const &,TopTools_ListOfShape const &,Standard_Real const,Standard_Real const,BRepOffset_Mode const,Standard_Boolean const,Standard_Boolean const,GeomAbs_JoinType const,Standard_Boolean const,Message_ProgressRange const &)";
         signal_lisp_error(message.c_str());
       }
     }
-    lresult = result;
-    return lresult;
+    
   } catch (...) {
-    return (BRepOffsetAPI_MakeThickSolid *)0;
+    
   }
 }
 
 
-EXPORT BRepOffsetAPI_MakeThickSolid *_wrap_new_BRepOffsetAPI_MakeThickSolid__SWIG_2 (TopoDS_Shape *larg1, TopTools_ListOfShape *larg2, Standard_Real larg3, Standard_Real larg4, BRepOffset_Mode const *larg5, bool larg6, bool larg7, GeomAbs_JoinType const *larg8) {
-  BRepOffsetAPI_MakeThickSolid * lresult = (BRepOffsetAPI_MakeThickSolid *)0 ;
-  TopoDS_Shape *arg1 = 0 ;
-  TopTools_ListOfShape *arg2 = 0 ;
-  Standard_Real arg3 ;
+EXPORT void _wrap_BRepOffsetAPI_MakeThickSolid_MakeThickSolidByJoin__SWIG_1 (BRepOffsetAPI_MakeThickSolid *larg1, TopoDS_Shape *larg2, TopTools_ListOfShape *larg3, Standard_Real larg4, Standard_Real larg5, BRepOffset_Mode const *larg6, bool larg7, bool larg8, GeomAbs_JoinType const *larg9, bool larg10) {
+  BRepOffsetAPI_MakeThickSolid *arg1 = (BRepOffsetAPI_MakeThickSolid *) 0 ;
+  TopoDS_Shape *arg2 = 0 ;
+  TopTools_ListOfShape *arg3 = 0 ;
   Standard_Real arg4 ;
-  BRepOffset_Mode arg5 ;
-  Standard_Boolean arg6 ;
+  Standard_Real arg5 ;
+  BRepOffset_Mode arg6 ;
   Standard_Boolean arg7 ;
-  GeomAbs_JoinType arg8 ;
-  BRepOffsetAPI_MakeThickSolid *result = 0 ;
+  Standard_Boolean arg8 ;
+  GeomAbs_JoinType arg9 ;
+  Standard_Boolean arg10 ;
   
   arg1 = larg1;
   arg2 = larg2;
   arg3 = larg3;
   arg4 = larg4;
-  arg5 = *larg5;
-  arg6 = (bool)larg6;
+  arg5 = larg5;
+  arg6 = *larg6;
   arg7 = (bool)larg7;
-  arg8 = *larg8;
+  arg8 = (bool)larg8;
+  arg9 = *larg9;
+  arg10 = (bool)larg10;
   try {
     {
       try
       {
         OCC_CATCH_SIGNALS
-        result = (BRepOffsetAPI_MakeThickSolid *)new BRepOffsetAPI_MakeThickSolid((TopoDS_Shape const &)*arg1,(TopTools_ListOfShape const &)*arg2,arg3,arg4,arg5,arg6,arg7,arg8);
+        (arg1)->MakeThickSolidByJoin((TopoDS_Shape const &)*arg2,(TopTools_ListOfShape const &)*arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10);
       }
       catch(Standard_Failure const& error)
       {
@@ -57192,42 +57286,129 @@ EXPORT BRepOffsetAPI_MakeThickSolid *_wrap_new_BRepOffsetAPI_MakeThickSolid__SWI
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: new_BRepOffsetAPI_MakeThickSolid\n  * wrapname: _wrap_new_BRepOffsetAPI_MakeThickSolid__SWIG_2\n  * fulldecl: BRepOffsetAPI_MakeThickSolid::BRepOffsetAPI_MakeThickSolid(TopoDS_Shape const &,TopTools_ListOfShape const &,Standard_Real const,Standard_Real const,BRepOffset_Mode const,Standard_Boolean const,Standard_Boolean const,GeomAbs_JoinType const)";
+        message += "\nwrapper details:\n  * symname: BRepOffsetAPI_MakeThickSolid_MakeThickSolidByJoin\n  * wrapname: _wrap_BRepOffsetAPI_MakeThickSolid_MakeThickSolidByJoin__SWIG_1\n  * fulldecl: void BRepOffsetAPI_MakeThickSolid::MakeThickSolidByJoin(TopoDS_Shape const &,TopTools_ListOfShape const &,Standard_Real const,Standard_Real const,BRepOffset_Mode const,Standard_Boolean const,Standard_Boolean const,GeomAbs_JoinType const,Standard_Boolean const)";
         signal_lisp_error(message.c_str());
       }
     }
-    lresult = result;
-    return lresult;
+    
   } catch (...) {
-    return (BRepOffsetAPI_MakeThickSolid *)0;
+    
   }
 }
 
 
-EXPORT BRepOffsetAPI_MakeThickSolid *_wrap_new_BRepOffsetAPI_MakeThickSolid__SWIG_3 (TopoDS_Shape *larg1, TopTools_ListOfShape *larg2, Standard_Real larg3, Standard_Real larg4, BRepOffset_Mode const *larg5, bool larg6, bool larg7) {
-  BRepOffsetAPI_MakeThickSolid * lresult = (BRepOffsetAPI_MakeThickSolid *)0 ;
-  TopoDS_Shape *arg1 = 0 ;
-  TopTools_ListOfShape *arg2 = 0 ;
-  Standard_Real arg3 ;
+EXPORT void _wrap_BRepOffsetAPI_MakeThickSolid_MakeThickSolidByJoin__SWIG_2 (BRepOffsetAPI_MakeThickSolid *larg1, TopoDS_Shape *larg2, TopTools_ListOfShape *larg3, Standard_Real larg4, Standard_Real larg5, BRepOffset_Mode const *larg6, bool larg7, bool larg8, GeomAbs_JoinType const *larg9) {
+  BRepOffsetAPI_MakeThickSolid *arg1 = (BRepOffsetAPI_MakeThickSolid *) 0 ;
+  TopoDS_Shape *arg2 = 0 ;
+  TopTools_ListOfShape *arg3 = 0 ;
   Standard_Real arg4 ;
-  BRepOffset_Mode arg5 ;
-  Standard_Boolean arg6 ;
+  Standard_Real arg5 ;
+  BRepOffset_Mode arg6 ;
   Standard_Boolean arg7 ;
-  BRepOffsetAPI_MakeThickSolid *result = 0 ;
+  Standard_Boolean arg8 ;
+  GeomAbs_JoinType arg9 ;
   
   arg1 = larg1;
   arg2 = larg2;
   arg3 = larg3;
   arg4 = larg4;
-  arg5 = *larg5;
-  arg6 = (bool)larg6;
+  arg5 = larg5;
+  arg6 = *larg6;
+  arg7 = (bool)larg7;
+  arg8 = (bool)larg8;
+  arg9 = *larg9;
+  try {
+    {
+      try
+      {
+        OCC_CATCH_SIGNALS
+        (arg1)->MakeThickSolidByJoin((TopoDS_Shape const &)*arg2,(TopTools_ListOfShape const &)*arg3,arg4,arg5,arg6,arg7,arg8,arg9);
+      }
+      catch(Standard_Failure const& error)
+      {
+        char *error_name = (char*) error.DynamicType()->Name();
+        char *error_message = (char*) error.GetMessageString();
+        std::string message;
+        if (error_name) message += std::string(error_name) + "\n";
+        if (error_message) message += std::string(error_message);
+        // log SWIG specific debug information
+        message += "\nwrapper details:\n  * symname: BRepOffsetAPI_MakeThickSolid_MakeThickSolidByJoin\n  * wrapname: _wrap_BRepOffsetAPI_MakeThickSolid_MakeThickSolidByJoin__SWIG_2\n  * fulldecl: void BRepOffsetAPI_MakeThickSolid::MakeThickSolidByJoin(TopoDS_Shape const &,TopTools_ListOfShape const &,Standard_Real const,Standard_Real const,BRepOffset_Mode const,Standard_Boolean const,Standard_Boolean const,GeomAbs_JoinType const)";
+        signal_lisp_error(message.c_str());
+      }
+    }
+    
+  } catch (...) {
+    
+  }
+}
+
+
+EXPORT void _wrap_BRepOffsetAPI_MakeThickSolid_MakeThickSolidByJoin__SWIG_3 (BRepOffsetAPI_MakeThickSolid *larg1, TopoDS_Shape *larg2, TopTools_ListOfShape *larg3, Standard_Real larg4, Standard_Real larg5, BRepOffset_Mode const *larg6, bool larg7, bool larg8) {
+  BRepOffsetAPI_MakeThickSolid *arg1 = (BRepOffsetAPI_MakeThickSolid *) 0 ;
+  TopoDS_Shape *arg2 = 0 ;
+  TopTools_ListOfShape *arg3 = 0 ;
+  Standard_Real arg4 ;
+  Standard_Real arg5 ;
+  BRepOffset_Mode arg6 ;
+  Standard_Boolean arg7 ;
+  Standard_Boolean arg8 ;
+  
+  arg1 = larg1;
+  arg2 = larg2;
+  arg3 = larg3;
+  arg4 = larg4;
+  arg5 = larg5;
+  arg6 = *larg6;
+  arg7 = (bool)larg7;
+  arg8 = (bool)larg8;
+  try {
+    {
+      try
+      {
+        OCC_CATCH_SIGNALS
+        (arg1)->MakeThickSolidByJoin((TopoDS_Shape const &)*arg2,(TopTools_ListOfShape const &)*arg3,arg4,arg5,arg6,arg7,arg8);
+      }
+      catch(Standard_Failure const& error)
+      {
+        char *error_name = (char*) error.DynamicType()->Name();
+        char *error_message = (char*) error.GetMessageString();
+        std::string message;
+        if (error_name) message += std::string(error_name) + "\n";
+        if (error_message) message += std::string(error_message);
+        // log SWIG specific debug information
+        message += "\nwrapper details:\n  * symname: BRepOffsetAPI_MakeThickSolid_MakeThickSolidByJoin\n  * wrapname: _wrap_BRepOffsetAPI_MakeThickSolid_MakeThickSolidByJoin__SWIG_3\n  * fulldecl: void BRepOffsetAPI_MakeThickSolid::MakeThickSolidByJoin(TopoDS_Shape const &,TopTools_ListOfShape const &,Standard_Real const,Standard_Real const,BRepOffset_Mode const,Standard_Boolean const,Standard_Boolean const)";
+        signal_lisp_error(message.c_str());
+      }
+    }
+    
+  } catch (...) {
+    
+  }
+}
+
+
+EXPORT void _wrap_BRepOffsetAPI_MakeThickSolid_MakeThickSolidByJoin__SWIG_4 (BRepOffsetAPI_MakeThickSolid *larg1, TopoDS_Shape *larg2, TopTools_ListOfShape *larg3, Standard_Real larg4, Standard_Real larg5, BRepOffset_Mode const *larg6, bool larg7) {
+  BRepOffsetAPI_MakeThickSolid *arg1 = (BRepOffsetAPI_MakeThickSolid *) 0 ;
+  TopoDS_Shape *arg2 = 0 ;
+  TopTools_ListOfShape *arg3 = 0 ;
+  Standard_Real arg4 ;
+  Standard_Real arg5 ;
+  BRepOffset_Mode arg6 ;
+  Standard_Boolean arg7 ;
+  
+  arg1 = larg1;
+  arg2 = larg2;
+  arg3 = larg3;
+  arg4 = larg4;
+  arg5 = larg5;
+  arg6 = *larg6;
   arg7 = (bool)larg7;
   try {
     {
       try
       {
         OCC_CATCH_SIGNALS
-        result = (BRepOffsetAPI_MakeThickSolid *)new BRepOffsetAPI_MakeThickSolid((TopoDS_Shape const &)*arg1,(TopTools_ListOfShape const &)*arg2,arg3,arg4,arg5,arg6,arg7);
+        (arg1)->MakeThickSolidByJoin((TopoDS_Shape const &)*arg2,(TopTools_ListOfShape const &)*arg3,arg4,arg5,arg6,arg7);
       }
       catch(Standard_Failure const& error)
       {
@@ -57237,40 +57418,37 @@ EXPORT BRepOffsetAPI_MakeThickSolid *_wrap_new_BRepOffsetAPI_MakeThickSolid__SWI
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: new_BRepOffsetAPI_MakeThickSolid\n  * wrapname: _wrap_new_BRepOffsetAPI_MakeThickSolid__SWIG_3\n  * fulldecl: BRepOffsetAPI_MakeThickSolid::BRepOffsetAPI_MakeThickSolid(TopoDS_Shape const &,TopTools_ListOfShape const &,Standard_Real const,Standard_Real const,BRepOffset_Mode const,Standard_Boolean const,Standard_Boolean const)";
+        message += "\nwrapper details:\n  * symname: BRepOffsetAPI_MakeThickSolid_MakeThickSolidByJoin\n  * wrapname: _wrap_BRepOffsetAPI_MakeThickSolid_MakeThickSolidByJoin__SWIG_4\n  * fulldecl: void BRepOffsetAPI_MakeThickSolid::MakeThickSolidByJoin(TopoDS_Shape const &,TopTools_ListOfShape const &,Standard_Real const,Standard_Real const,BRepOffset_Mode const,Standard_Boolean const)";
         signal_lisp_error(message.c_str());
       }
     }
-    lresult = result;
-    return lresult;
+    
   } catch (...) {
-    return (BRepOffsetAPI_MakeThickSolid *)0;
+    
   }
 }
 
 
-EXPORT BRepOffsetAPI_MakeThickSolid *_wrap_new_BRepOffsetAPI_MakeThickSolid__SWIG_4 (TopoDS_Shape *larg1, TopTools_ListOfShape *larg2, Standard_Real larg3, Standard_Real larg4, BRepOffset_Mode const *larg5, bool larg6) {
-  BRepOffsetAPI_MakeThickSolid * lresult = (BRepOffsetAPI_MakeThickSolid *)0 ;
-  TopoDS_Shape *arg1 = 0 ;
-  TopTools_ListOfShape *arg2 = 0 ;
-  Standard_Real arg3 ;
+EXPORT void _wrap_BRepOffsetAPI_MakeThickSolid_MakeThickSolidByJoin__SWIG_5 (BRepOffsetAPI_MakeThickSolid *larg1, TopoDS_Shape *larg2, TopTools_ListOfShape *larg3, Standard_Real larg4, Standard_Real larg5, BRepOffset_Mode const *larg6) {
+  BRepOffsetAPI_MakeThickSolid *arg1 = (BRepOffsetAPI_MakeThickSolid *) 0 ;
+  TopoDS_Shape *arg2 = 0 ;
+  TopTools_ListOfShape *arg3 = 0 ;
   Standard_Real arg4 ;
-  BRepOffset_Mode arg5 ;
-  Standard_Boolean arg6 ;
-  BRepOffsetAPI_MakeThickSolid *result = 0 ;
+  Standard_Real arg5 ;
+  BRepOffset_Mode arg6 ;
   
   arg1 = larg1;
   arg2 = larg2;
   arg3 = larg3;
   arg4 = larg4;
-  arg5 = *larg5;
-  arg6 = (bool)larg6;
+  arg5 = larg5;
+  arg6 = *larg6;
   try {
     {
       try
       {
         OCC_CATCH_SIGNALS
-        result = (BRepOffsetAPI_MakeThickSolid *)new BRepOffsetAPI_MakeThickSolid((TopoDS_Shape const &)*arg1,(TopTools_ListOfShape const &)*arg2,arg3,arg4,arg5,arg6);
+        (arg1)->MakeThickSolidByJoin((TopoDS_Shape const &)*arg2,(TopTools_ListOfShape const &)*arg3,arg4,arg5,arg6);
       }
       catch(Standard_Failure const& error)
       {
@@ -57280,38 +57458,35 @@ EXPORT BRepOffsetAPI_MakeThickSolid *_wrap_new_BRepOffsetAPI_MakeThickSolid__SWI
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: new_BRepOffsetAPI_MakeThickSolid\n  * wrapname: _wrap_new_BRepOffsetAPI_MakeThickSolid__SWIG_4\n  * fulldecl: BRepOffsetAPI_MakeThickSolid::BRepOffsetAPI_MakeThickSolid(TopoDS_Shape const &,TopTools_ListOfShape const &,Standard_Real const,Standard_Real const,BRepOffset_Mode const,Standard_Boolean const)";
+        message += "\nwrapper details:\n  * symname: BRepOffsetAPI_MakeThickSolid_MakeThickSolidByJoin\n  * wrapname: _wrap_BRepOffsetAPI_MakeThickSolid_MakeThickSolidByJoin__SWIG_5\n  * fulldecl: void BRepOffsetAPI_MakeThickSolid::MakeThickSolidByJoin(TopoDS_Shape const &,TopTools_ListOfShape const &,Standard_Real const,Standard_Real const,BRepOffset_Mode const)";
         signal_lisp_error(message.c_str());
       }
     }
-    lresult = result;
-    return lresult;
+    
   } catch (...) {
-    return (BRepOffsetAPI_MakeThickSolid *)0;
+    
   }
 }
 
 
-EXPORT BRepOffsetAPI_MakeThickSolid *_wrap_new_BRepOffsetAPI_MakeThickSolid__SWIG_5 (TopoDS_Shape *larg1, TopTools_ListOfShape *larg2, Standard_Real larg3, Standard_Real larg4, BRepOffset_Mode const *larg5) {
-  BRepOffsetAPI_MakeThickSolid * lresult = (BRepOffsetAPI_MakeThickSolid *)0 ;
-  TopoDS_Shape *arg1 = 0 ;
-  TopTools_ListOfShape *arg2 = 0 ;
-  Standard_Real arg3 ;
+EXPORT void _wrap_BRepOffsetAPI_MakeThickSolid_MakeThickSolidByJoin__SWIG_6 (BRepOffsetAPI_MakeThickSolid *larg1, TopoDS_Shape *larg2, TopTools_ListOfShape *larg3, Standard_Real larg4, Standard_Real larg5) {
+  BRepOffsetAPI_MakeThickSolid *arg1 = (BRepOffsetAPI_MakeThickSolid *) 0 ;
+  TopoDS_Shape *arg2 = 0 ;
+  TopTools_ListOfShape *arg3 = 0 ;
   Standard_Real arg4 ;
-  BRepOffset_Mode arg5 ;
-  BRepOffsetAPI_MakeThickSolid *result = 0 ;
+  Standard_Real arg5 ;
   
   arg1 = larg1;
   arg2 = larg2;
   arg3 = larg3;
   arg4 = larg4;
-  arg5 = *larg5;
+  arg5 = larg5;
   try {
     {
       try
       {
         OCC_CATCH_SIGNALS
-        result = (BRepOffsetAPI_MakeThickSolid *)new BRepOffsetAPI_MakeThickSolid((TopoDS_Shape const &)*arg1,(TopTools_ListOfShape const &)*arg2,arg3,arg4,arg5);
+        (arg1)->MakeThickSolidByJoin((TopoDS_Shape const &)*arg2,(TopTools_ListOfShape const &)*arg3,arg4,arg5);
       }
       catch(Standard_Failure const& error)
       {
@@ -57321,53 +57496,13 @@ EXPORT BRepOffsetAPI_MakeThickSolid *_wrap_new_BRepOffsetAPI_MakeThickSolid__SWI
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: new_BRepOffsetAPI_MakeThickSolid\n  * wrapname: _wrap_new_BRepOffsetAPI_MakeThickSolid__SWIG_5\n  * fulldecl: BRepOffsetAPI_MakeThickSolid::BRepOffsetAPI_MakeThickSolid(TopoDS_Shape const &,TopTools_ListOfShape const &,Standard_Real const,Standard_Real const,BRepOffset_Mode const)";
+        message += "\nwrapper details:\n  * symname: BRepOffsetAPI_MakeThickSolid_MakeThickSolidByJoin\n  * wrapname: _wrap_BRepOffsetAPI_MakeThickSolid_MakeThickSolidByJoin__SWIG_6\n  * fulldecl: void BRepOffsetAPI_MakeThickSolid::MakeThickSolidByJoin(TopoDS_Shape const &,TopTools_ListOfShape const &,Standard_Real const,Standard_Real const)";
         signal_lisp_error(message.c_str());
       }
     }
-    lresult = result;
-    return lresult;
+    
   } catch (...) {
-    return (BRepOffsetAPI_MakeThickSolid *)0;
-  }
-}
-
-
-EXPORT BRepOffsetAPI_MakeThickSolid *_wrap_new_BRepOffsetAPI_MakeThickSolid__SWIG_6 (TopoDS_Shape *larg1, TopTools_ListOfShape *larg2, Standard_Real larg3, Standard_Real larg4) {
-  BRepOffsetAPI_MakeThickSolid * lresult = (BRepOffsetAPI_MakeThickSolid *)0 ;
-  TopoDS_Shape *arg1 = 0 ;
-  TopTools_ListOfShape *arg2 = 0 ;
-  Standard_Real arg3 ;
-  Standard_Real arg4 ;
-  BRepOffsetAPI_MakeThickSolid *result = 0 ;
-  
-  arg1 = larg1;
-  arg2 = larg2;
-  arg3 = larg3;
-  arg4 = larg4;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (BRepOffsetAPI_MakeThickSolid *)new BRepOffsetAPI_MakeThickSolid((TopoDS_Shape const &)*arg1,(TopTools_ListOfShape const &)*arg2,arg3,arg4);
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: new_BRepOffsetAPI_MakeThickSolid\n  * wrapname: _wrap_new_BRepOffsetAPI_MakeThickSolid__SWIG_6\n  * fulldecl: BRepOffsetAPI_MakeThickSolid::BRepOffsetAPI_MakeThickSolid(TopoDS_Shape const &,TopTools_ListOfShape const &,Standard_Real const,Standard_Real const)";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (BRepOffsetAPI_MakeThickSolid *)0;
+    
   }
 }
 
@@ -58620,6 +58755,39 @@ EXPORT BRepPrimAPI_MakeCylinder *_wrap_new_BRepPrimAPI_MakeCylinder__SWIG_3 (gp_
     return lresult;
   } catch (...) {
     return (BRepPrimAPI_MakeCylinder *)0;
+  }
+}
+
+
+EXPORT TopoDS_Shape *_wrap_BRepPrimAPI_MakeCylinder_Shape (BRepPrimAPI_MakeCylinder *larg1) {
+  TopoDS_Shape * lresult = (TopoDS_Shape *)0 ;
+  BRepPrimAPI_MakeCylinder *arg1 = (BRepPrimAPI_MakeCylinder *) 0 ;
+  TopoDS_Shape *result = 0 ;
+  
+  arg1 = larg1;
+  try {
+    {
+      try
+      {
+        OCC_CATCH_SIGNALS
+        result = (TopoDS_Shape *) &(arg1)->Shape();
+      }
+      catch(Standard_Failure const& error)
+      {
+        char *error_name = (char*) error.DynamicType()->Name();
+        char *error_message = (char*) error.GetMessageString();
+        std::string message;
+        if (error_name) message += std::string(error_name) + "\n";
+        if (error_message) message += std::string(error_message);
+        // log SWIG specific debug information
+        message += "\nwrapper details:\n  * symname: BRepPrimAPI_MakeCylinder_Shape\n  * wrapname: _wrap_BRepPrimAPI_MakeCylinder_Shape\n  * fulldecl: TopoDS_Shape const & BRepPrimAPI_MakeCylinder::Shape()";
+        signal_lisp_error(message.c_str());
+      }
+    }
+    lresult = result;
+    return lresult;
+  } catch (...) {
+    return (TopoDS_Shape *)0;
   }
 }
 
@@ -60689,21 +60857,23 @@ EXPORT bool _wrap_Poly_Triangulation_HasUVNodes (Handle_Poly_Triangulation *larg
 }
 
 
-SWIGINTERN Poly_Array1OfTriangle const &Handle_Poly_Triangulation_Triangles(Handle_Poly_Triangulation const *self){
-    return (*self)->Triangles();
+SWIGINTERN Poly_Triangle const &Handle_Poly_Triangulation_Triangle(Handle_Poly_Triangulation const *self,Standard_Integer theIndex){
+    return (*self)->Triangle(theIndex);
   }
-EXPORT Poly_Array1OfTriangle *_wrap_Poly_Triangulation_Triangles (Handle_Poly_Triangulation *larg1) {
-  Poly_Array1OfTriangle * lresult = (Poly_Array1OfTriangle *)0 ;
+EXPORT Poly_Triangle *_wrap_Poly_Triangulation_Triangle (Handle_Poly_Triangulation *larg1, Standard_Integer larg2) {
+  Poly_Triangle * lresult = (Poly_Triangle *)0 ;
   Handle_Poly_Triangulation *arg1 = (Handle_Poly_Triangulation *) 0 ;
-  Poly_Array1OfTriangle *result = 0 ;
+  Standard_Integer arg2 ;
+  Poly_Triangle *result = 0 ;
   
   arg1 = larg1;
+  arg2 = larg2;
   try {
     {
       try
       {
         OCC_CATCH_SIGNALS
-        result = (Poly_Array1OfTriangle *) &Handle_Poly_Triangulation_Triangles((Handle_Poly_Triangulation const *)arg1);
+        result = (Poly_Triangle *) &Handle_Poly_Triangulation_Triangle((Handle_Poly_Triangulation const *)arg1,arg2);
       }
       catch(Standard_Failure const& error)
       {
@@ -60713,33 +60883,35 @@ EXPORT Poly_Array1OfTriangle *_wrap_Poly_Triangulation_Triangles (Handle_Poly_Tr
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Poly_Triangulation_Triangles\n  * wrapname: _wrap_Poly_Triangulation_Triangles\n  * fulldecl: Poly_Array1OfTriangle const & Handle_Poly_Triangulation::Triangles() const";
+        message += "\nwrapper details:\n  * symname: Poly_Triangulation_Triangle\n  * wrapname: _wrap_Poly_Triangulation_Triangle\n  * fulldecl: Poly_Triangle const & Handle_Poly_Triangulation::Triangle(Standard_Integer) const";
         signal_lisp_error(message.c_str());
       }
     }
     lresult = result;
     return lresult;
   } catch (...) {
-    return (Poly_Array1OfTriangle *)0;
+    return (Poly_Triangle *)0;
   }
 }
 
 
-SWIGINTERN TColgp_Array1OfPnt const &Handle_Poly_Triangulation_Nodes(Handle_Poly_Triangulation const *self){
-    return (*self)->Nodes();
+SWIGINTERN gp_Pnt Handle_Poly_Triangulation_Node(Handle_Poly_Triangulation const *self,Standard_Integer theIndex){
+    return (*self)->Node(theIndex);
   }
-EXPORT TColgp_Array1OfPnt *_wrap_Poly_Triangulation_Nodes (Handle_Poly_Triangulation *larg1) {
-  TColgp_Array1OfPnt * lresult = (TColgp_Array1OfPnt *)0 ;
+EXPORT gp_Pnt *_wrap_Poly_Triangulation_Node (Handle_Poly_Triangulation *larg1, Standard_Integer larg2) {
+  gp_Pnt * lresult = (gp_Pnt *)0 ;
   Handle_Poly_Triangulation *arg1 = (Handle_Poly_Triangulation *) 0 ;
-  TColgp_Array1OfPnt *result = 0 ;
+  Standard_Integer arg2 ;
+  gp_Pnt result;
   
   arg1 = larg1;
+  arg2 = larg2;
   try {
     {
       try
       {
         OCC_CATCH_SIGNALS
-        result = (TColgp_Array1OfPnt *) &Handle_Poly_Triangulation_Nodes((Handle_Poly_Triangulation const *)arg1);
+        result = Handle_Poly_Triangulation_Node((Handle_Poly_Triangulation const *)arg1,arg2);
       }
       catch(Standard_Failure const& error)
       {
@@ -60749,33 +60921,35 @@ EXPORT TColgp_Array1OfPnt *_wrap_Poly_Triangulation_Nodes (Handle_Poly_Triangula
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Poly_Triangulation_Nodes\n  * wrapname: _wrap_Poly_Triangulation_Nodes\n  * fulldecl: TColgp_Array1OfPnt const & Handle_Poly_Triangulation::Nodes() const";
+        message += "\nwrapper details:\n  * symname: Poly_Triangulation_Node\n  * wrapname: _wrap_Poly_Triangulation_Node\n  * fulldecl: gp_Pnt Handle_Poly_Triangulation::Node(Standard_Integer) const";
         signal_lisp_error(message.c_str());
       }
     }
-    lresult = result;
+    lresult = new gp_Pnt(result);
     return lresult;
   } catch (...) {
-    return (TColgp_Array1OfPnt *)0;
+    return (gp_Pnt *)0;
   }
 }
 
 
-SWIGINTERN TColgp_Array1OfPnt2d const &Handle_Poly_Triangulation_UVNodes(Handle_Poly_Triangulation const *self){
-    return (*self)->UVNodes();
+SWIGINTERN gp_Pnt2d Handle_Poly_Triangulation_UVNode(Handle_Poly_Triangulation const *self,Standard_Integer theIndex){
+    return (*self)->UVNode(theIndex);
   }
-EXPORT TColgp_Array1OfPnt2d *_wrap_Poly_Triangulation_UVNodes (Handle_Poly_Triangulation *larg1) {
-  TColgp_Array1OfPnt2d * lresult = (TColgp_Array1OfPnt2d *)0 ;
+EXPORT gp_Pnt2d *_wrap_Poly_Triangulation_UVNode (Handle_Poly_Triangulation *larg1, Standard_Integer larg2) {
+  gp_Pnt2d * lresult = (gp_Pnt2d *)0 ;
   Handle_Poly_Triangulation *arg1 = (Handle_Poly_Triangulation *) 0 ;
-  TColgp_Array1OfPnt2d *result = 0 ;
+  Standard_Integer arg2 ;
+  gp_Pnt2d result;
   
   arg1 = larg1;
+  arg2 = larg2;
   try {
     {
       try
       {
         OCC_CATCH_SIGNALS
-        result = (TColgp_Array1OfPnt2d *) &Handle_Poly_Triangulation_UVNodes((Handle_Poly_Triangulation const *)arg1);
+        result = Handle_Poly_Triangulation_UVNode((Handle_Poly_Triangulation const *)arg1,arg2);
       }
       catch(Standard_Failure const& error)
       {
@@ -60785,14 +60959,14 @@ EXPORT TColgp_Array1OfPnt2d *_wrap_Poly_Triangulation_UVNodes (Handle_Poly_Trian
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Poly_Triangulation_UVNodes\n  * wrapname: _wrap_Poly_Triangulation_UVNodes\n  * fulldecl: TColgp_Array1OfPnt2d const & Handle_Poly_Triangulation::UVNodes() const";
+        message += "\nwrapper details:\n  * symname: Poly_Triangulation_UVNode\n  * wrapname: _wrap_Poly_Triangulation_UVNode\n  * fulldecl: gp_Pnt2d Handle_Poly_Triangulation::UVNode(Standard_Integer) const";
         signal_lisp_error(message.c_str());
       }
     }
-    lresult = result;
+    lresult = new gp_Pnt2d(result);
     return lresult;
   } catch (...) {
-    return (TColgp_Array1OfPnt2d *)0;
+    return (gp_Pnt2d *)0;
   }
 }
 
@@ -61999,7 +62173,7 @@ EXPORT void _wrap_Poly_PolygonOnTriangulation_Delete (Poly_PolygonOnTriangulatio
 
 
 
-#include <MMgt_TShared.hxx>
+#include <Standard_Transient.hxx>
 #include <Geom2d_Geometry.hxx>
 #include <Geom2d_Point.hxx>
 #include <Geom2d_CartesianPoint.hxx>
@@ -85326,6 +85500,7 @@ EXPORT void _wrap_BRepLib_BoundingVertex (NCollection_List< TopoDS_Shape > *larg
 
 
 
+#include <Standard_Handle.hxx>
 #include <BRepFilletAPI_MakeFillet.hxx>
 #include <BRepFilletAPI_MakeChamfer.hxx>
   
@@ -85427,7 +85602,39 @@ EXPORT BRepFilletAPI_MakeFillet *_wrap_new_BRepFilletAPI_MakeFillet__SWIG_1 (Top
 }
 
 
-EXPORT void _wrap_BRepFilletAPI_MakeFillet_Add (BRepFilletAPI_MakeFillet *larg1, Standard_Real larg2, TopoDS_Edge *larg3) {
+EXPORT void _wrap_BRepFilletAPI_MakeFillet_Add__SWIG_0 (BRepFilletAPI_MakeFillet *larg1, TopoDS_Edge *larg2) {
+  BRepFilletAPI_MakeFillet *arg1 = (BRepFilletAPI_MakeFillet *) 0 ;
+  TopoDS_Edge *arg2 = 0 ;
+  
+  arg1 = larg1;
+  arg2 = larg2;
+  try {
+    {
+      try
+      {
+        OCC_CATCH_SIGNALS
+        (arg1)->Add((TopoDS_Edge const &)*arg2);
+      }
+      catch(Standard_Failure const& error)
+      {
+        char *error_name = (char*) error.DynamicType()->Name();
+        char *error_message = (char*) error.GetMessageString();
+        std::string message;
+        if (error_name) message += std::string(error_name) + "\n";
+        if (error_message) message += std::string(error_message);
+        // log SWIG specific debug information
+        message += "\nwrapper details:\n  * symname: BRepFilletAPI_MakeFillet_Add\n  * wrapname: _wrap_BRepFilletAPI_MakeFillet_Add__SWIG_0\n  * fulldecl: void BRepFilletAPI_MakeFillet::Add(TopoDS_Edge const &)";
+        signal_lisp_error(message.c_str());
+      }
+    }
+    
+  } catch (...) {
+    
+  }
+}
+
+
+EXPORT void _wrap_BRepFilletAPI_MakeFillet_Add__SWIG_1 (BRepFilletAPI_MakeFillet *larg1, Standard_Real larg2, TopoDS_Edge *larg3) {
   BRepFilletAPI_MakeFillet *arg1 = (BRepFilletAPI_MakeFillet *) 0 ;
   Standard_Real arg2 ;
   TopoDS_Edge *arg3 = 0 ;
@@ -85450,7 +85657,111 @@ EXPORT void _wrap_BRepFilletAPI_MakeFillet_Add (BRepFilletAPI_MakeFillet *larg1,
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepFilletAPI_MakeFillet_Add\n  * wrapname: _wrap_BRepFilletAPI_MakeFillet_Add\n  * fulldecl: void BRepFilletAPI_MakeFillet::Add(Standard_Real const,TopoDS_Edge const &)";
+        message += "\nwrapper details:\n  * symname: BRepFilletAPI_MakeFillet_Add\n  * wrapname: _wrap_BRepFilletAPI_MakeFillet_Add__SWIG_1\n  * fulldecl: void BRepFilletAPI_MakeFillet::Add(Standard_Real const,TopoDS_Edge const &)";
+        signal_lisp_error(message.c_str());
+      }
+    }
+    
+  } catch (...) {
+    
+  }
+}
+
+
+EXPORT void _wrap_BRepFilletAPI_MakeFillet_Add__SWIG_2 (BRepFilletAPI_MakeFillet *larg1, Standard_Real larg2, Standard_Real larg3, TopoDS_Edge *larg4) {
+  BRepFilletAPI_MakeFillet *arg1 = (BRepFilletAPI_MakeFillet *) 0 ;
+  Standard_Real arg2 ;
+  Standard_Real arg3 ;
+  TopoDS_Edge *arg4 = 0 ;
+  
+  arg1 = larg1;
+  arg2 = larg2;
+  arg3 = larg3;
+  arg4 = larg4;
+  try {
+    {
+      try
+      {
+        OCC_CATCH_SIGNALS
+        (arg1)->Add(arg2,arg3,(TopoDS_Edge const &)*arg4);
+      }
+      catch(Standard_Failure const& error)
+      {
+        char *error_name = (char*) error.DynamicType()->Name();
+        char *error_message = (char*) error.GetMessageString();
+        std::string message;
+        if (error_name) message += std::string(error_name) + "\n";
+        if (error_message) message += std::string(error_message);
+        // log SWIG specific debug information
+        message += "\nwrapper details:\n  * symname: BRepFilletAPI_MakeFillet_Add\n  * wrapname: _wrap_BRepFilletAPI_MakeFillet_Add__SWIG_2\n  * fulldecl: void BRepFilletAPI_MakeFillet::Add(Standard_Real const,Standard_Real const,TopoDS_Edge const &)";
+        signal_lisp_error(message.c_str());
+      }
+    }
+    
+  } catch (...) {
+    
+  }
+}
+
+
+EXPORT void _wrap_BRepFilletAPI_MakeFillet_Add__SWIG_3 (BRepFilletAPI_MakeFillet *larg1, opencascade::handle< Law_Function > *larg2, TopoDS_Edge *larg3) {
+  BRepFilletAPI_MakeFillet *arg1 = (BRepFilletAPI_MakeFillet *) 0 ;
+  opencascade::handle< Law_Function > *arg2 = 0 ;
+  TopoDS_Edge *arg3 = 0 ;
+  
+  arg1 = larg1;
+  arg2 = larg2;
+  arg3 = larg3;
+  try {
+    {
+      try
+      {
+        OCC_CATCH_SIGNALS
+        (arg1)->Add((opencascade::handle< Law_Function > const &)*arg2,(TopoDS_Edge const &)*arg3);
+      }
+      catch(Standard_Failure const& error)
+      {
+        char *error_name = (char*) error.DynamicType()->Name();
+        char *error_message = (char*) error.GetMessageString();
+        std::string message;
+        if (error_name) message += std::string(error_name) + "\n";
+        if (error_message) message += std::string(error_message);
+        // log SWIG specific debug information
+        message += "\nwrapper details:\n  * symname: BRepFilletAPI_MakeFillet_Add\n  * wrapname: _wrap_BRepFilletAPI_MakeFillet_Add__SWIG_3\n  * fulldecl: void BRepFilletAPI_MakeFillet::Add(opencascade::handle< Law_Function > const &,TopoDS_Edge const &)";
+        signal_lisp_error(message.c_str());
+      }
+    }
+    
+  } catch (...) {
+    
+  }
+}
+
+
+EXPORT void _wrap_BRepFilletAPI_MakeFillet_Add__SWIG_4 (BRepFilletAPI_MakeFillet *larg1, TColgp_Array1OfPnt2d *larg2, TopoDS_Edge *larg3) {
+  BRepFilletAPI_MakeFillet *arg1 = (BRepFilletAPI_MakeFillet *) 0 ;
+  TColgp_Array1OfPnt2d *arg2 = 0 ;
+  TopoDS_Edge *arg3 = 0 ;
+  
+  arg1 = larg1;
+  arg2 = larg2;
+  arg3 = larg3;
+  try {
+    {
+      try
+      {
+        OCC_CATCH_SIGNALS
+        (arg1)->Add((TColgp_Array1OfPnt2d const &)*arg2,(TopoDS_Edge const &)*arg3);
+      }
+      catch(Standard_Failure const& error)
+      {
+        char *error_name = (char*) error.DynamicType()->Name();
+        char *error_message = (char*) error.GetMessageString();
+        std::string message;
+        if (error_name) message += std::string(error_name) + "\n";
+        if (error_message) message += std::string(error_message);
+        // log SWIG specific debug information
+        message += "\nwrapper details:\n  * symname: BRepFilletAPI_MakeFillet_Add\n  * wrapname: _wrap_BRepFilletAPI_MakeFillet_Add__SWIG_4\n  * fulldecl: void BRepFilletAPI_MakeFillet::Add(TColgp_Array1OfPnt2d const &,TopoDS_Edge const &)";
         signal_lisp_error(message.c_str());
       }
     }
@@ -85524,22 +85835,18 @@ EXPORT BRepFilletAPI_MakeChamfer *_wrap_new_BRepFilletAPI_MakeChamfer (TopoDS_Sh
 }
 
 
-EXPORT void _wrap_BRepFilletAPI_MakeChamfer_Add (BRepFilletAPI_MakeChamfer *larg1, Standard_Real larg2, TopoDS_Edge *larg3, TopoDS_Face *larg4) {
+EXPORT void _wrap_BRepFilletAPI_MakeChamfer_Add__SWIG_0 (BRepFilletAPI_MakeChamfer *larg1, TopoDS_Edge *larg2) {
   BRepFilletAPI_MakeChamfer *arg1 = (BRepFilletAPI_MakeChamfer *) 0 ;
-  Standard_Real arg2 ;
-  TopoDS_Edge *arg3 = 0 ;
-  TopoDS_Face *arg4 = 0 ;
+  TopoDS_Edge *arg2 = 0 ;
   
   arg1 = larg1;
   arg2 = larg2;
-  arg3 = larg3;
-  arg4 = larg4;
   try {
     {
       try
       {
         OCC_CATCH_SIGNALS
-        (arg1)->Add(arg2,(TopoDS_Edge const &)*arg3,(TopoDS_Face const &)*arg4);
+        (arg1)->Add((TopoDS_Edge const &)*arg2);
       }
       catch(Standard_Failure const& error)
       {
@@ -85549,7 +85856,41 @@ EXPORT void _wrap_BRepFilletAPI_MakeChamfer_Add (BRepFilletAPI_MakeChamfer *larg
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepFilletAPI_MakeChamfer_Add\n  * wrapname: _wrap_BRepFilletAPI_MakeChamfer_Add\n  * fulldecl: void BRepFilletAPI_MakeChamfer::Add(Standard_Real const,TopoDS_Edge const &,TopoDS_Face const &)";
+        message += "\nwrapper details:\n  * symname: BRepFilletAPI_MakeChamfer_Add\n  * wrapname: _wrap_BRepFilletAPI_MakeChamfer_Add__SWIG_0\n  * fulldecl: void BRepFilletAPI_MakeChamfer::Add(TopoDS_Edge const &)";
+        signal_lisp_error(message.c_str());
+      }
+    }
+    
+  } catch (...) {
+    
+  }
+}
+
+
+EXPORT void _wrap_BRepFilletAPI_MakeChamfer_Add__SWIG_1 (BRepFilletAPI_MakeChamfer *larg1, Standard_Real larg2, TopoDS_Edge *larg3) {
+  BRepFilletAPI_MakeChamfer *arg1 = (BRepFilletAPI_MakeChamfer *) 0 ;
+  Standard_Real arg2 ;
+  TopoDS_Edge *arg3 = 0 ;
+  
+  arg1 = larg1;
+  arg2 = larg2;
+  arg3 = larg3;
+  try {
+    {
+      try
+      {
+        OCC_CATCH_SIGNALS
+        (arg1)->Add(arg2,(TopoDS_Edge const &)*arg3);
+      }
+      catch(Standard_Failure const& error)
+      {
+        char *error_name = (char*) error.DynamicType()->Name();
+        char *error_message = (char*) error.GetMessageString();
+        std::string message;
+        if (error_name) message += std::string(error_name) + "\n";
+        if (error_message) message += std::string(error_message);
+        // log SWIG specific debug information
+        message += "\nwrapper details:\n  * symname: BRepFilletAPI_MakeChamfer_Add\n  * wrapname: _wrap_BRepFilletAPI_MakeChamfer_Add__SWIG_1\n  * fulldecl: void BRepFilletAPI_MakeChamfer::Add(Standard_Real const,TopoDS_Edge const &)";
         signal_lisp_error(message.c_str());
       }
     }
@@ -85820,43 +86161,7 @@ EXPORT ShapeBuild_ReShape *_wrap_new_ShapeBuild_ReShape () {
 }
 
 
-EXPORT void _wrap_ShapeBuild_ReShape_Replace__SWIG_0 (ShapeBuild_ReShape *larg1, TopoDS_Shape *larg2, TopoDS_Shape *larg3, bool larg4) {
-  ShapeBuild_ReShape *arg1 = (ShapeBuild_ReShape *) 0 ;
-  TopoDS_Shape *arg2 = 0 ;
-  TopoDS_Shape *arg3 = 0 ;
-  Standard_Boolean arg4 ;
-  
-  arg1 = larg1;
-  arg2 = larg2;
-  arg3 = larg3;
-  arg4 = (bool)larg4;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        (arg1)->Replace((TopoDS_Shape const &)*arg2,(TopoDS_Shape const &)*arg3,arg4);
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: ShapeBuild_ReShape_Replace\n  * wrapname: _wrap_ShapeBuild_ReShape_Replace__SWIG_0\n  * fulldecl: void ShapeBuild_ReShape::Replace(TopoDS_Shape const &,TopoDS_Shape const &,Standard_Boolean const)";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    
-  } catch (...) {
-    
-  }
-}
-
-
-EXPORT void _wrap_ShapeBuild_ReShape_Replace__SWIG_1 (ShapeBuild_ReShape *larg1, TopoDS_Shape *larg2, TopoDS_Shape *larg3) {
+EXPORT void _wrap_ShapeBuild_ReShape_Replace (ShapeBuild_ReShape *larg1, TopoDS_Shape *larg2, TopoDS_Shape *larg3) {
   ShapeBuild_ReShape *arg1 = (ShapeBuild_ReShape *) 0 ;
   TopoDS_Shape *arg2 = 0 ;
   TopoDS_Shape *arg3 = 0 ;
@@ -85879,7 +86184,7 @@ EXPORT void _wrap_ShapeBuild_ReShape_Replace__SWIG_1 (ShapeBuild_ReShape *larg1,
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: ShapeBuild_ReShape_Replace\n  * wrapname: _wrap_ShapeBuild_ReShape_Replace__SWIG_1\n  * fulldecl: void ShapeBuild_ReShape::Replace(TopoDS_Shape const &,TopoDS_Shape const &)";
+        message += "\nwrapper details:\n  * symname: ShapeBuild_ReShape_Replace\n  * wrapname: _wrap_ShapeBuild_ReShape_Replace\n  * fulldecl: void ShapeBuild_ReShape::Replace(TopoDS_Shape const &,TopoDS_Shape const &)";
         signal_lisp_error(message.c_str());
       }
     }
@@ -87040,20 +87345,26 @@ EXPORT void _wrap_delete_IGESControl_Controller (IGESControl_Controller *larg1) 
 
 #include <ShapeFix.hxx>
   
-EXPORT bool _wrap_ShapeFix_SameParameter__SWIG_0 (TopoDS_Shape *larg1, bool larg2) {
+EXPORT bool _wrap_ShapeFix_SameParameter__SWIG_0 (TopoDS_Shape *larg1, bool larg2, Standard_Real larg3, Message_ProgressRange *larg4, opencascade::handle< ShapeExtend_BasicMsgRegistrator > *larg5) {
   bool lresult = (bool)0 ;
   TopoDS_Shape *arg1 = 0 ;
   Standard_Boolean arg2 ;
+  Standard_Real arg3 ;
+  Message_ProgressRange *arg4 = 0 ;
+  opencascade::handle< ShapeExtend_BasicMsgRegistrator > *arg5 = 0 ;
   Standard_Boolean result;
   
   arg1 = larg1;
   arg2 = (bool)larg2;
+  arg3 = larg3;
+  arg4 = larg4;
+  arg5 = larg5;
   try {
     {
       try
       {
         OCC_CATCH_SIGNALS
-        result = (Standard_Boolean)ShapeFix::SameParameter((TopoDS_Shape const &)*arg1,arg2);
+        result = (Standard_Boolean)ShapeFix::SameParameter((TopoDS_Shape const &)*arg1,arg2,arg3,(Message_ProgressRange const &)*arg4,(opencascade::handle< ShapeExtend_BasicMsgRegistrator > const &)*arg5);
       }
       catch(Standard_Failure const& error)
       {
@@ -87063,7 +87374,7 @@ EXPORT bool _wrap_ShapeFix_SameParameter__SWIG_0 (TopoDS_Shape *larg1, bool larg
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: ShapeFix_SameParameter\n  * wrapname: _wrap_ShapeFix_SameParameter__SWIG_0\n  * fulldecl: Standard_Boolean ShapeFix::SameParameter(TopoDS_Shape const &,Standard_Boolean const)";
+        message += "\nwrapper details:\n  * symname: ShapeFix_SameParameter\n  * wrapname: _wrap_ShapeFix_SameParameter__SWIG_0\n  * fulldecl: Standard_Boolean ShapeFix::SameParameter(TopoDS_Shape const &,Standard_Boolean const,Standard_Real const,Message_ProgressRange const &,opencascade::handle< ShapeExtend_BasicMsgRegistrator > const &)";
         signal_lisp_error(message.c_str());
       }
     }
@@ -87075,7 +87386,46 @@ EXPORT bool _wrap_ShapeFix_SameParameter__SWIG_0 (TopoDS_Shape *larg1, bool larg
 }
 
 
-EXPORT bool _wrap_ShapeFix_SameParameter__SWIG_1 (TopoDS_Shape *larg1, bool larg2, Standard_Real larg3) {
+EXPORT bool _wrap_ShapeFix_SameParameter__SWIG_1 (TopoDS_Shape *larg1, bool larg2, Standard_Real larg3, Message_ProgressRange *larg4) {
+  bool lresult = (bool)0 ;
+  TopoDS_Shape *arg1 = 0 ;
+  Standard_Boolean arg2 ;
+  Standard_Real arg3 ;
+  Message_ProgressRange *arg4 = 0 ;
+  Standard_Boolean result;
+  
+  arg1 = larg1;
+  arg2 = (bool)larg2;
+  arg3 = larg3;
+  arg4 = larg4;
+  try {
+    {
+      try
+      {
+        OCC_CATCH_SIGNALS
+        result = (Standard_Boolean)ShapeFix::SameParameter((TopoDS_Shape const &)*arg1,arg2,arg3,(Message_ProgressRange const &)*arg4);
+      }
+      catch(Standard_Failure const& error)
+      {
+        char *error_name = (char*) error.DynamicType()->Name();
+        char *error_message = (char*) error.GetMessageString();
+        std::string message;
+        if (error_name) message += std::string(error_name) + "\n";
+        if (error_message) message += std::string(error_message);
+        // log SWIG specific debug information
+        message += "\nwrapper details:\n  * symname: ShapeFix_SameParameter\n  * wrapname: _wrap_ShapeFix_SameParameter__SWIG_1\n  * fulldecl: Standard_Boolean ShapeFix::SameParameter(TopoDS_Shape const &,Standard_Boolean const,Standard_Real const,Message_ProgressRange const &)";
+        signal_lisp_error(message.c_str());
+      }
+    }
+    lresult = (bool)result;
+    return lresult;
+  } catch (...) {
+    return (bool)0;
+  }
+}
+
+
+EXPORT bool _wrap_ShapeFix_SameParameter__SWIG_2 (TopoDS_Shape *larg1, bool larg2, Standard_Real larg3) {
   bool lresult = (bool)0 ;
   TopoDS_Shape *arg1 = 0 ;
   Standard_Boolean arg2 ;
@@ -87100,7 +87450,7 @@ EXPORT bool _wrap_ShapeFix_SameParameter__SWIG_1 (TopoDS_Shape *larg1, bool larg
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: ShapeFix_SameParameter\n  * wrapname: _wrap_ShapeFix_SameParameter__SWIG_1\n  * fulldecl: Standard_Boolean ShapeFix::SameParameter(TopoDS_Shape const &,Standard_Boolean const,Standard_Real const)";
+        message += "\nwrapper details:\n  * symname: ShapeFix_SameParameter\n  * wrapname: _wrap_ShapeFix_SameParameter__SWIG_2\n  * fulldecl: Standard_Boolean ShapeFix::SameParameter(TopoDS_Shape const &,Standard_Boolean const,Standard_Real const)";
         signal_lisp_error(message.c_str());
       }
     }
@@ -87112,24 +87462,20 @@ EXPORT bool _wrap_ShapeFix_SameParameter__SWIG_1 (TopoDS_Shape *larg1, bool larg
 }
 
 
-EXPORT bool _wrap_ShapeFix_SameParameter__SWIG_2 (TopoDS_Shape *larg1, bool larg2, Standard_Real larg3, Handle_Message_ProgressIndicator *larg4) {
+EXPORT bool _wrap_ShapeFix_SameParameter__SWIG_3 (TopoDS_Shape *larg1, bool larg2) {
   bool lresult = (bool)0 ;
   TopoDS_Shape *arg1 = 0 ;
   Standard_Boolean arg2 ;
-  Standard_Real arg3 ;
-  Handle_Message_ProgressIndicator *arg4 = 0 ;
   Standard_Boolean result;
   
   arg1 = larg1;
   arg2 = (bool)larg2;
-  arg3 = larg3;
-  arg4 = larg4;
   try {
     {
       try
       {
         OCC_CATCH_SIGNALS
-        result = (Standard_Boolean)ShapeFix::SameParameter((TopoDS_Shape const &)*arg1,arg2,arg3,(Handle_Message_ProgressIndicator const &)*arg4);
+        result = (Standard_Boolean)ShapeFix::SameParameter((TopoDS_Shape const &)*arg1,arg2);
       }
       catch(Standard_Failure const& error)
       {
@@ -87139,48 +87485,7 @@ EXPORT bool _wrap_ShapeFix_SameParameter__SWIG_2 (TopoDS_Shape *larg1, bool larg
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: ShapeFix_SameParameter\n  * wrapname: _wrap_ShapeFix_SameParameter__SWIG_2\n  * fulldecl: Standard_Boolean ShapeFix::SameParameter(TopoDS_Shape const &,Standard_Boolean const,Standard_Real const,Handle_Message_ProgressIndicator const &)";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = (bool)result;
-    return lresult;
-  } catch (...) {
-    return (bool)0;
-  }
-}
-
-
-EXPORT bool _wrap_ShapeFix_SameParameter__SWIG_3 (TopoDS_Shape *larg1, bool larg2, Standard_Real larg3, Handle_Message_ProgressIndicator *larg4, Handle_ShapeExtend_BasicMsgRegistrator *larg5) {
-  bool lresult = (bool)0 ;
-  TopoDS_Shape *arg1 = 0 ;
-  Standard_Boolean arg2 ;
-  Standard_Real arg3 ;
-  Handle_Message_ProgressIndicator *arg4 = 0 ;
-  Handle_ShapeExtend_BasicMsgRegistrator *arg5 = 0 ;
-  Standard_Boolean result;
-  
-  arg1 = larg1;
-  arg2 = (bool)larg2;
-  arg3 = larg3;
-  arg4 = larg4;
-  arg5 = larg5;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (Standard_Boolean)ShapeFix::SameParameter((TopoDS_Shape const &)*arg1,arg2,arg3,(Handle_Message_ProgressIndicator const &)*arg4,(Handle_ShapeExtend_BasicMsgRegistrator const &)*arg5);
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: ShapeFix_SameParameter\n  * wrapname: _wrap_ShapeFix_SameParameter__SWIG_3\n  * fulldecl: Standard_Boolean ShapeFix::SameParameter(TopoDS_Shape const &,Standard_Boolean const,Standard_Real const,Handle_Message_ProgressIndicator const &,Handle_ShapeExtend_BasicMsgRegistrator const &)";
+        message += "\nwrapper details:\n  * symname: ShapeFix_SameParameter\n  * wrapname: _wrap_ShapeFix_SameParameter__SWIG_3\n  * fulldecl: Standard_Boolean ShapeFix::SameParameter(TopoDS_Shape const &,Standard_Boolean const)";
         signal_lisp_error(message.c_str());
       }
     }
@@ -88145,13 +88450,13 @@ EXPORT bool _wrap_ShapeFix_Shape_Perform__SWIG_0 (Handle_ShapeFix_Shape *larg1) 
 }
 
 
-SWIGINTERN Standard_Boolean Handle_ShapeFix_Shape_Perform__SWIG_1(Handle_ShapeFix_Shape *self,Handle_Message_ProgressIndicator const &theProgress){
+SWIGINTERN Standard_Boolean Handle_ShapeFix_Shape_Perform__SWIG_1(Handle_ShapeFix_Shape *self,Message_ProgressRange const &theProgress){
     return (*self)->Perform(theProgress);
   }
-EXPORT bool _wrap_ShapeFix_Shape_Perform__SWIG_1 (Handle_ShapeFix_Shape *larg1, Handle_Message_ProgressIndicator *larg2) {
+EXPORT bool _wrap_ShapeFix_Shape_Perform__SWIG_1 (Handle_ShapeFix_Shape *larg1, Message_ProgressRange *larg2) {
   bool lresult = (bool)0 ;
   Handle_ShapeFix_Shape *arg1 = (Handle_ShapeFix_Shape *) 0 ;
-  Handle_Message_ProgressIndicator *arg2 = 0 ;
+  Message_ProgressRange *arg2 = 0 ;
   Standard_Boolean result;
   
   arg1 = larg1;
@@ -88161,7 +88466,7 @@ EXPORT bool _wrap_ShapeFix_Shape_Perform__SWIG_1 (Handle_ShapeFix_Shape *larg1, 
       try
       {
         OCC_CATCH_SIGNALS
-        result = (Standard_Boolean)Handle_ShapeFix_Shape_Perform__SWIG_1(arg1,(Handle_Message_ProgressIndicator const &)*arg2);
+        result = (Standard_Boolean)Handle_ShapeFix_Shape_Perform__SWIG_1(arg1,(Message_ProgressRange const &)*arg2);
       }
       catch(Standard_Failure const& error)
       {
@@ -88171,7 +88476,7 @@ EXPORT bool _wrap_ShapeFix_Shape_Perform__SWIG_1 (Handle_ShapeFix_Shape *larg1, 
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: ShapeFix_Shape_Perform\n  * wrapname: _wrap_ShapeFix_Shape_Perform__SWIG_1\n  * fulldecl: Standard_Boolean Handle_ShapeFix_Shape::Perform(Handle_Message_ProgressIndicator const &)";
+        message += "\nwrapper details:\n  * symname: ShapeFix_Shape_Perform\n  * wrapname: _wrap_ShapeFix_Shape_Perform__SWIG_1\n  * fulldecl: Standard_Boolean Handle_ShapeFix_Shape::Perform(Message_ProgressRange const &)";
         signal_lisp_error(message.c_str());
       }
     }
@@ -95670,9 +95975,9 @@ EXPORT void _wrap_BndLib_Add3dCurve_AddGenCurv (Adaptor3d_Curve *larg1, Standard
 
 
 
+  #include <Standard_Handle.hxx>
   #include <Adaptor2d_Curve2d.hxx>
   #include <Geom2dAdaptor_Curve.hxx>
-  #include <Adaptor2d_HCurve2d.hxx>
  
 EXPORT gp_Pnt2d *_wrap_Adaptor2d_Curve2d_Value (Adaptor2d_Curve2d *larg1, Standard_Real larg2) {
   gp_Pnt2d * lresult = (gp_Pnt2d *)0 ;
@@ -95770,9 +96075,9 @@ EXPORT Geom2dAdaptor_Curve *_wrap_new_Geom2dAdaptor_Curve__SWIG_0 () {
 }
 
 
-EXPORT Geom2dAdaptor_Curve *_wrap_new_Geom2dAdaptor_Curve__SWIG_1 (Handle_Geom2d_Curve *larg1) {
+EXPORT Geom2dAdaptor_Curve *_wrap_new_Geom2dAdaptor_Curve__SWIG_1 (opencascade::handle< Geom2d_Curve > *larg1) {
   Geom2dAdaptor_Curve * lresult = (Geom2dAdaptor_Curve *)0 ;
-  Handle_Geom2d_Curve *arg1 = 0 ;
+  opencascade::handle< Geom2d_Curve > *arg1 = 0 ;
   Geom2dAdaptor_Curve *result = 0 ;
   
   arg1 = larg1;
@@ -95781,7 +96086,7 @@ EXPORT Geom2dAdaptor_Curve *_wrap_new_Geom2dAdaptor_Curve__SWIG_1 (Handle_Geom2d
       try
       {
         OCC_CATCH_SIGNALS
-        result = (Geom2dAdaptor_Curve *)new Geom2dAdaptor_Curve((Handle_Geom2d_Curve const &)*arg1);
+        result = (Geom2dAdaptor_Curve *)new Geom2dAdaptor_Curve((opencascade::handle< Geom2d_Curve > const &)*arg1);
       }
       catch(Standard_Failure const& error)
       {
@@ -95791,7 +96096,7 @@ EXPORT Geom2dAdaptor_Curve *_wrap_new_Geom2dAdaptor_Curve__SWIG_1 (Handle_Geom2d
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: new_Geom2dAdaptor_Curve\n  * wrapname: _wrap_new_Geom2dAdaptor_Curve__SWIG_1\n  * fulldecl: Geom2dAdaptor_Curve::Geom2dAdaptor_Curve(Handle_Geom2d_Curve const &)";
+        message += "\nwrapper details:\n  * symname: new_Geom2dAdaptor_Curve\n  * wrapname: _wrap_new_Geom2dAdaptor_Curve__SWIG_1\n  * fulldecl: Geom2dAdaptor_Curve::Geom2dAdaptor_Curve(opencascade::handle< Geom2d_Curve > const &)";
         signal_lisp_error(message.c_str());
       }
     }
@@ -95803,9 +96108,9 @@ EXPORT Geom2dAdaptor_Curve *_wrap_new_Geom2dAdaptor_Curve__SWIG_1 (Handle_Geom2d
 }
 
 
-EXPORT Geom2dAdaptor_Curve *_wrap_new_Geom2dAdaptor_Curve__SWIG_2 (Handle_Geom2d_Curve *larg1, Standard_Real larg2, Standard_Real larg3) {
+EXPORT Geom2dAdaptor_Curve *_wrap_new_Geom2dAdaptor_Curve__SWIG_2 (opencascade::handle< Geom2d_Curve > *larg1, Standard_Real larg2, Standard_Real larg3) {
   Geom2dAdaptor_Curve * lresult = (Geom2dAdaptor_Curve *)0 ;
-  Handle_Geom2d_Curve *arg1 = 0 ;
+  opencascade::handle< Geom2d_Curve > *arg1 = 0 ;
   Standard_Real arg2 ;
   Standard_Real arg3 ;
   Geom2dAdaptor_Curve *result = 0 ;
@@ -95818,7 +96123,7 @@ EXPORT Geom2dAdaptor_Curve *_wrap_new_Geom2dAdaptor_Curve__SWIG_2 (Handle_Geom2d
       try
       {
         OCC_CATCH_SIGNALS
-        result = (Geom2dAdaptor_Curve *)new Geom2dAdaptor_Curve((Handle_Geom2d_Curve const &)*arg1,arg2,arg3);
+        result = (Geom2dAdaptor_Curve *)new Geom2dAdaptor_Curve((opencascade::handle< Geom2d_Curve > const &)*arg1,arg2,arg3);
       }
       catch(Standard_Failure const& error)
       {
@@ -95828,7 +96133,7 @@ EXPORT Geom2dAdaptor_Curve *_wrap_new_Geom2dAdaptor_Curve__SWIG_2 (Handle_Geom2d
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: new_Geom2dAdaptor_Curve\n  * wrapname: _wrap_new_Geom2dAdaptor_Curve__SWIG_2\n  * fulldecl: Geom2dAdaptor_Curve::Geom2dAdaptor_Curve(Handle_Geom2d_Curve const &,Standard_Real const,Standard_Real const)";
+        message += "\nwrapper details:\n  * symname: new_Geom2dAdaptor_Curve\n  * wrapname: _wrap_new_Geom2dAdaptor_Curve__SWIG_2\n  * fulldecl: Geom2dAdaptor_Curve::Geom2dAdaptor_Curve(opencascade::handle< Geom2d_Curve > const &,Standard_Real const,Standard_Real const)";
         signal_lisp_error(message.c_str());
       }
     }
@@ -95840,9 +96145,9 @@ EXPORT Geom2dAdaptor_Curve *_wrap_new_Geom2dAdaptor_Curve__SWIG_2 (Handle_Geom2d
 }
 
 
-EXPORT void _wrap_Geom2dAdaptor_Curve_Load__SWIG_0 (Geom2dAdaptor_Curve *larg1, Handle_Geom2d_Curve *larg2) {
+EXPORT void _wrap_Geom2dAdaptor_Curve_Load__SWIG_0 (Geom2dAdaptor_Curve *larg1, opencascade::handle< Geom2d_Curve > *larg2) {
   Geom2dAdaptor_Curve *arg1 = (Geom2dAdaptor_Curve *) 0 ;
-  Handle_Geom2d_Curve *arg2 = 0 ;
+  opencascade::handle< Geom2d_Curve > *arg2 = 0 ;
   
   arg1 = larg1;
   arg2 = larg2;
@@ -95851,7 +96156,7 @@ EXPORT void _wrap_Geom2dAdaptor_Curve_Load__SWIG_0 (Geom2dAdaptor_Curve *larg1, 
       try
       {
         OCC_CATCH_SIGNALS
-        (arg1)->Load((Handle_Geom2d_Curve const &)*arg2);
+        (arg1)->Load((opencascade::handle< Geom2d_Curve > const &)*arg2);
       }
       catch(Standard_Failure const& error)
       {
@@ -95861,7 +96166,7 @@ EXPORT void _wrap_Geom2dAdaptor_Curve_Load__SWIG_0 (Geom2dAdaptor_Curve *larg1, 
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Geom2dAdaptor_Curve_Load\n  * wrapname: _wrap_Geom2dAdaptor_Curve_Load__SWIG_0\n  * fulldecl: void Geom2dAdaptor_Curve::Load(Handle_Geom2d_Curve const &)";
+        message += "\nwrapper details:\n  * symname: Geom2dAdaptor_Curve_Load\n  * wrapname: _wrap_Geom2dAdaptor_Curve_Load__SWIG_0\n  * fulldecl: void Geom2dAdaptor_Curve::Load(opencascade::handle< Geom2d_Curve > const &)";
         signal_lisp_error(message.c_str());
       }
     }
@@ -95872,9 +96177,9 @@ EXPORT void _wrap_Geom2dAdaptor_Curve_Load__SWIG_0 (Geom2dAdaptor_Curve *larg1, 
 }
 
 
-EXPORT void _wrap_Geom2dAdaptor_Curve_Load__SWIG_1 (Geom2dAdaptor_Curve *larg1, Handle_Geom2d_Curve *larg2, Standard_Real larg3, Standard_Real larg4) {
+EXPORT void _wrap_Geom2dAdaptor_Curve_Load__SWIG_1 (Geom2dAdaptor_Curve *larg1, opencascade::handle< Geom2d_Curve > *larg2, Standard_Real larg3, Standard_Real larg4) {
   Geom2dAdaptor_Curve *arg1 = (Geom2dAdaptor_Curve *) 0 ;
-  Handle_Geom2d_Curve *arg2 = 0 ;
+  opencascade::handle< Geom2d_Curve > *arg2 = 0 ;
   Standard_Real arg3 ;
   Standard_Real arg4 ;
   
@@ -95887,7 +96192,7 @@ EXPORT void _wrap_Geom2dAdaptor_Curve_Load__SWIG_1 (Geom2dAdaptor_Curve *larg1, 
       try
       {
         OCC_CATCH_SIGNALS
-        (arg1)->Load((Handle_Geom2d_Curve const &)*arg2,arg3,arg4);
+        (arg1)->Load((opencascade::handle< Geom2d_Curve > const &)*arg2,arg3,arg4);
       }
       catch(Standard_Failure const& error)
       {
@@ -95897,7 +96202,7 @@ EXPORT void _wrap_Geom2dAdaptor_Curve_Load__SWIG_1 (Geom2dAdaptor_Curve *larg1, 
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Geom2dAdaptor_Curve_Load\n  * wrapname: _wrap_Geom2dAdaptor_Curve_Load__SWIG_1\n  * fulldecl: void Geom2dAdaptor_Curve::Load(Handle_Geom2d_Curve const &,Standard_Real const,Standard_Real const)";
+        message += "\nwrapper details:\n  * symname: Geom2dAdaptor_Curve_Load\n  * wrapname: _wrap_Geom2dAdaptor_Curve_Load__SWIG_1\n  * fulldecl: void Geom2dAdaptor_Curve::Load(opencascade::handle< Geom2d_Curve > const &,Standard_Real const,Standard_Real const)";
         signal_lisp_error(message.c_str());
       }
     }
@@ -95908,10 +96213,10 @@ EXPORT void _wrap_Geom2dAdaptor_Curve_Load__SWIG_1 (Geom2dAdaptor_Curve *larg1, 
 }
 
 
-EXPORT Handle_Geom2d_Curve *_wrap_Geom2dAdaptor_Curve_Curve (Geom2dAdaptor_Curve *larg1) {
-  Handle_Geom2d_Curve * lresult = (Handle_Geom2d_Curve *)0 ;
+EXPORT opencascade::handle< Geom2d_Curve > *_wrap_Geom2dAdaptor_Curve_Curve (Geom2dAdaptor_Curve *larg1) {
+  opencascade::handle< Geom2d_Curve > * lresult = (opencascade::handle< Geom2d_Curve > *)0 ;
   Geom2dAdaptor_Curve *arg1 = (Geom2dAdaptor_Curve *) 0 ;
-  Handle_Geom2d_Curve *result = 0 ;
+  opencascade::handle< Geom2d_Curve > *result = 0 ;
   
   arg1 = larg1;
   try {
@@ -95919,7 +96224,7 @@ EXPORT Handle_Geom2d_Curve *_wrap_Geom2dAdaptor_Curve_Curve (Geom2dAdaptor_Curve
       try
       {
         OCC_CATCH_SIGNALS
-        result = (Handle_Geom2d_Curve *) &((Geom2dAdaptor_Curve const *)arg1)->Curve();
+        result = (opencascade::handle< Geom2d_Curve > *) &((Geom2dAdaptor_Curve const *)arg1)->Curve();
       }
       catch(Standard_Failure const& error)
       {
@@ -95929,14 +96234,14 @@ EXPORT Handle_Geom2d_Curve *_wrap_Geom2dAdaptor_Curve_Curve (Geom2dAdaptor_Curve
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Geom2dAdaptor_Curve_Curve\n  * wrapname: _wrap_Geom2dAdaptor_Curve_Curve\n  * fulldecl: Handle_Geom2d_Curve const & Geom2dAdaptor_Curve::Curve() const";
+        message += "\nwrapper details:\n  * symname: Geom2dAdaptor_Curve_Curve\n  * wrapname: _wrap_Geom2dAdaptor_Curve_Curve\n  * fulldecl: opencascade::handle< Geom2d_Curve > const & Geom2dAdaptor_Curve::Curve() const";
         signal_lisp_error(message.c_str());
       }
     }
     lresult = result;
     return lresult;
   } catch (...) {
-    return (Handle_Geom2d_Curve *)0;
+    return (opencascade::handle< Geom2d_Curve > *)0;
   }
 }
 
@@ -96109,13 +96414,13 @@ EXPORT void _wrap_Geom2dAdaptor_Curve_Intervals (Geom2dAdaptor_Curve *larg1, TCo
 }
 
 
-EXPORT Handle_Adaptor2d_HCurve2d *_wrap_Geom2dAdaptor_Curve_Trim (Geom2dAdaptor_Curve *larg1, Standard_Real larg2, Standard_Real larg3, Standard_Real larg4) {
-  Handle_Adaptor2d_HCurve2d * lresult = (Handle_Adaptor2d_HCurve2d *)0 ;
+EXPORT opencascade::handle< Adaptor2d_Curve2d > *_wrap_Geom2dAdaptor_Curve_Trim (Geom2dAdaptor_Curve *larg1, Standard_Real larg2, Standard_Real larg3, Standard_Real larg4) {
+  opencascade::handle< Adaptor2d_Curve2d > * lresult = (opencascade::handle< Adaptor2d_Curve2d > *)0 ;
   Geom2dAdaptor_Curve *arg1 = (Geom2dAdaptor_Curve *) 0 ;
   Standard_Real arg2 ;
   Standard_Real arg3 ;
   Standard_Real arg4 ;
-  Handle_Adaptor2d_HCurve2d result;
+  opencascade::handle< Adaptor2d_Curve2d > result;
   
   arg1 = larg1;
   arg2 = larg2;
@@ -96136,14 +96441,14 @@ EXPORT Handle_Adaptor2d_HCurve2d *_wrap_Geom2dAdaptor_Curve_Trim (Geom2dAdaptor_
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Geom2dAdaptor_Curve_Trim\n  * wrapname: _wrap_Geom2dAdaptor_Curve_Trim\n  * fulldecl: Handle_Adaptor2d_HCurve2d Geom2dAdaptor_Curve::Trim(Standard_Real const,Standard_Real const,Standard_Real const) const";
+        message += "\nwrapper details:\n  * symname: Geom2dAdaptor_Curve_Trim\n  * wrapname: _wrap_Geom2dAdaptor_Curve_Trim\n  * fulldecl: opencascade::handle< Adaptor2d_Curve2d > Geom2dAdaptor_Curve::Trim(Standard_Real const,Standard_Real const,Standard_Real const) const";
         signal_lisp_error(message.c_str());
       }
     }
-    lresult = new Handle_Adaptor2d_HCurve2d(result);
+    lresult = new opencascade::handle< Adaptor2d_Curve2d >(result);
     return lresult;
   } catch (...) {
-    return (Handle_Adaptor2d_HCurve2d *)0;
+    return (opencascade::handle< Adaptor2d_Curve2d > *)0;
   }
 }
 
@@ -96865,10 +97170,10 @@ EXPORT Standard_Integer _wrap_Geom2dAdaptor_Curve_NbSamples (Geom2dAdaptor_Curve
 }
 
 
-EXPORT Handle_Geom2d_BezierCurve *_wrap_Geom2dAdaptor_Curve_Bezier (Geom2dAdaptor_Curve *larg1) {
-  Handle_Geom2d_BezierCurve * lresult = (Handle_Geom2d_BezierCurve *)0 ;
+EXPORT opencascade::handle< Geom2d_BezierCurve > *_wrap_Geom2dAdaptor_Curve_Bezier (Geom2dAdaptor_Curve *larg1) {
+  opencascade::handle< Geom2d_BezierCurve > * lresult = (opencascade::handle< Geom2d_BezierCurve > *)0 ;
   Geom2dAdaptor_Curve *arg1 = (Geom2dAdaptor_Curve *) 0 ;
-  SwigValueWrapper< Handle_Geom2d_BezierCurve > result;
+  opencascade::handle< Geom2d_BezierCurve > result;
   
   arg1 = larg1;
   try {
@@ -96886,22 +97191,22 @@ EXPORT Handle_Geom2d_BezierCurve *_wrap_Geom2dAdaptor_Curve_Bezier (Geom2dAdapto
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Geom2dAdaptor_Curve_Bezier\n  * wrapname: _wrap_Geom2dAdaptor_Curve_Bezier\n  * fulldecl: Handle_Geom2d_BezierCurve Geom2dAdaptor_Curve::Bezier() const";
+        message += "\nwrapper details:\n  * symname: Geom2dAdaptor_Curve_Bezier\n  * wrapname: _wrap_Geom2dAdaptor_Curve_Bezier\n  * fulldecl: opencascade::handle< Geom2d_BezierCurve > Geom2dAdaptor_Curve::Bezier() const";
         signal_lisp_error(message.c_str());
       }
     }
-    lresult = new Handle_Geom2d_BezierCurve(result);
+    lresult = new opencascade::handle< Geom2d_BezierCurve >(result);
     return lresult;
   } catch (...) {
-    return (Handle_Geom2d_BezierCurve *)0;
+    return (opencascade::handle< Geom2d_BezierCurve > *)0;
   }
 }
 
 
-EXPORT Handle_Geom2d_BSplineCurve *_wrap_Geom2dAdaptor_Curve_BSpline (Geom2dAdaptor_Curve *larg1) {
-  Handle_Geom2d_BSplineCurve * lresult = (Handle_Geom2d_BSplineCurve *)0 ;
+EXPORT opencascade::handle< Geom2d_BSplineCurve > *_wrap_Geom2dAdaptor_Curve_BSpline (Geom2dAdaptor_Curve *larg1) {
+  opencascade::handle< Geom2d_BSplineCurve > * lresult = (opencascade::handle< Geom2d_BSplineCurve > *)0 ;
   Geom2dAdaptor_Curve *arg1 = (Geom2dAdaptor_Curve *) 0 ;
-  SwigValueWrapper< Handle_Geom2d_BSplineCurve > result;
+  opencascade::handle< Geom2d_BSplineCurve > result;
   
   arg1 = larg1;
   try {
@@ -96919,14 +97224,14 @@ EXPORT Handle_Geom2d_BSplineCurve *_wrap_Geom2dAdaptor_Curve_BSpline (Geom2dAdap
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Geom2dAdaptor_Curve_BSpline\n  * wrapname: _wrap_Geom2dAdaptor_Curve_BSpline\n  * fulldecl: Handle_Geom2d_BSplineCurve Geom2dAdaptor_Curve::BSpline() const";
+        message += "\nwrapper details:\n  * symname: Geom2dAdaptor_Curve_BSpline\n  * wrapname: _wrap_Geom2dAdaptor_Curve_BSpline\n  * fulldecl: opencascade::handle< Geom2d_BSplineCurve > Geom2dAdaptor_Curve::BSpline() const";
         signal_lisp_error(message.c_str());
       }
     }
-    lresult = new Handle_Geom2d_BSplineCurve(result);
+    lresult = new opencascade::handle< Geom2d_BSplineCurve >(result);
     return lresult;
   } catch (...) {
-    return (Handle_Geom2d_BSplineCurve *)0;
+    return (opencascade::handle< Geom2d_BSplineCurve > *)0;
   }
 }
 
@@ -96961,996 +97266,9 @@ EXPORT void _wrap_delete_Geom2dAdaptor_Curve (Geom2dAdaptor_Curve *larg1) {
 }
 
 
-EXPORT Adaptor2d_Curve2d *_wrap_Adaptor2d_HCurve2d_Curve2d (Adaptor2d_HCurve2d *larg1) {
-  Adaptor2d_Curve2d * lresult = (Adaptor2d_Curve2d *)0 ;
-  Adaptor2d_HCurve2d *arg1 = (Adaptor2d_HCurve2d *) 0 ;
-  Adaptor2d_Curve2d *result = 0 ;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (Adaptor2d_Curve2d *) &((Adaptor2d_HCurve2d const *)arg1)->Curve2d();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor2d_HCurve2d_Curve2d\n  * wrapname: _wrap_Adaptor2d_HCurve2d_Curve2d\n  * fulldecl: Adaptor2d_Curve2d const & Adaptor2d_HCurve2d::Curve2d() const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (Adaptor2d_Curve2d *)0;
-  }
-}
 
-
-EXPORT Standard_Real _wrap_Adaptor2d_HCurve2d_FirstParameter (Adaptor2d_HCurve2d *larg1) {
-  Standard_Real lresult = (Standard_Real)0 ;
-  Adaptor2d_HCurve2d *arg1 = (Adaptor2d_HCurve2d *) 0 ;
-  Standard_Real result;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (Standard_Real)((Adaptor2d_HCurve2d const *)arg1)->FirstParameter();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor2d_HCurve2d_FirstParameter\n  * wrapname: _wrap_Adaptor2d_HCurve2d_FirstParameter\n  * fulldecl: Standard_Real Adaptor2d_HCurve2d::FirstParameter() const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (Standard_Real)0;
-  }
-}
-
-
-EXPORT Standard_Real _wrap_Adaptor2d_HCurve2d_LastParameter (Adaptor2d_HCurve2d *larg1) {
-  Standard_Real lresult = (Standard_Real)0 ;
-  Adaptor2d_HCurve2d *arg1 = (Adaptor2d_HCurve2d *) 0 ;
-  Standard_Real result;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (Standard_Real)((Adaptor2d_HCurve2d const *)arg1)->LastParameter();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor2d_HCurve2d_LastParameter\n  * wrapname: _wrap_Adaptor2d_HCurve2d_LastParameter\n  * fulldecl: Standard_Real Adaptor2d_HCurve2d::LastParameter() const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (Standard_Real)0;
-  }
-}
-
-
-EXPORT GeomAbs_Shape _wrap_Adaptor2d_HCurve2d_Continuity (Adaptor2d_HCurve2d *larg1) {
-  GeomAbs_Shape lresult = (GeomAbs_Shape)0 ;
-  Adaptor2d_HCurve2d *arg1 = (Adaptor2d_HCurve2d *) 0 ;
-  GeomAbs_Shape result;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (GeomAbs_Shape)((Adaptor2d_HCurve2d const *)arg1)->Continuity();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor2d_HCurve2d_Continuity\n  * wrapname: _wrap_Adaptor2d_HCurve2d_Continuity\n  * fulldecl: GeomAbs_Shape Adaptor2d_HCurve2d::Continuity() const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (GeomAbs_Shape)0;
-  }
-}
-
-
-EXPORT Standard_Integer _wrap_Adaptor2d_HCurve2d_NbIntervals (Adaptor2d_HCurve2d *larg1, GeomAbs_Shape larg2) {
-  Standard_Integer lresult = (Standard_Integer)0 ;
-  Adaptor2d_HCurve2d *arg1 = (Adaptor2d_HCurve2d *) 0 ;
-  GeomAbs_Shape arg2 ;
-  Standard_Integer result;
-  
-  arg1 = larg1;
-  arg2 = larg2;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (Standard_Integer)((Adaptor2d_HCurve2d const *)arg1)->NbIntervals(arg2);
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor2d_HCurve2d_NbIntervals\n  * wrapname: _wrap_Adaptor2d_HCurve2d_NbIntervals\n  * fulldecl: Standard_Integer Adaptor2d_HCurve2d::NbIntervals(GeomAbs_Shape const) const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (Standard_Integer)0;
-  }
-}
-
-
-EXPORT void _wrap_Adaptor2d_HCurve2d_Intervals (Adaptor2d_HCurve2d *larg1, TColStd_Array1OfReal *larg2, GeomAbs_Shape larg3) {
-  Adaptor2d_HCurve2d *arg1 = (Adaptor2d_HCurve2d *) 0 ;
-  TColStd_Array1OfReal *arg2 = 0 ;
-  GeomAbs_Shape arg3 ;
-  
-  arg1 = larg1;
-  arg2 = larg2;
-  arg3 = larg3;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        ((Adaptor2d_HCurve2d const *)arg1)->Intervals(*arg2,arg3);
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor2d_HCurve2d_Intervals\n  * wrapname: _wrap_Adaptor2d_HCurve2d_Intervals\n  * fulldecl: void Adaptor2d_HCurve2d::Intervals(TColStd_Array1OfReal &,GeomAbs_Shape const) const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    
-  } catch (...) {
-    
-  }
-}
-
-
-EXPORT Handle_Adaptor2d_HCurve2d *_wrap_Adaptor2d_HCurve2d_Trim (Adaptor2d_HCurve2d *larg1, Standard_Real larg2, Standard_Real larg3, Standard_Real larg4) {
-  Handle_Adaptor2d_HCurve2d * lresult = (Handle_Adaptor2d_HCurve2d *)0 ;
-  Adaptor2d_HCurve2d *arg1 = (Adaptor2d_HCurve2d *) 0 ;
-  Standard_Real arg2 ;
-  Standard_Real arg3 ;
-  Standard_Real arg4 ;
-  Handle_Adaptor2d_HCurve2d result;
-  
-  arg1 = larg1;
-  arg2 = larg2;
-  arg3 = larg3;
-  arg4 = larg4;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = ((Adaptor2d_HCurve2d const *)arg1)->Trim(arg2,arg3,arg4);
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor2d_HCurve2d_Trim\n  * wrapname: _wrap_Adaptor2d_HCurve2d_Trim\n  * fulldecl: Handle_Adaptor2d_HCurve2d Adaptor2d_HCurve2d::Trim(Standard_Real const,Standard_Real const,Standard_Real const) const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = new Handle_Adaptor2d_HCurve2d(result);
-    return lresult;
-  } catch (...) {
-    return (Handle_Adaptor2d_HCurve2d *)0;
-  }
-}
-
-
-EXPORT bool _wrap_Adaptor2d_HCurve2d_IsClosed (Adaptor2d_HCurve2d *larg1) {
-  bool lresult = (bool)0 ;
-  Adaptor2d_HCurve2d *arg1 = (Adaptor2d_HCurve2d *) 0 ;
-  Standard_Boolean result;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (Standard_Boolean)((Adaptor2d_HCurve2d const *)arg1)->IsClosed();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor2d_HCurve2d_IsClosed\n  * wrapname: _wrap_Adaptor2d_HCurve2d_IsClosed\n  * fulldecl: Standard_Boolean Adaptor2d_HCurve2d::IsClosed() const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = (bool)result;
-    return lresult;
-  } catch (...) {
-    return (bool)0;
-  }
-}
-
-
-EXPORT bool _wrap_Adaptor2d_HCurve2d_IsPeriodic (Adaptor2d_HCurve2d *larg1) {
-  bool lresult = (bool)0 ;
-  Adaptor2d_HCurve2d *arg1 = (Adaptor2d_HCurve2d *) 0 ;
-  Standard_Boolean result;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (Standard_Boolean)((Adaptor2d_HCurve2d const *)arg1)->IsPeriodic();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor2d_HCurve2d_IsPeriodic\n  * wrapname: _wrap_Adaptor2d_HCurve2d_IsPeriodic\n  * fulldecl: Standard_Boolean Adaptor2d_HCurve2d::IsPeriodic() const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = (bool)result;
-    return lresult;
-  } catch (...) {
-    return (bool)0;
-  }
-}
-
-
-EXPORT Standard_Real _wrap_Adaptor2d_HCurve2d_Period (Adaptor2d_HCurve2d *larg1) {
-  Standard_Real lresult = (Standard_Real)0 ;
-  Adaptor2d_HCurve2d *arg1 = (Adaptor2d_HCurve2d *) 0 ;
-  Standard_Real result;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (Standard_Real)((Adaptor2d_HCurve2d const *)arg1)->Period();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor2d_HCurve2d_Period\n  * wrapname: _wrap_Adaptor2d_HCurve2d_Period\n  * fulldecl: Standard_Real Adaptor2d_HCurve2d::Period() const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (Standard_Real)0;
-  }
-}
-
-
-EXPORT gp_Pnt2d *_wrap_Adaptor2d_HCurve2d_Value (Adaptor2d_HCurve2d *larg1, Standard_Real larg2) {
-  gp_Pnt2d * lresult = (gp_Pnt2d *)0 ;
-  Adaptor2d_HCurve2d *arg1 = (Adaptor2d_HCurve2d *) 0 ;
-  Standard_Real arg2 ;
-  gp_Pnt2d result;
-  
-  arg1 = larg1;
-  arg2 = larg2;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = ((Adaptor2d_HCurve2d const *)arg1)->Value(arg2);
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor2d_HCurve2d_Value\n  * wrapname: _wrap_Adaptor2d_HCurve2d_Value\n  * fulldecl: gp_Pnt2d Adaptor2d_HCurve2d::Value(Standard_Real const) const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = new gp_Pnt2d(result);
-    return lresult;
-  } catch (...) {
-    return (gp_Pnt2d *)0;
-  }
-}
-
-
-EXPORT void _wrap_Adaptor2d_HCurve2d_D0 (Adaptor2d_HCurve2d *larg1, Standard_Real larg2, gp_Pnt2d *larg3) {
-  Adaptor2d_HCurve2d *arg1 = (Adaptor2d_HCurve2d *) 0 ;
-  Standard_Real arg2 ;
-  gp_Pnt2d *arg3 = 0 ;
-  
-  arg1 = larg1;
-  arg2 = larg2;
-  arg3 = larg3;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        ((Adaptor2d_HCurve2d const *)arg1)->D0(arg2,*arg3);
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor2d_HCurve2d_D0\n  * wrapname: _wrap_Adaptor2d_HCurve2d_D0\n  * fulldecl: void Adaptor2d_HCurve2d::D0(Standard_Real const,gp_Pnt2d &) const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    
-  } catch (...) {
-    
-  }
-}
-
-
-EXPORT void _wrap_Adaptor2d_HCurve2d_D1 (Adaptor2d_HCurve2d *larg1, Standard_Real larg2, gp_Pnt2d *larg3, gp_Vec2d *larg4) {
-  Adaptor2d_HCurve2d *arg1 = (Adaptor2d_HCurve2d *) 0 ;
-  Standard_Real arg2 ;
-  gp_Pnt2d *arg3 = 0 ;
-  gp_Vec2d *arg4 = 0 ;
-  
-  arg1 = larg1;
-  arg2 = larg2;
-  arg3 = larg3;
-  arg4 = larg4;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        ((Adaptor2d_HCurve2d const *)arg1)->D1(arg2,*arg3,*arg4);
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor2d_HCurve2d_D1\n  * wrapname: _wrap_Adaptor2d_HCurve2d_D1\n  * fulldecl: void Adaptor2d_HCurve2d::D1(Standard_Real const,gp_Pnt2d &,gp_Vec2d &) const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    
-  } catch (...) {
-    
-  }
-}
-
-
-EXPORT void _wrap_Adaptor2d_HCurve2d_D2 (Adaptor2d_HCurve2d *larg1, Standard_Real larg2, gp_Pnt2d *larg3, gp_Vec2d *larg4, gp_Vec2d *larg5) {
-  Adaptor2d_HCurve2d *arg1 = (Adaptor2d_HCurve2d *) 0 ;
-  Standard_Real arg2 ;
-  gp_Pnt2d *arg3 = 0 ;
-  gp_Vec2d *arg4 = 0 ;
-  gp_Vec2d *arg5 = 0 ;
-  
-  arg1 = larg1;
-  arg2 = larg2;
-  arg3 = larg3;
-  arg4 = larg4;
-  arg5 = larg5;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        ((Adaptor2d_HCurve2d const *)arg1)->D2(arg2,*arg3,*arg4,*arg5);
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor2d_HCurve2d_D2\n  * wrapname: _wrap_Adaptor2d_HCurve2d_D2\n  * fulldecl: void Adaptor2d_HCurve2d::D2(Standard_Real const,gp_Pnt2d &,gp_Vec2d &,gp_Vec2d &) const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    
-  } catch (...) {
-    
-  }
-}
-
-
-EXPORT void _wrap_Adaptor2d_HCurve2d_D3 (Adaptor2d_HCurve2d *larg1, Standard_Real larg2, gp_Pnt2d *larg3, gp_Vec2d *larg4, gp_Vec2d *larg5, gp_Vec2d *larg6) {
-  Adaptor2d_HCurve2d *arg1 = (Adaptor2d_HCurve2d *) 0 ;
-  Standard_Real arg2 ;
-  gp_Pnt2d *arg3 = 0 ;
-  gp_Vec2d *arg4 = 0 ;
-  gp_Vec2d *arg5 = 0 ;
-  gp_Vec2d *arg6 = 0 ;
-  
-  arg1 = larg1;
-  arg2 = larg2;
-  arg3 = larg3;
-  arg4 = larg4;
-  arg5 = larg5;
-  arg6 = larg6;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        ((Adaptor2d_HCurve2d const *)arg1)->D3(arg2,*arg3,*arg4,*arg5,*arg6);
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor2d_HCurve2d_D3\n  * wrapname: _wrap_Adaptor2d_HCurve2d_D3\n  * fulldecl: void Adaptor2d_HCurve2d::D3(Standard_Real const,gp_Pnt2d &,gp_Vec2d &,gp_Vec2d &,gp_Vec2d &) const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    
-  } catch (...) {
-    
-  }
-}
-
-
-EXPORT gp_Vec2d *_wrap_Adaptor2d_HCurve2d_DN (Adaptor2d_HCurve2d *larg1, Standard_Real larg2, Standard_Integer larg3) {
-  gp_Vec2d * lresult = (gp_Vec2d *)0 ;
-  Adaptor2d_HCurve2d *arg1 = (Adaptor2d_HCurve2d *) 0 ;
-  Standard_Real arg2 ;
-  Standard_Integer arg3 ;
-  gp_Vec2d result;
-  
-  arg1 = larg1;
-  arg2 = larg2;
-  arg3 = larg3;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = ((Adaptor2d_HCurve2d const *)arg1)->DN(arg2,arg3);
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor2d_HCurve2d_DN\n  * wrapname: _wrap_Adaptor2d_HCurve2d_DN\n  * fulldecl: gp_Vec2d Adaptor2d_HCurve2d::DN(Standard_Real const,Standard_Integer const) const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = new gp_Vec2d(result);
-    return lresult;
-  } catch (...) {
-    return (gp_Vec2d *)0;
-  }
-}
-
-
-EXPORT Standard_Real _wrap_Adaptor2d_HCurve2d_Resolution (Adaptor2d_HCurve2d *larg1, Standard_Real larg2) {
-  Standard_Real lresult = (Standard_Real)0 ;
-  Adaptor2d_HCurve2d *arg1 = (Adaptor2d_HCurve2d *) 0 ;
-  Standard_Real arg2 ;
-  Standard_Real result;
-  
-  arg1 = larg1;
-  arg2 = larg2;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (Standard_Real)((Adaptor2d_HCurve2d const *)arg1)->Resolution(arg2);
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor2d_HCurve2d_Resolution\n  * wrapname: _wrap_Adaptor2d_HCurve2d_Resolution\n  * fulldecl: Standard_Real Adaptor2d_HCurve2d::Resolution(Standard_Real const) const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (Standard_Real)0;
-  }
-}
-
-
-EXPORT GeomAbs_CurveType *_wrap_Adaptor2d_HCurve2d_GetType (Adaptor2d_HCurve2d *larg1) {
-  GeomAbs_CurveType * lresult = (GeomAbs_CurveType *)0 ;
-  Adaptor2d_HCurve2d *arg1 = (Adaptor2d_HCurve2d *) 0 ;
-  GeomAbs_CurveType result;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = ((Adaptor2d_HCurve2d const *)arg1)->GetType();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor2d_HCurve2d_GetType\n  * wrapname: _wrap_Adaptor2d_HCurve2d_GetType\n  * fulldecl: GeomAbs_CurveType Adaptor2d_HCurve2d::GetType() const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = new GeomAbs_CurveType(result);
-    return lresult;
-  } catch (...) {
-    return (GeomAbs_CurveType *)0;
-  }
-}
-
-
-EXPORT gp_Lin2d *_wrap_Adaptor2d_HCurve2d_Line (Adaptor2d_HCurve2d *larg1) {
-  gp_Lin2d * lresult = (gp_Lin2d *)0 ;
-  Adaptor2d_HCurve2d *arg1 = (Adaptor2d_HCurve2d *) 0 ;
-  gp_Lin2d result;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = ((Adaptor2d_HCurve2d const *)arg1)->Line();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor2d_HCurve2d_Line\n  * wrapname: _wrap_Adaptor2d_HCurve2d_Line\n  * fulldecl: gp_Lin2d Adaptor2d_HCurve2d::Line() const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = new gp_Lin2d(result);
-    return lresult;
-  } catch (...) {
-    return (gp_Lin2d *)0;
-  }
-}
-
-
-EXPORT gp_Circ2d *_wrap_Adaptor2d_HCurve2d_Circle (Adaptor2d_HCurve2d *larg1) {
-  gp_Circ2d * lresult = (gp_Circ2d *)0 ;
-  Adaptor2d_HCurve2d *arg1 = (Adaptor2d_HCurve2d *) 0 ;
-  gp_Circ2d result;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = ((Adaptor2d_HCurve2d const *)arg1)->Circle();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor2d_HCurve2d_Circle\n  * wrapname: _wrap_Adaptor2d_HCurve2d_Circle\n  * fulldecl: gp_Circ2d Adaptor2d_HCurve2d::Circle() const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = new gp_Circ2d(result);
-    return lresult;
-  } catch (...) {
-    return (gp_Circ2d *)0;
-  }
-}
-
-
-EXPORT gp_Elips2d *_wrap_Adaptor2d_HCurve2d_Ellipse (Adaptor2d_HCurve2d *larg1) {
-  gp_Elips2d * lresult = (gp_Elips2d *)0 ;
-  Adaptor2d_HCurve2d *arg1 = (Adaptor2d_HCurve2d *) 0 ;
-  gp_Elips2d result;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = ((Adaptor2d_HCurve2d const *)arg1)->Ellipse();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor2d_HCurve2d_Ellipse\n  * wrapname: _wrap_Adaptor2d_HCurve2d_Ellipse\n  * fulldecl: gp_Elips2d Adaptor2d_HCurve2d::Ellipse() const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = new gp_Elips2d(result);
-    return lresult;
-  } catch (...) {
-    return (gp_Elips2d *)0;
-  }
-}
-
-
-EXPORT gp_Hypr2d *_wrap_Adaptor2d_HCurve2d_Hyperbola (Adaptor2d_HCurve2d *larg1) {
-  gp_Hypr2d * lresult = (gp_Hypr2d *)0 ;
-  Adaptor2d_HCurve2d *arg1 = (Adaptor2d_HCurve2d *) 0 ;
-  gp_Hypr2d result;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = ((Adaptor2d_HCurve2d const *)arg1)->Hyperbola();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor2d_HCurve2d_Hyperbola\n  * wrapname: _wrap_Adaptor2d_HCurve2d_Hyperbola\n  * fulldecl: gp_Hypr2d Adaptor2d_HCurve2d::Hyperbola() const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = new gp_Hypr2d(result);
-    return lresult;
-  } catch (...) {
-    return (gp_Hypr2d *)0;
-  }
-}
-
-
-EXPORT gp_Parab2d *_wrap_Adaptor2d_HCurve2d_Parabola (Adaptor2d_HCurve2d *larg1) {
-  gp_Parab2d * lresult = (gp_Parab2d *)0 ;
-  Adaptor2d_HCurve2d *arg1 = (Adaptor2d_HCurve2d *) 0 ;
-  gp_Parab2d result;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = ((Adaptor2d_HCurve2d const *)arg1)->Parabola();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor2d_HCurve2d_Parabola\n  * wrapname: _wrap_Adaptor2d_HCurve2d_Parabola\n  * fulldecl: gp_Parab2d Adaptor2d_HCurve2d::Parabola() const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = new gp_Parab2d(result);
-    return lresult;
-  } catch (...) {
-    return (gp_Parab2d *)0;
-  }
-}
-
-
-EXPORT Standard_Integer _wrap_Adaptor2d_HCurve2d_Degree (Adaptor2d_HCurve2d *larg1) {
-  Standard_Integer lresult = (Standard_Integer)0 ;
-  Adaptor2d_HCurve2d *arg1 = (Adaptor2d_HCurve2d *) 0 ;
-  Standard_Integer result;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (Standard_Integer)((Adaptor2d_HCurve2d const *)arg1)->Degree();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor2d_HCurve2d_Degree\n  * wrapname: _wrap_Adaptor2d_HCurve2d_Degree\n  * fulldecl: Standard_Integer Adaptor2d_HCurve2d::Degree() const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (Standard_Integer)0;
-  }
-}
-
-
-EXPORT bool _wrap_Adaptor2d_HCurve2d_IsRational (Adaptor2d_HCurve2d *larg1) {
-  bool lresult = (bool)0 ;
-  Adaptor2d_HCurve2d *arg1 = (Adaptor2d_HCurve2d *) 0 ;
-  Standard_Boolean result;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (Standard_Boolean)((Adaptor2d_HCurve2d const *)arg1)->IsRational();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor2d_HCurve2d_IsRational\n  * wrapname: _wrap_Adaptor2d_HCurve2d_IsRational\n  * fulldecl: Standard_Boolean Adaptor2d_HCurve2d::IsRational() const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = (bool)result;
-    return lresult;
-  } catch (...) {
-    return (bool)0;
-  }
-}
-
-
-EXPORT Standard_Integer _wrap_Adaptor2d_HCurve2d_NbPoles (Adaptor2d_HCurve2d *larg1) {
-  Standard_Integer lresult = (Standard_Integer)0 ;
-  Adaptor2d_HCurve2d *arg1 = (Adaptor2d_HCurve2d *) 0 ;
-  Standard_Integer result;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (Standard_Integer)((Adaptor2d_HCurve2d const *)arg1)->NbPoles();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor2d_HCurve2d_NbPoles\n  * wrapname: _wrap_Adaptor2d_HCurve2d_NbPoles\n  * fulldecl: Standard_Integer Adaptor2d_HCurve2d::NbPoles() const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (Standard_Integer)0;
-  }
-}
-
-
-EXPORT Standard_Integer _wrap_Adaptor2d_HCurve2d_NbKnots (Adaptor2d_HCurve2d *larg1) {
-  Standard_Integer lresult = (Standard_Integer)0 ;
-  Adaptor2d_HCurve2d *arg1 = (Adaptor2d_HCurve2d *) 0 ;
-  Standard_Integer result;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (Standard_Integer)((Adaptor2d_HCurve2d const *)arg1)->NbKnots();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor2d_HCurve2d_NbKnots\n  * wrapname: _wrap_Adaptor2d_HCurve2d_NbKnots\n  * fulldecl: Standard_Integer Adaptor2d_HCurve2d::NbKnots() const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (Standard_Integer)0;
-  }
-}
-
-
-EXPORT Handle_Geom2d_BezierCurve *_wrap_Adaptor2d_HCurve2d_Bezier (Adaptor2d_HCurve2d *larg1) {
-  Handle_Geom2d_BezierCurve * lresult = (Handle_Geom2d_BezierCurve *)0 ;
-  Adaptor2d_HCurve2d *arg1 = (Adaptor2d_HCurve2d *) 0 ;
-  SwigValueWrapper< Handle_Geom2d_BezierCurve > result;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = ((Adaptor2d_HCurve2d const *)arg1)->Bezier();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor2d_HCurve2d_Bezier\n  * wrapname: _wrap_Adaptor2d_HCurve2d_Bezier\n  * fulldecl: Handle_Geom2d_BezierCurve Adaptor2d_HCurve2d::Bezier() const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = new Handle_Geom2d_BezierCurve(result);
-    return lresult;
-  } catch (...) {
-    return (Handle_Geom2d_BezierCurve *)0;
-  }
-}
-
-
-EXPORT void _wrap_delete_Adaptor2d_HCurve2d (Adaptor2d_HCurve2d *larg1) {
-  Adaptor2d_HCurve2d *arg1 = (Adaptor2d_HCurve2d *) 0 ;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        delete arg1;
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: delete_Adaptor2d_HCurve2d\n  * wrapname: _wrap_delete_Adaptor2d_HCurve2d\n  * fulldecl: Adaptor2d_HCurve2d::~Adaptor2d_HCurve2d()";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    
-  } catch (...) {
-    
-  }
-}
-
-
-
-#include <Adaptor3d_Curve.hxx>
-#include <Adaptor3d_HCurve.hxx>  
+#include <Standard_Handle.hxx>
+#include <Adaptor3d_Curve.hxx> 
 #include <GeomAdaptor_Curve.hxx>
 #include <Adaptor3d_Surface.hxx>
 #include <GeomAdaptor_Surface.hxx>  
@@ -98117,6 +97435,69 @@ EXPORT GeomAdaptor_Curve *_wrap_new_GeomAdaptor_Curve__SWIG_2 (Handle_Geom_Curve
     return lresult;
   } catch (...) {
     return (GeomAdaptor_Curve *)0;
+  }
+}
+
+
+EXPORT Handle_Adaptor3d_Curve *_wrap_GeomAdaptor_Curve_ShallowCopy (GeomAdaptor_Curve *larg1) {
+  Handle_Adaptor3d_Curve * lresult = (Handle_Adaptor3d_Curve *)0 ;
+  GeomAdaptor_Curve *arg1 = (GeomAdaptor_Curve *) 0 ;
+  Handle_Adaptor3d_Curve result;
+  
+  arg1 = larg1;
+  try {
+    {
+      try
+      {
+        OCC_CATCH_SIGNALS
+        result = ((GeomAdaptor_Curve const *)arg1)->ShallowCopy();
+      }
+      catch(Standard_Failure const& error)
+      {
+        char *error_name = (char*) error.DynamicType()->Name();
+        char *error_message = (char*) error.GetMessageString();
+        std::string message;
+        if (error_name) message += std::string(error_name) + "\n";
+        if (error_message) message += std::string(error_message);
+        // log SWIG specific debug information
+        message += "\nwrapper details:\n  * symname: GeomAdaptor_Curve_ShallowCopy\n  * wrapname: _wrap_GeomAdaptor_Curve_ShallowCopy\n  * fulldecl: Handle_Adaptor3d_Curve GeomAdaptor_Curve::ShallowCopy() const";
+        signal_lisp_error(message.c_str());
+      }
+    }
+    lresult = new Handle_Adaptor3d_Curve(result);
+    return lresult;
+  } catch (...) {
+    return (Handle_Adaptor3d_Curve *)0;
+  }
+}
+
+
+EXPORT void _wrap_GeomAdaptor_Curve_Reset (GeomAdaptor_Curve *larg1) {
+  GeomAdaptor_Curve *arg1 = (GeomAdaptor_Curve *) 0 ;
+  
+  arg1 = larg1;
+  try {
+    {
+      try
+      {
+        OCC_CATCH_SIGNALS
+        (arg1)->Reset();
+      }
+      catch(Standard_Failure const& error)
+      {
+        char *error_name = (char*) error.DynamicType()->Name();
+        char *error_message = (char*) error.GetMessageString();
+        std::string message;
+        if (error_name) message += std::string(error_name) + "\n";
+        if (error_message) message += std::string(error_message);
+        // log SWIG specific debug information
+        message += "\nwrapper details:\n  * symname: GeomAdaptor_Curve_Reset\n  * wrapname: _wrap_GeomAdaptor_Curve_Reset\n  * fulldecl: void GeomAdaptor_Curve::Reset()";
+        signal_lisp_error(message.c_str());
+      }
+    }
+    
+  } catch (...) {
+    
   }
 }
 
@@ -98390,13 +97771,13 @@ EXPORT void _wrap_GeomAdaptor_Curve_Intervals (GeomAdaptor_Curve *larg1, TColStd
 }
 
 
-EXPORT Handle_Adaptor3d_HCurve *_wrap_GeomAdaptor_Curve_Trim (GeomAdaptor_Curve *larg1, Standard_Real larg2, Standard_Real larg3, Standard_Real larg4) {
-  Handle_Adaptor3d_HCurve * lresult = (Handle_Adaptor3d_HCurve *)0 ;
+EXPORT Handle_Adaptor3d_Curve *_wrap_GeomAdaptor_Curve_Trim (GeomAdaptor_Curve *larg1, Standard_Real larg2, Standard_Real larg3, Standard_Real larg4) {
+  Handle_Adaptor3d_Curve * lresult = (Handle_Adaptor3d_Curve *)0 ;
   GeomAdaptor_Curve *arg1 = (GeomAdaptor_Curve *) 0 ;
   Standard_Real arg2 ;
   Standard_Real arg3 ;
   Standard_Real arg4 ;
-  Handle_Adaptor3d_HCurve result;
+  Handle_Adaptor3d_Curve result;
   
   arg1 = larg1;
   arg2 = larg2;
@@ -98417,14 +97798,14 @@ EXPORT Handle_Adaptor3d_HCurve *_wrap_GeomAdaptor_Curve_Trim (GeomAdaptor_Curve 
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: GeomAdaptor_Curve_Trim\n  * wrapname: _wrap_GeomAdaptor_Curve_Trim\n  * fulldecl: Handle_Adaptor3d_HCurve GeomAdaptor_Curve::Trim(Standard_Real const,Standard_Real const,Standard_Real const) const";
+        message += "\nwrapper details:\n  * symname: GeomAdaptor_Curve_Trim\n  * wrapname: _wrap_GeomAdaptor_Curve_Trim\n  * fulldecl: Handle_Adaptor3d_Curve GeomAdaptor_Curve::Trim(Standard_Real const,Standard_Real const,Standard_Real const) const";
         signal_lisp_error(message.c_str());
       }
     }
-    lresult = new Handle_Adaptor3d_HCurve(result);
+    lresult = new Handle_Adaptor3d_Curve(result);
     return lresult;
   } catch (...) {
-    return (Handle_Adaptor3d_HCurve *)0;
+    return (Handle_Adaptor3d_Curve *)0;
   }
 }
 
@@ -99273,6 +98654,39 @@ EXPORT Adaptor3d_Surface *_wrap_new_Adaptor3d_Surface () {
 }
 
 
+EXPORT Handle_Adaptor3d_Surface *_wrap_Adaptor3d_Surface_ShallowCopy (Adaptor3d_Surface *larg1) {
+  Handle_Adaptor3d_Surface * lresult = (Handle_Adaptor3d_Surface *)0 ;
+  Adaptor3d_Surface *arg1 = (Adaptor3d_Surface *) 0 ;
+  Handle_Adaptor3d_Surface result;
+  
+  arg1 = larg1;
+  try {
+    {
+      try
+      {
+        OCC_CATCH_SIGNALS
+        result = ((Adaptor3d_Surface const *)arg1)->ShallowCopy();
+      }
+      catch(Standard_Failure const& error)
+      {
+        char *error_name = (char*) error.DynamicType()->Name();
+        char *error_message = (char*) error.GetMessageString();
+        std::string message;
+        if (error_name) message += std::string(error_name) + "\n";
+        if (error_message) message += std::string(error_message);
+        // log SWIG specific debug information
+        message += "\nwrapper details:\n  * symname: Adaptor3d_Surface_ShallowCopy\n  * wrapname: _wrap_Adaptor3d_Surface_ShallowCopy\n  * fulldecl: Handle_Adaptor3d_Surface Adaptor3d_Surface::ShallowCopy() const";
+        signal_lisp_error(message.c_str());
+      }
+    }
+    lresult = new Handle_Adaptor3d_Surface(result);
+    return lresult;
+  } catch (...) {
+    return (Handle_Adaptor3d_Surface *)0;
+  }
+}
+
+
 EXPORT Standard_Real _wrap_Adaptor3d_Surface_FirstUParameter (Adaptor3d_Surface *larg1) {
   Standard_Real lresult = (Standard_Real)0 ;
   Adaptor3d_Surface *arg1 = (Adaptor3d_Surface *) 0 ;
@@ -99484,7 +98898,7 @@ EXPORT Standard_Integer _wrap_Adaptor3d_Surface_NbUIntervals (Adaptor3d_Surface 
       try
       {
         OCC_CATCH_SIGNALS
-        result = (Standard_Integer)((Adaptor3d_Surface const *)arg1)->NbUIntervals(arg2);
+        result = (Standard_Integer)(arg1)->NbUIntervals(arg2);
       }
       catch(Standard_Failure const& error)
       {
@@ -99494,7 +98908,7 @@ EXPORT Standard_Integer _wrap_Adaptor3d_Surface_NbUIntervals (Adaptor3d_Surface 
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor3d_Surface_NbUIntervals\n  * wrapname: _wrap_Adaptor3d_Surface_NbUIntervals\n  * fulldecl: Standard_Integer Adaptor3d_Surface::NbUIntervals(GeomAbs_Shape const) const";
+        message += "\nwrapper details:\n  * symname: Adaptor3d_Surface_NbUIntervals\n  * wrapname: _wrap_Adaptor3d_Surface_NbUIntervals\n  * fulldecl: Standard_Integer Adaptor3d_Surface::NbUIntervals(GeomAbs_Shape const)";
         signal_lisp_error(message.c_str());
       }
     }
@@ -99609,13 +99023,13 @@ EXPORT void _wrap_Adaptor3d_Surface_VIntervals (Adaptor3d_Surface *larg1, TColSt
 }
 
 
-EXPORT Handle_Adaptor3d_HSurface *_wrap_Adaptor3d_Surface_UTrim (Adaptor3d_Surface *larg1, Standard_Real larg2, Standard_Real larg3, Standard_Real larg4) {
-  Handle_Adaptor3d_HSurface * lresult = (Handle_Adaptor3d_HSurface *)0 ;
+EXPORT opencascade::handle< Adaptor3d_Surface > *_wrap_Adaptor3d_Surface_UTrim (Adaptor3d_Surface *larg1, Standard_Real larg2, Standard_Real larg3, Standard_Real larg4) {
+  opencascade::handle< Adaptor3d_Surface > * lresult = (opencascade::handle< Adaptor3d_Surface > *)0 ;
   Adaptor3d_Surface *arg1 = (Adaptor3d_Surface *) 0 ;
   Standard_Real arg2 ;
   Standard_Real arg3 ;
   Standard_Real arg4 ;
-  Handle_Adaptor3d_HSurface result;
+  opencascade::handle< Adaptor3d_Surface > result;
   
   arg1 = larg1;
   arg2 = larg2;
@@ -99636,25 +99050,25 @@ EXPORT Handle_Adaptor3d_HSurface *_wrap_Adaptor3d_Surface_UTrim (Adaptor3d_Surfa
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor3d_Surface_UTrim\n  * wrapname: _wrap_Adaptor3d_Surface_UTrim\n  * fulldecl: Handle_Adaptor3d_HSurface Adaptor3d_Surface::UTrim(Standard_Real const,Standard_Real const,Standard_Real const) const";
+        message += "\nwrapper details:\n  * symname: Adaptor3d_Surface_UTrim\n  * wrapname: _wrap_Adaptor3d_Surface_UTrim\n  * fulldecl: opencascade::handle< Adaptor3d_Surface > Adaptor3d_Surface::UTrim(Standard_Real const,Standard_Real const,Standard_Real const) const";
         signal_lisp_error(message.c_str());
       }
     }
-    lresult = new Handle_Adaptor3d_HSurface(result);
+    lresult = new opencascade::handle< Adaptor3d_Surface >(result);
     return lresult;
   } catch (...) {
-    return (Handle_Adaptor3d_HSurface *)0;
+    return (opencascade::handle< Adaptor3d_Surface > *)0;
   }
 }
 
 
-EXPORT Handle_Adaptor3d_HSurface *_wrap_Adaptor3d_Surface_VTrim (Adaptor3d_Surface *larg1, Standard_Real larg2, Standard_Real larg3, Standard_Real larg4) {
-  Handle_Adaptor3d_HSurface * lresult = (Handle_Adaptor3d_HSurface *)0 ;
+EXPORT opencascade::handle< Adaptor3d_Surface > *_wrap_Adaptor3d_Surface_VTrim (Adaptor3d_Surface *larg1, Standard_Real larg2, Standard_Real larg3, Standard_Real larg4) {
+  opencascade::handle< Adaptor3d_Surface > * lresult = (opencascade::handle< Adaptor3d_Surface > *)0 ;
   Adaptor3d_Surface *arg1 = (Adaptor3d_Surface *) 0 ;
   Standard_Real arg2 ;
   Standard_Real arg3 ;
   Standard_Real arg4 ;
-  Handle_Adaptor3d_HSurface result;
+  opencascade::handle< Adaptor3d_Surface > result;
   
   arg1 = larg1;
   arg2 = larg2;
@@ -99675,14 +99089,14 @@ EXPORT Handle_Adaptor3d_HSurface *_wrap_Adaptor3d_Surface_VTrim (Adaptor3d_Surfa
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor3d_Surface_VTrim\n  * wrapname: _wrap_Adaptor3d_Surface_VTrim\n  * fulldecl: Handle_Adaptor3d_HSurface Adaptor3d_Surface::VTrim(Standard_Real const,Standard_Real const,Standard_Real const) const";
+        message += "\nwrapper details:\n  * symname: Adaptor3d_Surface_VTrim\n  * wrapname: _wrap_Adaptor3d_Surface_VTrim\n  * fulldecl: opencascade::handle< Adaptor3d_Surface > Adaptor3d_Surface::VTrim(Standard_Real const,Standard_Real const,Standard_Real const) const";
         signal_lisp_error(message.c_str());
       }
     }
-    lresult = new Handle_Adaptor3d_HSurface(result);
+    lresult = new opencascade::handle< Adaptor3d_Surface >(result);
     return lresult;
   } catch (...) {
-    return (Handle_Adaptor3d_HSurface *)0;
+    return (opencascade::handle< Adaptor3d_Surface > *)0;
   }
 }
 
@@ -100671,10 +100085,10 @@ EXPORT bool _wrap_Adaptor3d_Surface_IsVRational (Adaptor3d_Surface *larg1) {
 }
 
 
-EXPORT Handle_Geom_BezierSurface *_wrap_Adaptor3d_Surface_Bezier (Adaptor3d_Surface *larg1) {
-  Handle_Geom_BezierSurface * lresult = (Handle_Geom_BezierSurface *)0 ;
+EXPORT opencascade::handle< Geom_BezierSurface > *_wrap_Adaptor3d_Surface_Bezier (Adaptor3d_Surface *larg1) {
+  opencascade::handle< Geom_BezierSurface > * lresult = (opencascade::handle< Geom_BezierSurface > *)0 ;
   Adaptor3d_Surface *arg1 = (Adaptor3d_Surface *) 0 ;
-  SwigValueWrapper< Handle_Geom_BezierSurface > result;
+  opencascade::handle< Geom_BezierSurface > result;
   
   arg1 = larg1;
   try {
@@ -100692,22 +100106,22 @@ EXPORT Handle_Geom_BezierSurface *_wrap_Adaptor3d_Surface_Bezier (Adaptor3d_Surf
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor3d_Surface_Bezier\n  * wrapname: _wrap_Adaptor3d_Surface_Bezier\n  * fulldecl: Handle_Geom_BezierSurface Adaptor3d_Surface::Bezier() const";
+        message += "\nwrapper details:\n  * symname: Adaptor3d_Surface_Bezier\n  * wrapname: _wrap_Adaptor3d_Surface_Bezier\n  * fulldecl: opencascade::handle< Geom_BezierSurface > Adaptor3d_Surface::Bezier() const";
         signal_lisp_error(message.c_str());
       }
     }
-    lresult = new Handle_Geom_BezierSurface(result);
+    lresult = new opencascade::handle< Geom_BezierSurface >(result);
     return lresult;
   } catch (...) {
-    return (Handle_Geom_BezierSurface *)0;
+    return (opencascade::handle< Geom_BezierSurface > *)0;
   }
 }
 
 
-EXPORT Handle_Geom_BSplineSurface *_wrap_Adaptor3d_Surface_BSpline (Adaptor3d_Surface *larg1) {
-  Handle_Geom_BSplineSurface * lresult = (Handle_Geom_BSplineSurface *)0 ;
+EXPORT opencascade::handle< Geom_BSplineSurface > *_wrap_Adaptor3d_Surface_BSpline (Adaptor3d_Surface *larg1) {
+  opencascade::handle< Geom_BSplineSurface > * lresult = (opencascade::handle< Geom_BSplineSurface > *)0 ;
   Adaptor3d_Surface *arg1 = (Adaptor3d_Surface *) 0 ;
-  SwigValueWrapper< Handle_Geom_BSplineSurface > result;
+  opencascade::handle< Geom_BSplineSurface > result;
   
   arg1 = larg1;
   try {
@@ -100725,14 +100139,14 @@ EXPORT Handle_Geom_BSplineSurface *_wrap_Adaptor3d_Surface_BSpline (Adaptor3d_Su
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor3d_Surface_BSpline\n  * wrapname: _wrap_Adaptor3d_Surface_BSpline\n  * fulldecl: Handle_Geom_BSplineSurface Adaptor3d_Surface::BSpline() const";
+        message += "\nwrapper details:\n  * symname: Adaptor3d_Surface_BSpline\n  * wrapname: _wrap_Adaptor3d_Surface_BSpline\n  * fulldecl: opencascade::handle< Geom_BSplineSurface > Adaptor3d_Surface::BSpline() const";
         signal_lisp_error(message.c_str());
       }
     }
-    lresult = new Handle_Geom_BSplineSurface(result);
+    lresult = new opencascade::handle< Geom_BSplineSurface >(result);
     return lresult;
   } catch (...) {
-    return (Handle_Geom_BSplineSurface *)0;
+    return (opencascade::handle< Geom_BSplineSurface > *)0;
   }
 }
 
@@ -100803,10 +100217,10 @@ EXPORT gp_Dir *_wrap_Adaptor3d_Surface_Direction (Adaptor3d_Surface *larg1) {
 }
 
 
-EXPORT Handle_Adaptor3d_HCurve *_wrap_Adaptor3d_Surface_BasisCurve (Adaptor3d_Surface *larg1) {
-  Handle_Adaptor3d_HCurve * lresult = (Handle_Adaptor3d_HCurve *)0 ;
+EXPORT opencascade::handle< Adaptor3d_Curve > *_wrap_Adaptor3d_Surface_BasisCurve (Adaptor3d_Surface *larg1) {
+  opencascade::handle< Adaptor3d_Curve > * lresult = (opencascade::handle< Adaptor3d_Curve > *)0 ;
   Adaptor3d_Surface *arg1 = (Adaptor3d_Surface *) 0 ;
-  Handle_Adaptor3d_HCurve result;
+  opencascade::handle< Adaptor3d_Curve > result;
   
   arg1 = larg1;
   try {
@@ -100824,22 +100238,22 @@ EXPORT Handle_Adaptor3d_HCurve *_wrap_Adaptor3d_Surface_BasisCurve (Adaptor3d_Su
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor3d_Surface_BasisCurve\n  * wrapname: _wrap_Adaptor3d_Surface_BasisCurve\n  * fulldecl: Handle_Adaptor3d_HCurve Adaptor3d_Surface::BasisCurve() const";
+        message += "\nwrapper details:\n  * symname: Adaptor3d_Surface_BasisCurve\n  * wrapname: _wrap_Adaptor3d_Surface_BasisCurve\n  * fulldecl: opencascade::handle< Adaptor3d_Curve > Adaptor3d_Surface::BasisCurve() const";
         signal_lisp_error(message.c_str());
       }
     }
-    lresult = new Handle_Adaptor3d_HCurve(result);
+    lresult = new opencascade::handle< Adaptor3d_Curve >(result);
     return lresult;
   } catch (...) {
-    return (Handle_Adaptor3d_HCurve *)0;
+    return (opencascade::handle< Adaptor3d_Curve > *)0;
   }
 }
 
 
-EXPORT Handle_Adaptor3d_HSurface *_wrap_Adaptor3d_Surface_BasisSurface (Adaptor3d_Surface *larg1) {
-  Handle_Adaptor3d_HSurface * lresult = (Handle_Adaptor3d_HSurface *)0 ;
+EXPORT opencascade::handle< Adaptor3d_Surface > *_wrap_Adaptor3d_Surface_BasisSurface (Adaptor3d_Surface *larg1) {
+  opencascade::handle< Adaptor3d_Surface > * lresult = (opencascade::handle< Adaptor3d_Surface > *)0 ;
   Adaptor3d_Surface *arg1 = (Adaptor3d_Surface *) 0 ;
-  Handle_Adaptor3d_HSurface result;
+  opencascade::handle< Adaptor3d_Surface > result;
   
   arg1 = larg1;
   try {
@@ -100857,14 +100271,14 @@ EXPORT Handle_Adaptor3d_HSurface *_wrap_Adaptor3d_Surface_BasisSurface (Adaptor3
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: Adaptor3d_Surface_BasisSurface\n  * wrapname: _wrap_Adaptor3d_Surface_BasisSurface\n  * fulldecl: Handle_Adaptor3d_HSurface Adaptor3d_Surface::BasisSurface() const";
+        message += "\nwrapper details:\n  * symname: Adaptor3d_Surface_BasisSurface\n  * wrapname: _wrap_Adaptor3d_Surface_BasisSurface\n  * fulldecl: opencascade::handle< Adaptor3d_Surface > Adaptor3d_Surface::BasisSurface() const";
         signal_lisp_error(message.c_str());
       }
     }
-    lresult = new Handle_Adaptor3d_HSurface(result);
+    lresult = new opencascade::handle< Adaptor3d_Surface >(result);
     return lresult;
   } catch (...) {
-    return (Handle_Adaptor3d_HSurface *)0;
+    return (opencascade::handle< Adaptor3d_Surface > *)0;
   }
 }
 
@@ -103403,50 +102817,7 @@ EXPORT BRepMesh_IncrementalMesh *_wrap_new_BRepMesh_IncrementalMesh__SWIG_0 () {
 }
 
 
-EXPORT BRepMesh_IncrementalMesh *_wrap_new_BRepMesh_IncrementalMesh__SWIG_1 (TopoDS_Shape *larg1, Standard_Real larg2, bool larg3, Standard_Real larg4, bool larg5, bool larg6) {
-  BRepMesh_IncrementalMesh * lresult = (BRepMesh_IncrementalMesh *)0 ;
-  TopoDS_Shape *arg1 = 0 ;
-  Standard_Real arg2 ;
-  Standard_Boolean arg3 ;
-  Standard_Real arg4 ;
-  Standard_Boolean arg5 ;
-  Standard_Boolean arg6 ;
-  BRepMesh_IncrementalMesh *result = 0 ;
-  
-  arg1 = larg1;
-  arg2 = larg2;
-  arg3 = (bool)larg3;
-  arg4 = larg4;
-  arg5 = (bool)larg5;
-  arg6 = (bool)larg6;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (BRepMesh_IncrementalMesh *)new BRepMesh_IncrementalMesh((TopoDS_Shape const &)*arg1,arg2,arg3,arg4,arg5,arg6);
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: new_BRepMesh_IncrementalMesh\n  * wrapname: _wrap_new_BRepMesh_IncrementalMesh__SWIG_1\n  * fulldecl: BRepMesh_IncrementalMesh::BRepMesh_IncrementalMesh(TopoDS_Shape const &,Standard_Real const,Standard_Boolean const,Standard_Real const,Standard_Boolean const,Standard_Boolean const)";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (BRepMesh_IncrementalMesh *)0;
-  }
-}
-
-
-EXPORT BRepMesh_IncrementalMesh *_wrap_new_BRepMesh_IncrementalMesh__SWIG_2 (TopoDS_Shape *larg1, Standard_Real larg2, bool larg3, Standard_Real larg4, bool larg5) {
+EXPORT BRepMesh_IncrementalMesh *_wrap_new_BRepMesh_IncrementalMesh__SWIG_1 (TopoDS_Shape *larg1, Standard_Real larg2, bool larg3, Standard_Real larg4, bool larg5) {
   BRepMesh_IncrementalMesh * lresult = (BRepMesh_IncrementalMesh *)0 ;
   TopoDS_Shape *arg1 = 0 ;
   Standard_Real arg2 ;
@@ -103475,7 +102846,7 @@ EXPORT BRepMesh_IncrementalMesh *_wrap_new_BRepMesh_IncrementalMesh__SWIG_2 (Top
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: new_BRepMesh_IncrementalMesh\n  * wrapname: _wrap_new_BRepMesh_IncrementalMesh__SWIG_2\n  * fulldecl: BRepMesh_IncrementalMesh::BRepMesh_IncrementalMesh(TopoDS_Shape const &,Standard_Real const,Standard_Boolean const,Standard_Real const,Standard_Boolean const)";
+        message += "\nwrapper details:\n  * symname: new_BRepMesh_IncrementalMesh\n  * wrapname: _wrap_new_BRepMesh_IncrementalMesh__SWIG_1\n  * fulldecl: BRepMesh_IncrementalMesh::BRepMesh_IncrementalMesh(TopoDS_Shape const &,Standard_Real const,Standard_Boolean const,Standard_Real const,Standard_Boolean const)";
         signal_lisp_error(message.c_str());
       }
     }
@@ -103487,7 +102858,7 @@ EXPORT BRepMesh_IncrementalMesh *_wrap_new_BRepMesh_IncrementalMesh__SWIG_2 (Top
 }
 
 
-EXPORT BRepMesh_IncrementalMesh *_wrap_new_BRepMesh_IncrementalMesh__SWIG_3 (TopoDS_Shape *larg1, Standard_Real larg2, bool larg3, Standard_Real larg4) {
+EXPORT BRepMesh_IncrementalMesh *_wrap_new_BRepMesh_IncrementalMesh__SWIG_2 (TopoDS_Shape *larg1, Standard_Real larg2, bool larg3, Standard_Real larg4) {
   BRepMesh_IncrementalMesh * lresult = (BRepMesh_IncrementalMesh *)0 ;
   TopoDS_Shape *arg1 = 0 ;
   Standard_Real arg2 ;
@@ -103514,7 +102885,7 @@ EXPORT BRepMesh_IncrementalMesh *_wrap_new_BRepMesh_IncrementalMesh__SWIG_3 (Top
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: new_BRepMesh_IncrementalMesh\n  * wrapname: _wrap_new_BRepMesh_IncrementalMesh__SWIG_3\n  * fulldecl: BRepMesh_IncrementalMesh::BRepMesh_IncrementalMesh(TopoDS_Shape const &,Standard_Real const,Standard_Boolean const,Standard_Real const)";
+        message += "\nwrapper details:\n  * symname: new_BRepMesh_IncrementalMesh\n  * wrapname: _wrap_new_BRepMesh_IncrementalMesh__SWIG_2\n  * fulldecl: BRepMesh_IncrementalMesh::BRepMesh_IncrementalMesh(TopoDS_Shape const &,Standard_Real const,Standard_Boolean const,Standard_Real const)";
         signal_lisp_error(message.c_str());
       }
     }
@@ -103526,7 +102897,7 @@ EXPORT BRepMesh_IncrementalMesh *_wrap_new_BRepMesh_IncrementalMesh__SWIG_3 (Top
 }
 
 
-EXPORT BRepMesh_IncrementalMesh *_wrap_new_BRepMesh_IncrementalMesh__SWIG_4 (TopoDS_Shape *larg1, Standard_Real larg2, bool larg3) {
+EXPORT BRepMesh_IncrementalMesh *_wrap_new_BRepMesh_IncrementalMesh__SWIG_3 (TopoDS_Shape *larg1, Standard_Real larg2, bool larg3) {
   BRepMesh_IncrementalMesh * lresult = (BRepMesh_IncrementalMesh *)0 ;
   TopoDS_Shape *arg1 = 0 ;
   Standard_Real arg2 ;
@@ -103551,7 +102922,7 @@ EXPORT BRepMesh_IncrementalMesh *_wrap_new_BRepMesh_IncrementalMesh__SWIG_4 (Top
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: new_BRepMesh_IncrementalMesh\n  * wrapname: _wrap_new_BRepMesh_IncrementalMesh__SWIG_4\n  * fulldecl: BRepMesh_IncrementalMesh::BRepMesh_IncrementalMesh(TopoDS_Shape const &,Standard_Real const,Standard_Boolean const)";
+        message += "\nwrapper details:\n  * symname: new_BRepMesh_IncrementalMesh\n  * wrapname: _wrap_new_BRepMesh_IncrementalMesh__SWIG_3\n  * fulldecl: BRepMesh_IncrementalMesh::BRepMesh_IncrementalMesh(TopoDS_Shape const &,Standard_Real const,Standard_Boolean const)";
         signal_lisp_error(message.c_str());
       }
     }
@@ -103563,7 +102934,7 @@ EXPORT BRepMesh_IncrementalMesh *_wrap_new_BRepMesh_IncrementalMesh__SWIG_4 (Top
 }
 
 
-EXPORT BRepMesh_IncrementalMesh *_wrap_new_BRepMesh_IncrementalMesh__SWIG_5 (TopoDS_Shape *larg1, Standard_Real larg2) {
+EXPORT BRepMesh_IncrementalMesh *_wrap_new_BRepMesh_IncrementalMesh__SWIG_4 (TopoDS_Shape *larg1, Standard_Real larg2) {
   BRepMesh_IncrementalMesh * lresult = (BRepMesh_IncrementalMesh *)0 ;
   TopoDS_Shape *arg1 = 0 ;
   Standard_Real arg2 ;
@@ -103586,7 +102957,7 @@ EXPORT BRepMesh_IncrementalMesh *_wrap_new_BRepMesh_IncrementalMesh__SWIG_5 (Top
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: new_BRepMesh_IncrementalMesh\n  * wrapname: _wrap_new_BRepMesh_IncrementalMesh__SWIG_5\n  * fulldecl: BRepMesh_IncrementalMesh::BRepMesh_IncrementalMesh(TopoDS_Shape const &,Standard_Real const)";
+        message += "\nwrapper details:\n  * symname: new_BRepMesh_IncrementalMesh\n  * wrapname: _wrap_new_BRepMesh_IncrementalMesh__SWIG_4\n  * fulldecl: BRepMesh_IncrementalMesh::BRepMesh_IncrementalMesh(TopoDS_Shape const &,Standard_Real const)";
         signal_lisp_error(message.c_str());
       }
     }
@@ -103681,1299 +103052,6 @@ EXPORT void _wrap_delete_BRepMesh_IncrementalMesh (BRepMesh_IncrementalMesh *lar
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
         message += "\nwrapper details:\n  * symname: delete_BRepMesh_IncrementalMesh\n  * wrapname: _wrap_delete_BRepMesh_IncrementalMesh\n  * fulldecl: BRepMesh_IncrementalMesh::~BRepMesh_IncrementalMesh()";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    
-  } catch (...) {
-    
-  }
-}
-
-
-#include <BRepMesh_FaceAttribute.hxx>
-EXPORT BRepMesh_FaceAttribute *_wrap_new_BRepMesh_FaceAttribute__SWIG_0 (BRepMesh::HDMapOfVertexInteger *larg1, BRepMesh::HDMapOfIntegerPnt *larg2) {
-  BRepMesh_FaceAttribute * lresult = (BRepMesh_FaceAttribute *)0 ;
-  BRepMesh::HDMapOfVertexInteger *arg1 = 0 ;
-  BRepMesh::HDMapOfIntegerPnt *arg2 = 0 ;
-  BRepMesh_FaceAttribute *result = 0 ;
-  
-  arg1 = larg1;
-  arg2 = larg2;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (BRepMesh_FaceAttribute *)new BRepMesh_FaceAttribute((BRepMesh::HDMapOfVertexInteger const &)*arg1,(BRepMesh::HDMapOfIntegerPnt const &)*arg2);
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: new_BRepMesh_FaceAttribute\n  * wrapname: _wrap_new_BRepMesh_FaceAttribute__SWIG_0\n  * fulldecl: BRepMesh_FaceAttribute::BRepMesh_FaceAttribute(BRepMesh::HDMapOfVertexInteger const &,BRepMesh::HDMapOfIntegerPnt const &)";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (BRepMesh_FaceAttribute *)0;
-  }
-}
-
-
-EXPORT BRepMesh_FaceAttribute *_wrap_new_BRepMesh_FaceAttribute__SWIG_1 (TopoDS_Face *larg1, BRepMesh::HDMapOfVertexInteger *larg2, BRepMesh::HDMapOfIntegerPnt *larg3, bool larg4) {
-  BRepMesh_FaceAttribute * lresult = (BRepMesh_FaceAttribute *)0 ;
-  TopoDS_Face *arg1 = 0 ;
-  BRepMesh::HDMapOfVertexInteger *arg2 = 0 ;
-  BRepMesh::HDMapOfIntegerPnt *arg3 = 0 ;
-  Standard_Boolean arg4 ;
-  BRepMesh_FaceAttribute *result = 0 ;
-  
-  arg1 = larg1;
-  arg2 = larg2;
-  arg3 = larg3;
-  arg4 = (bool)larg4;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (BRepMesh_FaceAttribute *)new BRepMesh_FaceAttribute((TopoDS_Face const &)*arg1,(BRepMesh::HDMapOfVertexInteger const &)*arg2,(BRepMesh::HDMapOfIntegerPnt const &)*arg3,arg4);
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: new_BRepMesh_FaceAttribute\n  * wrapname: _wrap_new_BRepMesh_FaceAttribute__SWIG_1\n  * fulldecl: BRepMesh_FaceAttribute::BRepMesh_FaceAttribute(TopoDS_Face const &,BRepMesh::HDMapOfVertexInteger const &,BRepMesh::HDMapOfIntegerPnt const &,Standard_Boolean const)";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (BRepMesh_FaceAttribute *)0;
-  }
-}
-
-
-EXPORT void _wrap_delete_BRepMesh_FaceAttribute (BRepMesh_FaceAttribute *larg1) {
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        delete arg1;
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: delete_BRepMesh_FaceAttribute\n  * wrapname: _wrap_delete_BRepMesh_FaceAttribute\n  * fulldecl: BRepMesh_FaceAttribute::~BRepMesh_FaceAttribute()";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    
-  } catch (...) {
-    
-  }
-}
-
-
-EXPORT Handle_BRepAdaptor_HSurface *_wrap_BRepMesh_FaceAttribute_Surface (BRepMesh_FaceAttribute *larg1) {
-  Handle_BRepAdaptor_HSurface * lresult = (Handle_BRepAdaptor_HSurface *)0 ;
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  Handle_BRepAdaptor_HSurface *result = 0 ;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (Handle_BRepAdaptor_HSurface *) &(arg1)->Surface();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_Surface\n  * wrapname: _wrap_BRepMesh_FaceAttribute_Surface\n  * fulldecl: Handle_BRepAdaptor_HSurface const & BRepMesh_FaceAttribute::Surface()";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (Handle_BRepAdaptor_HSurface *)0;
-  }
-}
-
-
-EXPORT bool _wrap_BRepMesh_FaceAttribute_IsInitialized (BRepMesh_FaceAttribute *larg1) {
-  bool lresult = (bool)0 ;
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  Standard_Boolean result;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (Standard_Boolean)(arg1)->IsInitialized();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_IsInitialized\n  * wrapname: _wrap_BRepMesh_FaceAttribute_IsInitialized\n  * fulldecl: Standard_Boolean BRepMesh_FaceAttribute::IsInitialized()";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = (bool)result;
-    return lresult;
-  } catch (...) {
-    return (bool)0;
-  }
-}
-
-
-EXPORT void _wrap_BRepMesh_FaceAttribute_SetFace (BRepMesh_FaceAttribute *larg1, TopoDS_Face *larg2, bool larg3) {
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  TopoDS_Face *arg2 = 0 ;
-  Standard_Boolean arg3 ;
-  
-  arg1 = larg1;
-  arg2 = larg2;
-  arg3 = (bool)larg3;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        (arg1)->SetFace((TopoDS_Face const &)*arg2,arg3);
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_SetFace\n  * wrapname: _wrap_BRepMesh_FaceAttribute_SetFace\n  * fulldecl: void BRepMesh_FaceAttribute::SetFace(TopoDS_Face const &,Standard_Boolean const)";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    
-  } catch (...) {
-    
-  }
-}
-
-
-EXPORT TopoDS_Face *_wrap_BRepMesh_FaceAttribute_Face (BRepMesh_FaceAttribute *larg1) {
-  TopoDS_Face * lresult = (TopoDS_Face *)0 ;
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  TopoDS_Face *result = 0 ;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (TopoDS_Face *) &(arg1)->Face();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_Face\n  * wrapname: _wrap_BRepMesh_FaceAttribute_Face\n  * fulldecl: TopoDS_Face const & BRepMesh_FaceAttribute::Face()";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (TopoDS_Face *)0;
-  }
-}
-
-
-EXPORT void _wrap_BRepMesh_FaceAttribute_SetBoundaryVertices (BRepMesh_FaceAttribute *larg1, BRepMesh::HDMapOfVertexInteger *larg2) {
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  BRepMesh::HDMapOfVertexInteger *arg2 = 0 ;
-  
-  arg1 = larg1;
-  arg2 = larg2;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        (arg1)->SetBoundaryVertices((BRepMesh::HDMapOfVertexInteger const &)*arg2);
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_SetBoundaryVertices\n  * wrapname: _wrap_BRepMesh_FaceAttribute_SetBoundaryVertices\n  * fulldecl: void BRepMesh_FaceAttribute::SetBoundaryVertices(BRepMesh::HDMapOfVertexInteger const &)";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    
-  } catch (...) {
-    
-  }
-}
-
-
-EXPORT void _wrap_BRepMesh_FaceAttribute_SetBoundaryPoints (BRepMesh_FaceAttribute *larg1, BRepMesh::HDMapOfIntegerPnt *larg2) {
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  BRepMesh::HDMapOfIntegerPnt *arg2 = 0 ;
-  
-  arg1 = larg1;
-  arg2 = larg2;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        (arg1)->SetBoundaryPoints((BRepMesh::HDMapOfIntegerPnt const &)*arg2);
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_SetBoundaryPoints\n  * wrapname: _wrap_BRepMesh_FaceAttribute_SetBoundaryPoints\n  * fulldecl: void BRepMesh_FaceAttribute::SetBoundaryPoints(BRepMesh::HDMapOfIntegerPnt const &)";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    
-  } catch (...) {
-    
-  }
-}
-
-
-EXPORT Standard_Real _wrap_BRepMesh_FaceAttribute_ToleranceU (BRepMesh_FaceAttribute *larg1) {
-  Standard_Real lresult = (Standard_Real)0 ;
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  Standard_Real result;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (Standard_Real)((BRepMesh_FaceAttribute const *)arg1)->ToleranceU();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_ToleranceU\n  * wrapname: _wrap_BRepMesh_FaceAttribute_ToleranceU\n  * fulldecl: Standard_Real BRepMesh_FaceAttribute::ToleranceU() const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (Standard_Real)0;
-  }
-}
-
-
-EXPORT Standard_Real _wrap_BRepMesh_FaceAttribute_ToleranceV (BRepMesh_FaceAttribute *larg1) {
-  Standard_Real lresult = (Standard_Real)0 ;
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  Standard_Real result;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (Standard_Real)((BRepMesh_FaceAttribute const *)arg1)->ToleranceV();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_ToleranceV\n  * wrapname: _wrap_BRepMesh_FaceAttribute_ToleranceV\n  * fulldecl: Standard_Real BRepMesh_FaceAttribute::ToleranceV() const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (Standard_Real)0;
-  }
-}
-
-
-EXPORT Standard_Real _wrap_BRepMesh_FaceAttribute_GetDefFace (BRepMesh_FaceAttribute *larg1) {
-  Standard_Real lresult = (Standard_Real)0 ;
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  Standard_Real result;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (Standard_Real)((BRepMesh_FaceAttribute const *)arg1)->GetDefFace();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_GetDefFace\n  * wrapname: _wrap_BRepMesh_FaceAttribute_GetDefFace\n  * fulldecl: Standard_Real BRepMesh_FaceAttribute::GetDefFace() const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (Standard_Real)0;
-  }
-}
-
-
-EXPORT void _wrap_BRepMesh_FaceAttribute_SetDefFace (BRepMesh_FaceAttribute *larg1, Standard_Real larg2) {
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  Standard_Real arg2 ;
-  
-  arg1 = larg1;
-  arg2 = larg2;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        (arg1)->SetDefFace(arg2);
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_SetDefFace\n  * wrapname: _wrap_BRepMesh_FaceAttribute_SetDefFace\n  * fulldecl: void BRepMesh_FaceAttribute::SetDefFace(Standard_Real const)";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    
-  } catch (...) {
-    
-  }
-}
-
-
-EXPORT Standard_Real _wrap_BRepMesh_FaceAttribute_GetUMin (BRepMesh_FaceAttribute *larg1) {
-  Standard_Real lresult = (Standard_Real)0 ;
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  Standard_Real result;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (Standard_Real)((BRepMesh_FaceAttribute const *)arg1)->GetUMin();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_GetUMin\n  * wrapname: _wrap_BRepMesh_FaceAttribute_GetUMin\n  * fulldecl: Standard_Real BRepMesh_FaceAttribute::GetUMin() const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (Standard_Real)0;
-  }
-}
-
-
-EXPORT void _wrap_BRepMesh_FaceAttribute_SetUMin (BRepMesh_FaceAttribute *larg1, Standard_Real larg2) {
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  Standard_Real arg2 ;
-  
-  arg1 = larg1;
-  arg2 = larg2;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        (arg1)->SetUMin(arg2);
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_SetUMin\n  * wrapname: _wrap_BRepMesh_FaceAttribute_SetUMin\n  * fulldecl: void BRepMesh_FaceAttribute::SetUMin(Standard_Real const)";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    
-  } catch (...) {
-    
-  }
-}
-
-
-EXPORT Standard_Real _wrap_BRepMesh_FaceAttribute_GetVMin (BRepMesh_FaceAttribute *larg1) {
-  Standard_Real lresult = (Standard_Real)0 ;
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  Standard_Real result;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (Standard_Real)((BRepMesh_FaceAttribute const *)arg1)->GetVMin();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_GetVMin\n  * wrapname: _wrap_BRepMesh_FaceAttribute_GetVMin\n  * fulldecl: Standard_Real BRepMesh_FaceAttribute::GetVMin() const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (Standard_Real)0;
-  }
-}
-
-
-EXPORT Standard_Real _wrap_BRepMesh_FaceAttribute_GetUMax (BRepMesh_FaceAttribute *larg1) {
-  Standard_Real lresult = (Standard_Real)0 ;
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  Standard_Real result;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (Standard_Real)((BRepMesh_FaceAttribute const *)arg1)->GetUMax();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_GetUMax\n  * wrapname: _wrap_BRepMesh_FaceAttribute_GetUMax\n  * fulldecl: Standard_Real BRepMesh_FaceAttribute::GetUMax() const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (Standard_Real)0;
-  }
-}
-
-
-EXPORT void _wrap_BRepMesh_FaceAttribute_SetUMax (BRepMesh_FaceAttribute *larg1, Standard_Real larg2) {
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  Standard_Real arg2 ;
-  
-  arg1 = larg1;
-  arg2 = larg2;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        (arg1)->SetUMax(arg2);
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_SetUMax\n  * wrapname: _wrap_BRepMesh_FaceAttribute_SetUMax\n  * fulldecl: void BRepMesh_FaceAttribute::SetUMax(Standard_Real const)";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    
-  } catch (...) {
-    
-  }
-}
-
-
-EXPORT Standard_Real _wrap_BRepMesh_FaceAttribute_GetVMax (BRepMesh_FaceAttribute *larg1) {
-  Standard_Real lresult = (Standard_Real)0 ;
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  Standard_Real result;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (Standard_Real)((BRepMesh_FaceAttribute const *)arg1)->GetVMax();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_GetVMax\n  * wrapname: _wrap_BRepMesh_FaceAttribute_GetVMax\n  * fulldecl: Standard_Real BRepMesh_FaceAttribute::GetVMax() const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (Standard_Real)0;
-  }
-}
-
-
-EXPORT void _wrap_BRepMesh_FaceAttribute_SetVMax (BRepMesh_FaceAttribute *larg1, Standard_Real larg2) {
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  Standard_Real arg2 ;
-  
-  arg1 = larg1;
-  arg2 = larg2;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        (arg1)->SetVMax(arg2);
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_SetVMax\n  * wrapname: _wrap_BRepMesh_FaceAttribute_SetVMax\n  * fulldecl: void BRepMesh_FaceAttribute::SetVMax(Standard_Real const)";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    
-  } catch (...) {
-    
-  }
-}
-
-
-EXPORT Standard_Real _wrap_BRepMesh_FaceAttribute_GetDeltaX (BRepMesh_FaceAttribute *larg1) {
-  Standard_Real lresult = (Standard_Real)0 ;
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  Standard_Real result;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (Standard_Real)((BRepMesh_FaceAttribute const *)arg1)->GetDeltaX();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_GetDeltaX\n  * wrapname: _wrap_BRepMesh_FaceAttribute_GetDeltaX\n  * fulldecl: Standard_Real BRepMesh_FaceAttribute::GetDeltaX() const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (Standard_Real)0;
-  }
-}
-
-
-EXPORT void _wrap_BRepMesh_FaceAttribute_SetDeltaX (BRepMesh_FaceAttribute *larg1, Standard_Real larg2) {
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  Standard_Real arg2 ;
-  
-  arg1 = larg1;
-  arg2 = larg2;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        (arg1)->SetDeltaX(arg2);
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_SetDeltaX\n  * wrapname: _wrap_BRepMesh_FaceAttribute_SetDeltaX\n  * fulldecl: void BRepMesh_FaceAttribute::SetDeltaX(Standard_Real const)";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    
-  } catch (...) {
-    
-  }
-}
-
-
-EXPORT Standard_Real _wrap_BRepMesh_FaceAttribute_GetDeltaY (BRepMesh_FaceAttribute *larg1) {
-  Standard_Real lresult = (Standard_Real)0 ;
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  Standard_Real result;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (Standard_Real)((BRepMesh_FaceAttribute const *)arg1)->GetDeltaY();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_GetDeltaY\n  * wrapname: _wrap_BRepMesh_FaceAttribute_GetDeltaY\n  * fulldecl: Standard_Real BRepMesh_FaceAttribute::GetDeltaY() const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (Standard_Real)0;
-  }
-}
-
-
-EXPORT void _wrap_BRepMesh_FaceAttribute_SetDeltaY (BRepMesh_FaceAttribute *larg1, Standard_Real larg2) {
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  Standard_Real arg2 ;
-  
-  arg1 = larg1;
-  arg2 = larg2;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        (arg1)->SetDeltaY(arg2);
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_SetDeltaY\n  * wrapname: _wrap_BRepMesh_FaceAttribute_SetDeltaY\n  * fulldecl: void BRepMesh_FaceAttribute::SetDeltaY(Standard_Real const)";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    
-  } catch (...) {
-    
-  }
-}
-
-
-EXPORT Standard_Integer _wrap_BRepMesh_FaceAttribute_GetStatus (BRepMesh_FaceAttribute *larg1) {
-  Standard_Integer lresult = (Standard_Integer)0 ;
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  Standard_Integer result;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (Standard_Integer)((BRepMesh_FaceAttribute const *)arg1)->GetStatus();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_GetStatus\n  * wrapname: _wrap_BRepMesh_FaceAttribute_GetStatus\n  * fulldecl: Standard_Integer BRepMesh_FaceAttribute::GetStatus() const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (Standard_Integer)0;
-  }
-}
-
-
-EXPORT void _wrap_BRepMesh_FaceAttribute_SetStatus (BRepMesh_FaceAttribute *larg1, BRepMesh_Status const *larg2) {
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  BRepMesh_Status arg2 ;
-  
-  arg1 = larg1;
-  arg2 = *larg2;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        (arg1)->SetStatus(arg2);
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_SetStatus\n  * wrapname: _wrap_BRepMesh_FaceAttribute_SetStatus\n  * fulldecl: void BRepMesh_FaceAttribute::SetStatus(BRepMesh_Status const)";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    
-  } catch (...) {
-    
-  }
-}
-
-
-EXPORT bool _wrap_BRepMesh_FaceAttribute_IsValid (BRepMesh_FaceAttribute *larg1) {
-  bool lresult = (bool)0 ;
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  Standard_Boolean result;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (Standard_Boolean)((BRepMesh_FaceAttribute const *)arg1)->IsValid();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_IsValid\n  * wrapname: _wrap_BRepMesh_FaceAttribute_IsValid\n  * fulldecl: Standard_Boolean BRepMesh_FaceAttribute::IsValid() const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = (bool)result;
-    return lresult;
-  } catch (...) {
-    return (bool)0;
-  }
-}
-
-
-EXPORT void _wrap_BRepMesh_FaceAttribute_Clear (BRepMesh_FaceAttribute *larg1) {
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        (arg1)->Clear();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_Clear\n  * wrapname: _wrap_BRepMesh_FaceAttribute_Clear\n  * fulldecl: void BRepMesh_FaceAttribute::Clear()";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    
-  } catch (...) {
-    
-  }
-}
-
-
-EXPORT BRepMesh::HDMapOfIntegerListOfXY *_wrap_BRepMesh_FaceAttribute_ChangeLocation2D (BRepMesh_FaceAttribute *larg1) {
-  BRepMesh::HDMapOfIntegerListOfXY * lresult = (BRepMesh::HDMapOfIntegerListOfXY *)0 ;
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  BRepMesh::HDMapOfIntegerListOfXY *result = 0 ;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (BRepMesh::HDMapOfIntegerListOfXY *) &(arg1)->ChangeLocation2D();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_ChangeLocation2D\n  * wrapname: _wrap_BRepMesh_FaceAttribute_ChangeLocation2D\n  * fulldecl: BRepMesh::HDMapOfIntegerListOfXY & BRepMesh_FaceAttribute::ChangeLocation2D()";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (BRepMesh::HDMapOfIntegerListOfXY *)0;
-  }
-}
-
-
-EXPORT BRepMesh::HDMapOfIntegerPnt *_wrap_BRepMesh_FaceAttribute_ChangeSurfacePoints (BRepMesh_FaceAttribute *larg1) {
-  BRepMesh::HDMapOfIntegerPnt * lresult = (BRepMesh::HDMapOfIntegerPnt *)0 ;
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  BRepMesh::HDMapOfIntegerPnt *result = 0 ;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (BRepMesh::HDMapOfIntegerPnt *) &(arg1)->ChangeSurfacePoints();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_ChangeSurfacePoints\n  * wrapname: _wrap_BRepMesh_FaceAttribute_ChangeSurfacePoints\n  * fulldecl: BRepMesh::HDMapOfIntegerPnt & BRepMesh_FaceAttribute::ChangeSurfacePoints()";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (BRepMesh::HDMapOfIntegerPnt *)0;
-  }
-}
-
-
-EXPORT BRepMesh::HDMapOfVertexInteger *_wrap_BRepMesh_FaceAttribute_ChangeSurfaceVertices (BRepMesh_FaceAttribute *larg1) {
-  BRepMesh::HDMapOfVertexInteger * lresult = (BRepMesh::HDMapOfVertexInteger *)0 ;
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  BRepMesh::HDMapOfVertexInteger *result = 0 ;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (BRepMesh::HDMapOfVertexInteger *) &(arg1)->ChangeSurfaceVertices();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_ChangeSurfaceVertices\n  * wrapname: _wrap_BRepMesh_FaceAttribute_ChangeSurfaceVertices\n  * fulldecl: BRepMesh::HDMapOfVertexInteger & BRepMesh_FaceAttribute::ChangeSurfaceVertices()";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (BRepMesh::HDMapOfVertexInteger *)0;
-  }
-}
-
-
-EXPORT BRepMesh::HIMapOfInteger *_wrap_BRepMesh_FaceAttribute_ChangeVertexEdgeMap (BRepMesh_FaceAttribute *larg1) {
-  BRepMesh::HIMapOfInteger * lresult = (BRepMesh::HIMapOfInteger *)0 ;
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  BRepMesh::HIMapOfInteger *result = 0 ;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (BRepMesh::HIMapOfInteger *) &(arg1)->ChangeVertexEdgeMap();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_ChangeVertexEdgeMap\n  * wrapname: _wrap_BRepMesh_FaceAttribute_ChangeVertexEdgeMap\n  * fulldecl: BRepMesh::HIMapOfInteger & BRepMesh_FaceAttribute::ChangeVertexEdgeMap()";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (BRepMesh::HIMapOfInteger *)0;
-  }
-}
-
-
-EXPORT Handle_BRepMesh_DataStructureOfDelaun *_wrap_BRepMesh_FaceAttribute_ChangeStructure (BRepMesh_FaceAttribute *larg1) {
-  Handle_BRepMesh_DataStructureOfDelaun * lresult = (Handle_BRepMesh_DataStructureOfDelaun *)0 ;
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  Handle_BRepMesh_DataStructureOfDelaun *result = 0 ;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (Handle_BRepMesh_DataStructureOfDelaun *) &(arg1)->ChangeStructure();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_ChangeStructure\n  * wrapname: _wrap_BRepMesh_FaceAttribute_ChangeStructure\n  * fulldecl: Handle_BRepMesh_DataStructureOfDelaun & BRepMesh_FaceAttribute::ChangeStructure()";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (Handle_BRepMesh_DataStructureOfDelaun *)0;
-  }
-}
-
-
-EXPORT BRepMesh::HClassifier *_wrap_BRepMesh_FaceAttribute_ChangeClassifier (BRepMesh_FaceAttribute *larg1) {
-  BRepMesh::HClassifier * lresult = (BRepMesh::HClassifier *)0 ;
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  BRepMesh::HClassifier *result = 0 ;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (BRepMesh::HClassifier *) &(arg1)->ChangeClassifier();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_ChangeClassifier\n  * wrapname: _wrap_BRepMesh_FaceAttribute_ChangeClassifier\n  * fulldecl: BRepMesh::HClassifier & BRepMesh_FaceAttribute::ChangeClassifier()";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (BRepMesh::HClassifier *)0;
-  }
-}
-
-
-EXPORT BRepMesh::HVectorOfVertex *_wrap_BRepMesh_FaceAttribute_ChangeMeshNodes (BRepMesh_FaceAttribute *larg1) {
-  BRepMesh::HVectorOfVertex * lresult = (BRepMesh::HVectorOfVertex *)0 ;
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  BRepMesh::HVectorOfVertex *result = 0 ;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (BRepMesh::HVectorOfVertex *) &(arg1)->ChangeMeshNodes();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_ChangeMeshNodes\n  * wrapname: _wrap_BRepMesh_FaceAttribute_ChangeMeshNodes\n  * fulldecl: BRepMesh::HVectorOfVertex & BRepMesh_FaceAttribute::ChangeMeshNodes()";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (BRepMesh::HVectorOfVertex *)0;
-  }
-}
-
-
-EXPORT Standard_Integer _wrap_BRepMesh_FaceAttribute_LastPointId (BRepMesh_FaceAttribute *larg1) {
-  Standard_Integer lresult = (Standard_Integer)0 ;
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  Standard_Integer result;
-  
-  arg1 = larg1;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (Standard_Integer)((BRepMesh_FaceAttribute const *)arg1)->LastPointId();
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_LastPointId\n  * wrapname: _wrap_BRepMesh_FaceAttribute_LastPointId\n  * fulldecl: Standard_Integer BRepMesh_FaceAttribute::LastPointId() const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (Standard_Integer)0;
-  }
-}
-
-
-EXPORT gp_Pnt *_wrap_BRepMesh_FaceAttribute_GetPoint__SWIG_0 (BRepMesh_FaceAttribute *larg1, BRepMesh_Vertex *larg2) {
-  gp_Pnt * lresult = (gp_Pnt *)0 ;
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  BRepMesh_Vertex *arg2 = 0 ;
-  gp_Pnt *result = 0 ;
-  
-  arg1 = larg1;
-  arg2 = larg2;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (gp_Pnt *) &((BRepMesh_FaceAttribute const *)arg1)->GetPoint((BRepMesh_Vertex const &)*arg2);
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_GetPoint\n  * wrapname: _wrap_BRepMesh_FaceAttribute_GetPoint__SWIG_0\n  * fulldecl: gp_Pnt & BRepMesh_FaceAttribute::GetPoint(BRepMesh_Vertex const &) const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (gp_Pnt *)0;
-  }
-}
-
-
-EXPORT gp_Pnt *_wrap_BRepMesh_FaceAttribute_GetPoint__SWIG_1 (BRepMesh_FaceAttribute *larg1, Standard_Integer larg2) {
-  gp_Pnt * lresult = (gp_Pnt *)0 ;
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  Standard_Integer arg2 ;
-  gp_Pnt *result = 0 ;
-  
-  arg1 = larg1;
-  arg2 = larg2;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (gp_Pnt *) &((BRepMesh_FaceAttribute const *)arg1)->GetPoint(arg2);
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_GetPoint\n  * wrapname: _wrap_BRepMesh_FaceAttribute_GetPoint__SWIG_1\n  * fulldecl: gp_Pnt & BRepMesh_FaceAttribute::GetPoint(Standard_Integer const) const";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = result;
-    return lresult;
-  } catch (...) {
-    return (gp_Pnt *)0;
-  }
-}
-
-
-EXPORT void _wrap_BRepMesh_FaceAttribute_AddNode (BRepMesh_FaceAttribute *larg1, Standard_Integer larg2, gp_XY *larg3, BRepMesh_DegreeOfFreedom const *larg4, Standard_Integer *larg5, Standard_Integer *larg6) {
-  BRepMesh_FaceAttribute *arg1 = (BRepMesh_FaceAttribute *) 0 ;
-  Standard_Integer arg2 ;
-  gp_XY *arg3 = 0 ;
-  BRepMesh_DegreeOfFreedom arg4 ;
-  Standard_Integer *arg5 = 0 ;
-  Standard_Integer *arg6 = 0 ;
-  
-  arg1 = larg1;
-  arg2 = larg2;
-  arg3 = larg3;
-  arg4 = *larg4;
-  arg5 = larg5;
-  arg6 = larg6;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        (arg1)->AddNode(arg2,(gp_XY const &)*arg3,arg4,*arg5,*arg6);
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: BRepMesh_FaceAttribute_AddNode\n  * wrapname: _wrap_BRepMesh_FaceAttribute_AddNode\n  * fulldecl: void BRepMesh_FaceAttribute::AddNode(Standard_Integer const,gp_XY const &,BRepMesh_DegreeOfFreedom const,Standard_Integer &,Standard_Integer &)";
         signal_lisp_error(message.c_str());
       }
     }
@@ -105087,10 +103165,10 @@ EXPORT Standard_Integer _wrap_GeomAPI_ProjectPointOnSurf_NbPoints (GeomAPI_Proje
 }
 
 
-EXPORT Quantity_Length _wrap_GeomAPI_ProjectPointOnSurf_LowerDistance (GeomAPI_ProjectPointOnSurf *larg1) {
-  Quantity_Length lresult = (Quantity_Length)0 ;
+EXPORT Standard_Real _wrap_GeomAPI_ProjectPointOnSurf_LowerDistance (GeomAPI_ProjectPointOnSurf *larg1) {
+  Standard_Real lresult = (Standard_Real)0 ;
   GeomAPI_ProjectPointOnSurf *arg1 = (GeomAPI_ProjectPointOnSurf *) 0 ;
-  Quantity_Length result;
+  Standard_Real result;
   
   arg1 = larg1;
   try {
@@ -105098,7 +103176,7 @@ EXPORT Quantity_Length _wrap_GeomAPI_ProjectPointOnSurf_LowerDistance (GeomAPI_P
       try
       {
         OCC_CATCH_SIGNALS
-        result = (Quantity_Length)((GeomAPI_ProjectPointOnSurf const *)arg1)->LowerDistance();
+        result = (Standard_Real)((GeomAPI_ProjectPointOnSurf const *)arg1)->LowerDistance();
       }
       catch(Standard_Failure const& error)
       {
@@ -105108,14 +103186,14 @@ EXPORT Quantity_Length _wrap_GeomAPI_ProjectPointOnSurf_LowerDistance (GeomAPI_P
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: GeomAPI_ProjectPointOnSurf_LowerDistance\n  * wrapname: _wrap_GeomAPI_ProjectPointOnSurf_LowerDistance\n  * fulldecl: Quantity_Length GeomAPI_ProjectPointOnSurf::LowerDistance() const";
+        message += "\nwrapper details:\n  * symname: GeomAPI_ProjectPointOnSurf_LowerDistance\n  * wrapname: _wrap_GeomAPI_ProjectPointOnSurf_LowerDistance\n  * fulldecl: Standard_Real GeomAPI_ProjectPointOnSurf::LowerDistance() const";
         signal_lisp_error(message.c_str());
       }
     }
     lresult = result;
     return lresult;
   } catch (...) {
-    return (Quantity_Length)0;
+    return (Standard_Real)0;
   }
 }
 
@@ -105155,10 +103233,10 @@ EXPORT gp_Pnt const *_wrap_GeomAPI_ProjectPointOnSurf_Point (GeomAPI_ProjectPoin
 }
 
 
-EXPORT void _wrap_GeomAPI_ProjectPointOnSurf_LowerDistanceParameters (GeomAPI_ProjectPointOnSurf *larg1, Quantity_Parameter *larg2, Quantity_Parameter *larg3) {
+EXPORT void _wrap_GeomAPI_ProjectPointOnSurf_LowerDistanceParameters (GeomAPI_ProjectPointOnSurf *larg1, Standard_Real *larg2, Standard_Real *larg3) {
   GeomAPI_ProjectPointOnSurf *arg1 = (GeomAPI_ProjectPointOnSurf *) 0 ;
-  Quantity_Parameter *arg2 = 0 ;
-  Quantity_Parameter *arg3 = 0 ;
+  Standard_Real *arg2 = 0 ;
+  Standard_Real *arg3 = 0 ;
   
   arg1 = larg1;
   arg2 = larg2;
@@ -105178,7 +103256,7 @@ EXPORT void _wrap_GeomAPI_ProjectPointOnSurf_LowerDistanceParameters (GeomAPI_Pr
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: GeomAPI_ProjectPointOnSurf_LowerDistanceParameters\n  * wrapname: _wrap_GeomAPI_ProjectPointOnSurf_LowerDistanceParameters\n  * fulldecl: void GeomAPI_ProjectPointOnSurf::LowerDistanceParameters(Quantity_Parameter &,Quantity_Parameter &) const";
+        message += "\nwrapper details:\n  * symname: GeomAPI_ProjectPointOnSurf_LowerDistanceParameters\n  * wrapname: _wrap_GeomAPI_ProjectPointOnSurf_LowerDistanceParameters\n  * fulldecl: void GeomAPI_ProjectPointOnSurf::LowerDistanceParameters(Standard_Real &,Standard_Real &) const";
         signal_lisp_error(message.c_str());
       }
     }
@@ -105189,11 +103267,11 @@ EXPORT void _wrap_GeomAPI_ProjectPointOnSurf_LowerDistanceParameters (GeomAPI_Pr
 }
 
 
-EXPORT void _wrap_GeomAPI_ProjectPointOnSurf_Parameters (GeomAPI_ProjectPointOnSurf *larg1, Standard_Integer larg2, Quantity_Parameter *larg3, Quantity_Parameter *larg4) {
+EXPORT void _wrap_GeomAPI_ProjectPointOnSurf_Parameters (GeomAPI_ProjectPointOnSurf *larg1, Standard_Integer larg2, Standard_Real *larg3, Standard_Real *larg4) {
   GeomAPI_ProjectPointOnSurf *arg1 = (GeomAPI_ProjectPointOnSurf *) 0 ;
   Standard_Integer arg2 ;
-  Quantity_Parameter *arg3 = 0 ;
-  Quantity_Parameter *arg4 = 0 ;
+  Standard_Real *arg3 = 0 ;
+  Standard_Real *arg4 = 0 ;
   
   arg1 = larg1;
   arg2 = larg2;
@@ -105214,7 +103292,7 @@ EXPORT void _wrap_GeomAPI_ProjectPointOnSurf_Parameters (GeomAPI_ProjectPointOnS
         if (error_name) message += std::string(error_name) + "\n";
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: GeomAPI_ProjectPointOnSurf_Parameters\n  * wrapname: _wrap_GeomAPI_ProjectPointOnSurf_Parameters\n  * fulldecl: void GeomAPI_ProjectPointOnSurf::Parameters(Standard_Integer const,Quantity_Parameter &,Quantity_Parameter &) const";
+        message += "\nwrapper details:\n  * symname: GeomAPI_ProjectPointOnSurf_Parameters\n  * wrapname: _wrap_GeomAPI_ProjectPointOnSurf_Parameters\n  * fulldecl: void GeomAPI_ProjectPointOnSurf::Parameters(Standard_Integer const,Standard_Real &,Standard_Real &) const";
         signal_lisp_error(message.c_str());
       }
     }
@@ -106885,47 +104963,6 @@ EXPORT bool _wrap_ShapeAnalysis_Edge_CheckSameParameter__SWIG_3 (ShapeAnalysis_E
         if (error_message) message += std::string(error_message);
         // log SWIG specific debug information
         message += "\nwrapper details:\n  * symname: ShapeAnalysis_Edge_CheckSameParameter\n  * wrapname: _wrap_ShapeAnalysis_Edge_CheckSameParameter__SWIG_3\n  * fulldecl: Standard_Boolean ShapeAnalysis_Edge::CheckSameParameter(TopoDS_Edge const &,TopoDS_Face const &,Standard_Real &)";
-        signal_lisp_error(message.c_str());
-      }
-    }
-    lresult = (bool)result;
-    return lresult;
-  } catch (...) {
-    return (bool)0;
-  }
-}
-
-
-EXPORT bool _wrap_ShapeAnalysis_Edge_ComputeDeviation (Adaptor3d_Curve *larg1, Adaptor3d_Curve *larg2, bool larg3, Standard_Real *larg4, Standard_Integer larg5) {
-  bool lresult = (bool)0 ;
-  Adaptor3d_Curve *arg1 = 0 ;
-  Adaptor3d_Curve *arg2 = 0 ;
-  Standard_Boolean arg3 ;
-  Standard_Real *arg4 = 0 ;
-  Standard_Integer arg5 ;
-  Standard_Boolean result;
-  
-  arg1 = larg1;
-  arg2 = larg2;
-  arg3 = (bool)larg3;
-  arg4 = larg4;
-  arg5 = larg5;
-  try {
-    {
-      try
-      {
-        OCC_CATCH_SIGNALS
-        result = (Standard_Boolean)ShapeAnalysis_Edge::ComputeDeviation((Adaptor3d_Curve const &)*arg1,(Adaptor3d_Curve const &)*arg2,arg3,*arg4,arg5);
-      }
-      catch(Standard_Failure const& error)
-      {
-        char *error_name = (char*) error.DynamicType()->Name();
-        char *error_message = (char*) error.GetMessageString();
-        std::string message;
-        if (error_name) message += std::string(error_name) + "\n";
-        if (error_message) message += std::string(error_message);
-        // log SWIG specific debug information
-        message += "\nwrapper details:\n  * symname: ShapeAnalysis_Edge_ComputeDeviation\n  * wrapname: _wrap_ShapeAnalysis_Edge_ComputeDeviation\n  * fulldecl: Standard_Boolean ShapeAnalysis_Edge::ComputeDeviation(Adaptor3d_Curve const &,Adaptor3d_Curve const &,Standard_Boolean const,Standard_Real &,Standard_Integer const)";
         signal_lisp_error(message.c_str());
       }
     }

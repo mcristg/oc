@@ -99,12 +99,13 @@
    ;;"libTKBinL"
    ;;"libTKBin"
 
-   "libTKXSBase"
-   "libTKSTEPBase"
-   "libTKSTEPAttr"
-   "libTKSTEP209"
-   "libTKSTEP"
-   "libTKIGES"
+   ;"libTKXSBase"
+   ;"libTKSTEPBase"
+   ;"libTKSTEPAttr"
+   ;"libTKSTEP209"
+   ;"libTKSTEP"
+   ;"libTKIGES"
+   "libTKDESTEP"
    ))
 
 (defparameter *occt-lib-path*
@@ -122,7 +123,7 @@
 (defparameter *opencascade-lib-extension*
   #+windows ".dll"
   #+darwin ".7.1.0.dylib"
-  #+linux ".so.7.1.0")
+  #+linux ".so.7.8.0")
 
 (defun load-oc-libraries ()
   (when *freetype-lib*

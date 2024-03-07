@@ -40,6 +40,7 @@ class BRepPrimAPI_MakeCylinder : public BRepBuilderAPI_MakeShape
   BRepPrimAPI_MakeCylinder(const gp_Ax2& Axes, const Standard_Real R, const Standard_Real H);
   BRepPrimAPI_MakeCylinder(const gp_Ax2& axes,const Standard_Real radius,
 			   const Standard_Real height,const Standard_Real angle);
+ const TopoDS_Shape& Shape();			   
 };
 
 class BRepPrimAPI_MakeTorus : public BRepBuilderAPI_MakeShape

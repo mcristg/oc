@@ -69,6 +69,9 @@ enum IFSelect_ReturnStatus {
  IFSelect_RetStop
 };
 
+%{     
+using namespace std;
+  %}
 
 %include "standard/standard.i";
 %include "mmgt/mmgt-tshared.i";
@@ -217,10 +220,10 @@ class GeomAPI_ProjectPointOnSurf
 		const Handle_Geom_Surface & Surface);
 	void Init(const gp_Pnt& P,const Handle_Geom_Surface & surface);
 	Standard_Integer NbPoints() const;	
-	Quantity_Length LowerDistance() const;
+	Standard_Real LowerDistance() const;
 	const gp_Pnt Point(const Standard_Integer Index) const;
-	void LowerDistanceParameters(Quantity_Parameter& U,Quantity_Parameter& V) const;
-	void Parameters(const Standard_Integer Index,Quantity_Parameter& U,Quantity_Parameter& V) const;
+	void LowerDistanceParameters(Standard_Real &U, Standard_Real &V) const;
+	void Parameters(const Standard_Integer Index, Standard_Real &U, Standard_Real &V) const;
 	gp_Pnt NearestPoint() const;
 };
 

@@ -21,6 +21,7 @@
     (oc:finalize instance)
     (values)))
 
+
 (defmethod evaluate-curve ((curve geom-adaptor-curve) (U real))
   ;; opencascade returns a gp_Pnt
   ;; the swig wrapper, however, returns a pointer to a new gp_Pnt (via copy constructor)

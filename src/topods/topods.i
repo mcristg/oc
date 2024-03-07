@@ -17,33 +17,32 @@ class TopoDS_Shape
 {
 	public:
 	TopAbs_ShapeEnum ShapeType();
-	Standard_Boolean IsSame (const TopoDS_Shape& other) const ;
-	Standard_Boolean IsPartner (const TopoDS_Shape &other) const ;
-	Standard_Boolean IsEqual (const TopoDS_Shape &other) const ;
-	const Handle_TopoDS_TShape& TShape() const;
-	const TopLoc_Location& Location () const ;
-	void Location (const TopLoc_Location& Loc) ;
+	Standard_Boolean IsSame(const TopoDS_Shape& other) const ;
+	Standard_Boolean IsPartner(const TopoDS_Shape &other) const ;
+	Standard_Boolean IsEqual(const TopoDS_Shape &other) const ;
+	const opencascade::handle< TopoDS_TShape >& TShape() const;
+	const TopLoc_Location& Location() const ;
+	void Location(const TopLoc_Location& Loc) ;
 	TopAbs_Orientation Orientation() const ;
 	void Orientation (const TopAbs_Orientation Orient) ;
 	void Reverse() ;
 	TopoDS_Shape Reversed() const;
-	Standard_Integer HashCode(const Standard_Integer Upper) const;
 	Standard_Boolean Free() const;
 	void Free(const Standard_Boolean F) ;
-	Standard_Boolean Locked () const ;
-	void Locked (const Standard_Boolean F);
-	Standard_Boolean Modified () const ;
-	void Modified (const Standard_Boolean M);
-	Standard_Boolean Checked () const ;
-	void Checked (const Standard_Boolean C);
-	Standard_Boolean Orientable () const ;
-	void Orientable (const Standard_Boolean C);
-	Standard_Boolean Closed () const ;
-	void Closed (const Standard_Boolean C);
-	Standard_Boolean Infinite () const ;
-	void Infinite (const Standard_Boolean C);
-	Standard_Boolean Convex () const ;
-	void Convex (const Standard_Boolean C);
+	Standard_Boolean Locked() const ;
+	void Locked(const Standard_Boolean F);
+	Standard_Boolean Modified() const ;
+	void Modified(const Standard_Boolean M);
+	Standard_Boolean Checked() const ;
+	void Checked(const Standard_Boolean C);
+	Standard_Boolean Orientable() const ;
+	void Orientable(const Standard_Boolean C);
+	Standard_Boolean Closed() const ;
+	void Closed(const Standard_Boolean C);
+	Standard_Boolean Infinite() const ;
+	void Infinite(const Standard_Boolean C);
+	Standard_Boolean Convex() const ;
+	void Convex(const Standard_Boolean C);
 	
 };
 

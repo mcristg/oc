@@ -1,5 +1,5 @@
 %{
-#include <MMgt_TShared.hxx>
+#include <Standard_Transient.hxx>
 #include <Geom2d_Geometry.hxx>
 #include <Geom2d_Point.hxx>
 #include <Geom2d_CartesianPoint.hxx>
@@ -55,7 +55,7 @@
 %rename(Bisector_BisecPC) Handle_Bisector_BisecPC;
 
 %nodefaultdtor Handle_Geom2d_Geometry;
-class Handle_Geom2d_Geometry : public Handle_MMgt_TShared
+class Handle_Geom2d_Geometry : public Handle_Standard_Transient
 {
   Handle_Geom_Geometry()=0;
 };
@@ -371,7 +371,7 @@ class Handle_Geom2d_AxisPlacement : public Handle_Geom2d_Geometry
 }
 		
 %nodefaultdtor Handle_Geom2d_Transformation;  
-class Handle_Geom2d_Transformation : public Handle_MMgt_TShared
+class Handle_Geom2d_Transformation : public Handle_Standard_Transient
 {
   Handle_Geom2d_Transformation()=0;
 };

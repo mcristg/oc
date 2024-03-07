@@ -54,6 +54,7 @@ class BRepBuilderAPI_Command
 	Standard_Boolean  IsDone() const;
 };
 
+
 class BRepBuilderAPI_MakeShape: public BRepBuilderAPI_Command
 {
 	//Hide the constructor to make this class abstract
@@ -77,10 +78,14 @@ class BRepBuilderAPI_Transform : public BRepBuilderAPI_ModifyShape
 {
 	public:
 	BRepBuilderAPI_Transform(const gp_Trsf& T);
-	BRepBuilderAPI_Transform(const TopoDS_Shape& S,	const gp_Trsf& T,
-		const Standard_Boolean Copy = Standard_False);
-	void Perform(const TopoDS_Shape& S,
-		const Standard_Boolean Copy = Standard_False) ;
+	BRepBuilderAPI_Transform(const TopoDS_Shape &theShape,
+	                         const gp_Trsf &theTrsf,
+	                         const Standard_Boolean theCopyGeom=Standard_False,
+	                         const Standard_Boolean theCopyMesh=Standard_False);
+	void Perform(const TopoDS_Shape &theShape,
+	             const Standard_Boolean theCopyGeom=Standard_False,
+	             const Standard_Boolean theCopyMesh=Standard_False) ;
+	const TopoDS_Shape& Shape();	
 };
 
 class BRepBuilderAPI_MakeVertex: public BRepBuilderAPI_MakeShape
