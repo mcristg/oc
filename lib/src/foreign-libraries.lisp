@@ -115,7 +115,7 @@
   (namestring (asdf/system:system-relative-pathname :oc #+windows "lib/oc/Windows/AMD64/vc/bind/" #+darwin "lib/oc/macos/AMD64/clang/debug/" #+linux "lib/oc/Linux/AMD64/gcc/debug/")))
 
 ;;Customize for ubuntu 22.04
-(setf *oc-swig-lib* "liboc.so")
+(setf *oc-swig-lib* "oc.so")
 (setf *freetype-lib* "libfreetype.so")
 (setf *oc-lib-path* "")
 (setf *occt-lib-path* "")

@@ -1,4 +1,7 @@
 *.fasl
 *.lisp~
 src/oc-clos.lisp
+src/ocCFFI_wrap.cxx
+src/vis/vis-clos.lisp
+src/vis/visCFFI_wrap.cxx
 build/

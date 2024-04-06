@@ -252,5 +252,5 @@ class BRepAdaptor_Surface
     BRepAdaptor_Surface();
     BRepAdaptor_Surface(const TopoDS_Face &F, const Standard_Boolean R=Standard_True);
     void BRepAdaptor_Surface::UIntervals(NCollection_Array1<double>& T, GeomAbs_Shape S) const;
-};    
-    
+};
+
