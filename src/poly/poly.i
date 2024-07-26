@@ -1,11 +1,12 @@
-
 %{
+#include <Poly.hxx>  
 #include <Poly_Triangulation.hxx>
 typedef occ::handle<Poly_Triangulation> Handle_Poly_Triangulation;
 typedef NCollection_HArray1<double> TColStd_HArray1OfReal;
 typedef occ::handle<TColStd_HArray1OfReal> Handle_TColStd_HArray1OfReal;
 typedef NCollection_Array1<Poly_Triangle> Poly_Array1OfTriangle;
 typedef NCollection_HArray1<bool> TColStd_HArray1OfBoolean;
+typedef NCollection_List< occ::handle< Poly_Triangulation > > Poly_ListOfTriangulation;
   %}
 
 %rename(Poly_Triangulation) Handle_Poly_Triangulation;
@@ -57,6 +58,41 @@ class Handle_Poly_Triangulation
     return (*self)->UVNode(theIndex);
   }
 }
+
+%{
+
+struct ncollection_triangles
+{ int myLowerBound;
+  int myUpperBound;
+  bool myDeletable;
+  Poly_Triangle* myData;
+};
+
+struct ncollection_nodes
+{ int myLowerBound;
+  int myUpperBound;
+  bool myDeletable;
+  gp_Pnt* myData;
+};
+
+struct ncollection_normals
+{ int myLowerBound;
+  int myUpperBound;
+  bool myDeletable;
+  float* myData;
+};
+  
+struct poly_triangulation_struct
+{ double myDeflection;
+  int myNbNodes;
+  int myNbTriangles;
+  ncollection_nodes myNodes;
+  NCollection_HArray1< TColgp_Array1OfPnt2d > myUVNodes;
+  ncollection_triangles myTriangles;
+  occ::handle< ncollection_normals > myNormals;
+};
+  
+%}
 
 /*
 class Poly_Triangulation
@@ -151,3 +187,20 @@ class Poly_PolygonOnTriangulation
     self->~Poly_PolygonOnTriangulation();
   }
 }
+%nodefaultdtor Poly;
+class Poly 
+{
+public:
+  static Handle_Poly_Triangulation Catenate (const Poly_ListOfTriangulation& lstTri);
+  static void Write (const Handle_Poly_Triangulation& T, Standard_OStream& OS, const bool Compact = Standard_True);
+  static void Write (const Handle_Poly_Polygon3D& P, Standard_OStream& OS, const bool Compact = Standard_True);
+  static void Write (const Handle_Poly_Polygon2D& P, Standard_OStream& OS, const bool Compact = Standard_True);
+  static void Dump (const Handle_Poly_Triangulation& T, Standard_OStream& OS);
+  static void Dump (const Handle_Poly_Polygon3D& P, Standard_OStream& OS);
+  static void Dump (const Handle_Poly_Polygon2D& P, Standard_OStream& OS);
+  static Handle_Poly_Triangulation ReadTriangulation (Standard_IStream& IS);
+  static Handle_Poly_Polygon3D ReadPolygon3D (Standard_IStream& IS);
+  static Handle_Poly_Polygon2D ReadPolygon2D (Standard_IStream& IS);
+  static void ComputeNormals (const Handle_Poly_Triangulation& Tri);
+  static double PointOnTriangle (const gp_XY& P1, const gp_XY& P2, const gp_XY& P3, const gp_XY& P, gp_XY& UV);
+};
