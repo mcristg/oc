@@ -71,6 +71,8 @@ enum AIS_DragAction {
 };
 
 %{
+#include <Standard.hxx>
+#include <Standard_DefineAlloc.hxx>
 #include <Standard_Handle.hxx>
 #include <Standard_Transient.hxx>
 #include <SelectMgr_ViewerSelector.hxx>
@@ -90,7 +92,7 @@ enum AIS_DragAction {
 %}
 
 
-//%include "mmgt/mmgt-tshared.i";     
+%include "../mmgt/mmgt-tshared.i";     
 %include "ais/ais-animation.i";
 %include "ais/ais-interactive-context.i";
 %include "ais/ais-Interactive-object.i";

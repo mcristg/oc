@@ -87,6 +87,18 @@
 	:AIS_DragAction_Stop
 	:AIS_DragAction_Abort)
 
+(cffi:defcfun ("_wrap_Handle_Standard_Transient_GetRefCount" _wrap_Handle_Standard_Transient_GetRefCount) :pointer
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_Handle_Standard_Transient_IncrementRefCounter" _wrap_Handle_Standard_Transient_IncrementRefCounter) :void
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_Handle_Standard_Transient_DecrementRefCounter" _wrap_Handle_Standard_Transient_DecrementRefCounter) :pointer
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_Handle_Standard_Transient_get" _wrap_Handle_Standard_Transient_get) :pointer
+  (self :pointer))
+
 (cffi:defcfun ("_wrap_new_AIS_Animation" _wrap_new_AIS_Animation) :pointer
   (theAnimationName :pointer))
 

@@ -5,7 +5,7 @@
 %rename(PrsMgr_PresentableObject) Handle_PrsMgr_PresentableObject;
 
 %nodefaultdtor Handle_PrsMgr_PresentableObject;
-class Handle_PrsMgr_PresentableObject : public Handle_Standard_Transient
+class Handle_PrsMgr_PresentableObject
 {
   Handle_PrsMgr_PresentableObject()=0;
 };
@@ -264,7 +264,7 @@ class Handle_PrsMgr_PresentableObject : public Handle_Standard_Transient
 %rename(SelectMgr_SelectableObject) Handle_SelectMgr_SelectableObject;
 
 %nodefaultdtor Handle_SelectMgr_SelectableObject;
-class Handle_SelectMgr_SelectableObject : public Handle_PrsMgr_PresentableObject
+class Handle_SelectMgr_SelectableObject
 {
   Handle_SelectMgr_SelectableObject()=0;
 };
@@ -368,7 +368,7 @@ class Handle_SelectMgr_SelectableObject : public Handle_PrsMgr_PresentableObject
 %rename(AIS_InteractiveObject) Handle_AIS_InteractiveObject;
 
 %nodefaultdtor Handle_AIS_InteractiveObject;
-class Handle_AIS_InteractiveObject : public Handle_SelectMgr_SelectableObject
+class Handle_AIS_InteractiveObject
 {
   Handle_AIS_InteractiveObject()=0;
 };
@@ -431,7 +431,7 @@ class Handle_AIS_InteractiveObject : public Handle_SelectMgr_SelectableObject
 %rename(AIS_Axis) Handle_AIS_Axis;
 
 %nodefaultdtor Handle_AIS_Axis;
-class Handle_AIS_Axis : public Handle_AIS_InteractiveObject
+class Handle_AIS_Axis
 {
   Handle_AIS_Axis()=0;
 };
@@ -507,7 +507,7 @@ class Handle_AIS_Axis : public Handle_AIS_InteractiveObject
 #include <AIS_CameraFrustum.hxx>
 %}
 
-class AIS_CameraFrustum : public AIS_InteractiveObject {
+class AIS_CameraFrustum {
  public:
   AIS_CameraFrustum ();
   void SetCameraFrustum (const Handle_Graphic3d_Camera &theCamera);
@@ -524,7 +524,7 @@ class AIS_CameraFrustum : public AIS_InteractiveObject {
 %rename(AIS_Circle) Handle_AIS_Circle;
 
 %nodefaultdtor Handle_AIS_Circle;
-class Handle_AIS_Circle : public Handle_AIS_InteractiveObject
+class Handle_AIS_Circle
 {
   Handle_AIS_Circle()=0;
 };
@@ -825,7 +825,7 @@ enum PrsMgr_TypeOfPresentation3d { PrsMgr_TOP_AllView , PrsMgr_TOP_ProjectorDepe
 %rename(AIS_ConnectedInteractive) Handle_AIS_ConnectedInteractive;
 
 %nodefaultdtor Handle_AIS_ConnectedInteractive;
-class Handle_AIS_ConnectedInteractive : public Handle_AIS_InteractiveObject
+class Handle_AIS_ConnectedInteractive
 {
   Handle_AIS_ConnectedInteractive()=0;
 };
@@ -874,7 +874,7 @@ class Handle_AIS_ConnectedInteractive : public Handle_AIS_InteractiveObject
 #include <AIS_LightSource.hxx>
 %}
 
-class AIS_LightSource : public AIS_InteractiveObject {
+class AIS_LightSource {
 public:
   AIS_LightSource (const Handle_Graphic3d_CLight &theLightSource);
   const Handle_Graphic3d_CLight & Light () const;
@@ -912,7 +912,7 @@ public:
 %rename(AIS_Line) Handle_AIS_Line;
 
 %nodefaultdtor Handle_AIS_Line;
-class Handle_AIS_Line : public Handle_AIS_InteractiveObject
+class Handle_AIS_Line
 {
   Handle_AIS_Line()=0;
 };
@@ -964,7 +964,7 @@ class Handle_AIS_Line : public Handle_AIS_InteractiveObject
 %rename(AIS_Manipulator) Handle_AIS_Manipulator;
 
 %nodefaultdtor Handle_AIS_Manipulator;
-class Handle_AIS_Manipulator : public Handle_AIS_InteractiveObject
+class Handle_AIS_Manipulator
 {
   Handle_AIS_Manipulator()=0;
 };
@@ -1108,7 +1108,7 @@ class Handle_AIS_Manipulator : public Handle_AIS_InteractiveObject
 #include <AIS_MediaPlayer.hxx>
 %}
 
-class AIS_MediaPlayer : public AIS_InteractiveObject
+class AIS_MediaPlayer
 {
 public:
   AIS_MediaPlayer ();
@@ -1129,7 +1129,7 @@ public:
 %rename(AIS_MultipleConnectedInteractive) Handle_AIS_MultipleConnectedInteractive;
 
 %nodefaultdtor Handle_AIS_MultipleConnectedInteractive;
-class Handle_AIS_MultipleConnectedInteractive : public Handle_AIS_InteractiveObject
+class Handle_AIS_MultipleConnectedInteractive
 {
   Handle_AIS_MultipleConnectedInteractive()=0;
 };
@@ -1196,7 +1196,7 @@ enum AIS_TypeOfPlane { AIS_TOPL_Unknown , AIS_TOPL_XYPlane , AIS_TOPL_XZPlane , 
 %rename(AIS_Plane) Handle_AIS_Plane;
 
 %nodefaultdtor Handle_AIS_Plane;
-class Handle_AIS_Plane : public Handle_AIS_InteractiveObject
+class Handle_AIS_Plane
 {
   Handle_AIS_Plane()=0;
 };
