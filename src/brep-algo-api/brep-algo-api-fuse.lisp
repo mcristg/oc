@@ -4,7 +4,7 @@
 				       &key PF S1 S2 aDSF &allow-other-keys)
   (let ((pointer
 	 (cond ((and S1 S2 (null PF) (null aDSF))
-		(_wrap_new_BRepAlgoAPI_Fuse (ff-pointer S1) (ff-pointer S2)))
+		(_wrap_new_BRepAlgoAPI_Fuse__SWIG_2 (ff-pointer S1) (ff-pointer S2)))
 	       (t (error "Not fully implemented ~S" initargs)))))
     (setf (ff-pointer object) pointer)
     (oc:finalize object)

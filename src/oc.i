@@ -162,12 +162,23 @@ class BRepBndLib
 /**
  * GProp_GProps
  */
- %{#include "GProp_GProps.hxx"%}
- class GProp_GProps
+ %{#include "GProp_GProps.hxx"
+#include "GProp_PrincipalProps.hxx"%}
+class GProp_PrincipalProps;
+
+class GProp_GProps
  {
 	 public:
 	 GProp_GProps();
+	 GProp_GProps(const gp_Pnt& SystemLocation);
+	 void Add (const GProp_GProps& Item, const double Density = 1.0);
 	 double Mass() const;
+	 gp_Pnt CentreOfMass() const;
+	 gp_Mat MatrixOfInertia() const;
+	 void StaticMoments (double& Ix, double& Iy, double& Iz) const;
+	 double MomentOfInertia (const gp_Ax1& A) const;
+	 GProp_PrincipalProps PrincipalProperties() const;
+	 double RadiusOfGyration (const gp_Ax1& A) const;
  };
  
 /**
