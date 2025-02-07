@@ -55,7 +55,10 @@
    (:file "src/topods/topods-iterator")
    (:file "src/topods-builder/topods-builder")
    (:file "src/brep-builder/brep-builder")
+   (:file "src/brep-builder/brep-tool")
    (:file "src/top-exp/top-exp-explorer")
+   
+   (:file "src/top-loc/top-loc-location")
    
    (:file "src/collections/tcol-std-array1-of-real")
    (:file "src/collections/tcol-std-array1-of-integer")

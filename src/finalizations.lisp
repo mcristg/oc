@@ -560,3 +560,6 @@
   
 (defmethod foreign-free-fn ((object step-control-writer))
   #'_wrap_delete_STEPControl_Writer)
+
+(defmethod foreign-free-fn ((object top-loc-location))
+  #'_wrap_delete_TopLoc_Location)  

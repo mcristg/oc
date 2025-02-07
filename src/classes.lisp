@@ -290,4 +290,5 @@
 (defclass step-control-writer (ff-pointer-mixin) ())
 ;;
 
+(defclass top-loc-location (ff-pointer-mixin) ())
 
