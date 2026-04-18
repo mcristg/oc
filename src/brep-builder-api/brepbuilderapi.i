@@ -87,7 +87,7 @@ class BRepBuilderAPI_MakeVertex: public BRepBuilderAPI_MakeShape
 {
 	public:
 	BRepBuilderAPI_MakeVertex(const gp_Pnt& P);
-	const TopoDS_Vertex& Vertex() const;
+	const TopoDS_Vertex& Vertex();
 };
 
 class BRepBuilderAPI_MakeWire : public BRepBuilderAPI_MakeShape
@@ -107,7 +107,7 @@ class BRepBuilderAPI_MakeWire : public BRepBuilderAPI_MakeShape
 	void Add(const TopTools_ListOfShape & shapes);
 	Standard_Boolean IsDone() const;
 	BRepBuilderAPI_WireError Error() const;
-	const TopoDS_Wire& Wire() const;
+	const TopoDS_Wire& Wire();
 };
 
 class BRepBuilderAPI_MakeShell : public BRepBuilderAPI_MakeShape
@@ -158,7 +158,7 @@ class BRepBuilderAPI_MakeEdge : public BRepBuilderAPI_MakeShape
 	BRepBuilderAPI_MakeEdge(const Handle_Geom2d_Curve& L, const Handle_Geom_Surface& S, const TopoDS_Vertex& V1, const TopoDS_Vertex& V2, const Standard_Real param1, const Standard_Real param2);
 	Standard_Boolean IsDone() const;
 	BRepBuilderAPI_EdgeError Error() const;
-	const TopoDS_Edge& Edge() const;
+	const TopoDS_Edge& Edge();
 };
 
 class BRepBuilderAPI_MakeFace  : public BRepBuilderAPI_MakeShape
