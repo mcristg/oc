@@ -38,20 +38,6 @@ Developers:
 
 * build.sh
 
-* # look for this error in the output and change respective lines in oc_wrap.cxx
-
-50896 | Vertex *) &((BRepBuilderAPI_MakeVertex const *)arg1)->Vertex();
-51364 | opoDS_Wire *) &((BRepBuilderAPI_MakeWire const *)arg1)->Wire();
-52899 | opoDS_Edge *) &((BRepBuilderAPI_MakeEdge const *)arg1)->Edge();
-
-to: 
-
-50896 | Vertex *) &(arg1)->Vertex();
-51364 | opoDS_Wire *) &(arg1)->Wire();
-52899 | opoDS_Edge *) &(arg1)->Edge();
-
-* build.sh # rebuild this time without the casting errors
-
 * # Add or edit lisp files as needed to wrap raw overloads and create your CLOS (or other) lispy interface
 
 * # run lisp, re-load system and test
