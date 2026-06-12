@@ -1,5 +1,8 @@
 %{
 #include <AIS_Animation.hxx>
+
+typedef opencascade::handle<AIS_Animation> Handle_AIS_Animation;
+typedef opencascade::handle<Media_Timer> Handle_Media_Timer;
 %}
 
 %rename(AIS_Animation) Handle_AIS_Animation;
@@ -12,86 +15,88 @@ class Handle_AIS_Animation : public Handle_Standard_Transient
 
 %extend Handle_AIS_Animation
 {
-  Handle_AIS_Animation (const TCollection_AsciiString &theAnimationName){
+  Handle_AIS_Animation(const TCollection_AsciiString &theAnimationName){
         return new Handle_AIS_Animation(new AIS_Animation(theAnimationName));
   }
   void Delete() {
       self->~Handle_AIS_Animation();
-  }
-  const TCollection_AsciiString & Name () {
+  } 
+  const TCollection_AsciiString & Name() const {
     return (*self)->Name();
   }
-  Standard_Real StartPts () {
+  double StartPts() const {
     return (*self)->StartPts();
   }
-  void SetStartPts (const Standard_Real thePtsStart) {
+  void SetStartPts(const double thePtsStart) {
     (*self)->SetStartPts(thePtsStart);
   }
-  Standard_Real Duration () {
+  double Duration() const {
     return (*self)->Duration();
   }
-  void UpdateTotalDuration () {
+  void UpdateTotalDuration() {
     (*self)->UpdateTotalDuration();
   }
-  Standard_Boolean HasOwnDuration () {
+  bool HasOwnDuration() const {
     return (*self)->HasOwnDuration();
   }
-  Standard_Real OwnDuration () {
+  double OwnDuration() const {
     return (*self)->OwnDuration();
   }
-  void SetOwnDuration (const Standard_Real theDuration) {
+  void SetOwnDuration(const double theDuration) {
     (*self)->SetOwnDuration(theDuration);
   }
-  void Add (const Handle_AIS_Animation &theAnimation) {
+  void Add(const occ::handle< AIS_Animation > &theAnimation) {
     (*self)->Add(theAnimation);
   }
-  void Clear () {
+  void Clear() {
     (*self)->Clear();
   }
-  Handle_AIS_Animation Find (const TCollection_AsciiString &theAnimationName) {
+  occ::handle< AIS_Animation > Find(const TCollection_AsciiString &theAnimationName) const {
     return (*self)->Find(theAnimationName);
   }
-  Standard_Boolean Remove (const Handle_AIS_Animation &theAnimation) {
+  bool Remove(const occ::handle< AIS_Animation > &theAnimation) {
     return (*self)->Remove(theAnimation);
   }
-  Standard_Boolean Replace (const Handle_AIS_Animation &theAnimationOld, const Handle_AIS_Animation &theAnimationNew) {
+  bool Replace(const occ::handle< AIS_Animation > &theAnimationOld, const occ::handle< AIS_Animation > &theAnimationNew) {
     return (*self)->Replace(theAnimationOld, theAnimationNew);
   }
-  void CopyFrom (const Handle_AIS_Animation &theOther) {
+  void CopyFrom(const occ::handle< AIS_Animation > &theOther) {
     (*self)->CopyFrom(theOther);
   }
-  const NCollection_Sequence< Handle_AIS_Animation > & Children () {
+  const NCollection_Sequence< occ::handle< AIS_Animation > > &Children() const {
     return (*self)->Children();
   }
-  void StartTimer (const Standard_Real theStartPts, const Standard_Real thePlaySpeed,
-                   const Standard_Boolean theToUpdate, const Standard_Boolean theToStopTimer=Standard_False) {
+  void StartTimer(const double theStartPts,
+                  const double thePlaySpeed,
+                  const bool theToUpdate,
+                  const bool theToStopTimer=false) {
     (*self)->StartTimer(theStartPts, thePlaySpeed, theToUpdate, theToStopTimer);
   }
-  Standard_Real UpdateTimer () {
+  double UpdateTimer() {
     return (*self)->UpdateTimer();
   }
-  Standard_Real ElapsedTime () {
+  double ElapsedTime() const {
     return (*self)->ElapsedTime();
   }
-  const Handle_Media_Timer & Timer () {
+  const occ::handle< Media_Timer > &Timer() const {
     return (*self)->Timer();
   }
-  void SetTimer (const Handle_Media_Timer &theTimer) {
+  void SetTimer(const occ::handle< Media_Timer > &theTimer) {
     (*self)->SetTimer(theTimer);
   }
-  void Start (const Standard_Boolean theToUpdate) {
+  void Start(const bool theToUpdate) {
     (*self)->Start(theToUpdate);
   }
-  void Pause () {
+  void Pause() {
     (*self)->Pause();
   }
-  void Stop () {
+  void Stop() {
     (*self)->Stop();
   }
-  bool IsStopped () {
+  bool IsStopped() {
     return (*self)->IsStopped();
   }
-  Standard_Boolean Update (const Standard_Real thePts) {
+  bool Update(const double thePts) {
     return (*self)->Update(thePts);
   }
-}  
+}

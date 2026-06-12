@@ -3,14 +3,17 @@
 #include <Adaptor3d_Curve.hxx> 
 #include <GeomAdaptor_Curve.hxx>
 #include <Adaptor3d_Surface.hxx>
-#include <GeomAdaptor_Surface.hxx>  
+#include <GeomAdaptor_Surface.hxx>
+
+typedef occ::handle<Adaptor3d_Curve> Handle_Adaptor3d_Curve;
+typedef occ::handle<Adaptor3d_Surface> Handle_Adaptor3d_Surface;
   %}
 
 class Adaptor3d_Curve
 {		
   Adaptor3d_Curve()=0;
  public:
-  const gp_Pnt Value(const Standard_Real U) const;
+  const gp_Pnt Value(const double U) const;
 };
 
 class GeomAdaptor_Curve  : public Adaptor3d_Curve
@@ -18,38 +21,38 @@ class GeomAdaptor_Curve  : public Adaptor3d_Curve
 public:
     GeomAdaptor_Curve();
     GeomAdaptor_Curve(const Handle_Geom_Curve& C);
-    GeomAdaptor_Curve(const Handle_Geom_Curve& C, const Standard_Real UFirst, const Standard_Real ULast);
+    GeomAdaptor_Curve(const Handle_Geom_Curve& C, const double UFirst, const double ULast);
     Handle_Adaptor3d_Curve ShallowCopy() const;
     void Reset ();
     void Load (const Handle_Geom_Curve& C);
-    void Load (const Handle_Geom_Curve& C, const Standard_Real UFirst, const Standard_Real ULast);
+    void Load (const Handle_Geom_Curve& C, const double UFirst, const double ULast);
     const Handle_Geom_Curve& Curve() const;
-    Standard_Real FirstParameter() const;
-    Standard_Real LastParameter() const;
+    double FirstParameter() const;
+    double LastParameter() const;
     GeomAbs_Shape Continuity() const;
-    Standard_Integer NbIntervals (const GeomAbs_Shape S) const;
+    int NbIntervals (const GeomAbs_Shape S) const;
     void Intervals(TColStd_Array1OfReal &T, const GeomAbs_Shape S) const;
-    Handle_Adaptor3d_Curve Trim (const Standard_Real First, const Standard_Real Last, const Standard_Real Tol) const;
-    Standard_Boolean IsClosed() const;
-    Standard_Boolean IsPeriodic() const;
-    Standard_Real Period() const;
-    gp_Pnt Value(const Standard_Real U) const;
-    void D0(const Standard_Real U, gp_Pnt &P) const;
-    void D1(const Standard_Real U, gp_Pnt &P, gp_Vec &V) const;
-    void D2(const Standard_Real U, gp_Pnt &P, gp_Vec &V1, gp_Vec &V2) const;
-    void D3(const Standard_Real U, gp_Pnt &P, gp_Vec &V1, gp_Vec &V2, gp_Vec &V3) const;
-    gp_Vec DN(const Standard_Real U, const Standard_Integer N) const;
-    Standard_Real Resolution(const Standard_Real R3d) const;
+    Handle_Adaptor3d_Curve Trim (const double First, const double Last, const double Tol) const;
+    bool IsClosed() const;
+    bool IsPeriodic() const;
+    double Period() const;
+    gp_Pnt Value(const double U) const;
+    void D0(const double U, gp_Pnt &P) const;
+    void D1(const double U, gp_Pnt &P, gp_Vec &V) const;
+    void D2(const double U, gp_Pnt &P, gp_Vec &V1, gp_Vec &V2) const;
+    void D3(const double U, gp_Pnt &P, gp_Vec &V1, gp_Vec &V2, gp_Vec &V3) const;
+    gp_Vec DN(const double U, const int N) const;
+    double Resolution(const double R3d) const;
     GeomAbs_CurveType GetType() const;
     gp_Lin Line() const;
     gp_Circ Circle() const;
     gp_Elips Ellipse() const;
     gp_Hypr Hyperbola() const;
     gp_Parab Parabola() const;
-    Standard_Integer Degree() const;
-    Standard_Boolean IsRational() const;
-    Standard_Integer NbPoles() const;
-    Standard_Integer NbKnots() const;
+    int Degree() const;
+    bool IsRational() const;
+    int NbPoles() const;
+    int NbKnots() const;
     Handle_Geom_BezierCurve Bezier() const;
     Handle_Geom_BSplineCurve BSpline() const;
     Handle_Geom_OffsetCurve OffsetCurve() const;
@@ -62,57 +65,57 @@ public:
  
   Handle_Adaptor3d_Surface ShallowCopy() const;
  
-  Standard_Real FirstUParameter() const;
+  double FirstUParameter() const;
   
-  Standard_Real LastUParameter() const;
+  double LastUParameter() const;
   
-  Standard_Real FirstVParameter() const;
+  double FirstVParameter() const;
   
-  Standard_Real LastVParameter() const;
+  double LastVParameter() const;
   
   GeomAbs_Shape UContinuity() const;
   
   GeomAbs_Shape VContinuity() const;
   
-  Standard_Integer NbUIntervals(const GeomAbs_Shape S);
+  int NbUIntervals(const GeomAbs_Shape S);
   
-  Standard_Integer NbVIntervals(const GeomAbs_Shape S) const;
+  int NbVIntervals(const GeomAbs_Shape S) const;
   
   void UIntervals(TColStd_Array1OfReal &T, const GeomAbs_Shape S) const;
   
   void VIntervals(TColStd_Array1OfReal &T, const GeomAbs_Shape S) const;
   
-  opencascade::handle< Adaptor3d_Surface > UTrim(const Standard_Real First, const Standard_Real Last, const Standard_Real Tol) const;
+  opencascade::handle< Adaptor3d_Surface > UTrim(const double First, const double Last, const double Tol) const;
   
-  opencascade::handle< Adaptor3d_Surface > VTrim(const Standard_Real First, const Standard_Real Last, const Standard_Real Tol) const;
+  opencascade::handle< Adaptor3d_Surface > VTrim(const double First, const double Last, const double Tol) const;
   
-  Standard_Boolean IsUClosed() const;
+  bool IsUClosed() const;
   
-  Standard_Boolean IsVClosed() const;
+  bool IsVClosed() const;
   
-  Standard_Boolean IsUPeriodic() const;
+  bool IsUPeriodic() const;
   
-  Standard_Real UPeriod() const;
+  double UPeriod() const;
   
-  Standard_Boolean IsVPeriodic() const;
+  bool IsVPeriodic() const;
   
-  Standard_Real VPeriod() const;
+  double VPeriod() const;
   
-  gp_Pnt Value(const Standard_Real U, const Standard_Real V) const;
+  gp_Pnt Value(const double U, const double V) const;
   
-  void D0(const Standard_Real U, const Standard_Real V, gp_Pnt &P) const;
+  void D0(const double U, const double V, gp_Pnt &P) const;
   
-  void D1(const Standard_Real U, const Standard_Real V, gp_Pnt &P, gp_Vec &D1U, gp_Vec &D1V) const;
+  void D1(const double U, const double V, gp_Pnt &P, gp_Vec &D1U, gp_Vec &D1V) const;
   
-  void D2(const Standard_Real U, const Standard_Real V, gp_Pnt &P, gp_Vec &D1U, gp_Vec &D1V, gp_Vec &D2U, gp_Vec &D2V, gp_Vec &D2UV) const;
+  void D2(const double U, const double V, gp_Pnt &P, gp_Vec &D1U, gp_Vec &D1V, gp_Vec &D2U, gp_Vec &D2V, gp_Vec &D2UV) const;
   
-  void D3(const Standard_Real U, const Standard_Real V, gp_Pnt &P, gp_Vec &D1U, gp_Vec &D1V, gp_Vec &D2U, gp_Vec &D2V, gp_Vec &D2UV, gp_Vec &D3U, gp_Vec &D3V, gp_Vec &D3UUV, gp_Vec &D3UVV) const;
+  void D3(const double U, const double V, gp_Pnt &P, gp_Vec &D1U, gp_Vec &D1V, gp_Vec &D2U, gp_Vec &D2V, gp_Vec &D2UV, gp_Vec &D3U, gp_Vec &D3V, gp_Vec &D3UUV, gp_Vec &D3UVV) const;
   
-  gp_Vec DN(const Standard_Real U, const Standard_Real V, const Standard_Integer Nu, const Standard_Integer Nv) const;
+  gp_Vec DN(const double U, const double V, const int Nu, const int Nv) const;
   
-  Standard_Real UResolution(const Standard_Real R3d) const;
+  double UResolution(const double R3d) const;
   
-  Standard_Real VResolution(const Standard_Real R3d) const;
+  double VResolution(const double R3d) const;
   
   GeomAbs_SurfaceType GetType() const;
   
@@ -126,21 +129,21 @@ public:
   
   gp_Torus Torus() const;
   
-  Standard_Integer UDegree() const;
+  int UDegree() const;
   
-  Standard_Integer NbUPoles() const;
+  int NbUPoles() const;
   
-  Standard_Integer VDegree() const;
+  int VDegree() const;
   
-  Standard_Integer NbVPoles() const;
+  int NbVPoles() const;
   
-  Standard_Integer NbUKnots() const;
+  int NbUKnots() const;
   
-  Standard_Integer NbVKnots() const;
+  int NbVKnots() const;
   
-  Standard_Boolean IsURational() const;
+  bool IsURational() const;
   
-  Standard_Boolean IsVRational() const;
+  bool IsVRational() const;
   
   opencascade::handle< Geom_BezierSurface > Bezier() const;
   
@@ -154,7 +157,7 @@ public:
   
   opencascade::handle< Adaptor3d_Surface > BasisSurface() const;
   
-  Standard_Real OffsetValue() const;
+  double OffsetValue() const;
   
   ~Adaptor3d_Surface();
 };
@@ -166,11 +169,11 @@ class GeomAdaptor_Surface  : public Adaptor3d_Surface
   
   GeomAdaptor_Surface(const Handle_Geom_Surface& S);
 
-  GeomAdaptor_Surface(const Handle_Geom_Surface& S, const Standard_Real UFirst, const Standard_Real ULast, const Standard_Real VFirst, const Standard_Real VLast, const Standard_Real TolU = 0.0, const Standard_Real TolV = 0.0);
+  GeomAdaptor_Surface(const Handle_Geom_Surface& S, const double UFirst, const double ULast, const double VFirst, const double VLast, const double TolU = 0.0, const double TolV = 0.0);
 
   void Load (const Handle_Geom_Surface& S);
 
-  void Load (const Handle_Geom_Surface& S, const Standard_Real UFirst, const Standard_Real ULast, const Standard_Real VFirst, const Standard_Real VLast, const Standard_Real TolU = 0.0, const Standard_Real TolV = 0.0);
+  void Load (const Handle_Geom_Surface& S, const double UFirst, const double ULast, const double VFirst, const double VLast, const double TolU = 0.0, const double TolV = 0.0);
 
   Handle_Geom_Surface& Surface() const;
 };

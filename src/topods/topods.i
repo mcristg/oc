@@ -11,15 +11,18 @@
 #include <TopoDS_Vertex.hxx>
 #include <TopoDS_Iterator.hxx>
 #include <TopoDS_Builder.hxx>
+
+typedef occ::handle<TopoDS_Shape> Handle_TopoDS_Shape;
+typedef occ::handle<TopoDS_TShape> Handle_TopoDS_TShape;
   %}
 
 class TopoDS_Shape
 {
 	public:
 	TopAbs_ShapeEnum ShapeType();
-	Standard_Boolean IsSame(const TopoDS_Shape& other) const ;
-	Standard_Boolean IsPartner(const TopoDS_Shape &other) const ;
-	Standard_Boolean IsEqual(const TopoDS_Shape &other) const ;
+	bool IsSame(const TopoDS_Shape& other) const ;
+	bool IsPartner(const TopoDS_Shape &other) const ;
+	bool IsEqual(const TopoDS_Shape &other) const ;
 	const opencascade::handle< TopoDS_TShape >& TShape() const;
 	const TopLoc_Location& Location() const ;
 	void Location(const TopLoc_Location& Loc) ;
@@ -27,24 +30,25 @@ class TopoDS_Shape
 	void Orientation (const TopAbs_Orientation Orient) ;
 	void Reverse() ;
 	TopoDS_Shape Reversed() const;
-	Standard_Boolean Free() const;
-	void Free(const Standard_Boolean F) ;
-	Standard_Boolean Locked() const ;
-	void Locked(const Standard_Boolean F);
-	Standard_Boolean Modified() const ;
-	void Modified(const Standard_Boolean M);
-	Standard_Boolean Checked() const ;
-	void Checked(const Standard_Boolean C);
-	Standard_Boolean Orientable() const ;
-	void Orientable(const Standard_Boolean C);
-	Standard_Boolean Closed() const ;
-	void Closed(const Standard_Boolean C);
-	Standard_Boolean Infinite() const ;
-	void Infinite(const Standard_Boolean C);
-	Standard_Boolean Convex() const ;
-	void Convex(const Standard_Boolean C);
+	bool Free() const;
+	void Free(const bool F) ;
+	bool Locked() const ;
+	void Locked(const bool F);
+	bool Modified() const ;
+	void Modified(const bool M);
+	bool Checked() const ;
+	void Checked(const bool C);
+	bool Orientable() const ;
+	void Orientable(const bool C);
+	bool Closed() const ;
+	void Closed(const bool C);
+	bool Infinite() const ;
+	void Infinite(const bool C);
+	bool Convex() const ;
+	void Convex(const bool C);
 	
 };
+
 
 %extend TopoDS_Shape
 {
@@ -102,12 +106,12 @@ class TopoDS_Iterator
 	public:
 	TopoDS_Iterator();
 	TopoDS_Iterator(const TopoDS_Shape& S,
-		const Standard_Boolean cumOri = Standard_True,
-		const Standard_Boolean cumLoc = Standard_True);
+		const bool cumOri = true,
+		const bool cumLoc = true);
 	void Initialize(const TopoDS_Shape& S,
-		const Standard_Boolean cumOri = Standard_True,
-		const Standard_Boolean cumLoc = Standard_True) ;
-	Standard_Boolean More() const;
+		const bool cumOri = true,
+		const bool cumLoc = true) ;
+	bool More() const;
 	void Next() ;
 	const TopoDS_Shape& Value() const;
 };

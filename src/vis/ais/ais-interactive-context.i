@@ -1,6 +1,8 @@
 %{
 
 #include <AIS_InteractiveContext.hxx>
+
+typedef opencascade::handle<AIS_InteractiveContext> Handle_AIS_InteractiveContext;
 %}
 
 %rename(AIS_InteractiveContext) Handle_AIS_InteractiveContext;
@@ -13,587 +15,604 @@ class Handle_AIS_InteractiveContext : public Handle_Standard_Transient
 
 %extend Handle_AIS_InteractiveContext
 {
-  Handle_AIS_InteractiveContext (const Handle_V3d_Viewer &MainViewer){
+  Handle_AIS_InteractiveContext(const occ::handle< V3d_Viewer > &MainViewer){
     return new Handle_AIS_InteractiveContext(new AIS_InteractiveContext(MainViewer));
   }
   void Delete() {
     self->~Handle_AIS_InteractiveContext();
   }
-  PrsMgr_DisplayStatus DisplayStatus (const Handle_AIS_InteractiveObject &anIobj) {
+  PrsMgr_DisplayStatus 	DisplayStatus(const occ::handle< AIS_InteractiveObject > &anIobj) const {
     return (*self)->DisplayStatus(anIobj);
   }
-  void Status (const Handle_AIS_InteractiveObject &anObj, TCollection_ExtendedString &astatus) {
+  void Status(const occ::handle< AIS_InteractiveObject > &anObj, TCollection_ExtendedString &astatus) const {
     (*self)->Status(anObj, astatus);
   }
-  Standard_Boolean IsDisplayed (const Handle_AIS_InteractiveObject &anIobj) {
+  bool IsDisplayed(const occ::handle< AIS_InteractiveObject > &anIobj) const {
     return (*self)->IsDisplayed(anIobj);
   }
-  Standard_Boolean IsDisplayed (const Handle_AIS_InteractiveObject &aniobj, const Standard_Integer aMode) {
+  bool IsDisplayed(const occ::handle< AIS_InteractiveObject > &aniobj, const int aMode) const {
     return (*self)->IsDisplayed(aniobj, aMode);
   }
-  void SetAutoActivateSelection (const Standard_Boolean theIsAuto) {
+ void SetAutoActivateSelection(const bool theIsAuto) {
     (*self)->SetAutoActivateSelection(theIsAuto);
   }
-  Standard_Boolean GetAutoActivateSelection () {
+  bool GetAutoActivateSelection() const {
     return (*self)->GetAutoActivateSelection();
   }
-  void 	Display (const Handle_AIS_InteractiveObject &theIObj, const Standard_Boolean theToUpdateViewer) {
+  void Display(const occ::handle< AIS_InteractiveObject > &theIObj, const bool theToUpdateViewer) {
     (*self)->Display(theIObj, theToUpdateViewer);
   }
-  void Display (const Handle_AIS_InteractiveObject &theIObj, 
-                const Standard_Integer theDispMode, 
-                const Standard_Integer theSelectionMode,
-                const Standard_Boolean theToUpdateViewer,
-                const PrsMgr_DisplayStatus theDispStatus=PrsMgr_DisplayStatus_None) {
+  void Display(const occ::handle< AIS_InteractiveObject > &theIObj,
+               const int theDispMode, const int theSelectionMode,
+               const bool theToUpdateViewer,
+               const PrsMgr_DisplayStatus theDispStatus=PrsMgr_DisplayStatus_None) {
     (*self)->Display(theIObj, theDispMode, theSelectionMode, theToUpdateViewer, theDispStatus);
   }
-  void Load (const Handle_AIS_InteractiveObject &theObj, const Standard_Integer theSelectionMode=-1) {
+  void Load(const occ::handle< AIS_InteractiveObject > &theObj, const int theSelectionMode=-1) {
     (*self)->Load(theObj, theSelectionMode);
   }
-  void Erase (const Handle_AIS_InteractiveObject &theIObj, const Standard_Boolean theToUpdateViewer) {
+  void Erase(const occ::handle< AIS_InteractiveObject > &theIObj, const bool theToUpdateViewer) {
     (*self)->Erase(theIObj, theToUpdateViewer);
   }
-  void EraseAll (const Standard_Boolean theToUpdateViewer) {
+  void EraseAll(const bool theToUpdateViewer) {
     (*self)->EraseAll(theToUpdateViewer);
   }
-  void DisplayAll (const Standard_Boolean theToUpdateViewer) {
+  void DisplayAll(const bool theToUpdateViewer) {
     (*self)->DisplayAll(theToUpdateViewer);
   }
-  void EraseSelected (const Standard_Boolean theToUpdateViewer) {
+  void EraseSelected(const bool theToUpdateViewer) {
     (*self)->EraseSelected(theToUpdateViewer);
   }
-  void DisplaySelected (const Standard_Boolean theToUpdateViewer) {
+  void DisplaySelected(const bool theToUpdateViewer){
     (*self)->DisplaySelected(theToUpdateViewer);
   }
-  void ClearPrs (const Handle_AIS_InteractiveObject &theIObj, const Standard_Integer theMode, const Standard_Boolean theToUpdateViewer) {
+  void ClearPrs(const occ::handle< AIS_InteractiveObject > &theIObj, const int theMode, const bool theToUpdateViewer) {
     (*self)->ClearPrs(theIObj, theMode, theToUpdateViewer);
   }
-  void Remove (const Handle_AIS_InteractiveObject &theIObj, const Standard_Boolean theToUpdateViewer) {
+  void Remove(const occ::handle< AIS_InteractiveObject > &theIObj, const bool theToUpdateViewer) {
     (*self)->Remove(theIObj, theToUpdateViewer);
   }
-  void RemoveAll (Standard_Boolean theToUpdateViewer) {
+  void RemoveAll(const bool theToUpdateViewer) {
     (*self)->RemoveAll(theToUpdateViewer);
   }
-  void Redisplay (const Handle_AIS_InteractiveObject &theIObj, const Standard_Boolean theToUpdateViewer, const Standard_Boolean theAllModes=Standard_False) {
+  void Redisplay(const occ::handle< AIS_InteractiveObject > &theIObj, const bool theToUpdateViewer, const bool theAllModes=false) {
     (*self)->Redisplay(theIObj, theToUpdateViewer, theAllModes);
   }
-  void Redisplay (const AIS_KindOfInteractive theTypeOfObject, const Standard_Integer theSignature, const Standard_Boolean theToUpdateViewer) {
+  void Redisplay(const AIS_KindOfInteractive theTypeOfObject, const int theSignature, const bool theToUpdateViewer) {
     (*self)->Redisplay(theTypeOfObject, theSignature, theToUpdateViewer);
   }
-  void RecomputePrsOnly (const Handle_AIS_InteractiveObject &theIObj, const Standard_Boolean theToUpdateViewer, const Standard_Boolean theAllModes=Standard_False) {
+  void RecomputePrsOnly(const occ::handle< AIS_InteractiveObject > &theIObj, const bool theToUpdateViewer, const bool theAllModes=false) {
     (*self)->RecomputePrsOnly(theIObj, theToUpdateViewer, theAllModes);
   }
-  void RecomputeSelectionOnly (const Handle_AIS_InteractiveObject &anIObj) {
+  void RecomputeSelectionOnly(const occ::handle< AIS_InteractiveObject > &anIObj) {
     (*self)->RecomputeSelectionOnly(anIObj);
-  } 
-  void Update (const Handle_AIS_InteractiveObject &theIObj, const Standard_Boolean theUpdateViewer) {
+  }
+  void Update(const occ::handle< AIS_InteractiveObject > &theIObj, const bool theUpdateViewer) {
     (*self)->Update(theIObj, theUpdateViewer);
   }
-  const Handle_Prs3d_Drawer & HighlightStyle (const Prs3d_TypeOfHighlight theStyleType) {
+  const occ::handle< Prs3d_Drawer > &HighlightStyle(const Prs3d_TypeOfHighlight theStyleType) const {
     return (*self)->HighlightStyle(theStyleType);
   } 
-  void SetHighlightStyle (const Prs3d_TypeOfHighlight theStyleType, const Handle_Prs3d_Drawer &theStyle) {
+  void SetHighlightStyle(const Prs3d_TypeOfHighlight theStyleType, const occ::handle< Prs3d_Drawer > &theStyle) {
     (*self)->SetHighlightStyle(theStyleType, theStyle);
   }
-  const Handle_Prs3d_Drawer & HighlightStyle () {
+  const occ::handle< Prs3d_Drawer > &HighlightStyle() const {
     return (*self)->HighlightStyle();
   }
-  void SetHighlightStyle (const Handle_Prs3d_Drawer &theStyle) {
+  void SetHighlightStyle(const occ::handle< Prs3d_Drawer > &theStyle) {
     (*self)->SetHighlightStyle(theStyle);
   }
-  const Handle_Prs3d_Drawer & SelectionStyle () {
+  const occ::handle< Prs3d_Drawer > & SelectionStyle() const {
     return (*self)->SelectionStyle();
   }
-  void SetSelectionStyle (const Handle_Prs3d_Drawer &theStyle) {
+  void SetSelectionStyle(const occ::handle< Prs3d_Drawer > &theStyle) {
     (*self)->SetSelectionStyle(theStyle);
   }
-  Standard_Boolean HighlightStyle (const Handle_AIS_InteractiveObject &theObj, Handle_Prs3d_Drawer &theStyle) {
+  bool HighlightStyle(const occ::handle< AIS_InteractiveObject > &theObj, occ::handle< Prs3d_Drawer > &theStyle) const {
     return (*self)->HighlightStyle(theObj, theStyle);
   }
-  Standard_Boolean HighlightStyle (const Handle_SelectMgr_EntityOwner &theOwner, Handle_Prs3d_Drawer &theStyle) {
+  bool HighlightStyle(const occ::handle< SelectMgr_EntityOwner > &theOwner, occ::handle< Prs3d_Drawer > &theStyle) const {
     return (*self)->HighlightStyle(theOwner, theStyle);
   }
-  Standard_Boolean IsHilighted (const Handle_AIS_InteractiveObject &theObj) {
+  bool IsHilighted(const occ::handle< AIS_InteractiveObject > &theObj) const {
     return (*self)->IsHilighted(theObj);
   }
-  Standard_Boolean IsHilighted (const Handle_SelectMgr_EntityOwner &theOwner) {
+  bool 	IsHilighted(const occ::handle< SelectMgr_EntityOwner > &theOwner) const {
     return (*self)->IsHilighted(theOwner);
   }
-  void HilightWithColor (const Handle_AIS_InteractiveObject &theObj, const Handle_Prs3d_Drawer &theStyle, const Standard_Boolean theToUpdateViewer) {
+  void HilightWithColor(const occ::handle< AIS_InteractiveObject > &theObj, const occ::handle< Prs3d_Drawer > &theStyle, const bool theToUpdateViewer) {
     (*self)->HilightWithColor(theObj, theStyle, theToUpdateViewer);
   }
-  void Unhilight (const Handle_AIS_InteractiveObject &theIObj, const Standard_Boolean theToUpdateViewer) {
+  void Unhilight(const occ::handle< AIS_InteractiveObject > &theIObj, const bool theToUpdateViewer) {
     (*self)->Unhilight(theIObj, theToUpdateViewer);
   }
-  Graphic3d_DisplayPriority DisplayPriority (const Handle_AIS_InteractiveObject &theIObj) {
+  Graphic3d_DisplayPriority DisplayPriority(const occ::handle< AIS_InteractiveObject > &theIObj) const {
     return (*self)->DisplayPriority(theIObj);
   }
-  void SetDisplayPriority (const Handle_AIS_InteractiveObject &theIObj, const Graphic3d_DisplayPriority thePriority) {
+  void SetDisplayPriority(const occ::handle< AIS_InteractiveObject > &theIObj, const Graphic3d_DisplayPriority thePriority) {
     (*self)->SetDisplayPriority(theIObj, thePriority);
   }
-  Graphic3d_ZLayerId GetZLayer (const Handle_AIS_InteractiveObject &theIObj) {
+  Graphic3d_ZLayerId GetZLayer(const occ::handle< AIS_InteractiveObject > &theIObj) const {
     return (*self)->GetZLayer(theIObj);
   }
-  void SetZLayer (const Handle_AIS_InteractiveObject &theIObj, const Graphic3d_ZLayerId theLayerId) {
+  void SetZLayer(const occ::handle< AIS_InteractiveObject > &theIObj, const Graphic3d_ZLayerId theLayerId) {
     (*self)->SetZLayer(theIObj, theLayerId);
   }
-  void 	SetViewAffinity (const Handle_AIS_InteractiveObject &theIObj, const Handle_V3d_View &theView, const Standard_Boolean theIsVisible) {
+  void SetViewAffinity(const occ::handle< AIS_InteractiveObject > &theIObj, const occ::handle< V3d_View > &theView, const bool theIsVisible) {
     (*self)->SetViewAffinity(theIObj, theView, theIsVisible);
   }
-  Standard_Integer DisplayMode () {
+  int DisplayMode() const {
     return (*self)->DisplayMode();
   }
-  void SetDisplayMode (const Standard_Integer theMode, const Standard_Boolean theToUpdateViewer) {
+  void SetDisplayMode(const int theMode, const bool theToUpdateViewer) {
     (*self)->SetDisplayMode(theMode, theToUpdateViewer);
   }
-  void SetDisplayMode (const Handle_AIS_InteractiveObject &theIObj, const Standard_Integer theMode, const Standard_Boolean theToUpdateViewer) {
+  void SetDisplayMode(const occ::handle< AIS_InteractiveObject > &theIObj, const int theMode, const bool theToUpdateViewer) {
     (*self)->SetDisplayMode(theIObj, theMode, theToUpdateViewer);
   }
-  void UnsetDisplayMode (const Handle_AIS_InteractiveObject &theIObj, const Standard_Boolean theToUpdateViewer) {
+  void UnsetDisplayMode(const occ::handle< AIS_InteractiveObject > &theIObj, const bool theToUpdateViewer) {
     (*self)->UnsetDisplayMode(theIObj, theToUpdateViewer);
   }
-  void SetLocation (const Handle_AIS_InteractiveObject &theObject, const TopLoc_Location &theLocation) {
+  void SetLocation(const occ::handle< AIS_InteractiveObject > &theObject, const TopLoc_Location &theLocation) {
     (*self)->SetLocation(theObject, theLocation);
   }
-  void ResetLocation (const Handle_AIS_InteractiveObject &theObject) {
+  void ResetLocation(const occ::handle< AIS_InteractiveObject > &theObject) {
     (*self)->ResetLocation(theObject);
   }
-  Standard_Boolean HasLocation (const Handle_AIS_InteractiveObject &theObject) {
+  bool HasLocation(const occ::handle< AIS_InteractiveObject > &theObject) const {
     return (*self)->HasLocation(theObject);
   }
-  TopLoc_Location Location (const Handle_AIS_InteractiveObject &theObject) {
+  TopLoc_Location Location(const occ::handle< AIS_InteractiveObject > &theObject) const {
     return (*self)->Location(theObject);
   }
-  void SetTransformPersistence (const Handle_AIS_InteractiveObject &theObject, const Handle_Graphic3d_TransformPers &theTrsfPers) {
+  void SetTransformPersistence(const occ::handle< AIS_InteractiveObject > &theObject, const occ::handle< Graphic3d_TransformPers > &theTrsfPers) {
     (*self)->SetTransformPersistence(theObject, theTrsfPers);
   }
-  void SetPixelTolerance (const Standard_Integer thePrecision=2) {
+  void SetPixelTolerance(const int thePrecision=2) {
     (*self)->SetPixelTolerance(thePrecision);
   }
-  Standard_Integer PixelTolerance () {
+  int PixelTolerance() const {
     return (*self)->PixelTolerance();
   }
-  void SetSelectionSensitivity (const Handle_AIS_InteractiveObject &theObject, const Standard_Integer theMode, const Standard_Integer theNewSensitivity) {
+  void SetSelectionSensitivity(const occ::handle< AIS_InteractiveObject > &theObject, const int theMode, const int theNewSensitivity) {
     (*self)->SetSelectionSensitivity(theObject, theMode, theNewSensitivity);
   }
-  Handle_V3d_View LastActiveView () {
+  occ::handle< V3d_View > LastActiveView() const {
     return (*self)->LastActiveView();
   }
-  AIS_StatusOfDetection MoveTo (const Standard_Integer theXPix, const Standard_Integer theYPix,
-                                const Handle_V3d_View &theView, const Standard_Boolean theToRedrawOnUpdate) {
+  AIS_StatusOfDetection MoveTo(const int theXPix, const int theYPix, const occ::handle< V3d_View > &theView, const bool theToRedrawOnUpdate) {
     return (*self)->MoveTo(theXPix, theYPix, theView, theToRedrawOnUpdate);
   }
-  AIS_StatusOfDetection MoveTo (const gp_Ax1 &theAxis, const Handle_V3d_View &theView, const Standard_Boolean theToRedrawOnUpdate) {
+  AIS_StatusOfDetection MoveTo(const gp_Ax1 &theAxis, const occ::handle< V3d_View > &theView, const bool theToRedrawOnUpdate) {
     return (*self)->MoveTo(theAxis, theView, theToRedrawOnUpdate);
   }
-  Standard_Boolean ClearDetected (Standard_Boolean theToRedrawImmediate=Standard_False) {
+  bool ClearDetected(bool theToRedrawImmediate=false) {
     return (*self)->ClearDetected(theToRedrawImmediate);
   }
-  Standard_Boolean HasDetected () {
+  bool HasDetected() const {
     return (*self)->HasDetected();
   }
-  const Handle_SelectMgr_EntityOwner & DetectedOwner () {
+  const occ::handle< SelectMgr_EntityOwner > &DetectedOwner() const {
     return (*self)->DetectedOwner();
   }
-  Handle_AIS_InteractiveObject DetectedInteractive () {
+  occ::handle< AIS_InteractiveObject > 	DetectedInteractive() const {
     return (*self)->DetectedInteractive();
   }
-  Standard_Boolean HasNextDetected () {
+  bool HasNextDetected() const {
     return (*self)->HasNextDetected();
   }
-  Standard_Integer HilightNextDetected (const Handle_V3d_View &theView, const Standard_Boolean theToRedrawImmediate=Standard_True) {
+  int HilightNextDetected(const occ::handle< V3d_View > &theView, const bool theToRedrawImmediate=true) {
     return (*self)->HilightNextDetected(theView, theToRedrawImmediate);
   }
-  Standard_Integer HilightPreviousDetected (const Handle_V3d_View &theView, const Standard_Boolean theToRedrawImmediate=Standard_True) {
+  int HilightPreviousDetected(const occ::handle< V3d_View > &theView, const bool theToRedrawImmediate=true) {
     return (*self)->HilightPreviousDetected(theView, theToRedrawImmediate);
   }
-  void InitDetected () {
+  void InitDetected() {
     (*self)->InitDetected();
   }
-  Standard_Boolean MoreDetected () {
+  bool MoreDetected() const {
     return (*self)->MoreDetected();
   }
-  void NextDetected () {
+  void NextDetected() {
     (*self)->NextDetected();
   }
-  Handle_SelectMgr_EntityOwner DetectedCurrentOwner () {
+  occ::handle< SelectMgr_EntityOwner > 	DetectedCurrentOwner() const {
     return (*self)->DetectedCurrentOwner();
   }
-  AIS_StatusOfPick AddSelect (const Handle_SelectMgr_EntityOwner &theObject) {
+  AIS_StatusOfPick 	AddSelect(const occ::handle< SelectMgr_EntityOwner > &theObject) {
     return (*self)->AddSelect(theObject);
   }
-  AIS_StatusOfPick AddSelect (const Handle_AIS_InteractiveObject &theObject) {
+  AIS_StatusOfPick AddSelect(const occ::handle< AIS_InteractiveObject > &theObject) {
     return (*self)->AddSelect(theObject);
   }
-  AIS_StatusOfPick SelectRectangle (const Graphic3d_Vec2i &thePntMin, const Graphic3d_Vec2i &thePntMax,
-                                    const Handle_V3d_View &theView, const AIS_SelectionScheme theSelScheme=AIS_SelectionScheme_Replace) {
+  AIS_StatusOfPick SelectRectangle(const NCollection_Vec2< int > &thePntMin,
+                                   const NCollection_Vec2< int > &thePntMax,
+                                   const occ::handle< V3d_View > &theView,
+                                   const AIS_SelectionScheme theSelScheme=AIS_SelectionScheme_Replace) {
     return (*self)->SelectRectangle(thePntMin, thePntMax, theView, theSelScheme);
   }
-  AIS_StatusOfPick 	SelectPolygon (const TColgp_Array1OfPnt2d &thePolyline, const Handle_V3d_View &theView,
-                                   const AIS_SelectionScheme theSelScheme=AIS_SelectionScheme_Replace) {
+  AIS_StatusOfPick 	SelectPolygon(const NCollection_Array1< gp_Pnt2d > &thePolyline,
+                                  const occ::handle< V3d_View > &theView,
+                                  const AIS_SelectionScheme theSelScheme=AIS_SelectionScheme_Replace) {
     return (*self)->SelectPolygon(thePolyline, theView, theSelScheme);
   }
-  AIS_StatusOfPick SelectPoint (const Graphic3d_Vec2i &thePnt, const Handle_V3d_View &theView,
-                                const AIS_SelectionScheme theSelScheme=AIS_SelectionScheme_Replace) {
+  AIS_StatusOfPick SelectPoint(const NCollection_Vec2< int > &thePnt,
+                               const occ::handle< V3d_View > &theView,
+                               const AIS_SelectionScheme theSelScheme=AIS_SelectionScheme_Replace) {
     return (*self)->SelectPoint(thePnt, theView, theSelScheme);
   }
-  AIS_StatusOfPick 	SelectDetected (const AIS_SelectionScheme theSelScheme=AIS_SelectionScheme_Replace) {
+  AIS_StatusOfPick SelectDetected(const AIS_SelectionScheme theSelScheme=AIS_SelectionScheme_Replace) {
     return (*self)->SelectDetected(theSelScheme);
   }
-  Bnd_Box BoundingBoxOfSelection (const Handle_V3d_View &theView) {
+  Bnd_Box BoundingBoxOfSelection(const occ::handle< V3d_View > &theView) const {
     return (*self)->BoundingBoxOfSelection(theView);
   }
-  AIS_StatusOfPick Select (const AIS_NArray1OfEntityOwner &theOwners, const AIS_SelectionScheme theSelScheme) {
+  AIS_StatusOfPick Select(const NCollection_Array1< occ::handle< SelectMgr_EntityOwner > > &theOwners, const AIS_SelectionScheme theSelScheme) {
     return (*self)->Select(theOwners, theSelScheme);
   }
-  void FitSelected (const Handle_V3d_View &theView, const Standard_Real theMargin, const Standard_Boolean theToUpdate) {
+  void FitSelected(const occ::handle< V3d_View > &theView, const double theMargin, const bool theToUpdate) {
     return (*self)->FitSelected(theView, theMargin, theToUpdate);
   }
-  void FitSelected (const Handle_V3d_View &theView) {
+  void FitSelected(const occ::handle< V3d_View > &theView) {
     return (*self)->FitSelected(theView);
   }
-  Standard_Boolean ToHilightSelected () {
+  bool ToHilightSelected() const {
     return (*self)->ToHilightSelected();
   }
-  void SetToHilightSelected (const Standard_Boolean toHilight) {
+  void SetToHilightSelected(const bool toHilight) {
     (*self)->SetToHilightSelected(toHilight);
   }
-  Standard_Boolean AutomaticHilight () {
+  bool AutomaticHilight() const {
     return (*self)->AutomaticHilight();
   }
-  void SetAutomaticHilight (Standard_Boolean theStatus) {
+  void SetAutomaticHilight(bool theStatus) {
     (*self)->SetAutomaticHilight(theStatus);
   }
-  void SetSelected (const Handle_SelectMgr_EntityOwner &theOwners, const Standard_Boolean theToUpdateViewer) {
+  void SetSelected(const occ::handle< SelectMgr_EntityOwner > &theOwners, const bool theToUpdateViewer) {
     (*self)->SetSelected(theOwners, theToUpdateViewer);
   }
-  void SetSelected (const Handle_AIS_InteractiveObject &theObject, const Standard_Boolean theToUpdateViewer) {
+  void SetSelected(const occ::handle< AIS_InteractiveObject > &theObject, const bool theToUpdateViewer) {
     (*self)->SetSelected(theObject, theToUpdateViewer);
   }
-  void AddOrRemoveSelected (const Handle_AIS_InteractiveObject &theObject, const Standard_Boolean theToUpdateViewer) {
+  void AddOrRemoveSelected(const occ::handle< AIS_InteractiveObject > &theObject, const bool theToUpdateViewer) {
     (*self)->AddOrRemoveSelected(theObject, theToUpdateViewer);
   }
-  Standard_Boolean SetSelectedState (const Handle_SelectMgr_EntityOwner &theOwner, const Standard_Boolean theIsSelected) {
+  bool SetSelectedState(const occ::handle< SelectMgr_EntityOwner > &theOwner, const bool theIsSelected) {
     return (*self)->SetSelectedState(theOwner, theIsSelected);
   }
-  void HilightSelected (const Standard_Boolean theToUpdateViewer) {
+  void HilightSelected(const bool theToUpdateViewer) {
     (*self)->HilightSelected(theToUpdateViewer);
   }
-  void UnhilightSelected (const Standard_Boolean theToUpdateViewer) {
+  void UnhilightSelected(const bool theToUpdateViewer) {
     (*self)->UnhilightSelected(theToUpdateViewer);
   }
-  void UpdateSelected (Standard_Boolean theToUpdateViewer) {
+  void UpdateSelected(bool theToUpdateViewer) {
     (*self)->UpdateSelected(theToUpdateViewer);
   }
-  void ClearSelected (const Standard_Boolean theToUpdateViewer) {
+  void ClearSelected(const bool theToUpdateViewer) {
     (*self)->ClearSelected(theToUpdateViewer);
   }
-  void AddOrRemoveSelected (const Handle_SelectMgr_EntityOwner &theOwner, const Standard_Boolean theToUpdateViewer) {
+  void AddOrRemoveSelected(const occ::handle< SelectMgr_EntityOwner > &theOwner, const bool theToUpdateViewer) {
     (*self)->AddOrRemoveSelected(theOwner, theToUpdateViewer);
   }
-  Standard_Boolean IsSelected (const Handle_SelectMgr_EntityOwner &theOwner) {
+  bool IsSelected(const occ::handle< SelectMgr_EntityOwner > &theOwner) const {
     return (*self)->IsSelected(theOwner);
   }
-  Standard_Boolean 	IsSelected (const Handle_AIS_InteractiveObject &theObj) {
+  bool IsSelected(const occ::handle< AIS_InteractiveObject > &theObj) const {
     return (*self)->IsSelected(theObj);
   }
-  Handle_AIS_InteractiveObject FirstSelectedObject () {
+  occ::handle< AIS_InteractiveObject > 	FirstSelectedObject() const {
     return (*self)->FirstSelectedObject();
   }
-  Standard_Integer NbSelected () {
+  int NbSelected() {
     return (*self)->NbSelected();
   }
-  void InitSelected () {
+  void InitSelected() {
     (*self)->InitSelected();
   }
-  Standard_Boolean MoreSelected () {
+  bool MoreSelected() const {
     return (*self)->MoreSelected();
   }
-  void NextSelected () {
+  void NextSelected() {
     (*self)->NextSelected();
   }
-  Handle_SelectMgr_EntityOwner SelectedOwner () {
+  occ::handle< SelectMgr_EntityOwner > 	SelectedOwner() const {
     return (*self)->SelectedOwner();
   }
-  Handle_AIS_InteractiveObject SelectedInteractive () {
+  occ::handle< AIS_InteractiveObject > 	SelectedInteractive() const {
     return (*self)->SelectedInteractive();
   }
-  Standard_Boolean HasSelectedShape () {
+  bool HasSelectedShape() const {
     return (*self)->HasSelectedShape();
   }
-  TopoDS_Shape SelectedShape () {
+  TopoDS_Shape SelectedShape() const {
     return (*self)->SelectedShape();
   }
-  Standard_Boolean HasApplicative () {
+  bool HasApplicative() const {
     return (*self)->HasApplicative();
   }
-  Handle_Standard_Transient Applicative () {
+  occ::handle< Standard_Transient > Applicative() const {
     return (*self)->Applicative();
   }
-  Standard_Boolean BeginImmediateDraw () {
-    return (*self)->BeginImmediateDraw();
-  }
-  Standard_Boolean 	ImmediateAdd (const Handle_AIS_InteractiveObject &theObj, const Standard_Integer theMode=0) {
-    return (*self)->ImmediateAdd(theObj, theMode);
-  }
-  Standard_Boolean EndImmediateDraw (const Handle_V3d_View &theView) {
-    return (*self)->EndImmediateDraw(theView);
-  }
-  Standard_Boolean EndImmediateDraw () {
-    return (*self)->EndImmediateDraw();
-  }
-  Standard_Boolean IsImmediateModeOn () {
-    return (*self)->EndImmediateDraw();
-  }
-  void RedrawImmediate (const Handle_V3d_Viewer &theViewer) {
-    (*self)->RedrawImmediate(theViewer);
-  }
-  void SetSelectionModeActive (const Handle_AIS_InteractiveObject &theObj, const Standard_Integer theMode,
-                               const Standard_Boolean theToActivate, const AIS_SelectionModesConcurrency theConcurrency=AIS_SelectionModesConcurrency_Multiple,
-                               const Standard_Boolean theIsForce=Standard_False) {
+  void SetSelectionModeActive(const occ::handle< AIS_InteractiveObject > &theObj,
+                              const int theMode, const bool theToActivate,
+                              const AIS_SelectionModesConcurrency theConcurrency=AIS_SelectionModesConcurrency_Multiple,
+                              const bool theIsForce=false) {
     (*self)->SetSelectionModeActive(theObj, theMode, theToActivate, theConcurrency, theIsForce);
   }
-  void Activate (const Handle_AIS_InteractiveObject &theObj, const Standard_Integer theMode=0, const Standard_Boolean theIsForce=Standard_False) {
+  void Activate(const occ::handle< AIS_InteractiveObject > &theObj, const int theMode=0, const bool theIsForce=false) {
     (*self)->Activate(theObj, theMode, theIsForce);
   }
-  void 	Activate (const Standard_Integer theMode, const Standard_Boolean theIsForce=Standard_False) {
+  void Activate(const int theMode, const bool theIsForce=false) {
     (*self)->Activate(theMode, theIsForce);
   }
-  void Deactivate (const Handle_AIS_InteractiveObject &theObj) {
+  void Deactivate(const occ::handle< AIS_InteractiveObject > &theObj) {
     (*self)->Deactivate(theObj);
   }
-  void Deactivate (const Handle_AIS_InteractiveObject &theObj, const Standard_Integer theMode) {
+  void Deactivate(const occ::handle< AIS_InteractiveObject > &theObj, const int theMode) {
     (*self)->Deactivate(theObj, theMode);
   }
-  void Deactivate (const Standard_Integer theMode) {
+  void Deactivate(const int theMode) {
     (*self)->Deactivate(theMode);
   }
-  void Deactivate () {
+  void Deactivate() {
     (*self)->Deactivate();
   }
-  void 	ActivatedModes (const Handle_AIS_InteractiveObject &anIobj, TColStd_ListOfInteger &theList) {
+  void ActivatedModes(const occ::handle< AIS_InteractiveObject > &anIobj, NCollection_List< int > &theList) const {
     (*self)->ActivatedModes(anIobj, theList);
   }
-  void EntityOwners (opencascade::handle<SelectMgr_IndexedMapOfOwner> &theOwners, const Handle_AIS_InteractiveObject &theIObj, const Standard_Integer theMode=-1) {
+  void EntityOwners (occ::handle<NCollection_Shared<NCollection_IndexedMap<occ::handle<SelectMgr_EntityOwner>>>> &theOwners,
+                     const occ::handle< AIS_InteractiveObject > &theIObj,
+                     const int theMode=-1) const {
     (*self)->EntityOwners(theOwners, theIObj, theMode);
   }
-  SelectMgr_FilterType 	FilterType () {
+  SelectMgr_FilterType FilterType() const {
     return (*self)->FilterType();
   }
-  void SetFilterType (const SelectMgr_FilterType theFilterType) {
+  void SetFilterType(const SelectMgr_FilterType theFilterType) {
     (*self)->SetFilterType(theFilterType);
   }
-  const SelectMgr_ListOfFilter & Filters () {
+  const NCollection_List< occ::handle< SelectMgr_Filter > > &Filters() const {
     return (*self)->Filters();
   }
-  const Handle_SelectMgr_AndOrFilter & 	GlobalFilter () {
+  const occ::handle< SelectMgr_AndOrFilter > &GlobalFilter() const {
     return (*self)->GlobalFilter();
   }
-  void AddFilter (const Handle_SelectMgr_Filter &theFilter) {
+  void AddFilter(const occ::handle< SelectMgr_Filter > &theFilter) {
     (*self)->AddFilter(theFilter);
   }
-  void RemoveFilter (const Handle_SelectMgr_Filter &theFilter) {
+  void RemoveFilter(const occ::handle< SelectMgr_Filter > &theFilter) {
     (*self)->RemoveFilter(theFilter);
   }
-  void RemoveFilters () {
+  void RemoveFilters() {
     (*self)->RemoveFilters();
   }
-  SelectMgr_PickingStrategy PickingStrategy () {
+  SelectMgr_PickingStrategy PickingStrategy() const {
     return (*self)->PickingStrategy();
   }
-  void SetPickingStrategy (const SelectMgr_PickingStrategy theStrategy) {
+  void SetPickingStrategy(const SelectMgr_PickingStrategy theStrategy) {
     (*self)->SetPickingStrategy(theStrategy);
   }
-  const Handle_Prs3d_Drawer & DefaultDrawer () {
+  const occ::handle< Prs3d_Drawer > &DefaultDrawer() const {
     return (*self)->DefaultDrawer();
   }
-  void SetDefaultDrawer (const Handle_Prs3d_Drawer &theDrawer) {
+  void SetDefaultDrawer(const occ::handle< Prs3d_Drawer > &theDrawer) {
     (*self)->SetDefaultDrawer(theDrawer);
   }
-  const Handle_V3d_Viewer & CurrentViewer () {
+  const occ::handle< V3d_Viewer > &CurrentViewer() const {
     return (*self)->CurrentViewer();
   }
-  const Handle_SelectMgr_SelectionManager & SelectionManager () {
+  const occ::handle< SelectMgr_SelectionManager > &SelectionManager() const{
     return (*self)->SelectionManager();
   }
-  const Handle_PrsMgr_PresentationManager & MainPrsMgr () {
+  const occ::handle< PrsMgr_PresentationManager > &MainPrsMgr() const {
     return (*self)->MainPrsMgr();
   }
-  const opencascade::handle< StdSelect_ViewerSelector3d > & MainSelector () {
+  const occ::handle< StdSelect_ViewerSelector3d > &MainSelector() const {
     return (*self)->MainSelector();
   }
-  void UpdateCurrentViewer () {
+  void UpdateCurrentViewer() {
     (*self)->UpdateCurrentViewer();
   }
-  void DisplayedObjects (AIS_ListOfInteractive &aListOfIO) {
+  void DisplayedObjects(NCollection_List< occ::handle< AIS_InteractiveObject > > &aListOfIO) const {
     (*self)->DisplayedObjects(aListOfIO);
   }
-  void DisplayedObjects (const AIS_KindOfInteractive theWhichKind, const Standard_Integer theWhichSignature, AIS_ListOfInteractive &theListOfIO) {
+  void DisplayedObjects(const AIS_KindOfInteractive theWhichKind,
+                        const int theWhichSignature,
+                        NCollection_List< occ::handle< AIS_InteractiveObject > > &theListOfIO) const {
     (*self)->DisplayedObjects(theWhichKind, theWhichSignature, theListOfIO);
   }
-  void ErasedObjects (AIS_ListOfInteractive &theListOfIO) {
+  void ErasedObjects(NCollection_List< occ::handle< AIS_InteractiveObject > > &theListOfIO) const {
     (*self)->ErasedObjects(theListOfIO);
   }
-  void ErasedObjects (const AIS_KindOfInteractive theWhichKind, const Standard_Integer theWhichSignature, AIS_ListOfInteractive &theListOfIO) {
+  void ErasedObjects(const AIS_KindOfInteractive theWhichKind,
+                     const int theWhichSignature,
+                     NCollection_List< occ::handle< AIS_InteractiveObject > > &theListOfIO) const {
     (*self)->ErasedObjects(theWhichKind, theWhichSignature, theListOfIO);
   }
-  void ObjectsByDisplayStatus (const PrsMgr_DisplayStatus theStatus, AIS_ListOfInteractive &theListOfIO) {
+  void ObjectsByDisplayStatus(const PrsMgr_DisplayStatus theStatus,
+                               NCollection_List< occ::handle< AIS_InteractiveObject > > &theListOfIO) const {
     (*self)->ObjectsByDisplayStatus(theStatus, theListOfIO);
   }
-  void ObjectsByDisplayStatus (const AIS_KindOfInteractive WhichKind, const Standard_Integer WhichSignature,
-                               const PrsMgr_DisplayStatus theStatus, AIS_ListOfInteractive &theListOfIO) {
+  void ObjectsByDisplayStatus(const AIS_KindOfInteractive WhichKind,
+                              const int WhichSignature,
+                              const PrsMgr_DisplayStatus theStatus,
+                              NCollection_List< occ::handle< AIS_InteractiveObject > > &theListOfIO) const {
     (*self)->ObjectsByDisplayStatus(WhichKind, WhichSignature, theStatus, theListOfIO);
   }
-  void ObjectsInside (AIS_ListOfInteractive &aListOfIO, const AIS_KindOfInteractive WhichKind=AIS_KindOfInteractive_None, const Standard_Integer WhichSignature=-1) {
+  void ObjectsInside(NCollection_List< occ::handle< AIS_InteractiveObject > > &aListOfIO,
+                     const AIS_KindOfInteractive WhichKind=AIS_KindOfInteractive_None,
+                     const int WhichSignature=-1) const {
     (*self)->ObjectsInside(aListOfIO, WhichKind, WhichSignature);
   }
-  AIS_DataMapIteratorOfDataMapOfIOStatus ObjectIterator () {
+  NCollection_DataMap< occ::handle< AIS_InteractiveObject >, occ::handle< AIS_GlobalStatus > >::Iterator ObjectIterator() const {
     return (*self)->ObjectIterator();
   }
-  void RebuildSelectionStructs () {
+  void RebuildSelectionStructs() {
     (*self)->RebuildSelectionStructs();
   }
-  void Disconnect (const Handle_AIS_InteractiveObject &theAssembly, const Handle_AIS_InteractiveObject &theObjToDisconnect=NULL) {
+  void Disconnect(const occ::handle< AIS_InteractiveObject > &theAssembly, const occ::handle< AIS_InteractiveObject > &theObjToDisconnect=nullptr) {
     (*self)->Disconnect(theAssembly, theObjToDisconnect);
   }
-  void ObjectsForView (AIS_ListOfInteractive &theListOfIO, const Handle_V3d_View &theView, const Standard_Boolean theIsVisibleInView,
-                       const PrsMgr_DisplayStatus theStatus=PrsMgr_DisplayStatus_None) {
+  void ObjectsForView(NCollection_List< occ::handle< AIS_InteractiveObject > > &theListOfIO,
+                      const occ::handle< V3d_View > &theView,
+                      const bool theIsVisibleInView,
+                      const PrsMgr_DisplayStatus theStatus=PrsMgr_DisplayStatus_None) const {
     (*self)->ObjectsForView(theListOfIO, theView, theIsVisibleInView, theStatus);
   }
-  gp_Pnt GravityPoint (const Handle_V3d_View &theView) {
+  gp_Pnt GravityPoint(const occ::handle< V3d_View > &theView) const {
     return (*self)->GravityPoint(theView);
   }
-  void DisplayActiveSensitive (const Handle_V3d_View &aView) {
+  void DisplayActiveSensitive(const occ::handle< V3d_View > &aView) {
     (*self)->DisplayActiveSensitive(aView);
   }
-  void ClearActiveSensitive (const Handle_V3d_View &aView) {
+  void ClearActiveSensitive(const occ::handle< V3d_View > &aView) {
     (*self)->ClearActiveSensitive(aView);
   }
-  void DisplayActiveSensitive (const Handle_AIS_InteractiveObject &anObject, const Handle_V3d_View &aView) {
+  void DisplayActiveSensitive(const occ::handle< AIS_InteractiveObject > &anObject, const occ::handle< V3d_View > &aView) {
     (*self)->DisplayActiveSensitive(anObject, aView);
   }
-  void SetLocalAttributes (const Handle_AIS_InteractiveObject &theIObj, const Handle_Prs3d_Drawer &theDrawer, const Standard_Boolean theToUpdateViewer) {
+  void SetLocalAttributes(const occ::handle< AIS_InteractiveObject > &theIObj, const occ::handle< Prs3d_Drawer > &theDrawer, const bool theToUpdateViewer) {
     (*self)->SetLocalAttributes(theIObj, theDrawer, theToUpdateViewer);
   }
-  void UnsetLocalAttributes (const Handle_AIS_InteractiveObject &theIObj, const Standard_Boolean theToUpdateViewer) {
+  void UnsetLocalAttributes(const occ::handle< AIS_InteractiveObject > &theIObj, const bool theToUpdateViewer) {
     (*self)->UnsetLocalAttributes(theIObj, theToUpdateViewer);
   }
-  void SetCurrentFacingModel (const Handle_AIS_InteractiveObject &aniobj, const Aspect_TypeOfFacingModel aModel=Aspect_TOFM_BOTH_SIDE) {
+  void SetCurrentFacingModel(const occ::handle< AIS_InteractiveObject > &aniobj, const Aspect_TypeOfFacingModel aModel=Aspect_TOFM_BOTH_SIDE) {
     (*self)->SetCurrentFacingModel(aniobj, aModel);
   }
-  Standard_Boolean 	HasColor (const Handle_AIS_InteractiveObject &aniobj) {
+  bool HasColor(const occ::handle< AIS_InteractiveObject > &aniobj) const {
     return (*self)->HasColor(aniobj);
   }
-  void Color (const Handle_AIS_InteractiveObject &aniobj, Quantity_Color &acolor) {
+  void Color(const occ::handle< AIS_InteractiveObject > &aniobj, Quantity_Color &acolor) const {
     (*self)->Color(aniobj, acolor);
   }
-  void SetColor (const Handle_AIS_InteractiveObject &theIObj, const Quantity_Color &theColor, const Standard_Boolean theToUpdateViewer) {
+  void SetColor(const occ::handle< AIS_InteractiveObject > &theIObj, const Quantity_Color &theColor, const bool theToUpdateViewer) {
     (*self)->SetColor(theIObj, theColor, theToUpdateViewer);
   }
-  void UnsetColor (const Handle_AIS_InteractiveObject &theIObj, const Standard_Boolean theToUpdateViewer) {
+  void UnsetColor(const occ::handle< AIS_InteractiveObject > &theIObj, const bool theToUpdateViewer) {
     (*self)->UnsetColor(theIObj, theToUpdateViewer);
   }
-  Standard_Real Width (const Handle_AIS_InteractiveObject &aniobj) {
+  double Width(const occ::handle< AIS_InteractiveObject > &aniobj) const {
     return (*self)->Width(aniobj);
   }
-  void SetWidth (const Handle_AIS_InteractiveObject &theIObj, const Standard_Real theValue, const Standard_Boolean theToUpdateViewer) {
+  void SetWidth(const occ::handle< AIS_InteractiveObject > &theIObj, const double theValue, const bool theToUpdateViewer) {
     (*self)->SetWidth(theIObj, theValue, theToUpdateViewer);
   }
-  void UnsetWidth (const Handle_AIS_InteractiveObject &theIObj, const Standard_Boolean theToUpdateViewer) {
+  void UnsetWidth(const occ::handle< AIS_InteractiveObject > &theIObj, const bool theToUpdateViewer) {
     (*self)->UnsetWidth(theIObj, theToUpdateViewer);
   }
-  void SetMaterial (const Handle_AIS_InteractiveObject &theIObj, const Graphic3d_MaterialAspect &theMaterial, const Standard_Boolean theToUpdateViewer) {
+  void SetMaterial(const occ::handle< AIS_InteractiveObject > &theIObj, const Graphic3d_MaterialAspect &theMaterial, const bool theToUpdateViewer) {
     (*self)->SetMaterial(theIObj, theMaterial, theToUpdateViewer);
   }
-  void UnsetMaterial (const Handle_AIS_InteractiveObject &theIObj, const Standard_Boolean theToUpdateViewer) {
+  void UnsetMaterial(const occ::handle< AIS_InteractiveObject > &theIObj, const bool theToUpdateViewer) {
     (*self)->UnsetMaterial(theIObj, theToUpdateViewer);
   }
-  void SetTransparency (const Handle_AIS_InteractiveObject &theIObj, const Standard_Real theValue, const Standard_Boolean theToUpdateViewer) {
+  void SetTransparency(const occ::handle< AIS_InteractiveObject > &theIObj, const double theValue, const bool theToUpdateViewer) {
     (*self)->SetTransparency(theIObj, theValue, theToUpdateViewer);
   }
-  void UnsetTransparency (const Handle_AIS_InteractiveObject &theIObj, const Standard_Boolean theToUpdateViewer) {
+  void UnsetTransparency(const occ::handle< AIS_InteractiveObject > &theIObj, const bool theToUpdateViewer) {
     (*self)->UnsetTransparency(theIObj, theToUpdateViewer);
   }
-  void SetPolygonOffsets (const Handle_AIS_InteractiveObject &theIObj, const Standard_Integer theMode, const Standard_ShortReal theFactor,
-                         const Standard_ShortReal theUnits, const Standard_Boolean theToUpdateViewer) {
+  void SetPolygonOffsets(const occ::handle< AIS_InteractiveObject > &theIObj, const int theMode,
+                         const float theFactor, const float theUnits,
+                         const bool theToUpdateViewer) {
     (*self)->SetPolygonOffsets(theIObj, theMode, theFactor, theUnits, theToUpdateViewer);
   }
-  Standard_Boolean HasPolygonOffsets (const Handle_AIS_InteractiveObject &anObj) {
+  bool HasPolygonOffsets(const occ::handle< AIS_InteractiveObject > &anObj) const {
     return (*self)->HasPolygonOffsets(anObj);
   }
-  void PolygonOffsets (const Handle_AIS_InteractiveObject &anObj, Standard_Integer &aMode, Standard_ShortReal &aFactor, Standard_ShortReal &aUnits) {
+  void PolygonOffsets(const occ::handle< AIS_InteractiveObject > &anObj, int &aMode, float &aFactor, float &aUnits) const {
     (*self)->PolygonOffsets(anObj, aMode, aFactor, aUnits);
   }
-  void SetTrihedronSize (const Standard_Real theSize, const Standard_Boolean theToUpdateViewer) {
+  void SetTrihedronSize(const double theSize, const bool theToUpdateViewer) {
     (*self)->SetTrihedronSize(theSize, theToUpdateViewer);
   }
-  Standard_Real TrihedronSize () {
+  double TrihedronSize() const {
     return (*self)->TrihedronSize();
   }
-  void SetPlaneSize (const Standard_Real theSizeX, const Standard_Real theSizeY, const Standard_Boolean theToUpdateViewer) {
+  void SetPlaneSize(const double theSizeX, const double theSizeY, const bool theToUpdateViewer) {
     (*self)->SetPlaneSize(theSizeX, theSizeY, theToUpdateViewer);
   }
-  void SetPlaneSize (const Standard_Real theSize, const Standard_Boolean theToUpdateViewer) {
+  void SetPlaneSize(const double theSize, const bool theToUpdateViewer) {
     (*self)->SetPlaneSize(theSize, theToUpdateViewer);
   }
-  Standard_Boolean PlaneSize (Standard_Real &XSize, Standard_Real &YSize) {
+  bool PlaneSize(double &XSize, double &YSize) const {
     return (*self)->PlaneSize(XSize, YSize);
   }
-  void SetDeviationCoefficient (const Handle_AIS_InteractiveObject &theIObj, const Standard_Real theCoefficient, const Standard_Boolean theToUpdateViewer) {
+  void SetDeviationCoefficient(const occ::handle< AIS_InteractiveObject > &theIObj, const double theCoefficient, const bool theToUpdateViewer) {
     (*self)->SetDeviationCoefficient(theIObj, theCoefficient, theToUpdateViewer);
   }
-  void SetDeviationAngle (const Handle_AIS_InteractiveObject &theIObj, const Standard_Real theAngle, const Standard_Boolean theToUpdateViewer) {
+  void SetDeviationAngle(const occ::handle< AIS_InteractiveObject > &theIObj, const double theAngle, const bool theToUpdateViewer) {
     (*self)->SetDeviationAngle(theIObj, theAngle, theToUpdateViewer);
   }
-  void SetAngleAndDeviation (const Handle_AIS_InteractiveObject &theIObj, const Standard_Real theAngle, const Standard_Boolean theToUpdateViewer) {
+  void SetAngleAndDeviation(const occ::handle< AIS_InteractiveObject > &theIObj, const double theAngle, const bool theToUpdateViewer) {
     (*self)->SetAngleAndDeviation(theIObj, theAngle, theToUpdateViewer);
   }
-  void SetDeviationCoefficient (const Standard_Real theCoefficient) {
+  void SetDeviationCoefficient(const double theCoefficient) {
     (*self)->SetDeviationCoefficient(theCoefficient);
   }
-  Standard_Real DeviationCoefficient () {
+  double DeviationCoefficient() const {
     return (*self)->DeviationCoefficient();
   }
-  void SetDeviationAngle (const Standard_Real theAngle) {
+  void SetDeviationAngle(const double theAngle) {
     (*self)->SetDeviationAngle(theAngle);
   }
-  Standard_Real DeviationAngle () {
+  double DeviationAngle() const {
     return (*self)->DeviationAngle();
   }
-  const Handle_Prs3d_LineAspect & HiddenLineAspect () {
+  const occ::handle< Prs3d_LineAspect > &HiddenLineAspect() const {
     return (*self)->HiddenLineAspect();
   }
-  void SetHiddenLineAspect (const Handle_Prs3d_LineAspect &theAspect) {
+  void SetHiddenLineAspect(const occ::handle< Prs3d_LineAspect > &theAspect) const {
     (*self)->SetHiddenLineAspect(theAspect);
   }
-  Standard_Boolean DrawHiddenLine () {
+  bool DrawHiddenLine() const {
     return (*self)->DrawHiddenLine();
   }
-  void EnableDrawHiddenLine () {
+  void EnableDrawHiddenLine() const {
     (*self)->EnableDrawHiddenLine();
   }
-  void DisableDrawHiddenLine () {
+  void DisableDrawHiddenLine() const {
     (*self)->DisableDrawHiddenLine();
   }
-  void SetIsoNumber (const Standard_Integer NbIsos, const AIS_TypeOfIso WhichIsos=AIS_TOI_Both) {
+  void SetIsoNumber(const int NbIsos, const AIS_TypeOfIso WhichIsos=AIS_TOI_Both) {
     (*self)->SetIsoNumber(NbIsos, WhichIsos);
   }
-  Standard_Integer 	IsoNumber (const AIS_TypeOfIso WhichIsos=AIS_TOI_Both) {
+  int IsoNumber(const AIS_TypeOfIso WhichIsos=AIS_TOI_Both) {
     return (*self)->IsoNumber(WhichIsos);
   }
-  void IsoOnPlane (const Standard_Boolean theToSwitchOn) {
+  void IsoOnPlane(const bool theToSwitchOn) {
     (*self)->IsoOnPlane(theToSwitchOn);
   }
-  Standard_Boolean IsoOnPlane () {
+  bool IsoOnPlane() const {
     return (*self)->IsoOnPlane();
   }
-  void IsoOnTriangulation (const Standard_Boolean theIsEnabled, const Handle_AIS_InteractiveObject &theObject) {
+  void IsoOnTriangulation(const bool theIsEnabled, const occ::handle< AIS_InteractiveObject > &theObject) {
     (*self)->IsoOnTriangulation(theIsEnabled, theObject);
   }
-  void IsoOnTriangulation (const Standard_Boolean theToSwitchOn) {
+  void IsoOnTriangulation(const bool theToSwitchOn) {
     (*self)->IsoOnTriangulation(theToSwitchOn);
   }
-  Standard_Boolean IsoOnTriangulation () {
+  bool IsoOnTriangulation() const {
     return (*self)->IsoOnTriangulation();
   }
-}
+  const Quantity_Color &SubIntensityColor() const {
+    return (*self)->SubIntensityColor();
+  }
+  void SetSubIntensityColor(const Quantity_Color &theColor) {
+    (*self)->SetSubIntensityColor(theColor);
+  }
+  void SubIntensityOn(const occ::handle< AIS_InteractiveObject > &theIObj, const bool theToUpdateViewer) {
+    (*self)->SubIntensityOn(theIObj, theToUpdateViewer);
+  }
+  void SubIntensityOff(const occ::handle< AIS_InteractiveObject > &theIObj, const bool theToUpdateViewer) {
+    (*self)->SubIntensityOff(theIObj, theToUpdateViewer);
+  }
+  const occ::handle< AIS_Selection > &Selection() const {
+    return (*self)->Selection();
+  }
+  void SetSelection(const occ::handle< AIS_Selection > &theSelection) {
+    (*self)->SetSelection(theSelection);
+  }
+}  

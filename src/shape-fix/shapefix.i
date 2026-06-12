@@ -14,6 +14,22 @@
 #include <ShapeFix_EdgeProjAux.hxx>
 #include <ShapeConstruct_ProjectCurveOnSurface.hxx>
 #include <ShapeAnalysis_Surface.hxx>
+
+typedef occ::handle<ShapeBuild_ReShape> Handle_ShapeBuild_ReShape;
+typedef occ::handle<ShapeFix_Root> Handle_ShapeFix_Root;
+typedef occ::handle<ShapeFix_Shape> Handle_ShapeFix_Shape;
+typedef occ::handle<ShapeFix_Edge> Handle_ShapeFix_Edge;
+typedef occ::handle<ShapeFix_Wire> Handle_ShapeFix_Wire;
+typedef occ::handle<ShapeFix_Wireframe> Handle_ShapeFix_Wireframe;
+typedef occ::handle<ShapeExtend_BasicMsgRegistrator> Handle_ShapeExtend_BasicMsgRegistrator;
+typedef occ::handle<ShapeFix_Solid> Handle_ShapeFix_Solid;
+typedef occ::handle<ShapeFix_Shell> Handle_ShapeFix_Shell;
+typedef occ::handle<ShapeFix_Face> Handle_ShapeFix_Face;
+typedef occ::handle<ShapeFix_EdgeProjAux> Handle_ShapeFix_EdgeProjAux;
+typedef occ::handle<ShapeConstruct_ProjectCurveOnSurface> Handle_ShapeConstruct_ProjectCurveOnSurface;
+typedef occ::handle<ShapeAnalysis_Surface> Handle_ShapeAnalysis_Surface;
+typedef occ::handle<ShapeAnalysis_Wire> Handle_ShapeAnalysis_Wire;
+typedef occ::handle<ShapeExtend_WireData> Handle_ShapeExtend_WireData;
 %}
 
 %{

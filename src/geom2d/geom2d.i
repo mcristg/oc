@@ -27,6 +27,29 @@
 #include <Bisector_BisecAna.hxx>
 #include <Bisector_BisecCC.hxx>
 #include <Bisector_BisecPC.hxx>
+
+typedef occ::handle<Geom2d_Geometry> Handle_Geom2d_Geometry;
+typedef occ::handle<Geom2d_Point> Handle_Geom2d_Point;
+typedef occ::handle<Geom2d_CartesianPoint> Handle_Geom2d_CartesianPoint;
+typedef occ::handle<Geom2d_Vector> Handle_Geom2d_Vector;
+typedef occ::handle<Geom2d_VectorWithMagnitude> Handle_Geom2d_VectorWithMagnitude;
+typedef occ::handle<Geom2d_Direction> Handle_Geom2d_Direction;
+typedef occ::handle<Geom2d_AxisPlacement> Handle_Geom2d_AxisPlacement;
+typedef occ::handle<Geom2d_Transformation> Handle_Geom2d_Transformation;
+typedef occ::handle<Bisector_Curve> Handle_Bisector_Curve;
+typedef occ::handle<Bisector_BisecCC> Handle_Bisector_BisecCC;
+typedef occ::handle<Bisector_BisecPC> Handle_Bisector_BisecPC;
+typedef occ::handle<Geom2d_Line> Handle_Geom2d_Line;
+typedef occ::handle<Geom2d_OffsetCurve> Handle_Geom2d_OffsetCurve;
+typedef occ::handle<Geom2d_Conic> Handle_Geom2d_Conic;
+typedef occ::handle<Geom2d_Circle> Handle_Geom2d_Circle;
+typedef occ::handle<Geom2d_Ellipse> Handle_Geom2d_Ellipse;
+typedef occ::handle<Geom2d_Hyperbola> Handle_Geom2d_Hyperbola;
+typedef occ::handle<Geom2d_Parabola> Handle_Geom2d_Parabola;
+typedef occ::handle<Geom2d_BoundedCurve> Handle_Geom2d_BoundedCurve;
+typedef occ::handle<Geom2d_BezierCurve> Handle_Geom2d_BezierCurve;
+typedef occ::handle<Geom2d_BSplineCurve> Handle_Geom2d_BSplineCurve;
+typedef occ::handle<Geom2d_TrimmedCurve> Handle_Geom2d_TrimmedCurve;
   %}
 
 %rename(Geom2d_Geometry) Handle_Geom2d_Geometry;
@@ -57,7 +80,7 @@
 %nodefaultdtor Handle_Geom2d_Geometry;
 class Handle_Geom2d_Geometry : public Handle_Standard_Transient
 {
-  Handle_Geom_Geometry()=0;
+  Handle_Geom2d_Geometry()=0;
 };
 
 %extend Handle_Geom2d_Geometry

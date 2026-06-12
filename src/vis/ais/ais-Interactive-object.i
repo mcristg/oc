@@ -1,5 +1,14 @@
+%typemap(cin) bool ":bool";
+%typemap(cout) bool ":bool";
+%typemap(ctype) bool "bool";
+%typemap(out) bool "$result = (bool)$1;";
+%typemap(lispclass) bool "cl:boolean";
+%typemap(lispclass) float "cl:single-float";
+%typemap(lispclass) double "cl:double-float";
+
 %{
 #include <PrsMgr_PresentableObject.hxx>
+typedef occ::handle<PrsMgr_PresentableObject> Handle_PrsMgr_PresentableObject;
 %}
 
 %rename(PrsMgr_PresentableObject) Handle_PrsMgr_PresentableObject;
@@ -12,253 +21,252 @@ class Handle_PrsMgr_PresentableObject
 
 %extend Handle_PrsMgr_PresentableObject
 {
-  PrsMgr_Presentations & Presentations () {
+  NCollection_Sequence< occ::handle< PrsMgr_Presentation > >  &Presentations() {
     return (*self)->Presentations();
   }
   Graphic3d_ZLayerId ZLayer () {
     return (*self)->ZLayer();
   }
-  void 	SetZLayer (const Graphic3d_ZLayerId theLayerId) {
+  void SetZLayer(const Graphic3d_ZLayerId theLayerId) {
     (*self)->SetZLayer(theLayerId);
   }
-  Standard_Boolean 	IsMutable () {
+  bool IsMutable() const {
     return (*self)->IsMutable();
   }
-  void SetMutable (const Standard_Boolean theIsMutable) {
+  void SetMutable(const bool theIsMutable) {
     (*self)->SetMutable(theIsMutable);
   }
-  const Handle_Graphic3d_ViewAffinity & ViewAffinity () {
+  const occ::handle< Graphic3d_ViewAffinity > &ViewAffinity() const {
     return (*self)->ViewAffinity();
   }
-  Standard_Boolean HasDisplayMode () {
+  bool HasDisplayMode() const {
     return (*self)->HasDisplayMode();
   }
-  Standard_Integer DisplayMode () {
+  int DisplayMode() const {
     return (*self)->DisplayMode();
   }
-  void SetDisplayMode (const Standard_Integer theMode) {
+  void SetDisplayMode(const int theMode) {
     (*self)->SetDisplayMode(theMode);
   }
-  void UnsetDisplayMode () {
+  void UnsetDisplayMode() {
     (*self)->UnsetDisplayMode();
   }
-  Standard_Boolean HasHilightMode () {
+  bool HasHilightMode() const {
     return (*self)->HasHilightMode();
   }
-  Standard_Integer HilightMode () {
+  int HilightMode() const {
     return (*self)->HilightMode();
   }
-  void SetHilightMode (const Standard_Integer theMode) {
+  void SetHilightMode(const int theMode) {
     (*self)->SetHilightMode(theMode);
   }
-  void UnsetHilightMode () {
+  void UnsetHilightMode() {
     (*self)->UnsetHilightMode();
   }
-  Standard_Boolean AcceptDisplayMode (const Standard_Integer theMode) {
+  bool AcceptDisplayMode(const int theMode) const {
     return (*self)->AcceptDisplayMode(theMode);
   }
-  Standard_Integer DefaultDisplayMode () {
+  int DefaultDisplayMode() const {
     return (*self)->DefaultDisplayMode();
   }
-  Standard_Boolean ToBeUpdated (Standard_Boolean theToIncludeHidden=Standard_False) {
+  bool ToBeUpdated(bool theToIncludeHidden=false) const {
     return (*self)->ToBeUpdated(theToIncludeHidden);
   }
-  void SetToUpdate (Standard_Integer theMode) {
+  void SetToUpdate(int theMode) {
     (*self)->SetToUpdate(theMode);
   }
-  void SetToUpdate () {
+  void SetToUpdate() {
     (*self)->SetToUpdate();
   }
-  Standard_Boolean IsInfinite () {
+  bool IsInfinite() const {
     return (*self)->IsInfinite();
   }
-  void SetInfiniteState (const Standard_Boolean theFlag=Standard_True) {
+  void SetInfiniteState(const bool theFlag=true) {
     (*self)->SetInfiniteState(theFlag);
   }
-  PrsMgr_TypeOfPresentation3d TypeOfPresentation3d () {
+  PrsMgr_TypeOfPresentation3d TypeOfPresentation3d() const {
     return (*self)->TypeOfPresentation3d();
   }
-  void 	SetTypeOfPresentation (const PrsMgr_TypeOfPresentation3d theType) {
+  void SetTypeOfPresentation(const PrsMgr_TypeOfPresentation3d theType) {
     (*self)->SetTypeOfPresentation(theType);
   }
-  PrsMgr_DisplayStatus DisplayStatus () {
+  PrsMgr_DisplayStatus 	DisplayStatus() const {
     return (*self)->DisplayStatus();
   }
-  const Handle_Prs3d_Drawer & Attributes () {
+  const occ::handle< Prs3d_Drawer > &Attributes() const {
     return (*self)->Attributes();
   }
-  void SetAttributes (const Handle_Prs3d_Drawer &theDrawer) {
+  void SetAttributes(const occ::handle< Prs3d_Drawer > &theDrawer) {
     (*self)->SetAttributes(theDrawer);
   }
-  const Handle_Prs3d_Drawer & HilightAttributes () {
+  const occ::handle< Prs3d_Drawer > &HilightAttributes() const {
     return (*self)->HilightAttributes();
   }
-  void SetHilightAttributes (const Handle_Prs3d_Drawer &theDrawer) {
+  void SetHilightAttributes(const occ::handle< Prs3d_Drawer > &theDrawer) {
     (*self)->SetHilightAttributes(theDrawer);
   }
-  const Handle_Prs3d_Drawer & DynamicHilightAttributes () {
+  const occ::handle< Prs3d_Drawer > &DynamicHilightAttributes() const {
     return (*self)->DynamicHilightAttributes();
   }
-  void SetDynamicHilightAttributes (const Handle_Prs3d_Drawer &theDrawer) {
+  void SetDynamicHilightAttributes(const occ::handle< Prs3d_Drawer > &theDrawer) {
     (*self)->SetDynamicHilightAttributes(theDrawer);
   }
-  void UnsetHilightAttributes () {
+  void UnsetHilightAttributes() {
     (*self)->UnsetHilightAttributes();
   }
-  void SynchronizeAspects () {
+  void SynchronizeAspects() {
     (*self)->SynchronizeAspects();
   }
-  const Handle_Graphic3d_TransformPers & TransformPersistence () {
+  const occ::handle< Graphic3d_TransformPers > &TransformPersistence() const {
     return (*self)->TransformPersistence();
   }
-  void SetTransformPersistence (const Handle_Graphic3d_TransformPers &theTrsfPers) {
-    (*self)->SetTransformPersistence(theTrsfPers);
-  }
-  const Handle_TopLoc_Datum3D & LocalTransformationGeom () {
+  const occ::handle< TopLoc_Datum3D > &LocalTransformationGeom() const {
     return (*self)->LocalTransformationGeom();
   }
-  void SetLocalTransformation (const gp_Trsf &theTrsf) {
+  void SetLocalTransformation(const gp_Trsf &theTrsf) {
     (*self)->SetLocalTransformation(theTrsf);
   }
-  void SetLocalTransformation (const Handle_TopLoc_Datum3D &theTrsf) {
+  void SetLocalTransformation(const occ::handle< TopLoc_Datum3D > &theTrsf) {
     (*self)->SetLocalTransformation(theTrsf);
   }
-  Standard_Boolean HasTransformation () {
+  bool HasTransformation() const {
     return (*self)->HasTransformation();
   }
-  const Handle_TopLoc_Datum3D & TransformationGeom () {
+  const occ::handle< TopLoc_Datum3D > &TransformationGeom() const {
     return (*self)->TransformationGeom();
   }
-  const gp_Trsf & LocalTransformation () {
+  const gp_Trsf &LocalTransformation() const {
     return (*self)->LocalTransformation();
   }
-  const gp_Trsf & Transformation () {
+  const gp_Trsf &Transformation() const {
     return (*self)->Transformation();
   }
-  const gp_GTrsf & InversedTransformation () {
-    return (*self)->InversedTransformation();
+  const gp_GTrsf &InversedTransformation() const {
+    return (*self)->InversedTransformation(); 
   }
-  const Handle_TopLoc_Datum3D & CombinedParentTransformation () {
+  const occ::handle< TopLoc_Datum3D > &CombinedParentTransformation() const {
     return (*self)->CombinedParentTransformation();
   }
-  void ResetTransformation () {
+  void ResetTransformation() {
     (*self)->ResetTransformation();
   }
-  void UpdateTransformation () {
+  void UpdateTransformation() {
     (*self)->UpdateTransformation();
   }
-  const Handle_Graphic3d_SequenceOfHClipPlane & ClipPlanes () {
+  void RecomputeTransformation(const occ::handle< Graphic3d_Camera > &theProjector) {
+    (*self)->RecomputeTransformation(theProjector);
+  }
+  const occ::handle< Graphic3d_SequenceOfHClipPlane > &ClipPlanes() const {
     return (*self)->ClipPlanes();
   }
-  void SetClipPlanes (const Handle_Graphic3d_SequenceOfHClipPlane &thePlanes) {
+  void SetClipPlanes(const occ::handle< Graphic3d_SequenceOfHClipPlane > &thePlanes) {
     (*self)->SetClipPlanes(thePlanes);
   }
-  void AddClipPlane (const Handle_Graphic3d_ClipPlane &thePlane) {
+  void AddClipPlane(const occ::handle< Graphic3d_ClipPlane > &thePlane) {
     (*self)->AddClipPlane(thePlane);
   }
-  void RemoveClipPlane (const Handle_Graphic3d_ClipPlane &thePlane) {
+  void RemoveClipPlane(const occ::handle< Graphic3d_ClipPlane > &thePlane) {
     (*self)->RemoveClipPlane(thePlane);
   }
-  PrsMgr_PresentableObject * Parent () {
+  PrsMgr_PresentableObject *Parent() const {
     return (*self)->Parent();
   }
-  const PrsMgr_ListOfPresentableObjects & Children () {
+  const NCollection_List< occ::handle< PrsMgr_PresentableObject > > &Children() const {
     return (*self)->Children();
   }
-  void AddChild (const Handle_PrsMgr_PresentableObject &theObject) {
+  void AddChild(const occ::handle< PrsMgr_PresentableObject > &theObject) {
     (*self)->AddChild(theObject);
   }
-  void AddChildWithCurrentTransformation (const Handle_PrsMgr_PresentableObject &theObject) {
+  void AddChildWithCurrentTransformation(const occ::handle< PrsMgr_PresentableObject > &theObject) {
     (*self)->AddChildWithCurrentTransformation(theObject);
   }
-  void RemoveChild (const Handle_PrsMgr_PresentableObject &theObject) {
+  void RemoveChild(const occ::handle< PrsMgr_PresentableObject > &theObject) {
     (*self)->RemoveChild(theObject);
   }
-  void RemoveChildWithRestoreTransformation (const Handle_PrsMgr_PresentableObject &theObject) {
+  void RemoveChildWithRestoreTransformation(const occ::handle< PrsMgr_PresentableObject > &theObject) {
     (*self)->RemoveChildWithRestoreTransformation(theObject);
   }
-  Standard_Boolean HasOwnPresentations () {
+  bool HasOwnPresentations() const {
     return (*self)->HasOwnPresentations();
   }
-  void BoundingBox (Bnd_Box &theBndBox) {
+  void BoundingBox(Bnd_Box &theBndBox) {
     (*self)->BoundingBox(theBndBox);
   }
-  void SetIsoOnTriangulation (const Standard_Boolean theIsEnabled) {
+  void SetIsoOnTriangulation(const bool theIsEnabled) {
     (*self)->SetIsoOnTriangulation(theIsEnabled);
   }
-  Aspect_TypeOfFacingModel 	CurrentFacingModel () {
+  Aspect_TypeOfFacingModel CurrentFacingModel() const {
     return (*self)->CurrentFacingModel();
   }
-  void SetCurrentFacingModel (const Aspect_TypeOfFacingModel theModel=Aspect_TOFM_BOTH_SIDE) {
+  void SetCurrentFacingModel(const Aspect_TypeOfFacingModel theModel=Aspect_TOFM_BOTH_SIDE) {
     (*self)->SetCurrentFacingModel(theModel);
   }
-  Standard_Boolean HasColor () {
+  bool HasColor() const {
     return (*self)->HasColor();
   }
-  void Color (Quantity_Color &theColor) {
+  void Color(Quantity_Color &theColor) const {
     (*self)->Color(theColor);
   }
-  void SetColor (const Quantity_Color &theColor) {
+  void SetColor(const Quantity_Color &theColor) {
     (*self)->SetColor(theColor);
   }
-  void UnsetColor () {
+  void UnsetColor() {
     (*self)->UnsetColor();
   }
-  Standard_Boolean HasWidth () {
+  bool HasWidth() const {
     return (*self)->HasWidth();
   }
-  Standard_Real Width () {
+  double Width() const {
     return (*self)->Width();
   }
-  void SetWidth (const Standard_Real theWidth) {
+  void SetWidth(const double theWidth) {
     (*self)->SetWidth(theWidth);
   }
-  void UnsetWidth () {
+  void UnsetWidth() {
     (*self)->UnsetWidth();
   }
-  Standard_Boolean HasMaterial () {
+  bool HasMaterial() const {
     return (*self)->HasMaterial();
   }
-  Graphic3d_NameOfMaterial Material () {
+  Graphic3d_NameOfMaterial Material() const {
     return (*self)->Material();
   }
-  void SetMaterial (const Graphic3d_MaterialAspect &aName) {
+  void SetMaterial(const Graphic3d_MaterialAspect &aName) {
     (*self)->SetMaterial(aName);
   }
-  void UnsetMaterial () {
+  void UnsetMaterial() {
     (*self)->UnsetMaterial();
   }
-  Standard_Boolean IsTransparent () {
+  bool IsTransparent() const {
     return (*self)->IsTransparent();
   }
-  Standard_Real Transparency () {
+  double Transparency() const {
     return (*self)->Transparency();
   }
-  void SetTransparency (const Standard_Real aValue=0.6) {
+  void SetTransparency(const double aValue=0.6) {
     (*self)->SetTransparency(aValue);
   }
-  void UnsetTransparency () {
+  void UnsetTransparency() {
     (*self)->UnsetTransparency();
   }
-  Standard_Boolean HasPolygonOffsets () {
+  bool HasPolygonOffsets() const {
     return (*self)->HasPolygonOffsets();
   }
-  void PolygonOffsets (Standard_Integer &aMode, Standard_ShortReal &aFactor, Standard_ShortReal &aUnits) {
+  void PolygonOffsets(int &aMode, float &aFactor, float &aUnits) const {
     (*self)->PolygonOffsets(aMode, aFactor, aUnits);
   }
-  void SetPolygonOffsets (const Standard_Integer aMode, const Standard_ShortReal aFactor=1.0, const Standard_ShortReal aUnits=0.0) {
+  void SetPolygonOffsets(const int aMode, const float aFactor=1.0, const float aUnits=0.0) {
     (*self)->SetPolygonOffsets(aMode, aFactor, aUnits);
   }
-  void UnsetAttributes () {
+  void UnsetAttributes() {
     (*self)->UnsetAttributes();
   }
-  void DumpJson (Standard_OStream &theOStream, Standard_Integer theDepth=-1) {
-    (*self)->DumpJson(theOStream, theDepth);
-  }
 }
-
 %{
 #include <SelectMgr_SelectableObject.hxx>
+
+typedef occ::handle<SelectMgr_SelectableObject> Handle_SelectMgr_SelectableObject;
+typedef occ::handle<SelectMgr_EntityOwner> Handle_SelectMgr_EntityOwner;
 %}
 
 %rename(SelectMgr_SelectableObject) Handle_SelectMgr_SelectableObject;
@@ -274,95 +282,99 @@ class Handle_SelectMgr_SelectableObject
   void Delete() {
     self->~Handle_SelectMgr_SelectableObject();
   }
-  Standard_Boolean AcceptShapeDecomposition () {
+  bool AcceptShapeDecomposition() {
     return (*self)->AcceptShapeDecomposition();
   }
-  void RecomputePrimitives () {
+  bool AcceptShapeDecomposition() const {
+    return (*self)->AcceptShapeDecomposition();
+  }
+  void RecomputePrimitives() {
     (*self)->RecomputePrimitives();
   }
-  void RecomputePrimitives (const Standard_Integer theMode) {
+  void RecomputePrimitives(const int theMode) {
     (*self)->RecomputePrimitives(theMode);
   }
-  void AddSelection (const Handle_SelectMgr_Selection &aSelection, const Standard_Integer aMode) {
+  void AddSelection(const occ::handle< SelectMgr_Selection > &aSelection, const int aMode) {
     (*self)->AddSelection(aSelection, aMode);
   }
-  void ClearSelections (const Standard_Boolean update=Standard_False) {
+  void ClearSelections(const bool update=false) {
     (*self)->ClearSelections(update);
   }
-  const Handle_SelectMgr_Selection & Selection (const Standard_Integer theMode) {
+  const occ::handle< SelectMgr_Selection > &Selection(const int theMode) const {
     return (*self)->Selection(theMode);
   }
-  Standard_Boolean HasSelection (const Standard_Integer theMode) {
+  bool HasSelection(const int theMode) const {
     return (*self)->HasSelection(theMode);
   }
-  const SelectMgr_SequenceOfSelection & Selections () {
+  const NCollection_Sequence< occ::handle< SelectMgr_Selection > > &Selections() const {
     return (*self)->Selections();
   }
-  void ResetTransformation () {
+  void ResetTransformation() {
     (*self)->ResetTransformation();
   }
-  void UpdateTransformation () {
+  void UpdateTransformation() {
     (*self)->UpdateTransformation();
   }
-  void UpdateTransformations (const Handle_SelectMgr_Selection &aSelection) {
+  void UpdateTransformations(const occ::handle< SelectMgr_Selection > &aSelection) {
     (*self)->UpdateTransformations(aSelection);
   }
-  void HilightSelected (const Handle_PrsMgr_PresentationManager &thePrsMgr, const SelectMgr_SequenceOfOwner &theSeq) {
+  void HilightSelected(const occ::handle< PrsMgr_PresentationManager > &thePrsMgr,
+                       const NCollection_Sequence< occ::handle< SelectMgr_EntityOwner > > &theSeq) {
     (*self)->HilightSelected(thePrsMgr, theSeq);
   }
-  void ClearSelected () {
+  void ClearSelected() {
     (*self)->ClearSelected();
   }
-  void ClearDynamicHighlight (const Handle_PrsMgr_PresentationManager &theMgr) {
+  void ClearDynamicHighlight(const occ::handle< PrsMgr_PresentationManager > &theMgr) {
     (*self)->ClearDynamicHighlight(theMgr);
   }
-  void HilightOwnerWithColor (const Handle_PrsMgr_PresentationManager &thePM, const Handle_Prs3d_Drawer &theStyle, 
-                              const Handle_SelectMgr_EntityOwner &theOwner) {
+  void HilightOwnerWithColor(const occ::handle< PrsMgr_PresentationManager > &thePM,
+                             const occ::handle< Prs3d_Drawer > &theStyle,
+                             const occ::handle< SelectMgr_EntityOwner > &theOwner) {
     (*self)->HilightOwnerWithColor(thePM, theStyle, theOwner);
   }
-  Standard_Boolean IsAutoHilight () {
+  bool IsAutoHilight() const {
     return (*self)->IsAutoHilight();
   }
-  void SetAutoHilight (const Standard_Boolean theAutoHilight) {
+  void SetAutoHilight(const bool theAutoHilight) {
     (*self)->SetAutoHilight(theAutoHilight);
   }
-  opencascade::handle< Prs3d_Presentation > GetHilightPresentation (const Handle_PrsMgr_PresentationManager &thePrsMgr) {
+  occ::handle< Prs3d_Presentation > GetHilightPresentation(const occ::handle< PrsMgr_PresentationManager > &thePrsMgr) {
     return (*self)->GetHilightPresentation(thePrsMgr);
   }
-  opencascade::handle< Prs3d_Presentation > GetSelectPresentation (const Handle_PrsMgr_PresentationManager &thePrsMgr) {
+  occ::handle< Prs3d_Presentation > GetSelectPresentation(const occ::handle< PrsMgr_PresentationManager > &thePrsMgr) {
     return (*self)->GetSelectPresentation(thePrsMgr);
   }
-  void ErasePresentations (Standard_Boolean theToRemove) {
+  void ErasePresentations(bool theToRemove) {
     (*self)->ErasePresentations(theToRemove);
   }
-  void SetZLayer (const Graphic3d_ZLayerId theLayerId) {
+  void SetZLayer(const Graphic3d_ZLayerId theLayerId) {
     (*self)->SetZLayer(theLayerId);
   }
-  void UpdateSelection (const Standard_Integer theMode=-1) {
+  void UpdateSelection(const int theMode=-1) {
     (*self)->UpdateSelection(theMode);
   }
-  void SetAssemblyOwner (const Handle_SelectMgr_EntityOwner &theOwner, const Standard_Integer theMode=-1) {
+  void SetAssemblyOwner(const occ::handle< SelectMgr_EntityOwner > &theOwner, const int theMode=-1) {
     (*self)->SetAssemblyOwner(theOwner, theMode);
   }
-  Bnd_Box BndBoxOfSelected (const opencascade::handle< SelectMgr_IndexedMapOfOwner > &theOwners) {
+  Bnd_Box BndBoxOfSelected(const occ::handle< NCollection_Shared< NCollection_IndexedMap< occ::handle< SelectMgr_EntityOwner > > > > &theOwners) {
     return (*self)->BndBoxOfSelected(theOwners);
   }
-  Standard_Integer GlobalSelectionMode () {
+  int GlobalSelectionMode() const {
     return (*self)->GlobalSelectionMode();
   }
-  Handle_SelectMgr_EntityOwner GlobalSelOwner ()  {
+  occ::handle< SelectMgr_EntityOwner > GlobalSelOwner() const  {
     return (*self)->GlobalSelOwner();
   }
-  const Handle_SelectMgr_EntityOwner & GetAssemblyOwner () {
+  const occ::handle< SelectMgr_EntityOwner > & GetAssemblyOwner() const {
     return (*self)->GetAssemblyOwner();
   }
-  void DumpJson (Standard_OStream &theOStream, Standard_Integer theDepth=-1) {
-    (*self)->DumpJson(theOStream, theDepth);
-  }
-}  
+} 
 
 %{
 #include <AIS_InteractiveObject.hxx>
+
+typedef occ::handle<AIS_InteractiveObject> Handle_AIS_InteractiveObject;
 %}
 
 %rename(AIS_InteractiveObject) Handle_AIS_InteractiveObject;
@@ -375,57 +387,59 @@ class Handle_AIS_InteractiveObject
 
 %extend Handle_AIS_InteractiveObject
 {
-  AIS_KindOfInteractive Type () {
+  AIS_KindOfInteractive Type() {
     return (*self)->Type();
   }
-  Standard_Integer Signature () {
+  int Signature() const{
     return (*self)->Signature();
   }
-  void Redisplay (const Standard_Boolean AllModes=Standard_False) {
+  void Redisplay(const bool AllModes=false) {
     (*self)->Redisplay(AllModes);
   }
-  Standard_Boolean HasInteractiveContext () {
+  bool HasInteractiveContext() const {
     return (*self)->HasInteractiveContext();
   }
-  AIS_InteractiveContext * InteractiveContext () {
+  AIS_InteractiveContext *InteractiveContext() const {
     return (*self)->InteractiveContext();
   }
-  void SetContext (const Handle_AIS_InteractiveContext &aCtx) {
+  void SetContext(const occ::handle< AIS_InteractiveContext > &aCtx) {
     (*self)->SetContext(aCtx);
   }
-  Standard_Boolean HasOwner () {
+  bool HasOwner() const {
     return (*self)->HasOwner();
   }
-  const Handle_Standard_Transient & 	GetOwner () {
+  const occ::handle< Standard_Transient > &GetOwner() const {
     return (*self)->GetOwner();
   }
-  void SetOwner (const Handle_Standard_Transient &theApplicativeEntity) {
+  void SetOwner(const occ::handle< Standard_Transient > &theApplicativeEntity) {
     (*self)->SetOwner(theApplicativeEntity);
   }
-  void ClearOwner () {
+  void ClearOwner() {
     (*self)->ClearOwner();
   }
-  Standard_Boolean ProcessDragging (const Handle_AIS_InteractiveContext &theCtx, const Handle_V3d_View &theView,
-                                    const Handle_SelectMgr_EntityOwner &theOwner, const Graphic3d_Vec2i &theDragFrom,
-                                    const Graphic3d_Vec2i &theDragTo, const AIS_DragAction theAction) {
+  bool ProcessDragging(const occ::handle< AIS_InteractiveContext > &theCtx,
+                       const occ::handle< V3d_View > &theView,
+                       const occ::handle< SelectMgr_EntityOwner > &theOwner,
+                       const NCollection_Vec2< int > &theDragFrom,
+                       const NCollection_Vec2< int > &theDragTo,
+                       const AIS_DragAction theAction) {
     return (*self)->ProcessDragging(theCtx, theView, theOwner, theDragFrom, theDragTo, theAction);
   }
-  Handle_AIS_InteractiveContext GetContext () {
+  occ::handle< AIS_InteractiveContext > GetContext() const {
     return (*self)->GetContext();
   }
-  Standard_Boolean HasPresentation () {
+  bool HasPresentation() const {
     return (*self)->HasPresentation();
   }
-  opencascade::handle< Prs3d_Presentation > Presentation () {
+  occ::handle< Prs3d_Presentation > Presentation() const {
     return (*self)->Presentation();
   }
-  void DumpJson (Standard_OStream &theOStream, Standard_Integer theDepth=-1) {
-    (*self)->DumpJson(theOStream, theDepth);
-  }
-}  
+} 
 
 %{
 #include <AIS_Axis.hxx>
+
+typedef occ::handle<AIS_Axis> Handle_AIS_Axis;
 %}
 
 %rename(AIS_Axis) Handle_AIS_Axis;
@@ -438,67 +452,67 @@ class Handle_AIS_Axis
 
 %extend Handle_AIS_Axis
 {
-  Handle_AIS_Axis (const Handle_Geom_Line &aComponent) {
+  Handle_AIS_Axis(const occ::handle< Geom_Line > &aComponent) {
     return new Handle_AIS_Axis(new AIS_Axis(aComponent));
   }
-  Handle_AIS_Axis (const Handle_Geom_Axis2Placement &aComponent, const AIS_TypeOfAxis anAxisType) {
+  Handle_AIS_Axis(const occ::handle< Geom_Axis2Placement > &aComponent, const AIS_TypeOfAxis anAxisType) {
     return new Handle_AIS_Axis(new AIS_Axis(aComponent, anAxisType));
   }
-  Handle_AIS_Axis (const Handle_Geom_Axis1Placement &anAxis) {
+  Handle_AIS_Axis(const occ::handle< Geom_Axis1Placement > &anAxis) {
     return new Handle_AIS_Axis(new AIS_Axis(anAxis));
   }
-  Handle_AIS_Axis (const gp_Ax1 &theAxis, const Standard_Real theLength=-1) {
+  Handle_AIS_Axis(const gp_Ax1 &theAxis, const double theLength=-1) {
     return new Handle_AIS_Axis(new AIS_Axis(theAxis, theLength));
   }
-  void Delete () {
+  void Delete() {
     self->~Handle_AIS_Axis();
   }  
-  const Handle_Geom_Line & Component () {
+  const occ::handle< Geom_Line > & Component() {
     return (*self)->Component();
   }
-  void SetComponent (const Handle_Geom_Line &aComponent) {
+  void SetComponent(const occ::handle< Geom_Line > &aComponent) {
     (*self)->SetComponent(aComponent);
   }
-  const Handle_Geom_Axis2Placement & Axis2Placement () {
+  const occ::handle< Geom_Axis2Placement > &Axis2Placement() {
     return (*self)->Axis2Placement();
   }
-  void SetAxis2Placement (const Handle_Geom_Axis2Placement &aComponent, const AIS_TypeOfAxis anAxisType) {
+  void SetAxis2Placement(const occ::handle< Geom_Axis2Placement > &aComponent, const AIS_TypeOfAxis anAxisType) {
     (*self)->SetAxis2Placement(aComponent, anAxisType);
   }
-  void SetAxis1Placement (const Handle_Geom_Axis1Placement &anAxis) {
+  void SetAxis1Placement(const occ::handle< Geom_Axis1Placement > &anAxis) {
     (*self)->SetAxis1Placement(anAxis);
   }
-  AIS_TypeOfAxis TypeOfAxis () {
+  AIS_TypeOfAxis TypeOfAxis() {
     return (*self)->TypeOfAxis();
   }
-  void SetTypeOfAxis (const AIS_TypeOfAxis theTypeAxis) {
+  void SetTypeOfAxis(const AIS_TypeOfAxis theTypeAxis) {
     (*self)->SetTypeOfAxis(theTypeAxis);
   }
-  Standard_Boolean IsXYZAxis () {
+  bool IsXYZAxis() {
     return (*self)->IsXYZAxis();
   }
-  Standard_Boolean AcceptDisplayMode (const Standard_Integer aMode) {
+  bool AcceptDisplayMode(const int aMode) {
     return (*self)->AcceptDisplayMode(aMode);
   }
-  Standard_Integer Signature () {
+  int Signature() {
     return (*self)->Signature();
   }
-  AIS_KindOfInteractive Type () {
+  AIS_KindOfInteractive Type() {
     return (*self)->Type();
   }
-  void SetColor (const Quantity_Color &aColor) {
+  void SetColor(const Quantity_Color &aColor) {
     (*self)->SetColor(aColor);
   }
-  void SetWidth (const Standard_Real aValue) {
+  void SetWidth(const double aValue) {
     (*self)->SetWidth(aValue);
   }
-  void SetDisplayAspect (const Handle_Prs3d_LineAspect &theNewDatumAspect) {
+  void SetDisplayAspect(const occ::handle< Prs3d_LineAspect > &theNewDatumAspect) {
     (*self)->SetDisplayAspect(theNewDatumAspect);
   }
-  void UnsetColor () {
+  void UnsetColor() {
     (*self)->UnsetColor();
   }
-  void UnsetWidth () {
+  void UnsetWidth() {
     (*self)->UnsetWidth();
   }
 }   
@@ -510,15 +524,17 @@ class Handle_AIS_Axis
 class AIS_CameraFrustum {
  public:
   AIS_CameraFrustum ();
-  void SetCameraFrustum (const Handle_Graphic3d_Camera &theCamera);
-  virtual void SetColor (const Quantity_Color &theColor) override;
-  virtual void UnsetColor () override;
-  virtual void UnsetTransparency () override;
-  virtual Standard_Boolean 	AcceptDisplayMode (const Standard_Integer theMode) const override;
+  void SetCameraFrustum(const occ::handle< Graphic3d_Camera > &theCamera);
+  virtual void SetColor(const Quantity_Color &theColor) override;
+  virtual void UnsetColor() override;
+  virtual void UnsetTransparency() override;
+  virtual bool 	AcceptDisplayMode(const int theMode) const override;
 };
 
 %{
 #include <AIS_Circle.hxx>
+
+typedef occ::handle<AIS_Circle> Handle_AIS_Circle;
 %}
 
 %rename(AIS_Circle) Handle_AIS_Circle;
@@ -531,62 +547,63 @@ class Handle_AIS_Circle
 
 %extend Handle_AIS_Circle
 {
-  Handle_AIS_Circle (const Handle_Geom_Circle &aCircle) {
+  Handle_AIS_Circle(const occ::handle< Geom_Circle > &aCircle) {
     return new Handle_AIS_Circle(new AIS_Circle(aCircle));
   }
-  Handle_AIS_Circle (const Handle_Geom_Circle &theCircle, const Standard_Real theUStart, 
-                     const Standard_Real theUEnd, const Standard_Boolean theIsFilledCircleSens=Standard_False) {
+  Handle_AIS_Circle(const occ::handle< Geom_Circle > &theCircle,
+                     const double theUStart, const double theUEnd,
+                     const bool theIsFilledCircleSens=false) {
     return new Handle_AIS_Circle(new AIS_Circle(theCircle, theUStart, theUEnd, theIsFilledCircleSens));
   }
-  void Delete () {
+  void Delete() {
     self->~Handle_AIS_Circle();
   }    
-  Standard_Integer Signature () {
+  int Signature() const {
     return (*self)->Signature();
   }
-  AIS_KindOfInteractive Type () {
+  AIS_KindOfInteractive Type() const {
     return (*self)->Type();
   }
-  const Handle_Geom_Circle & Circle () {
+  const occ::handle< Geom_Circle > &Circle() const {
     return (*self)->Circle();
   }
-  void Parameters (Standard_Real &theU1, Standard_Real &theU2) {
+  void Parameters(double &theU1, double &theU2) const {
     (*self)->Parameters(theU1, theU2);
   }
-  void SetCircle (const Handle_Geom_Circle &theCircle) {
+  void SetCircle(const occ::handle< Geom_Circle > &theCircle) {
     (*self)->SetCircle(theCircle);
   }
-  void SetFirstParam (const Standard_Real theU) {
+  void SetFirstParam(const double theU) {
     (*self)->SetFirstParam(theU);
   }
-  void SetLastParam (const Standard_Real theU) {
+  void SetLastParam(const double theU) {
     (*self)->SetLastParam(theU);
   }
-  void SetColor (const Quantity_Color &aColor) {
+  void SetColor(const Quantity_Color &aColor) {
     (*self)->SetColor(aColor);
   }
-  void SetWidth (const Standard_Real aValue) {
+  void SetWidth(const double aValue) {
     (*self)->SetWidth(aValue);
   }
-  void UnsetColor () {
+  void UnsetColor() {
     (*self)->UnsetColor();
   }
-  void UnsetWidth () {
+  void UnsetWidth() {
     (*self)->UnsetWidth();
   }
-  Standard_Boolean IsFilledCircleSens () {
+  bool IsFilledCircleSens() const {
     return (*self)->IsFilledCircleSens();
   }
-  void SetFilledCircleSens (const Standard_Boolean theIsFilledCircleSens) {
+  void SetFilledCircleSens(const bool theIsFilledCircleSens) {
     (*self)->SetFilledCircleSens(theIsFilledCircleSens);
   }
 }
   
 %{
 #include <AIS_ColorScale.hxx>
-%}
 
-enum Aspect_TypeOfColorScaleData { Aspect_TOCSD_AUTO , Aspect_TOCSD_USER };
+typedef occ::handle<AIS_ColorScale> Handle_AIS_ColorScale;
+%}
 
 %rename(AIS_ColorScale) Handle_AIS_ColorScale;
 
@@ -598,229 +615,245 @@ class Handle_AIS_ColorScale : public Handle_AIS_InteractiveObject
 
 %extend Handle_AIS_ColorScale
 {
-  Handle_AIS_ColorScale () {
+  Handle_AIS_ColorScale() {
     return new Handle_AIS_ColorScale(new AIS_ColorScale());
   }
-  void Delete () {
+  void Delete() {
     self->~Handle_AIS_ColorScale();
   }
-  Standard_Boolean FindColor (const Standard_Real theValue, Quantity_Color &theColor) {
+  bool FindColor(const double theValue, Quantity_Color &theColor) const {
     return (*self)->FindColor(theValue, theColor);
   }
-  Standard_Real GetMin () {
+  double GetMin() const {
     return (*self)->GetMin();
   }
-  void SetMin (const Standard_Real theMin) {
+  void SetMin(const double theMin) {
     (*self)->SetMin(theMin);
   }
-  Standard_Real GetMax () {
+  double GetMax() const{
     return (*self)->GetMax();
   }
-  void SetMax (const Standard_Real theMax) {
+  void SetMax(const double theMax) {
     (*self)->SetMax(theMax);
   }
-  void GetRange (Standard_Real &theMin, Standard_Real &theMax) {
+  void GetRange(double &theMin, double &theMax) const{
     (*self)->GetRange(theMin, theMax);
   }
-  void SetRange (const Standard_Real theMin, const Standard_Real theMax) {
+  void SetRange(const double theMin, const double theMax) {
     (*self)->SetRange(theMin, theMax);
   }
-  Standard_Real HueMin () {
+  double HueMin() const {
     return (*self)->HueMin();
   }
-  Standard_Real HueMax () {
+  double HueMax() const {
     return (*self)->HueMax();
   }
-  void HueRange (Standard_Real &theMinAngle, Standard_Real &theMaxAngle) {
+  void HueRange(double &theMinAngle, double &theMaxAngle) const {
     (*self)->HueRange(theMinAngle, theMaxAngle);
   }
-  void SetHueRange (const Standard_Real theMinAngle, const Standard_Real theMaxAngle) {
+  void SetHueRange(const double theMinAngle, const double theMaxAngle){
     (*self)->SetHueRange(theMinAngle, theMaxAngle);
   }
-  void ColorRange (Quantity_Color &theMinColor, Quantity_Color &theMaxColor) {
+  void ColorRange(Quantity_Color &theMinColor, Quantity_Color &theMaxColor) const {
     (*self)->ColorRange(theMinColor, theMaxColor);
   }
-  void SetColorRange (const Quantity_Color &theMinColor, const Quantity_Color &theMaxColor) {
+  void SetColorRange(const Quantity_Color &theMinColor, const Quantity_Color &theMaxColor) {
     (*self)->SetColorRange(theMinColor, theMaxColor);
   }
-  Aspect_TypeOfColorScaleData GetLabelType () {
+  Aspect_TypeOfColorScaleData GetLabelType() const {
     return (*self)->GetLabelType();
   }
   void SetLabelType (const Aspect_TypeOfColorScaleData theType) {
     (*self)->SetLabelType(theType);
   }
-  Aspect_TypeOfColorScaleData GetColorType () {
+  Aspect_TypeOfColorScaleData GetColorType() const {
     return (*self)->GetColorType();
   }
-  void SetColorType (const Aspect_TypeOfColorScaleData theType) {
+  void SetColorType(const Aspect_TypeOfColorScaleData theType) {
     (*self)->SetColorType(theType);
   }
-  Standard_Integer GetNumberOfIntervals () {
+  int GetNumberOfIntervals() const {
     return (*self)->GetNumberOfIntervals();
   }
-  void SetNumberOfIntervals (const Standard_Integer theNum) {
+  void SetNumberOfIntervals(const int theNum) {
     (*self)->SetNumberOfIntervals(theNum);
   }
-  const TCollection_ExtendedString & GetTitle () {
+  const TCollection_ExtendedString &GetTitle() const {
     return (*self)->GetTitle();
   }
-  void SetTitle (const TCollection_ExtendedString &theTitle) {
+  void SetTitle(const TCollection_ExtendedString &theTitle) {
     (*self)->SetTitle(theTitle);
   }
-  const TCollection_AsciiString & GetFormat () {
+  const TCollection_AsciiString &GetFormat() const {
     return (*self)->GetFormat();
   }
-  const TCollection_AsciiString & Format () {
+  const TCollection_AsciiString &Format() const {
     return (*self)->Format();
   }
-  void SetFormat (const TCollection_AsciiString &theFormat) {
+  void SetFormat(const TCollection_AsciiString &theFormat) {
     (*self)->SetFormat(theFormat);
   }
-  TCollection_ExtendedString GetLabel (const Standard_Integer theIndex) {
+  TCollection_ExtendedString GetLabel(const int theIndex) const {
     return (*self)->GetLabel(theIndex);
   }
-  Quantity_Color GetIntervalColor (const Standard_Integer theIndex) {
+  Quantity_Color GetIntervalColor(const int theIndex) const {
     return (*self)->GetIntervalColor(theIndex);
   }
-  void SetIntervalColor (const Quantity_Color &theColor, const Standard_Integer theIndex) {
+  void SetIntervalColor(const Quantity_Color &theColor, const int theIndex) {
     (*self)->SetIntervalColor(theColor, theIndex);
   }
-  void GetLabels (TColStd_SequenceOfExtendedString &theLabels) {
+  void GetLabels(NCollection_Sequence< TCollection_ExtendedString > &theLabels) const {
     (*self)->GetLabels(theLabels);
   }
-  const TColStd_SequenceOfExtendedString & Labels () {
+  const NCollection_Sequence< TCollection_ExtendedString > &Labels() const {
     return (*self)->Labels();
   }
-  void SetLabels (const TColStd_SequenceOfExtendedString &theSeq) {
+  void SetLabels(const NCollection_Sequence< TCollection_ExtendedString > &theSeq) {
     (*self)->SetLabels(theSeq);
   }
-  void GetColors (Aspect_SequenceOfColor &theColors) {
+  void GetColors(NCollection_Sequence< Quantity_Color > &theColors) const {
     (*self)->GetColors(theColors);
   }
-  const Aspect_SequenceOfColor & GetColors () {
+  const NCollection_Sequence< Quantity_Color > &GetColors() const {
     return (*self)->GetColors();
   }
-  void SetColors (const Aspect_SequenceOfColor &theSeq) {
+  void SetColors(const NCollection_Sequence< Quantity_Color > &theSeq){
     (*self)->SetColors(theSeq);
   }
-  void SetUniformColors (Standard_Real theLightness, Standard_Real theHueFrom, Standard_Real theHueTo) {
+  void SetUniformColors(double theLightness, double theHueFrom, double theHueTo) {
     (*self)->SetUniformColors(theLightness, theHueFrom, theHueTo);
   }
-  Aspect_TypeOfColorScalePosition GetLabelPosition () {
+  Aspect_TypeOfColorScalePosition GetLabelPosition() const {
     return (*self)->GetLabelPosition();
   }
-  void SetLabelPosition (const Aspect_TypeOfColorScalePosition thePos) {
+  void SetLabelPosition(const Aspect_TypeOfColorScalePosition thePos) {
     (*self)->SetLabelPosition(thePos);
   }
-  Aspect_TypeOfColorScalePosition GetTitlePosition () {
+  Aspect_TypeOfColorScalePosition GetTitlePosition () const {
     return (*self)->GetTitlePosition();
   }
-  Standard_Boolean IsReversed () {
+  bool IsReversed() const {
     return (*self)->IsReversed();
   }
-  void SetReversed (const Standard_Boolean theReverse) {
+  void SetReversed(const bool theReverse) {
     (*self)->SetReversed(theReverse);
   }
-  Standard_Boolean IsSmoothTransition () {
+  bool IsSmoothTransition() const {
     return (*self)->IsSmoothTransition();
   }
-  void SetSmoothTransition (const Standard_Boolean theIsSmooth) {
+  void SetSmoothTransition(const bool theIsSmooth) {
     (*self)->SetSmoothTransition(theIsSmooth);
   }
-  Standard_Boolean IsLabelAtBorder () {
+  bool IsLabelAtBorder() const {
     return (*self)->IsLabelAtBorder();
   }
-  void SetLabelAtBorder (const Standard_Boolean theOn) {
+  void SetLabelAtBorder(const bool theOn) {
     (*self)->SetLabelAtBorder(theOn);
   }
-  Standard_Boolean IsLogarithmic () {
+  bool IsLogarithmic() const {
     return (*self)->IsLogarithmic();
   }
-  void SetLogarithmic (const Standard_Boolean isLogarithmic) {
+  void SetLogarithmic(const bool isLogarithmic) {
     (*self)->SetLogarithmic(isLogarithmic);
   }
-  void SetLabel (const TCollection_ExtendedString &theLabel, const Standard_Integer theIndex) {
+  void SetLabel(const TCollection_ExtendedString &theLabel, const int theIndex) {
     (*self)->SetLabel(theLabel, theIndex);
   }
-  void GetSize (Standard_Integer &theBreadth, Standard_Integer &theHeight) {
+  void GetSize(int &theBreadth, int &theHeight) const {
     (*self)->GetSize(theBreadth, theHeight);
   }
-  void SetSize (const Standard_Integer theBreadth, const Standard_Integer theHeight) {
+  void SetSize(const int theBreadth, const int theHeight) {
     (*self)->SetSize(theBreadth, theHeight);
   }
-  Standard_Integer GetBreadth () {
+  int GetBreadth() const {
     return (*self)->GetBreadth();
   }
-  void SetBreadth (const Standard_Integer theBreadth) {
+  void SetBreadth(const int theBreadth) {
     (*self)->SetBreadth(theBreadth);
   }
-  Standard_Integer GetHeight () {
+  int GetHeight() const {
     return (*self)->GetHeight();
   }
-  void SetHeight (const Standard_Integer theHeight) {
+  void SetHeight(const int theHeight) {
     (*self)->SetHeight(theHeight);
   }
-  void GetPosition (Standard_Real &theX, Standard_Real &theY) {
+  void GetPosition(double &theX, double &theY) const {
     (*self)->GetPosition(theX, theY);
   }
-  void SetPosition (const Standard_Integer theX, const Standard_Integer theY) {
+  void SetPosition(const int theX, const int theY) {
     (*self)->SetPosition(theX, theY);
   }
-  Standard_Integer GetXPosition () {
+  int GetXPosition() const {
     return (*self)->GetXPosition();
   }
-  void SetXPosition (const Standard_Integer theX) {
+  void SetXPosition(const int theX) {
     (*self)->SetXPosition(theX);
   }
-  Standard_Integer GetYPosition () {
+  int GetYPosition() const {
     return (*self)->GetYPosition();
   }
-  void SetYPosition (const Standard_Integer theY) {
+  void SetYPosition(const int theY) {
     (*self)->SetYPosition(theY);
   }
-  Standard_Integer GetTextHeight () {
+  int GetTextHeight() const {
     return (*self)->GetTextHeight();
   }
-  void SetTextHeight (const Standard_Integer theHeight) {
+  void SetTextHeight(const int theHeight) {
     (*self)->SetTextHeight(theHeight);
   }
-  Standard_Integer TextWidth (const TCollection_ExtendedString &theText) {
+  int TextWidth(const TCollection_ExtendedString &theText) const {
     return (*self)->TextWidth(theText);
   }
-  Standard_Integer TextHeight (const TCollection_ExtendedString &theText) {
+  int TextHeight (const TCollection_ExtendedString &theText) const {
     return (*self)->TextHeight(theText);
   }
-  void TextSize (const TCollection_ExtendedString &theText, const Standard_Integer theHeight, Standard_Integer &theWidth, 
-               Standard_Integer &theAscent, Standard_Integer &theDescent) {
+  void TextSize(const TCollection_ExtendedString &theText,
+                 const int theHeight,
+                 int &theWidth,
+                 int &theAscent,
+                 int &theDescent) const {
     (*self)->TextSize(theText, theHeight, theWidth, theAscent, theDescent);
   }
-  Standard_Boolean AcceptDisplayMode (const Standard_Integer theMode) {
+  bool AcceptDisplayMode(const int theMode) const {
     return (*self)->AcceptDisplayMode(theMode);
   }
-  void Compute (const Handle_PrsMgr_PresentationManager &thePrsMgr, const opencascade::handle< Prs3d_Presentation > &thePresentation, const Standard_Integer theMode) {
+  void Compute(const occ::handle< PrsMgr_PresentationManager > &thePrsMgr,
+                const occ::handle< Prs3d_Presentation > &thePresentation,
+                const int theMode) {
     (*self)->Compute(thePrsMgr, thePresentation, theMode);
   }
-  static Standard_Boolean FindColor (const Standard_Real theValue, const Standard_Real theMin, const Standard_Real theMax, const Standard_Integer theColorsCount,
-                                     const Graphic3d_Vec3d &theColorHlsMin, const Graphic3d_Vec3d &theColorHlsMax, Quantity_Color &theColor) {
+  void ComputeSelection(const occ::handle< SelectMgr_Selection > &SelectMgr, const int theMode) {
+    (*self)->ComputeSelection(SelectMgr, theMode);
+  }
+  static bool FindColor(const double theValue,
+                        const double theMin,
+                        const double theMax,
+                        const int theColorsCount,
+                        const NCollection_Vec3< double > &theColorHlsMin,
+                        const NCollection_Vec3< double > &theColorHlsMax,
+                        Quantity_Color &theColor) {
     return AIS_ColorScale::FindColor(theValue, theMin, theMax, theColorsCount, theColorHlsMin, theColorHlsMax, theColor);
   }
-  static Standard_Boolean FindColor (const Standard_Real theValue, const Standard_Real theMin, const Standard_Real theMax,
-                                   const Standard_Integer theColorsCount, Quantity_Color &theColor) {
+  static bool FindColor(const double theValue,
+                        const double theMin,
+                        const double theMax,
+                        const int theColorsCount,
+                        Quantity_Color &theColor) {
     return AIS_ColorScale::FindColor(theValue, theMin, theMax, theColorsCount, theColor);
   }
-  static Standard_Real hueToValidRange (const Standard_Real theHue) {
+  static double hueToValidRange(const double theHue) {
     return AIS_ColorScale::hueToValidRange(theHue);
   }
-static Aspect_SequenceOfColor MakeUniformColors (Standard_Integer theNbColors, Standard_Real theLightness, Standard_Real theHueFrom, Standard_Real theHueTo) {
+  static NCollection_Sequence< Quantity_Color > MakeUniformColors(int theNbColors, double theLightness, double theHueFrom, double theHueTo) {
     return AIS_ColorScale::MakeUniformColors(theNbColors, theLightness, theHueFrom, theHueTo);
   }
 }
 
 %{
 #include <AIS_ConnectedInteractive.hxx>
-%}
 
-enum PrsMgr_TypeOfPresentation3d { PrsMgr_TOP_AllView , PrsMgr_TOP_ProjectorDependent };
+typedef occ::handle<AIS_ConnectedInteractive> Handle_AIS_ConnectedInteractive;
+%}
 
 %rename(AIS_ConnectedInteractive) Handle_AIS_ConnectedInteractive;
 
@@ -832,40 +865,40 @@ class Handle_AIS_ConnectedInteractive
 
 %extend Handle_AIS_ConnectedInteractive
 {
-  Handle_AIS_ConnectedInteractive (const PrsMgr_TypeOfPresentation3d aTypeOfPresentation3d=PrsMgr_TOP_AllView) {
+  Handle_AIS_ConnectedInteractive(const PrsMgr_TypeOfPresentation3d aTypeOfPresentation3d=PrsMgr_TOP_AllView) {
     return new Handle_AIS_ConnectedInteractive(new AIS_ConnectedInteractive(aTypeOfPresentation3d));
   }
-  void Delete () {
+  void Delete() {
     self->~Handle_AIS_ConnectedInteractive();
   }  
-  AIS_KindOfInteractive Type () {
+  AIS_KindOfInteractive Type() {
     return (*self)->Type();
   }
-  Standard_Integer Signature () {
+  int Signature() const {
     return (*self)->Signature();
   }
-  void Connect (const Handle_AIS_InteractiveObject &theAnotherObj) {
+  void Connect(const occ::handle< AIS_InteractiveObject > &theAnotherObj) {
     (*self)->Connect(theAnotherObj);
   }
-  void Connect (const Handle_AIS_InteractiveObject &theAnotherObj, const gp_Trsf &theLocation) {
+  void Connect(const occ::handle< AIS_InteractiveObject > &theAnotherObj, const gp_Trsf &theLocation) {
     (*self)->Connect(theAnotherObj, theLocation);
   }
-  void Connect (const Handle_AIS_InteractiveObject &theAnotherObj, const Handle_TopLoc_Datum3D &theLocation) {
+  void Connect(const occ::handle< AIS_InteractiveObject > &theAnotherObj, const occ::handle< TopLoc_Datum3D > &theLocation) {
     (*self)->Connect(theAnotherObj, theLocation);
   }
-  Standard_Boolean HasConnection () {
+  bool HasConnection() const {
     return (*self)->HasConnection();
   }
-  const Handle_AIS_InteractiveObject & ConnectedTo () {
+  const occ::handle< AIS_InteractiveObject > &ConnectedTo() const {
     return (*self)->ConnectedTo();
   }
-  void Disconnect () {
+  void Disconnect() {
     (*self)->Disconnect();
   }
-  Standard_Boolean AcceptShapeDecomposition () {
+  bool AcceptShapeDecomposition() const {
     return (*self)->AcceptShapeDecomposition();
   }
-  Standard_Boolean AcceptDisplayMode (const Standard_Integer theMode) {
+  bool AcceptDisplayMode(const int theMode) const {
     return (*self)->AcceptDisplayMode(theMode);
   }
 }
@@ -876,37 +909,39 @@ class Handle_AIS_ConnectedInteractive
 
 class AIS_LightSource {
 public:
-  AIS_LightSource (const Handle_Graphic3d_CLight &theLightSource);
-  const Handle_Graphic3d_CLight & Light () const;
-  void SetLight (const Handle_Graphic3d_CLight &theLight);
-  Standard_Boolean ToDisplayName () const;
-  void SetDisplayName (Standard_Boolean theToDisplay);
-  Standard_Boolean ToDisplayRange () const;
-  void SetDisplayRange (Standard_Boolean theToDisplay);
-  Standard_Real Size () const;
-  void SetSize (Standard_Real theSize);
-  Standard_Integer ArcSize () const;
-  void SetArcSize (Standard_Integer theSize);
-  bool IsZoomable () const;
-  void SetZoomable (bool theIsZoomable);
-  void SetDraggable (bool theIsDraggable);
-  bool ToSwitchOnClick () const;
-  void SetSwitchOnClick (bool theToHandle);
-  Standard_Integer NbArrows () const;
-  void SetNbArrows (Standard_Integer theNbArrows);
-  const Handle_Graphic3d_MarkerImage & MarkerImage (bool theIsEnabled) const;
-  Aspect_TypeOfMarker MarkerType (bool theIsEnabled) const;
-  void SetMarkerImage (const Handle_Graphic3d_MarkerImage &theImage, bool theIsEnabled);
-  void SetMarkerType (Aspect_TypeOfMarker theType, bool theIsEnabled);
-  Standard_Integer 	NbSplitsQuadric () const;
-  void SetNbSplitsQuadric (Standard_Integer theNbSplits);
-  Standard_Integer NbSplitsArrow () const;
-  void SetNbSplitsArrow (Standard_Integer theNbSplits);
-  virtual AIS_KindOfInteractive Type () const override;
+  AIS_LightSource(const occ::handle< Graphic3d_CLight > &theLightSource);
+  const occ::handle< Graphic3d_CLight > & Light() const;
+  void SetLight(const occ::handle< Graphic3d_CLight > &theLight);
+  bool ToDisplayName() const;
+  void SetDisplayName(bool theToDisplay);
+  bool ToDisplayRange() const;
+  void SetDisplayRange(bool theToDisplay);
+  double Size() const;
+  void SetSize(double theSize);
+  int ArcSize() const;
+  void SetArcSize(int theSize);
+  bool IsZoomable() const;
+  void SetZoomable(bool theIsZoomable);
+  void SetDraggable(bool theIsDraggable);
+  bool ToSwitchOnClick() const;
+  void SetSwitchOnClick(bool theToHandle);
+  int NbArrows() const;
+  void SetNbArrows(int theNbArrows);
+  const occ::handle< Graphic3d_MarkerImage > &MarkerImage(bool theIsEnabled) const;
+  Aspect_TypeOfMarker MarkerType(bool theIsEnabled) const;
+  void SetMarkerImage(const occ::handle< Graphic3d_MarkerImage > &theImage, bool theIsEnabled);
+  void SetMarkerType(Aspect_TypeOfMarker theType, bool theIsEnabled);
+  int NbSplitsQuadric() const;
+  void SetNbSplitsQuadric(int theNbSplits);
+  int NbSplitsArrow() const;
+  void SetNbSplitsArrow(int theNbSplits);
+  AIS_KindOfInteractive Type() const;
 };
 
 %{
 #include <AIS_Line.hxx>
+
+typedef occ::handle<AIS_Line> Handle_AIS_Line;
 %}
 
 %rename(AIS_Line) Handle_AIS_Line;
@@ -919,46 +954,54 @@ class Handle_AIS_Line
 
 %extend Handle_AIS_Line
 {
-  Handle_AIS_Line (const Handle_Geom_Line &aLine) {
+  Handle_AIS_Line(const occ::handle< Geom_Line > &aLine) {
     return new Handle_AIS_Line(new AIS_Line(aLine));
   }
-  void Delete () {
+  Handle_AIS_Line(const occ::handle< Geom_Point > &aStartPoint, const occ::handle< Geom_Point > &aEndPoint) {
+    return new Handle_AIS_Line(new AIS_Line(aStartPoint, aEndPoint));
+  }
+  void Delete() {
     self->~Handle_AIS_Line();
   }
-  Standard_Integer Signature () {
+  int Signature() {
     return (*self)->Signature();
   }
-  AIS_KindOfInteractive Type () {
+  AIS_KindOfInteractive Type() {
     return (*self)->Type();
   }
-  const Handle_Geom_Line & Line () {
+  const occ::handle< Geom_Line > & Line() {
     return (*self)->Line();
   }
-  void Points (Handle_Geom_Point &thePStart, Handle_Geom_Point &thePEnd) {
-    (*self)->Points(thePStart, thePEnd);
+  const occ::handle< Geom_Point > &StartPoint() const {
+    return (*self)->StartPoint();
   }
-  void SetLine (const Handle_Geom_Line &theLine) {
+  const occ::handle< Geom_Point > &EndPoint() const {
+    return (*self)->EndPoint();
+  }
+  void SetLine(const occ::handle< Geom_Line > &theLine) {
     (*self)->SetLine(theLine);
   }
-  void SetPoints (const Handle_Geom_Point &thePStart, const Handle_Geom_Point &thePEnd) {
+  void 	SetPoints(const occ::handle< Geom_Point > &thePStart, const occ::handle< Geom_Point > &thePEnd) {
     (*self)->SetPoints(thePStart, thePEnd);
   }
-  void SetColor (const Quantity_Color &aColor) {
+  void SetColor(const Quantity_Color &aColor) {
     (*self)->SetColor(aColor);
   }
-  void SetWidth (const Standard_Real aValue) {
+  void SetWidth(const double aValue) {
     (*self)->SetWidth(aValue);
   }
-  void UnsetColor () {
+  void UnsetColor() {
     (*self)->UnsetColor();
   }
-  void UnsetWidth () {
+  void UnsetWidth() {
     (*self)->UnsetWidth();
   }
 }
 
 %{
 #include <AIS_Manipulator.hxx>
+
+typedef occ::handle<AIS_Manipulator> Handle_AIS_Manipulator;
 %}
 
 %rename(AIS_Manipulator) Handle_AIS_Manipulator;
@@ -974,135 +1017,158 @@ class Handle_AIS_Manipulator
   Handle_AIS_Manipulator () {
     return new Handle_AIS_Manipulator(new AIS_Manipulator());
   }
-  Handle_AIS_Manipulator (const gp_Ax2 &thePosition) {
+  Handle_AIS_Manipulator(const gp_Ax2 &thePosition) {
     return new Handle_AIS_Manipulator(new AIS_Manipulator(thePosition));
   }  
   void Delete () {
     self->~Handle_AIS_Manipulator();
   }
-  void SetPart (const Standard_Integer theAxisIndex, const AIS_ManipulatorMode theMode, const Standard_Boolean theIsEnabled) {
+  void SetPart(const int theAxisIndex, const AIS_ManipulatorMode theMode, const bool theIsEnabled) {
     (*self)->SetPart(theAxisIndex, theMode, theIsEnabled);
   }
-  void SetPart (const AIS_ManipulatorMode theMode, const Standard_Boolean theIsEnabled) {
+  void SetPart(const AIS_ManipulatorMode theMode, const bool theIsEnabled) {
     (*self)->SetPart(theMode, theIsEnabled);
   }
-  void Attach (const Handle_AIS_InteractiveObject &theObject) {
-    (*self)->Attach(theObject);
+  void Attach(const occ::handle< AIS_InteractiveObject > &theObject,
+               const AIS_Manipulator::OptionsForAttach &theOptions=AIS_Manipulator::OptionsForAttach()) {
+    (*self)->Attach(theObject, theOptions);
   }
-  void Attach (const Handle_AIS_ManipulatorObjectSequence &theObject) {
-    (*self)->Attach(theObject);
+  void Attach(const occ::handle< NCollection_HSequence< occ::handle< AIS_InteractiveObject > > > &theObject,
+               const AIS_Manipulator::OptionsForAttach &theOptions=AIS_Manipulator::OptionsForAttach()) {
+    (*self)->Attach(theObject, theOptions);
   } 
-  void EnableMode (const AIS_ManipulatorMode theMode) {
+  void EnableMode(const AIS_ManipulatorMode theMode) {
     (*self)->EnableMode(theMode);
   }
-  void SetModeActivationOnDetection (const Standard_Boolean theToEnable) {
+  void SetModeActivationOnDetection(const bool theToEnable) {
     (*self)->SetModeActivationOnDetection(theToEnable);
   }
-  Standard_Boolean IsModeActivationOnDetection () {
+  bool IsModeActivationOnDetection() const{
     return (*self)->IsModeActivationOnDetection();
   }
-  Standard_Boolean ProcessDragging (const Handle_AIS_InteractiveContext &theCtx, const Handle_V3d_View &theView,
-                                    const Handle_SelectMgr_EntityOwner &theOwner, const Graphic3d_Vec2i &theDragFrom,
-                                    const Graphic3d_Vec2i &theDragTo, const AIS_DragAction theAction) {
+  bool ProcessDragging(const occ::handle< AIS_InteractiveContext > &theCtx,
+                       const occ::handle< V3d_View > &theView,
+                       const occ::handle< SelectMgr_EntityOwner > &theOwner,
+                       const NCollection_Vec2< int > &theDragFrom,
+                       const NCollection_Vec2< int > &theDragTo,
+                       const AIS_DragAction theAction) {
     return (*self)->ProcessDragging(theCtx, theView, theOwner, theDragFrom, theDragTo, theAction);
   }
-  void StartTransform (const Standard_Integer theX, const Standard_Integer theY, const Handle_V3d_View &theView) {
+  void StartTransform(const int theX, const int theY, const occ::handle< V3d_View > &theView) {
     (*self)->StartTransform(theX, theY, theView);
   }
-  void Transform (const gp_Trsf &aTrsf) {
+  void Transform(const gp_Trsf &aTrsf) {
     (*self)->Transform(aTrsf);
   }
-  void StopTransform (const Standard_Boolean theToApply=Standard_True) {
+  void RecomputeTransformation(const occ::handle< Graphic3d_Camera > &theCamera) {
+    (*self)->RecomputeTransformation(theCamera);
+  }
+  void RecomputeSelection(const AIS_ManipulatorMode theMode) {
+    (*self)->RecomputeSelection(theMode);
+  }
+  void StopTransform(const bool theToApply=true) {
     (*self)->StopTransform(theToApply);
   }
-  gp_Trsf Transform (const Standard_Integer theX, const Standard_Integer theY, const Handle_V3d_View &theView) {
+  gp_Trsf Transform(const int theX, const int theY, const occ::handle< V3d_View > &theView) {
     return (*self)->Transform(theX, theY, theView);
   }
-  Standard_Boolean ObjectTransformation (const Standard_Integer theX, const Standard_Integer theY, const Handle_V3d_View &theView, gp_Trsf &theTrsf) {
+  bool ObjectTransformation(const int theX, const int theY, const occ::handle< V3d_View > &theView, gp_Trsf &theTrsf) {
     return (*self)->ObjectTransformation(theX, theY, theView, theTrsf);
   }
-  void DeactivateCurrentMode () {
+  void DeactivateCurrentMode() {
     (*self)->DeactivateCurrentMode();
   }
-  void Detach () {
+  void Detach() {
     (*self)->Detach();
   }
-  Handle_AIS_ManipulatorObjectSequence Objects () {
+  occ::handle< NCollection_HSequence< occ::handle< AIS_InteractiveObject > > > Objects() const {
     return (*self)->Objects();
   }
-  Handle_AIS_InteractiveObject Object () {
+  occ::handle< AIS_InteractiveObject > Object() const {
     return (*self)->Object();
   }
-  Handle_AIS_InteractiveObject Object (const Standard_Integer theIndex) {
+  occ::handle< AIS_InteractiveObject > Object(const int theIndex) const {
     return (*self)->Object(theIndex);
   }
-  Standard_Boolean IsAttached () {
+  bool IsAttached() const {
     return (*self)->IsAttached();
   }
-  Standard_Boolean HasActiveMode () {
+  bool HasActiveMode() const {
     return (*self)->HasActiveMode();
   }
-  Standard_Boolean HasActiveTransformation () {
+  bool HasActiveTransformation() {
     return (*self)->HasActiveTransformation();
   }
-  gp_Trsf StartTransformation () {
+  gp_Trsf StartTransformation() const {
     return (*self)->StartTransformation();
   }
-  gp_Trsf StartTransformation (Standard_Integer theIndex) {
+  gp_Trsf StartTransformation(int theIndex) const {
     return (*self)->StartTransformation(theIndex);
   }
-  //Configuration of graphical transformations
-  void SetZoomPersistence (const Standard_Boolean theToEnable) {
+  void SetZoomPersistence(const bool theToEnable) {
     (*self)->SetZoomPersistence(theToEnable);
   }
-  Standard_Boolean ZoomPersistence () {
+  bool ZoomPersistence() const {
     return (*self)->ZoomPersistence();
   }
-  void SetTransformPersistence (const Handle_Graphic3d_TransformPers &theTrsfPers) {
+  void SetTransformPersistence(const occ::handle< Graphic3d_TransformPers > &theTrsfPers) {
     (*self)->SetTransformPersistence(theTrsfPers);
   }
-  //Setters for parameters
-  AIS_ManipulatorMode 	ActiveMode () {
+  void SetSkinMode(const AIS_Manipulator::ManipulatorSkin theSkinMode) {
+    (*self)->SetSkinMode(theSkinMode);
+  }
+  AIS_ManipulatorMode ActiveMode() const {
     return (*self)->ActiveMode();
   }
-  Standard_Integer ActiveAxisIndex () {
+  int ActiveAxisIndex() const {
     return (*self)->ActiveAxisIndex();
   }
-  const gp_Ax2 & Position () {
+  const gp_Ax2 & Position() const {
     return (*self)->Position();
   }
-  void SetPosition (const gp_Ax2 &thePosition) {
+  void SetPosition(const gp_Ax2 &thePosition) {
     (*self)->SetPosition(thePosition);
   }
-  Standard_ShortReal Size () {
+  float Size() const {
     return (*self)->Size();
   }
-  void SetSize (const Standard_ShortReal theSideLength) {
+  void SetSize(const float theSideLength) {
     (*self)->SetSize(theSideLength);
   }
-  void SetGap (const Standard_ShortReal theValue) {
+  void SetGap(const float theValue) {
     (*self)->SetGap(theValue);
   }
-  void Compute (const Handle_PrsMgr_PresentationManager &thePrsMgr, const opencascade::handle< Prs3d_Presentation > &thePrs, const Standard_Integer theMode=0) {
+  void SetTransformBehavior(const AIS_Manipulator::BehaviorOnTransform &theSettings) {
+    (*self)->SetTransformBehavior(theSettings);
+  }
+  AIS_Manipulator::BehaviorOnTransform & ChangeTransformBehavior() {
+    return (*self)->ChangeTransformBehavior();
+  }
+  const AIS_Manipulator::BehaviorOnTransform & TransformBehavior() const {
+    return (*self)->TransformBehavior();
+  }
+  void Compute(const occ::handle< PrsMgr_PresentationManager > &thePrsMgr, const occ::handle< Prs3d_Presentation > &thePrs, const int theMode=0) {
     (*self)->Compute(thePrsMgr, thePrs, theMode);
   }
-  void ComputeSelection (const Handle_SelectMgr_Selection &theSelection, const Standard_Integer theMode) {
+  void ComputeSelection(const occ::handle< SelectMgr_Selection > &theSelection, const int theMode) {
     (*self)->ComputeSelection(theSelection, theMode);
   }
-  Standard_Boolean IsAutoHilight () {
+  bool IsAutoHilight() const {
     return (*self)->IsAutoHilight();
   }
-  void ClearSelected () {
+  void ClearSelected() {
     (*self)->ClearSelected();
   }
-  void HilightSelected (const Handle_PrsMgr_PresentationManager &thePM, const SelectMgr_SequenceOfOwner &theSeq) {
+  void HilightSelected(const occ::handle< PrsMgr_PresentationManager > &thePM,
+                       const NCollection_Sequence< occ::handle< SelectMgr_EntityOwner > > &theSeq) {
     (*self)->HilightSelected(thePM, theSeq);
   }
-  void HilightOwnerWithColor (const Handle_PrsMgr_PresentationManager &thePM, const Handle_Prs3d_Drawer &theStyle,
-                              const Handle_SelectMgr_EntityOwner &theOwner)  {
+  void HilightOwnerWithColor(const occ::handle< PrsMgr_PresentationManager > &thePM,
+                             const occ::handle< Prs3d_Drawer > &theStyle,
+                             const occ::handle< SelectMgr_EntityOwner > &theOwner)  {
     (*self)->HilightOwnerWithColor(thePM, theStyle, theOwner);
   }
-}
+} 
 
 %{
 #include <AIS_MediaPlayer.hxx>
@@ -1111,19 +1177,21 @@ class Handle_AIS_Manipulator
 class AIS_MediaPlayer
 {
 public:
-  AIS_MediaPlayer ();
-  ~AIS_MediaPlayer ();
-  void SetCallback (Graphic3d_MediaTextureSet::CallbackOnUpdate_t theCallbackFunction, void *theCallbackUserPtr);
-  void OpenInput (const TCollection_AsciiString &thePath, Standard_Boolean theToWait);
-  bool PresentFrame (const Graphic3d_Vec2i &theLeftCorner, const Graphic3d_Vec2i &theMaxSize);
-  const opencascade::handle< Media_PlayerContext > & PlayerContext () const;
-  void PlayPause ();
-  void SetClosePlayer ();
-  double Duration () const;
+  AIS_MediaPlayer();
+  ~AIS_MediaPlayer();
+  void SetCallback(Graphic3d_MediaTextureSet::CallbackOnUpdate_t theCallbackFunction, void *theCallbackUserPtr);
+  void OpenInput(const TCollection_AsciiString &thePath, bool theToWait);
+  bool PresentFrame(const NCollection_Vec2< int > &theLeftCorner, const NCollection_Vec2< int > &theMaxSize);
+  const occ::handle< Media_PlayerContext > & PlayerContext() const;
+  void PlayPause();
+  void SetClosePlayer();
+  double Duration() const;
 };
 
 %{
 #include <AIS_MultipleConnectedInteractive.hxx>
+
+typedef occ::handle<AIS_MultipleConnectedInteractive> Handle_AIS_MultipleConnectedInteractive;
 %}
 
 %rename(AIS_MultipleConnectedInteractive) Handle_AIS_MultipleConnectedInteractive;
@@ -1136,62 +1204,61 @@ class Handle_AIS_MultipleConnectedInteractive
 
 %extend Handle_AIS_MultipleConnectedInteractive
 {
-  Handle_AIS_MultipleConnectedInteractive () {
+  Handle_AIS_MultipleConnectedInteractive() {
     return new Handle_AIS_MultipleConnectedInteractive(new AIS_MultipleConnectedInteractive());
   } 
   void Delete () {
     self->~Handle_AIS_MultipleConnectedInteractive();
   }
-  Handle_AIS_InteractiveObject Connect (const Handle_AIS_InteractiveObject &theAnotherObj, const Handle_TopLoc_Datum3D &theLocation,
-                                         const Handle_Graphic3d_TransformPers &theTrsfPers) {
+  occ::handle< AIS_InteractiveObject > Connect(const occ::handle< AIS_InteractiveObject > &theAnotherObj,
+                                                const occ::handle< TopLoc_Datum3D > &theLocation,
+                                                const occ::handle< Graphic3d_TransformPers > &theTrsfPers) {
     return (*self)->Connect(theAnotherObj, theLocation, theTrsfPers);
   }
-  AIS_KindOfInteractive Type () {
+  AIS_KindOfInteractive Type() const {
     return (*self)->Type();
   }
-  Standard_Integer Signature () {
+  int Signature() const {
     return (*self)->Signature();
   }
-  Standard_Boolean HasConnection () {
+  bool HasConnection() const {
     return (*self)->HasConnection();
   }
-  void Disconnect (const Handle_AIS_InteractiveObject &theInteractive) {
+  void Disconnect(const occ::handle< AIS_InteractiveObject > &theInteractive) {
     (*self)->Disconnect(theInteractive);
   }
-  void DisconnectAll () {
+  void DisconnectAll() {
     (*self)->DisconnectAll();
   }
-  Standard_Boolean AcceptShapeDecomposition () {
+  bool AcceptShapeDecomposition() const {
     return (*self)->AcceptShapeDecomposition();
   }
-  const Handle_SelectMgr_EntityOwner & GetAssemblyOwner () {
+  const occ::handle< SelectMgr_EntityOwner > &GetAssemblyOwner() const {
     return (*self)->GetAssemblyOwner();
   }
-  Handle_SelectMgr_EntityOwner GlobalSelOwner () {
+  occ::handle< SelectMgr_EntityOwner > GlobalSelOwner() const  {
     return (*self)->GlobalSelOwner();
   }
-  void SetContext (const Handle_AIS_InteractiveContext &theCtx) {
+  void SetContext(const occ::handle< AIS_InteractiveContext > &theCtx) {
     (*self)->SetContext(theCtx);
   }
-  Handle_AIS_InteractiveObject Connect (const Handle_AIS_InteractiveObject &theAnotherObj) {
+  occ::handle< AIS_InteractiveObject > Connect(const occ::handle< AIS_InteractiveObject > &theAnotherObj) {
     return (*self)->Connect(theAnotherObj);
   }
-  Handle_AIS_InteractiveObject Connect (const Handle_AIS_InteractiveObject &theAnotherObj, const gp_Trsf &theLocation) {
+  occ::handle< AIS_InteractiveObject > Connect(const occ::handle< AIS_InteractiveObject > &theAnotherObj, const gp_Trsf &theLocation) {
     return (*self)->Connect(theAnotherObj, theLocation);
   }
-  Handle_AIS_InteractiveObject Connect (const Handle_AIS_InteractiveObject &theAnotherObj, const gp_Trsf &theLocation,
-                                         const Handle_Graphic3d_TransformPers &theTrsfPers) {
+  occ::handle< AIS_InteractiveObject > 	Connect(const occ::handle< AIS_InteractiveObject > &theAnotherObj,
+                                                 const gp_Trsf &theLocation,
+                                                 const occ::handle< Graphic3d_TransformPers > &theTrsfPers) {
     return (*self)->Connect(theAnotherObj, theLocation, theTrsfPers);
   }
 }
-
 %{
-#include <AIS_MultipleConnectedInteractive.hxx>
+#include <AIS_Plane.hxx>
+
+typedef occ::handle<AIS_Plane> Handle_AIS_Plane;
 %}
-
-enum Select3D_TypeOfSensitivity { Select3D_TOS_INTERIOR , Select3D_TOS_BOUNDARY };
-
-enum AIS_TypeOfPlane { AIS_TOPL_Unknown , AIS_TOPL_XYPlane , AIS_TOPL_XZPlane , AIS_TOPL_YZPlane };
 
 %rename(AIS_Plane) Handle_AIS_Plane;
 
@@ -1203,107 +1270,217 @@ class Handle_AIS_Plane
 
 %extend Handle_AIS_Plane
 {
-  Handle_AIS_Plane (const Handle_Geom_Plane &aComponent, const Standard_Boolean aCurrentMode=Standard_False) {
+  Handle_AIS_Plane(const occ::handle< Geom_Plane > &aComponent, const bool aCurrentMode=false) {
     return new Handle_AIS_Plane(new AIS_Plane(aComponent, aCurrentMode));
   }
-  Handle_AIS_Plane (const Handle_Geom_Plane &aComponent, const gp_Pnt &aCenter, const Standard_Boolean aCurrentMode=Standard_False) {
+  Handle_AIS_Plane(const occ::handle< Geom_Plane > &aComponent, const gp_Pnt &aCenter, const bool aCurrentMode=false) {
     return new Handle_AIS_Plane(new AIS_Plane(aComponent, aCenter, aCurrentMode));
   }
-  Handle_AIS_Plane (const Handle_Geom_Plane &aComponent, const gp_Pnt &aCenter, const gp_Pnt &aPmin,
- 	                  const gp_Pnt &aPmax, const Standard_Boolean aCurrentMode=Standard_False) {
+  Handle_AIS_Plane(const occ::handle< Geom_Plane > &aComponent, const gp_Pnt &aCenter, const gp_Pnt &aPmin,
+ 	                  const gp_Pnt &aPmax, const bool aCurrentMode=false) {
     return new Handle_AIS_Plane(new AIS_Plane(aComponent, aCenter, aPmin, aPmax, aCurrentMode));
   }
-  Handle_AIS_Plane (const Handle_Geom_Axis2Placement &aComponent, const AIS_TypeOfPlane aPlaneType, const Standard_Boolean aCurrentMode=Standard_False) {
+  Handle_AIS_Plane(const occ::handle< Geom_Axis2Placement > &aComponent, const AIS_TypeOfPlane aPlaneType, const bool aCurrentMode=false) {
     return new Handle_AIS_Plane(new AIS_Plane(aComponent, aPlaneType, aCurrentMode));
   }
-  void Delete () {
+  void Delete() {
     self->~Handle_AIS_Plane();
-  }  
-  void SetSize (const Standard_Real aValue) {
+  }
+  void SetSize(const double aValue) {
     (*self)->SetSize(aValue);
   }
-  void SetSize (const Standard_Real Xval, const Standard_Real YVal) {
+  void SetSize(const double Xval, const double YVal) {
     (*self)->SetSize(Xval, YVal);
   }
-  void UnsetSize () {
+  void UnsetSize() {
     (*self)->UnsetSize();
   }
-  Standard_Boolean Size (Standard_Real &X, Standard_Real &Y) {
+  bool Size(double &X, double &Y) const {
     return (*self)->Size(X, Y);
   }
-  Standard_Boolean HasOwnSize () {
+  bool HasOwnSize() const {
     return (*self)->HasOwnSize();
   }
-  void SetMinimumSize (const Standard_Real theValue) {
+  void SetMinimumSize(const double theValue) {
     (*self)->SetMinimumSize(theValue);
   }
   void UnsetMinimumSize () {
     (*self)->UnsetMinimumSize();
   }
-  Standard_Boolean HasMinimumSize () {
+  bool HasMinimumSize() const {
     return (*self)->HasMinimumSize();
   }
-  Standard_Integer Signature () {
+  int Signature() const {
     return (*self)->Signature();
   }
-  AIS_KindOfInteractive Type () {
+  AIS_KindOfInteractive Type () const {
     return (*self)->Type();
   }
-  const Handle_Geom_Plane & Component () {
+  const occ::handle< Geom_Plane > & Component() {
     return (*self)->Component();
   }
-  void SetComponent (const Handle_Geom_Plane &aComponent) {
+  void SetComponent(const occ::handle< Geom_Plane > &aComponent) {
     (*self)->SetComponent(aComponent);
   }
-  Standard_Boolean PlaneAttributes (Handle_Geom_Plane &aComponent, gp_Pnt &aCenter, gp_Pnt &aPmin, gp_Pnt &aPmax) {
+  bool PlaneAttributes(occ::handle< Geom_Plane > &aComponent, gp_Pnt &aCenter, gp_Pnt &aPmin, gp_Pnt &aPmax) {
     return (*self)->PlaneAttributes(aComponent, aCenter, aPmin, aPmax);
   }
-  void SetPlaneAttributes (const Handle_Geom_Plane &aComponent, const gp_Pnt &aCenter, const gp_Pnt &aPmin, const gp_Pnt &aPmax) {
+  void SetPlaneAttributes(const occ::handle< Geom_Plane > &aComponent, const gp_Pnt &aCenter, const gp_Pnt &aPmin, const gp_Pnt &aPmax) {
     (*self)->SetPlaneAttributes(aComponent, aCenter, aPmin, aPmax);
   }
-  const gp_Pnt & Center () {
+  const gp_Pnt & Center() const {
     return (*self)->Center();
   }
-  void SetCenter (const gp_Pnt &theCenter) {
+  void SetCenter(const gp_Pnt &theCenter) {
     (*self)->SetCenter(theCenter);
   }
-  void SetAxis2Placement (const Handle_Geom_Axis2Placement &aComponent, const AIS_TypeOfPlane aPlaneType) {
+  void SetAxis2Placement(const occ::handle< Geom_Axis2Placement > &aComponent, const AIS_TypeOfPlane aPlaneType) {
     (*self)->SetAxis2Placement(aComponent, aPlaneType);
   }
-  Handle_Geom_Axis2Placement Axis2Placement () {
+  occ::handle< Geom_Axis2Placement > Axis2Placement() {
     return (*self)->Axis2Placement();
   }
-  AIS_TypeOfPlane TypeOfPlane () {
+  AIS_TypeOfPlane TypeOfPlane() {
     return (*self)->TypeOfPlane();
   }
-  Standard_Boolean IsXYZPlane () {
+  bool IsXYZPlane() {
     return (*self)->IsXYZPlane();
   }
-  Standard_Boolean CurrentMode () {
+  bool CurrentMode() {
     return (*self)->CurrentMode();
   }
-  void SetCurrentMode (const Standard_Boolean theCurrentMode) {
+  void SetCurrentMode(const bool theCurrentMode) {
     (*self)->SetCurrentMode(theCurrentMode);
   }
-  Standard_Boolean AcceptDisplayMode (const Standard_Integer aMode) {
+  bool AcceptDisplayMode(const int aMode) const {
     return (*self)->AcceptDisplayMode(aMode);
   }
-  void SetContext (const Handle_AIS_InteractiveContext &aCtx) {
+  void SetContext(const occ::handle< AIS_InteractiveContext > &aCtx) {
     (*self)->SetContext(aCtx);
   }
-  Select3D_TypeOfSensitivity TypeOfSensitivity () {
+  Select3D_TypeOfSensitivity TypeOfSensitivity() const {
     return (*self)->TypeOfSensitivity();
   }
-  void SetTypeOfSensitivity (Select3D_TypeOfSensitivity theTypeOfSensitivity) {
+  void SetTypeOfSensitivity(Select3D_TypeOfSensitivity theTypeOfSensitivity) {
     (*self)->SetTypeOfSensitivity(theTypeOfSensitivity);
   }
-  void ComputeSelection (const Handle_SelectMgr_Selection &theSelection, const Standard_Integer theMode) {
+  void ComputeSelection(const occ::handle< SelectMgr_Selection > &theSelection, const int theMode) {
     (*self)->ComputeSelection(theSelection, theMode);
   }
-  void SetColor (const Quantity_Color &aColor) {
+  void SetColor(const Quantity_Color &aColor) {
     (*self)->SetColor(aColor);
   }
-  void UnsetColor () {
+  void UnsetColor() {
     (*self)->UnsetColor();
   }
 }
+
+%{
+#include <AIS_Shape.hxx>
+typedef occ::handle<AIS_Shape> Handle_AIS_Shape;
+%}
+
+%rename(AIS_Shape) Handle_AIS_Shape;
+
+%nodefaultdtor Handle_AIS_Shape;
+class Handle_AIS_Shape
+{
+  Handle_AIS_Shape()=0;
+};
+
+%extend Handle_AIS_Shape
+{
+  Handle_AIS_Shape(const TopoDS_Shape &shap) {
+ 	return new Handle_AIS_Shape(new AIS_Shape(shap));
+  }
+  void Delete() {
+      self->~Handle_AIS_Shape();
+  }
+  int Signature() {
+    return (*self)->Signature();
+  }
+  AIS_KindOfInteractive Type() {
+    return (*self)->Type();
+  } 
+  bool AcceptShapeDecomposition() {
+    return (*self)->AcceptShapeDecomposition();
+  }
+  bool AcceptDisplayMode(const int theMode) {
+    return (*self)->AcceptDisplayMode(theMode);
+  }
+  const TopoDS_Shape & Shape () {
+    return (*self)->Shape();
+  }
+  void SetShape(const TopoDS_Shape &theShape) {
+    (*self)->SetShape(theShape);
+  }
+  void Set(const TopoDS_Shape &theShape) {
+    (*self)->Set(theShape);
+  }
+  bool SetOwnDeviationCoefficient() {
+    return (*self)->SetOwnDeviationCoefficient();
+  }
+  bool SetOwnDeviationAngle() {
+    return (*self)->SetOwnDeviationAngle();
+  }
+  void SetOwnDeviationCoefficient(const double aCoefficient) {
+ 	(*self)->SetOwnDeviationCoefficient(aCoefficient);
+  } 
+  void SetAngleAndDeviation(const double anAngle) {
+ 	(*self)->SetAngleAndDeviation(anAngle);
+  } 
+  double UserAngle() {
+    return (*self)->UserAngle();
+  }
+  void SetOwnDeviationAngle(const double anAngle) {
+ 	(*self)->SetOwnDeviationAngle(anAngle);
+  } 
+  bool OwnDeviationCoefficient(double &aCoefficient, double &aPreviousCoefficient) {
+    return (*self)->OwnDeviationCoefficient(aCoefficient, aPreviousCoefficient);
+  }
+  bool OwnDeviationAngle(double &anAngle, double &aPreviousAngle) {
+    return (*self)->OwnDeviationAngle(anAngle, aPreviousAngle);
+  }
+  void SetTypeOfHLR(const Prs3d_TypeOfHLR theTypeOfHLR) {
+    (*self)->SetTypeOfHLR(theTypeOfHLR);
+  }
+  Prs3d_TypeOfHLR TypeOfHLR() {
+    return (*self)->TypeOfHLR();
+  }
+  void SetColor(const Quantity_Color &theColor) {
+    (*self)->SetColor(theColor);
+  }
+  void UnsetColor() {
+    (*self)->UnsetColor();
+  }
+  void SetWidth(const double aValue) {
+    (*self)->SetWidth(aValue);
+  }
+  void UnsetWidth() {
+ 	(*self)->UnsetWidth();
+  }
+  void SetMaterial(const Graphic3d_MaterialAspect &aName) {
+ 	(*self)->SetMaterial(aName);
+  }
+  void UnsetMaterial() {
+ 	(*self)->UnsetMaterial();
+  }
+  void SetTransparency(const double aValue) {
+ 	(*self)->SetTransparency(aValue);
+  }
+  void UnsetTransparency() {
+ 	(*self)->UnsetTransparency();
+  }
+  const Bnd_Box & BoundingBox() {
+    return (*self)->BoundingBox();
+  }
+  void Color(Quantity_Color &aColor) {
+ 	(*self)->Color(aColor);
+  }
+  Graphic3d_NameOfMaterial Material() {
+    return (*self)->Material();
+  }
+  double Transparency() {
+    return (*self)->Transparency();
+  }
+}  

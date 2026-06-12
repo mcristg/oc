@@ -4,23 +4,23 @@
 class GeomLProp_SLProps
 {
 
-	GeomLProp_SLProps(const Standard_Integer degree, const Standard_Real resolution);
-	void SetParameters(const Standard_Real u, const Standard_Real v) ;
+	GeomLProp_SLProps(const int degree, const double resolution);
+	void SetParameters(const double u, const double v) ;
 	const gp_Pnt& Value() const;
 	const gp_Vec& D1U() ;
 	const gp_Vec& D1V() ;
 	const gp_Vec& D2U() ;
 	const gp_Vec& D2V() ;
 	const gp_Vec& DUV() ;
-	Standard_Boolean IsTangentUDefined() ;
+	bool IsTangentUDefined() ;
 	void TangentU(gp_Dir& D) ;
-	Standard_Boolean IsTangentVDefined() ;
+	bool IsTangentVDefined() ;
 	void TangentV(gp_Dir& D) ;
-	Standard_Boolean IsNormalDefined() ;
-	Standard_Boolean IsCurvatureDefined() ;
-	Standard_Boolean IsUmbilic() ;
-	Standard_Real MeanCurvature() ;
-	Standard_Real GaussianCurvature() ;
+	bool IsNormalDefined() ;
+	bool IsCurvatureDefined() ;
+	bool IsUmbilic() ;
+	double MeanCurvature() ;
+	double GaussianCurvature() ;
 	void SetSurface(const Handle_Geom_Surface & S) ;
 };
 
@@ -66,7 +66,7 @@ class GeomLProp_SLProps
 		}
 	}
 
-	Standard_Real minCurvature()
+	double minCurvature()
 	{
 		if (!self->IsCurvatureDefined())
 			return sqrt(-1.0);
@@ -74,7 +74,7 @@ class GeomLProp_SLProps
 			return self->MinCurvature ();
 	}
 
-	Standard_Real maxCurvature()
+	double maxCurvature()
 	{
 		if (!self->IsCurvatureDefined())
 			return sqrt(-1.0);

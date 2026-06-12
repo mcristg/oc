@@ -87,13 +87,47 @@
 	:AIS_DragAction_Stop
 	:AIS_DragAction_Abort)
 
-(cffi:defcfun ("_wrap_Handle_Standard_Transient_GetRefCount" _wrap_Handle_Standard_Transient_GetRefCount) :pointer
+(cffi:defcenum PrsMgr_TypeOfPresentation3d
+	:PrsMgr_TOP_AllView
+	:PrsMgr_TOP_ProjectorDependent)
+
+(cffi:defcenum AIS_TypeOfAxis
+	:AIS_TOAX_Unknown
+	:AIS_TOAX_XAxis
+	:AIS_TOAX_YAxis
+	:AIS_TOAX_ZAxis)
+
+(cffi:defcenum Aspect_TypeOfColorScaleData
+	:Aspect_TOCSD_AUTO
+	:Aspect_TOCSD_USER)
+
+(cffi:defcenum Aspect_TypeOfColorScalePosition
+	:Aspect_TOCSP_NONE
+	:Aspect_TOCSP_LEFT
+	:Aspect_TOCSP_RIGHT
+	:Aspect_TOCSP_CENTER)
+
+(cffi:defcenum ManipulatorSkin
+	:ManipulatorSkin_Shaded
+	:ManipulatorSkin_Flat)
+
+(cffi:defcenum Select3D_TypeOfSensitivity
+	:Select3D_TOS_INTERIOR
+	:Select3D_TOS_BOUNDARY)
+
+(cffi:defcenum AIS_TypeOfPlane
+	:AIS_TOPL_Unknown
+	:AIS_TOPL_XYPlane
+	:AIS_TOPL_XZPlane
+	:AIS_TOPL_YZPlane)
+
+(cffi:defcfun ("_wrap_Handle_Standard_Transient_GetRefCount" _wrap_Handle_Standard_Transient_GetRefCount) :int
   (self :pointer))
 
 (cffi:defcfun ("_wrap_Handle_Standard_Transient_IncrementRefCounter" _wrap_Handle_Standard_Transient_IncrementRefCounter) :void
   (self :pointer))
 
-(cffi:defcfun ("_wrap_Handle_Standard_Transient_DecrementRefCounter" _wrap_Handle_Standard_Transient_DecrementRefCounter) :pointer
+(cffi:defcfun ("_wrap_Handle_Standard_Transient_DecrementRefCounter" _wrap_Handle_Standard_Transient_DecrementRefCounter) :int
   (self :pointer))
 
 (cffi:defcfun ("_wrap_Handle_Standard_Transient_get" _wrap_Handle_Standard_Transient_get) :pointer
@@ -108,28 +142,28 @@
 (cffi:defcfun ("_wrap_AIS_Animation_Name" _wrap_AIS_Animation_Name) :pointer
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_Animation_StartPts" _wrap_AIS_Animation_StartPts) :pointer
+(cffi:defcfun ("_wrap_AIS_Animation_StartPts" _wrap_AIS_Animation_StartPts) :double
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_Animation_SetStartPts" _wrap_AIS_Animation_SetStartPts) :void
   (self :pointer)
-  (thePtsStart :pointer))
+  (thePtsStart :double))
 
-(cffi:defcfun ("_wrap_AIS_Animation_Duration" _wrap_AIS_Animation_Duration) :pointer
+(cffi:defcfun ("_wrap_AIS_Animation_Duration" _wrap_AIS_Animation_Duration) :double
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_Animation_UpdateTotalDuration" _wrap_AIS_Animation_UpdateTotalDuration) :void
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_Animation_HasOwnDuration" _wrap_AIS_Animation_HasOwnDuration) :pointer
+(cffi:defcfun ("_wrap_AIS_Animation_HasOwnDuration" _wrap_AIS_Animation_HasOwnDuration) :bool
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_Animation_OwnDuration" _wrap_AIS_Animation_OwnDuration) :pointer
+(cffi:defcfun ("_wrap_AIS_Animation_OwnDuration" _wrap_AIS_Animation_OwnDuration) :double
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_Animation_SetOwnDuration" _wrap_AIS_Animation_SetOwnDuration) :void
   (self :pointer)
-  (theDuration :pointer))
+  (theDuration :double))
 
 (cffi:defcfun ("_wrap_AIS_Animation_Add" _wrap_AIS_Animation_Add) :void
   (self :pointer)
@@ -142,11 +176,11 @@
   (self :pointer)
   (theAnimationName :pointer))
 
-(cffi:defcfun ("_wrap_AIS_Animation_Remove" _wrap_AIS_Animation_Remove) :pointer
+(cffi:defcfun ("_wrap_AIS_Animation_Remove" _wrap_AIS_Animation_Remove) :bool
   (self :pointer)
   (theAnimation :pointer))
 
-(cffi:defcfun ("_wrap_AIS_Animation_Replace" _wrap_AIS_Animation_Replace) :pointer
+(cffi:defcfun ("_wrap_AIS_Animation_Replace" _wrap_AIS_Animation_Replace) :bool
   (self :pointer)
   (theAnimationOld :pointer)
   (theAnimationNew :pointer))
@@ -160,21 +194,21 @@
 
 (cffi:defcfun ("_wrap_AIS_Animation_StartTimer__SWIG_0" _wrap_AIS_Animation_StartTimer__SWIG_0) :void
   (self :pointer)
-  (theStartPts :pointer)
-  (thePlaySpeed :pointer)
-  (theToUpdate :pointer)
-  (theToStopTimer :pointer))
+  (theStartPts :double)
+  (thePlaySpeed :double)
+  (theToUpdate :bool)
+  (theToStopTimer :bool))
 
 (cffi:defcfun ("_wrap_AIS_Animation_StartTimer__SWIG_1" _wrap_AIS_Animation_StartTimer__SWIG_1) :void
   (self :pointer)
-  (theStartPts :pointer)
-  (thePlaySpeed :pointer)
-  (theToUpdate :pointer))
+  (theStartPts :double)
+  (thePlaySpeed :double)
+  (theToUpdate :bool))
 
-(cffi:defcfun ("_wrap_AIS_Animation_UpdateTimer" _wrap_AIS_Animation_UpdateTimer) :pointer
+(cffi:defcfun ("_wrap_AIS_Animation_UpdateTimer" _wrap_AIS_Animation_UpdateTimer) :double
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_Animation_ElapsedTime" _wrap_AIS_Animation_ElapsedTime) :pointer
+(cffi:defcfun ("_wrap_AIS_Animation_ElapsedTime" _wrap_AIS_Animation_ElapsedTime) :double
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_Animation_Timer" _wrap_AIS_Animation_Timer) :pointer
@@ -186,7 +220,7 @@
 
 (cffi:defcfun ("_wrap_AIS_Animation_Start" _wrap_AIS_Animation_Start) :void
   (self :pointer)
-  (theToUpdate :pointer))
+  (theToUpdate :bool))
 
 (cffi:defcfun ("_wrap_AIS_Animation_Pause" _wrap_AIS_Animation_Pause) :void
   (self :pointer))
@@ -197,9 +231,9 @@
 (cffi:defcfun ("_wrap_AIS_Animation_IsStopped" _wrap_AIS_Animation_IsStopped) :bool
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_Animation_Update" _wrap_AIS_Animation_Update) :pointer
+(cffi:defcfun ("_wrap_AIS_Animation_Update" _wrap_AIS_Animation_Update) :bool
   (self :pointer)
-  (thePts :pointer))
+  (thePts :double))
 
 (cffi:defcfun ("_wrap_new_AIS_InteractiveContext" _wrap_new_AIS_InteractiveContext) :pointer
   (MainViewer :pointer))
@@ -216,46 +250,46 @@
   (anObj :pointer)
   (astatus :pointer))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_IsDisplayed__SWIG_0" _wrap_AIS_InteractiveContext_IsDisplayed__SWIG_0) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_IsDisplayed__SWIG_0" _wrap_AIS_InteractiveContext_IsDisplayed__SWIG_0) :bool
   (self :pointer)
   (anIobj :pointer))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_IsDisplayed__SWIG_1" _wrap_AIS_InteractiveContext_IsDisplayed__SWIG_1) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_IsDisplayed__SWIG_1" _wrap_AIS_InteractiveContext_IsDisplayed__SWIG_1) :bool
   (self :pointer)
   (aniobj :pointer)
-  (aMode :pointer))
+  (aMode :int))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_SetAutoActivateSelection" _wrap_AIS_InteractiveContext_SetAutoActivateSelection) :void
   (self :pointer)
-  (theIsAuto :pointer))
+  (theIsAuto :bool))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_GetAutoActivateSelection" _wrap_AIS_InteractiveContext_GetAutoActivateSelection) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_GetAutoActivateSelection" _wrap_AIS_InteractiveContext_GetAutoActivateSelection) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_Display__SWIG_0" _wrap_AIS_InteractiveContext_Display__SWIG_0) :void
   (self :pointer)
   (theIObj :pointer)
-  (theToUpdateViewer :pointer))
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_Display__SWIG_1" _wrap_AIS_InteractiveContext_Display__SWIG_1) :void
   (self :pointer)
   (theIObj :pointer)
-  (theDispMode :pointer)
-  (theSelectionMode :pointer)
-  (theToUpdateViewer :pointer)
+  (theDispMode :int)
+  (theSelectionMode :int)
+  (theToUpdateViewer :bool)
   (theDispStatus :pointer))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_Display__SWIG_2" _wrap_AIS_InteractiveContext_Display__SWIG_2) :void
   (self :pointer)
   (theIObj :pointer)
-  (theDispMode :pointer)
-  (theSelectionMode :pointer)
-  (theToUpdateViewer :pointer))
+  (theDispMode :int)
+  (theSelectionMode :int)
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_Load__SWIG_0" _wrap_AIS_InteractiveContext_Load__SWIG_0) :void
   (self :pointer)
   (theObj :pointer)
-  (theSelectionMode :pointer))
+  (theSelectionMode :int))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_Load__SWIG_1" _wrap_AIS_InteractiveContext_Load__SWIG_1) :void
   (self :pointer)
@@ -264,66 +298,66 @@
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_Erase" _wrap_AIS_InteractiveContext_Erase) :void
   (self :pointer)
   (theIObj :pointer)
-  (theToUpdateViewer :pointer))
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_EraseAll" _wrap_AIS_InteractiveContext_EraseAll) :void
   (self :pointer)
-  (theToUpdateViewer :pointer))
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_DisplayAll" _wrap_AIS_InteractiveContext_DisplayAll) :void
   (self :pointer)
-  (theToUpdateViewer :pointer))
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_EraseSelected" _wrap_AIS_InteractiveContext_EraseSelected) :void
   (self :pointer)
-  (theToUpdateViewer :pointer))
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_DisplaySelected" _wrap_AIS_InteractiveContext_DisplaySelected) :void
   (self :pointer)
-  (theToUpdateViewer :pointer))
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_ClearPrs" _wrap_AIS_InteractiveContext_ClearPrs) :void
   (self :pointer)
   (theIObj :pointer)
-  (theMode :pointer)
-  (theToUpdateViewer :pointer))
+  (theMode :int)
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_Remove" _wrap_AIS_InteractiveContext_Remove) :void
   (self :pointer)
   (theIObj :pointer)
-  (theToUpdateViewer :pointer))
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_RemoveAll" _wrap_AIS_InteractiveContext_RemoveAll) :void
   (self :pointer)
-  (theToUpdateViewer :pointer))
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_Redisplay__SWIG_0" _wrap_AIS_InteractiveContext_Redisplay__SWIG_0) :void
   (self :pointer)
   (theIObj :pointer)
-  (theToUpdateViewer :pointer)
-  (theAllModes :pointer))
+  (theToUpdateViewer :bool)
+  (theAllModes :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_Redisplay__SWIG_1" _wrap_AIS_InteractiveContext_Redisplay__SWIG_1) :void
   (self :pointer)
   (theIObj :pointer)
-  (theToUpdateViewer :pointer))
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_Redisplay__SWIG_2" _wrap_AIS_InteractiveContext_Redisplay__SWIG_2) :void
   (self :pointer)
   (theTypeOfObject AIS_KindOfInteractive)
-  (theSignature :pointer)
-  (theToUpdateViewer :pointer))
+  (theSignature :int)
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_RecomputePrsOnly__SWIG_0" _wrap_AIS_InteractiveContext_RecomputePrsOnly__SWIG_0) :void
   (self :pointer)
   (theIObj :pointer)
-  (theToUpdateViewer :pointer)
-  (theAllModes :pointer))
+  (theToUpdateViewer :bool)
+  (theAllModes :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_RecomputePrsOnly__SWIG_1" _wrap_AIS_InteractiveContext_RecomputePrsOnly__SWIG_1) :void
   (self :pointer)
   (theIObj :pointer)
-  (theToUpdateViewer :pointer))
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_RecomputeSelectionOnly" _wrap_AIS_InteractiveContext_RecomputeSelectionOnly) :void
   (self :pointer)
@@ -332,7 +366,7 @@
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_Update" _wrap_AIS_InteractiveContext_Update) :void
   (self :pointer)
   (theIObj :pointer)
-  (theUpdateViewer :pointer))
+  (theUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_HighlightStyle__SWIG_0" _wrap_AIS_InteractiveContext_HighlightStyle__SWIG_0) :pointer
   (self :pointer)
@@ -357,21 +391,21 @@
   (self :pointer)
   (theStyle :pointer))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_HighlightStyle__SWIG_2" _wrap_AIS_InteractiveContext_HighlightStyle__SWIG_2) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_HighlightStyle__SWIG_2" _wrap_AIS_InteractiveContext_HighlightStyle__SWIG_2) :bool
   (self :pointer)
   (theObj :pointer)
   (theStyle :pointer))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_HighlightStyle__SWIG_3" _wrap_AIS_InteractiveContext_HighlightStyle__SWIG_3) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_HighlightStyle__SWIG_3" _wrap_AIS_InteractiveContext_HighlightStyle__SWIG_3) :bool
   (self :pointer)
   (theOwner :pointer)
   (theStyle :pointer))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_IsHilighted__SWIG_0" _wrap_AIS_InteractiveContext_IsHilighted__SWIG_0) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_IsHilighted__SWIG_0" _wrap_AIS_InteractiveContext_IsHilighted__SWIG_0) :bool
   (self :pointer)
   (theObj :pointer))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_IsHilighted__SWIG_1" _wrap_AIS_InteractiveContext_IsHilighted__SWIG_1) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_IsHilighted__SWIG_1" _wrap_AIS_InteractiveContext_IsHilighted__SWIG_1) :bool
   (self :pointer)
   (theOwner :pointer))
 
@@ -379,12 +413,12 @@
   (self :pointer)
   (theObj :pointer)
   (theStyle :pointer)
-  (theToUpdateViewer :pointer))
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_Unhilight" _wrap_AIS_InteractiveContext_Unhilight) :void
   (self :pointer)
   (theIObj :pointer)
-  (theToUpdateViewer :pointer))
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_DisplayPriority" _wrap_AIS_InteractiveContext_DisplayPriority) :pointer
   (self :pointer)
@@ -408,26 +442,26 @@
   (self :pointer)
   (theIObj :pointer)
   (theView :pointer)
-  (theIsVisible :pointer))
+  (theIsVisible :bool))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_DisplayMode" _wrap_AIS_InteractiveContext_DisplayMode) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_DisplayMode" _wrap_AIS_InteractiveContext_DisplayMode) :int
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_SetDisplayMode__SWIG_0" _wrap_AIS_InteractiveContext_SetDisplayMode__SWIG_0) :void
   (self :pointer)
-  (theMode :pointer)
-  (theToUpdateViewer :pointer))
+  (theMode :int)
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_SetDisplayMode__SWIG_1" _wrap_AIS_InteractiveContext_SetDisplayMode__SWIG_1) :void
   (self :pointer)
   (theIObj :pointer)
-  (theMode :pointer)
-  (theToUpdateViewer :pointer))
+  (theMode :int)
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_UnsetDisplayMode" _wrap_AIS_InteractiveContext_UnsetDisplayMode) :void
   (self :pointer)
   (theIObj :pointer)
-  (theToUpdateViewer :pointer))
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_SetLocation" _wrap_AIS_InteractiveContext_SetLocation) :void
   (self :pointer)
@@ -438,7 +472,7 @@
   (self :pointer)
   (theObject :pointer))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_HasLocation" _wrap_AIS_InteractiveContext_HasLocation) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_HasLocation" _wrap_AIS_InteractiveContext_HasLocation) :bool
   (self :pointer)
   (theObject :pointer))
 
@@ -453,44 +487,44 @@
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_SetPixelTolerance__SWIG_0" _wrap_AIS_InteractiveContext_SetPixelTolerance__SWIG_0) :void
   (self :pointer)
-  (thePrecision :pointer))
+  (thePrecision :int))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_SetPixelTolerance__SWIG_1" _wrap_AIS_InteractiveContext_SetPixelTolerance__SWIG_1) :void
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_PixelTolerance" _wrap_AIS_InteractiveContext_PixelTolerance) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_PixelTolerance" _wrap_AIS_InteractiveContext_PixelTolerance) :int
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_SetSelectionSensitivity" _wrap_AIS_InteractiveContext_SetSelectionSensitivity) :void
   (self :pointer)
   (theObject :pointer)
-  (theMode :pointer)
-  (theNewSensitivity :pointer))
+  (theMode :int)
+  (theNewSensitivity :int))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_LastActiveView" _wrap_AIS_InteractiveContext_LastActiveView) :pointer
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_MoveTo__SWIG_0" _wrap_AIS_InteractiveContext_MoveTo__SWIG_0) :pointer
   (self :pointer)
-  (theXPix :pointer)
-  (theYPix :pointer)
+  (theXPix :int)
+  (theYPix :int)
   (theView :pointer)
-  (theToRedrawOnUpdate :pointer))
+  (theToRedrawOnUpdate :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_MoveTo__SWIG_1" _wrap_AIS_InteractiveContext_MoveTo__SWIG_1) :pointer
   (self :pointer)
   (theAxis :pointer)
   (theView :pointer)
-  (theToRedrawOnUpdate :pointer))
+  (theToRedrawOnUpdate :bool))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_ClearDetected__SWIG_0" _wrap_AIS_InteractiveContext_ClearDetected__SWIG_0) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_ClearDetected__SWIG_0" _wrap_AIS_InteractiveContext_ClearDetected__SWIG_0) :bool
   (self :pointer)
-  (theToRedrawImmediate :pointer))
+  (theToRedrawImmediate :bool))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_ClearDetected__SWIG_1" _wrap_AIS_InteractiveContext_ClearDetected__SWIG_1) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_ClearDetected__SWIG_1" _wrap_AIS_InteractiveContext_ClearDetected__SWIG_1) :bool
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_HasDetected" _wrap_AIS_InteractiveContext_HasDetected) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_HasDetected" _wrap_AIS_InteractiveContext_HasDetected) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_DetectedOwner" _wrap_AIS_InteractiveContext_DetectedOwner) :pointer
@@ -499,31 +533,31 @@
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_DetectedInteractive" _wrap_AIS_InteractiveContext_DetectedInteractive) :pointer
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_HasNextDetected" _wrap_AIS_InteractiveContext_HasNextDetected) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_HasNextDetected" _wrap_AIS_InteractiveContext_HasNextDetected) :bool
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_HilightNextDetected__SWIG_0" _wrap_AIS_InteractiveContext_HilightNextDetected__SWIG_0) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_HilightNextDetected__SWIG_0" _wrap_AIS_InteractiveContext_HilightNextDetected__SWIG_0) :int
   (self :pointer)
   (theView :pointer)
-  (theToRedrawImmediate :pointer))
+  (theToRedrawImmediate :bool))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_HilightNextDetected__SWIG_1" _wrap_AIS_InteractiveContext_HilightNextDetected__SWIG_1) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_HilightNextDetected__SWIG_1" _wrap_AIS_InteractiveContext_HilightNextDetected__SWIG_1) :int
   (self :pointer)
   (theView :pointer))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_HilightPreviousDetected__SWIG_0" _wrap_AIS_InteractiveContext_HilightPreviousDetected__SWIG_0) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_HilightPreviousDetected__SWIG_0" _wrap_AIS_InteractiveContext_HilightPreviousDetected__SWIG_0) :int
   (self :pointer)
   (theView :pointer)
-  (theToRedrawImmediate :pointer))
+  (theToRedrawImmediate :bool))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_HilightPreviousDetected__SWIG_1" _wrap_AIS_InteractiveContext_HilightPreviousDetected__SWIG_1) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_HilightPreviousDetected__SWIG_1" _wrap_AIS_InteractiveContext_HilightPreviousDetected__SWIG_1) :int
   (self :pointer)
   (theView :pointer))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_InitDetected" _wrap_AIS_InteractiveContext_InitDetected) :void
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_MoreDetected" _wrap_AIS_InteractiveContext_MoreDetected) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_MoreDetected" _wrap_AIS_InteractiveContext_MoreDetected) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_NextDetected" _wrap_AIS_InteractiveContext_NextDetected) :void
@@ -594,86 +628,86 @@
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_FitSelected__SWIG_0" _wrap_AIS_InteractiveContext_FitSelected__SWIG_0) :void
   (self :pointer)
   (theView :pointer)
-  (theMargin :pointer)
-  (theToUpdate :pointer))
+  (theMargin :double)
+  (theToUpdate :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_FitSelected__SWIG_1" _wrap_AIS_InteractiveContext_FitSelected__SWIG_1) :void
   (self :pointer)
   (theView :pointer))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_ToHilightSelected" _wrap_AIS_InteractiveContext_ToHilightSelected) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_ToHilightSelected" _wrap_AIS_InteractiveContext_ToHilightSelected) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_SetToHilightSelected" _wrap_AIS_InteractiveContext_SetToHilightSelected) :void
   (self :pointer)
-  (toHilight :pointer))
+  (toHilight :bool))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_AutomaticHilight" _wrap_AIS_InteractiveContext_AutomaticHilight) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_AutomaticHilight" _wrap_AIS_InteractiveContext_AutomaticHilight) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_SetAutomaticHilight" _wrap_AIS_InteractiveContext_SetAutomaticHilight) :void
   (self :pointer)
-  (theStatus :pointer))
+  (theStatus :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_SetSelected__SWIG_0" _wrap_AIS_InteractiveContext_SetSelected__SWIG_0) :void
   (self :pointer)
   (theOwners :pointer)
-  (theToUpdateViewer :pointer))
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_SetSelected__SWIG_1" _wrap_AIS_InteractiveContext_SetSelected__SWIG_1) :void
   (self :pointer)
   (theObject :pointer)
-  (theToUpdateViewer :pointer))
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_AddOrRemoveSelected__SWIG_0" _wrap_AIS_InteractiveContext_AddOrRemoveSelected__SWIG_0) :void
   (self :pointer)
   (theObject :pointer)
-  (theToUpdateViewer :pointer))
+  (theToUpdateViewer :bool))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_SetSelectedState" _wrap_AIS_InteractiveContext_SetSelectedState) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_SetSelectedState" _wrap_AIS_InteractiveContext_SetSelectedState) :bool
   (self :pointer)
   (theOwner :pointer)
-  (theIsSelected :pointer))
+  (theIsSelected :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_HilightSelected" _wrap_AIS_InteractiveContext_HilightSelected) :void
   (self :pointer)
-  (theToUpdateViewer :pointer))
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_UnhilightSelected" _wrap_AIS_InteractiveContext_UnhilightSelected) :void
   (self :pointer)
-  (theToUpdateViewer :pointer))
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_UpdateSelected" _wrap_AIS_InteractiveContext_UpdateSelected) :void
   (self :pointer)
-  (theToUpdateViewer :pointer))
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_ClearSelected" _wrap_AIS_InteractiveContext_ClearSelected) :void
   (self :pointer)
-  (theToUpdateViewer :pointer))
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_AddOrRemoveSelected__SWIG_1" _wrap_AIS_InteractiveContext_AddOrRemoveSelected__SWIG_1) :void
   (self :pointer)
   (theOwner :pointer)
-  (theToUpdateViewer :pointer))
+  (theToUpdateViewer :bool))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_IsSelected__SWIG_0" _wrap_AIS_InteractiveContext_IsSelected__SWIG_0) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_IsSelected__SWIG_0" _wrap_AIS_InteractiveContext_IsSelected__SWIG_0) :bool
   (self :pointer)
   (theOwner :pointer))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_IsSelected__SWIG_1" _wrap_AIS_InteractiveContext_IsSelected__SWIG_1) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_IsSelected__SWIG_1" _wrap_AIS_InteractiveContext_IsSelected__SWIG_1) :bool
   (self :pointer)
   (theObj :pointer))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_FirstSelectedObject" _wrap_AIS_InteractiveContext_FirstSelectedObject) :pointer
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_NbSelected" _wrap_AIS_InteractiveContext_NbSelected) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_NbSelected" _wrap_AIS_InteractiveContext_NbSelected) :int
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_InitSelected" _wrap_AIS_InteractiveContext_InitSelected) :void
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_MoreSelected" _wrap_AIS_InteractiveContext_MoreSelected) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_MoreSelected" _wrap_AIS_InteractiveContext_MoreSelected) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_NextSelected" _wrap_AIS_InteractiveContext_NextSelected) :void
@@ -685,75 +719,49 @@
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_SelectedInteractive" _wrap_AIS_InteractiveContext_SelectedInteractive) :pointer
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_HasSelectedShape" _wrap_AIS_InteractiveContext_HasSelectedShape) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_HasSelectedShape" _wrap_AIS_InteractiveContext_HasSelectedShape) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_SelectedShape" _wrap_AIS_InteractiveContext_SelectedShape) :pointer
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_HasApplicative" _wrap_AIS_InteractiveContext_HasApplicative) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_HasApplicative" _wrap_AIS_InteractiveContext_HasApplicative) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_Applicative" _wrap_AIS_InteractiveContext_Applicative) :pointer
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_BeginImmediateDraw" _wrap_AIS_InteractiveContext_BeginImmediateDraw) :pointer
-  (self :pointer))
-
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_ImmediateAdd__SWIG_0" _wrap_AIS_InteractiveContext_ImmediateAdd__SWIG_0) :pointer
-  (self :pointer)
-  (theObj :pointer)
-  (theMode :pointer))
-
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_ImmediateAdd__SWIG_1" _wrap_AIS_InteractiveContext_ImmediateAdd__SWIG_1) :pointer
-  (self :pointer)
-  (theObj :pointer))
-
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_EndImmediateDraw__SWIG_0" _wrap_AIS_InteractiveContext_EndImmediateDraw__SWIG_0) :pointer
-  (self :pointer)
-  (theView :pointer))
-
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_EndImmediateDraw__SWIG_1" _wrap_AIS_InteractiveContext_EndImmediateDraw__SWIG_1) :pointer
-  (self :pointer))
-
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_IsImmediateModeOn" _wrap_AIS_InteractiveContext_IsImmediateModeOn) :pointer
-  (self :pointer))
-
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_RedrawImmediate" _wrap_AIS_InteractiveContext_RedrawImmediate) :void
-  (self :pointer)
-  (theViewer :pointer))
-
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_SetSelectionModeActive__SWIG_0" _wrap_AIS_InteractiveContext_SetSelectionModeActive__SWIG_0) :void
   (self :pointer)
   (theObj :pointer)
-  (theMode :pointer)
-  (theToActivate :pointer)
+  (theMode :int)
+  (theToActivate :bool)
   (theConcurrency :pointer)
-  (theIsForce :pointer))
+  (theIsForce :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_SetSelectionModeActive__SWIG_1" _wrap_AIS_InteractiveContext_SetSelectionModeActive__SWIG_1) :void
   (self :pointer)
   (theObj :pointer)
-  (theMode :pointer)
-  (theToActivate :pointer)
+  (theMode :int)
+  (theToActivate :bool)
   (theConcurrency :pointer))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_SetSelectionModeActive__SWIG_2" _wrap_AIS_InteractiveContext_SetSelectionModeActive__SWIG_2) :void
   (self :pointer)
   (theObj :pointer)
-  (theMode :pointer)
-  (theToActivate :pointer))
+  (theMode :int)
+  (theToActivate :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_Activate__SWIG_0" _wrap_AIS_InteractiveContext_Activate__SWIG_0) :void
   (self :pointer)
   (theObj :pointer)
-  (theMode :pointer)
-  (theIsForce :pointer))
+  (theMode :int)
+  (theIsForce :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_Activate__SWIG_1" _wrap_AIS_InteractiveContext_Activate__SWIG_1) :void
   (self :pointer)
   (theObj :pointer)
-  (theMode :pointer))
+  (theMode :int))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_Activate__SWIG_2" _wrap_AIS_InteractiveContext_Activate__SWIG_2) :void
   (self :pointer)
@@ -761,12 +769,12 @@
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_Activate__SWIG_3" _wrap_AIS_InteractiveContext_Activate__SWIG_3) :void
   (self :pointer)
-  (theMode :pointer)
-  (theIsForce :pointer))
+  (theMode :int)
+  (theIsForce :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_Activate__SWIG_4" _wrap_AIS_InteractiveContext_Activate__SWIG_4) :void
   (self :pointer)
-  (theMode :pointer))
+  (theMode :int))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_Deactivate__SWIG_0" _wrap_AIS_InteractiveContext_Deactivate__SWIG_0) :void
   (self :pointer)
@@ -775,11 +783,11 @@
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_Deactivate__SWIG_1" _wrap_AIS_InteractiveContext_Deactivate__SWIG_1) :void
   (self :pointer)
   (theObj :pointer)
-  (theMode :pointer))
+  (theMode :int))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_Deactivate__SWIG_2" _wrap_AIS_InteractiveContext_Deactivate__SWIG_2) :void
   (self :pointer)
-  (theMode :pointer))
+  (theMode :int))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_Deactivate__SWIG_3" _wrap_AIS_InteractiveContext_Deactivate__SWIG_3) :void
   (self :pointer))
@@ -793,7 +801,7 @@
   (self :pointer)
   (theOwners :pointer)
   (theIObj :pointer)
-  (theMode :pointer))
+  (theMode :int))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_EntityOwners__SWIG_1" _wrap_AIS_InteractiveContext_EntityOwners__SWIG_1) :void
   (self :pointer)
@@ -860,7 +868,7 @@
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_DisplayedObjects__SWIG_1" _wrap_AIS_InteractiveContext_DisplayedObjects__SWIG_1) :void
   (self :pointer)
   (theWhichKind AIS_KindOfInteractive)
-  (theWhichSignature :pointer)
+  (theWhichSignature :int)
   (theListOfIO :pointer))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_ErasedObjects__SWIG_0" _wrap_AIS_InteractiveContext_ErasedObjects__SWIG_0) :void
@@ -870,7 +878,7 @@
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_ErasedObjects__SWIG_1" _wrap_AIS_InteractiveContext_ErasedObjects__SWIG_1) :void
   (self :pointer)
   (theWhichKind AIS_KindOfInteractive)
-  (theWhichSignature :pointer)
+  (theWhichSignature :int)
   (theListOfIO :pointer))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_ObjectsByDisplayStatus__SWIG_0" _wrap_AIS_InteractiveContext_ObjectsByDisplayStatus__SWIG_0) :void
@@ -881,7 +889,7 @@
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_ObjectsByDisplayStatus__SWIG_1" _wrap_AIS_InteractiveContext_ObjectsByDisplayStatus__SWIG_1) :void
   (self :pointer)
   (WhichKind AIS_KindOfInteractive)
-  (WhichSignature :pointer)
+  (WhichSignature :int)
   (theStatus :pointer)
   (theListOfIO :pointer))
 
@@ -889,7 +897,7 @@
   (self :pointer)
   (aListOfIO :pointer)
   (WhichKind AIS_KindOfInteractive)
-  (WhichSignature :pointer))
+  (WhichSignature :int))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_ObjectsInside__SWIG_1" _wrap_AIS_InteractiveContext_ObjectsInside__SWIG_1) :void
   (self :pointer)
@@ -919,14 +927,14 @@
   (self :pointer)
   (theListOfIO :pointer)
   (theView :pointer)
-  (theIsVisibleInView :pointer)
+  (theIsVisibleInView :bool)
   (theStatus :pointer))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_ObjectsForView__SWIG_1" _wrap_AIS_InteractiveContext_ObjectsForView__SWIG_1) :void
   (self :pointer)
   (theListOfIO :pointer)
   (theView :pointer)
-  (theIsVisibleInView :pointer))
+  (theIsVisibleInView :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_GravityPoint" _wrap_AIS_InteractiveContext_GravityPoint) :pointer
   (self :pointer)
@@ -949,12 +957,12 @@
   (self :pointer)
   (theIObj :pointer)
   (theDrawer :pointer)
-  (theToUpdateViewer :pointer))
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_UnsetLocalAttributes" _wrap_AIS_InteractiveContext_UnsetLocalAttributes) :void
   (self :pointer)
   (theIObj :pointer)
-  (theToUpdateViewer :pointer))
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_SetCurrentFacingModel__SWIG_0" _wrap_AIS_InteractiveContext_SetCurrentFacingModel__SWIG_0) :void
   (self :pointer)
@@ -965,7 +973,7 @@
   (self :pointer)
   (aniobj :pointer))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_HasColor" _wrap_AIS_InteractiveContext_HasColor) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_HasColor" _wrap_AIS_InteractiveContext_HasColor) :bool
   (self :pointer)
   (aniobj :pointer))
 
@@ -978,59 +986,59 @@
   (self :pointer)
   (theIObj :pointer)
   (theColor :pointer)
-  (theToUpdateViewer :pointer))
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_UnsetColor" _wrap_AIS_InteractiveContext_UnsetColor) :void
   (self :pointer)
   (theIObj :pointer)
-  (theToUpdateViewer :pointer))
+  (theToUpdateViewer :bool))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_Width" _wrap_AIS_InteractiveContext_Width) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_Width" _wrap_AIS_InteractiveContext_Width) :double
   (self :pointer)
   (aniobj :pointer))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_SetWidth" _wrap_AIS_InteractiveContext_SetWidth) :void
   (self :pointer)
   (theIObj :pointer)
-  (theValue :pointer)
-  (theToUpdateViewer :pointer))
+  (theValue :double)
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_UnsetWidth" _wrap_AIS_InteractiveContext_UnsetWidth) :void
   (self :pointer)
   (theIObj :pointer)
-  (theToUpdateViewer :pointer))
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_SetMaterial" _wrap_AIS_InteractiveContext_SetMaterial) :void
   (self :pointer)
   (theIObj :pointer)
   (theMaterial :pointer)
-  (theToUpdateViewer :pointer))
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_UnsetMaterial" _wrap_AIS_InteractiveContext_UnsetMaterial) :void
   (self :pointer)
   (theIObj :pointer)
-  (theToUpdateViewer :pointer))
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_SetTransparency" _wrap_AIS_InteractiveContext_SetTransparency) :void
   (self :pointer)
   (theIObj :pointer)
-  (theValue :pointer)
-  (theToUpdateViewer :pointer))
+  (theValue :double)
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_UnsetTransparency" _wrap_AIS_InteractiveContext_UnsetTransparency) :void
   (self :pointer)
   (theIObj :pointer)
-  (theToUpdateViewer :pointer))
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_SetPolygonOffsets" _wrap_AIS_InteractiveContext_SetPolygonOffsets) :void
   (self :pointer)
   (theIObj :pointer)
-  (theMode :pointer)
-  (theFactor :pointer)
-  (theUnits :pointer)
-  (theToUpdateViewer :pointer))
+  (theMode :int)
+  (theFactor :float)
+  (theUnits :float)
+  (theToUpdateViewer :bool))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_HasPolygonOffsets" _wrap_AIS_InteractiveContext_HasPolygonOffsets) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_HasPolygonOffsets" _wrap_AIS_InteractiveContext_HasPolygonOffsets) :bool
   (self :pointer)
   (anObj :pointer))
 
@@ -1043,24 +1051,24 @@
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_SetTrihedronSize" _wrap_AIS_InteractiveContext_SetTrihedronSize) :void
   (self :pointer)
-  (theSize :pointer)
-  (theToUpdateViewer :pointer))
+  (theSize :double)
+  (theToUpdateViewer :bool))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_TrihedronSize" _wrap_AIS_InteractiveContext_TrihedronSize) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_TrihedronSize" _wrap_AIS_InteractiveContext_TrihedronSize) :double
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_SetPlaneSize__SWIG_0" _wrap_AIS_InteractiveContext_SetPlaneSize__SWIG_0) :void
   (self :pointer)
-  (theSizeX :pointer)
-  (theSizeY :pointer)
-  (theToUpdateViewer :pointer))
+  (theSizeX :double)
+  (theSizeY :double)
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_SetPlaneSize__SWIG_1" _wrap_AIS_InteractiveContext_SetPlaneSize__SWIG_1) :void
   (self :pointer)
-  (theSize :pointer)
-  (theToUpdateViewer :pointer))
+  (theSize :double)
+  (theToUpdateViewer :bool))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_PlaneSize" _wrap_AIS_InteractiveContext_PlaneSize) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_PlaneSize" _wrap_AIS_InteractiveContext_PlaneSize) :bool
   (self :pointer)
   (XSize :pointer)
   (YSize :pointer))
@@ -1068,33 +1076,33 @@
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_SetDeviationCoefficient__SWIG_0" _wrap_AIS_InteractiveContext_SetDeviationCoefficient__SWIG_0) :void
   (self :pointer)
   (theIObj :pointer)
-  (theCoefficient :pointer)
-  (theToUpdateViewer :pointer))
+  (theCoefficient :double)
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_SetDeviationAngle__SWIG_0" _wrap_AIS_InteractiveContext_SetDeviationAngle__SWIG_0) :void
   (self :pointer)
   (theIObj :pointer)
-  (theAngle :pointer)
-  (theToUpdateViewer :pointer))
+  (theAngle :double)
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_SetAngleAndDeviation" _wrap_AIS_InteractiveContext_SetAngleAndDeviation) :void
   (self :pointer)
   (theIObj :pointer)
-  (theAngle :pointer)
-  (theToUpdateViewer :pointer))
+  (theAngle :double)
+  (theToUpdateViewer :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_SetDeviationCoefficient__SWIG_1" _wrap_AIS_InteractiveContext_SetDeviationCoefficient__SWIG_1) :void
   (self :pointer)
-  (theCoefficient :pointer))
+  (theCoefficient :double))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_DeviationCoefficient" _wrap_AIS_InteractiveContext_DeviationCoefficient) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_DeviationCoefficient" _wrap_AIS_InteractiveContext_DeviationCoefficient) :double
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_SetDeviationAngle__SWIG_1" _wrap_AIS_InteractiveContext_SetDeviationAngle__SWIG_1) :void
   (self :pointer)
-  (theAngle :pointer))
+  (theAngle :double))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_DeviationAngle" _wrap_AIS_InteractiveContext_DeviationAngle) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_DeviationAngle" _wrap_AIS_InteractiveContext_DeviationAngle) :double
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_HiddenLineAspect" _wrap_AIS_InteractiveContext_HiddenLineAspect) :pointer
@@ -1104,7 +1112,7 @@
   (self :pointer)
   (theAspect :pointer))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_DrawHiddenLine" _wrap_AIS_InteractiveContext_DrawHiddenLine) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_DrawHiddenLine" _wrap_AIS_InteractiveContext_DrawHiddenLine) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_EnableDrawHiddenLine" _wrap_AIS_InteractiveContext_EnableDrawHiddenLine) :void
@@ -1115,38 +1123,62 @@
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_SetIsoNumber__SWIG_0" _wrap_AIS_InteractiveContext_SetIsoNumber__SWIG_0) :void
   (self :pointer)
-  (NbIsos :pointer)
+  (NbIsos :int)
   (WhichIsos :pointer))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_SetIsoNumber__SWIG_1" _wrap_AIS_InteractiveContext_SetIsoNumber__SWIG_1) :void
   (self :pointer)
-  (NbIsos :pointer))
+  (NbIsos :int))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_IsoNumber__SWIG_0" _wrap_AIS_InteractiveContext_IsoNumber__SWIG_0) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_IsoNumber__SWIG_0" _wrap_AIS_InteractiveContext_IsoNumber__SWIG_0) :int
   (self :pointer)
   (WhichIsos :pointer))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_IsoNumber__SWIG_1" _wrap_AIS_InteractiveContext_IsoNumber__SWIG_1) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_IsoNumber__SWIG_1" _wrap_AIS_InteractiveContext_IsoNumber__SWIG_1) :int
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_IsoOnPlane__SWIG_0" _wrap_AIS_InteractiveContext_IsoOnPlane__SWIG_0) :void
   (self :pointer)
-  (theToSwitchOn :pointer))
+  (theToSwitchOn :bool))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_IsoOnPlane__SWIG_1" _wrap_AIS_InteractiveContext_IsoOnPlane__SWIG_1) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_IsoOnPlane__SWIG_1" _wrap_AIS_InteractiveContext_IsoOnPlane__SWIG_1) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_IsoOnTriangulation__SWIG_0" _wrap_AIS_InteractiveContext_IsoOnTriangulation__SWIG_0) :void
   (self :pointer)
-  (theIsEnabled :pointer)
+  (theIsEnabled :bool)
   (theObject :pointer))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveContext_IsoOnTriangulation__SWIG_1" _wrap_AIS_InteractiveContext_IsoOnTriangulation__SWIG_1) :void
   (self :pointer)
-  (theToSwitchOn :pointer))
+  (theToSwitchOn :bool))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveContext_IsoOnTriangulation__SWIG_2" _wrap_AIS_InteractiveContext_IsoOnTriangulation__SWIG_2) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_IsoOnTriangulation__SWIG_2" _wrap_AIS_InteractiveContext_IsoOnTriangulation__SWIG_2) :bool
   (self :pointer))
+
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_SubIntensityColor" _wrap_AIS_InteractiveContext_SubIntensityColor) :pointer
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_SetSubIntensityColor" _wrap_AIS_InteractiveContext_SetSubIntensityColor) :void
+  (self :pointer)
+  (theColor :pointer))
+
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_SubIntensityOn" _wrap_AIS_InteractiveContext_SubIntensityOn) :void
+  (self :pointer)
+  (theIObj :pointer)
+  (theToUpdateViewer :bool))
+
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_SubIntensityOff" _wrap_AIS_InteractiveContext_SubIntensityOff) :void
+  (self :pointer)
+  (theIObj :pointer)
+  (theToUpdateViewer :bool))
+
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_Selection" _wrap_AIS_InteractiveContext_Selection) :pointer
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_AIS_InteractiveContext_SetSelection" _wrap_AIS_InteractiveContext_SetSelection) :void
+  (self :pointer)
+  (theSelection :pointer))
 
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_Presentations" _wrap_PrsMgr_PresentableObject_Presentations) :pointer
   (self :pointer))
@@ -1158,79 +1190,79 @@
   (self :pointer)
   (theLayerId :pointer))
 
-(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_IsMutable" _wrap_PrsMgr_PresentableObject_IsMutable) :pointer
+(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_IsMutable" _wrap_PrsMgr_PresentableObject_IsMutable) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_SetMutable" _wrap_PrsMgr_PresentableObject_SetMutable) :void
   (self :pointer)
-  (theIsMutable :pointer))
+  (theIsMutable :bool))
 
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_ViewAffinity" _wrap_PrsMgr_PresentableObject_ViewAffinity) :pointer
   (self :pointer))
 
-(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_HasDisplayMode" _wrap_PrsMgr_PresentableObject_HasDisplayMode) :pointer
+(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_HasDisplayMode" _wrap_PrsMgr_PresentableObject_HasDisplayMode) :bool
   (self :pointer))
 
-(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_DisplayMode" _wrap_PrsMgr_PresentableObject_DisplayMode) :pointer
+(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_DisplayMode" _wrap_PrsMgr_PresentableObject_DisplayMode) :int
   (self :pointer))
 
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_SetDisplayMode" _wrap_PrsMgr_PresentableObject_SetDisplayMode) :void
   (self :pointer)
-  (theMode :pointer))
+  (theMode :int))
 
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_UnsetDisplayMode" _wrap_PrsMgr_PresentableObject_UnsetDisplayMode) :void
   (self :pointer))
 
-(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_HasHilightMode" _wrap_PrsMgr_PresentableObject_HasHilightMode) :pointer
+(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_HasHilightMode" _wrap_PrsMgr_PresentableObject_HasHilightMode) :bool
   (self :pointer))
 
-(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_HilightMode" _wrap_PrsMgr_PresentableObject_HilightMode) :pointer
+(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_HilightMode" _wrap_PrsMgr_PresentableObject_HilightMode) :int
   (self :pointer))
 
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_SetHilightMode" _wrap_PrsMgr_PresentableObject_SetHilightMode) :void
   (self :pointer)
-  (theMode :pointer))
+  (theMode :int))
 
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_UnsetHilightMode" _wrap_PrsMgr_PresentableObject_UnsetHilightMode) :void
   (self :pointer))
 
-(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_AcceptDisplayMode" _wrap_PrsMgr_PresentableObject_AcceptDisplayMode) :pointer
+(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_AcceptDisplayMode" _wrap_PrsMgr_PresentableObject_AcceptDisplayMode) :bool
   (self :pointer)
-  (theMode :pointer))
+  (theMode :int))
 
-(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_DefaultDisplayMode" _wrap_PrsMgr_PresentableObject_DefaultDisplayMode) :pointer
+(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_DefaultDisplayMode" _wrap_PrsMgr_PresentableObject_DefaultDisplayMode) :int
   (self :pointer))
 
-(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_ToBeUpdated__SWIG_0" _wrap_PrsMgr_PresentableObject_ToBeUpdated__SWIG_0) :pointer
+(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_ToBeUpdated__SWIG_0" _wrap_PrsMgr_PresentableObject_ToBeUpdated__SWIG_0) :bool
   (self :pointer)
-  (theToIncludeHidden :pointer))
+  (theToIncludeHidden :bool))
 
-(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_ToBeUpdated__SWIG_1" _wrap_PrsMgr_PresentableObject_ToBeUpdated__SWIG_1) :pointer
+(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_ToBeUpdated__SWIG_1" _wrap_PrsMgr_PresentableObject_ToBeUpdated__SWIG_1) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_SetToUpdate__SWIG_0" _wrap_PrsMgr_PresentableObject_SetToUpdate__SWIG_0) :void
   (self :pointer)
-  (theMode :pointer))
+  (theMode :int))
 
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_SetToUpdate__SWIG_1" _wrap_PrsMgr_PresentableObject_SetToUpdate__SWIG_1) :void
   (self :pointer))
 
-(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_IsInfinite" _wrap_PrsMgr_PresentableObject_IsInfinite) :pointer
+(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_IsInfinite" _wrap_PrsMgr_PresentableObject_IsInfinite) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_SetInfiniteState__SWIG_0" _wrap_PrsMgr_PresentableObject_SetInfiniteState__SWIG_0) :void
   (self :pointer)
-  (theFlag :pointer))
+  (theFlag :bool))
 
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_SetInfiniteState__SWIG_1" _wrap_PrsMgr_PresentableObject_SetInfiniteState__SWIG_1) :void
   (self :pointer))
 
-(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_TypeOfPresentation3d" _wrap_PrsMgr_PresentableObject_TypeOfPresentation3d) :pointer
+(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_TypeOfPresentation3d" _wrap_PrsMgr_PresentableObject_TypeOfPresentation3d) PrsMgr_TypeOfPresentation3d
   (self :pointer))
 
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_SetTypeOfPresentation" _wrap_PrsMgr_PresentableObject_SetTypeOfPresentation) :void
   (self :pointer)
-  (theType :pointer))
+  (theType PrsMgr_TypeOfPresentation3d))
 
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_DisplayStatus" _wrap_PrsMgr_PresentableObject_DisplayStatus) :pointer
   (self :pointer))
@@ -1265,10 +1297,6 @@
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_TransformPersistence" _wrap_PrsMgr_PresentableObject_TransformPersistence) :pointer
   (self :pointer))
 
-(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_SetTransformPersistence" _wrap_PrsMgr_PresentableObject_SetTransformPersistence) :void
-  (self :pointer)
-  (theTrsfPers :pointer))
-
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_LocalTransformationGeom" _wrap_PrsMgr_PresentableObject_LocalTransformationGeom) :pointer
   (self :pointer))
 
@@ -1280,7 +1308,7 @@
   (self :pointer)
   (theTrsf :pointer))
 
-(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_HasTransformation" _wrap_PrsMgr_PresentableObject_HasTransformation) :pointer
+(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_HasTransformation" _wrap_PrsMgr_PresentableObject_HasTransformation) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_TransformationGeom" _wrap_PrsMgr_PresentableObject_TransformationGeom) :pointer
@@ -1303,6 +1331,10 @@
 
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_UpdateTransformation" _wrap_PrsMgr_PresentableObject_UpdateTransformation) :void
   (self :pointer))
+
+(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_RecomputeTransformation" _wrap_PrsMgr_PresentableObject_RecomputeTransformation) :void
+  (self :pointer)
+  (theProjector :pointer))
 
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_ClipPlanes" _wrap_PrsMgr_PresentableObject_ClipPlanes) :pointer
   (self :pointer))
@@ -1341,7 +1373,7 @@
   (self :pointer)
   (theObject :pointer))
 
-(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_HasOwnPresentations" _wrap_PrsMgr_PresentableObject_HasOwnPresentations) :pointer
+(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_HasOwnPresentations" _wrap_PrsMgr_PresentableObject_HasOwnPresentations) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_BoundingBox" _wrap_PrsMgr_PresentableObject_BoundingBox) :void
@@ -1350,7 +1382,7 @@
 
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_SetIsoOnTriangulation" _wrap_PrsMgr_PresentableObject_SetIsoOnTriangulation) :void
   (self :pointer)
-  (theIsEnabled :pointer))
+  (theIsEnabled :bool))
 
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_CurrentFacingModel" _wrap_PrsMgr_PresentableObject_CurrentFacingModel) :pointer
   (self :pointer))
@@ -1362,7 +1394,7 @@
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_SetCurrentFacingModel__SWIG_1" _wrap_PrsMgr_PresentableObject_SetCurrentFacingModel__SWIG_1) :void
   (self :pointer))
 
-(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_HasColor" _wrap_PrsMgr_PresentableObject_HasColor) :pointer
+(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_HasColor" _wrap_PrsMgr_PresentableObject_HasColor) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_Color" _wrap_PrsMgr_PresentableObject_Color) :void
@@ -1376,20 +1408,20 @@
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_UnsetColor" _wrap_PrsMgr_PresentableObject_UnsetColor) :void
   (self :pointer))
 
-(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_HasWidth" _wrap_PrsMgr_PresentableObject_HasWidth) :pointer
+(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_HasWidth" _wrap_PrsMgr_PresentableObject_HasWidth) :bool
   (self :pointer))
 
-(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_Width" _wrap_PrsMgr_PresentableObject_Width) :pointer
+(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_Width" _wrap_PrsMgr_PresentableObject_Width) :double
   (self :pointer))
 
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_SetWidth" _wrap_PrsMgr_PresentableObject_SetWidth) :void
   (self :pointer)
-  (theWidth :pointer))
+  (theWidth :double))
 
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_UnsetWidth" _wrap_PrsMgr_PresentableObject_UnsetWidth) :void
   (self :pointer))
 
-(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_HasMaterial" _wrap_PrsMgr_PresentableObject_HasMaterial) :pointer
+(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_HasMaterial" _wrap_PrsMgr_PresentableObject_HasMaterial) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_Material" _wrap_PrsMgr_PresentableObject_Material) :pointer
@@ -1402,15 +1434,15 @@
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_UnsetMaterial" _wrap_PrsMgr_PresentableObject_UnsetMaterial) :void
   (self :pointer))
 
-(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_IsTransparent" _wrap_PrsMgr_PresentableObject_IsTransparent) :pointer
+(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_IsTransparent" _wrap_PrsMgr_PresentableObject_IsTransparent) :bool
   (self :pointer))
 
-(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_Transparency" _wrap_PrsMgr_PresentableObject_Transparency) :pointer
+(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_Transparency" _wrap_PrsMgr_PresentableObject_Transparency) :double
   (self :pointer))
 
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_SetTransparency__SWIG_0" _wrap_PrsMgr_PresentableObject_SetTransparency__SWIG_0) :void
   (self :pointer)
-  (aValue :pointer))
+  (aValue :double))
 
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_SetTransparency__SWIG_1" _wrap_PrsMgr_PresentableObject_SetTransparency__SWIG_1) :void
   (self :pointer))
@@ -1418,7 +1450,7 @@
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_UnsetTransparency" _wrap_PrsMgr_PresentableObject_UnsetTransparency) :void
   (self :pointer))
 
-(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_HasPolygonOffsets" _wrap_PrsMgr_PresentableObject_HasPolygonOffsets) :pointer
+(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_HasPolygonOffsets" _wrap_PrsMgr_PresentableObject_HasPolygonOffsets) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_PolygonOffsets" _wrap_PrsMgr_PresentableObject_PolygonOffsets) :void
@@ -1429,35 +1461,29 @@
 
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_SetPolygonOffsets__SWIG_0" _wrap_PrsMgr_PresentableObject_SetPolygonOffsets__SWIG_0) :void
   (self :pointer)
-  (aMode :pointer)
-  (aFactor :pointer)
-  (aUnits :pointer))
+  (aMode :int)
+  (aFactor :float)
+  (aUnits :float))
 
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_SetPolygonOffsets__SWIG_1" _wrap_PrsMgr_PresentableObject_SetPolygonOffsets__SWIG_1) :void
   (self :pointer)
-  (aMode :pointer)
-  (aFactor :pointer))
+  (aMode :int)
+  (aFactor :float))
 
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_SetPolygonOffsets__SWIG_2" _wrap_PrsMgr_PresentableObject_SetPolygonOffsets__SWIG_2) :void
   (self :pointer)
-  (aMode :pointer))
+  (aMode :int))
 
 (cffi:defcfun ("_wrap_PrsMgr_PresentableObject_UnsetAttributes" _wrap_PrsMgr_PresentableObject_UnsetAttributes) :void
   (self :pointer))
 
-(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_DumpJson__SWIG_0" _wrap_PrsMgr_PresentableObject_DumpJson__SWIG_0) :void
-  (self :pointer)
-  (theOStream :pointer)
-  (theDepth :pointer))
-
-(cffi:defcfun ("_wrap_PrsMgr_PresentableObject_DumpJson__SWIG_1" _wrap_PrsMgr_PresentableObject_DumpJson__SWIG_1) :void
-  (self :pointer)
-  (theOStream :pointer))
-
 (cffi:defcfun ("_wrap_SelectMgr_SelectableObject_Delete" _wrap_SelectMgr_SelectableObject_Delete) :void
   (self :pointer))
 
-(cffi:defcfun ("_wrap_SelectMgr_SelectableObject_AcceptShapeDecomposition" _wrap_SelectMgr_SelectableObject_AcceptShapeDecomposition) :pointer
+(cffi:defcfun ("_wrap_SelectMgr_SelectableObject_AcceptShapeDecomposition__SWIG_0" _wrap_SelectMgr_SelectableObject_AcceptShapeDecomposition__SWIG_0) :bool
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_SelectMgr_SelectableObject_AcceptShapeDecomposition__SWIG_1" _wrap_SelectMgr_SelectableObject_AcceptShapeDecomposition__SWIG_1) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_SelectMgr_SelectableObject_RecomputePrimitives__SWIG_0" _wrap_SelectMgr_SelectableObject_RecomputePrimitives__SWIG_0) :void
@@ -1465,27 +1491,27 @@
 
 (cffi:defcfun ("_wrap_SelectMgr_SelectableObject_RecomputePrimitives__SWIG_1" _wrap_SelectMgr_SelectableObject_RecomputePrimitives__SWIG_1) :void
   (self :pointer)
-  (theMode :pointer))
+  (theMode :int))
 
 (cffi:defcfun ("_wrap_SelectMgr_SelectableObject_AddSelection" _wrap_SelectMgr_SelectableObject_AddSelection) :void
   (self :pointer)
   (aSelection :pointer)
-  (aMode :pointer))
+  (aMode :int))
 
 (cffi:defcfun ("_wrap_SelectMgr_SelectableObject_ClearSelections__SWIG_0" _wrap_SelectMgr_SelectableObject_ClearSelections__SWIG_0) :void
   (self :pointer)
-  (update :pointer))
+  (update :bool))
 
 (cffi:defcfun ("_wrap_SelectMgr_SelectableObject_ClearSelections__SWIG_1" _wrap_SelectMgr_SelectableObject_ClearSelections__SWIG_1) :void
   (self :pointer))
 
 (cffi:defcfun ("_wrap_SelectMgr_SelectableObject_Selection" _wrap_SelectMgr_SelectableObject_Selection) :pointer
   (self :pointer)
-  (theMode :pointer))
+  (theMode :int))
 
-(cffi:defcfun ("_wrap_SelectMgr_SelectableObject_HasSelection" _wrap_SelectMgr_SelectableObject_HasSelection) :pointer
+(cffi:defcfun ("_wrap_SelectMgr_SelectableObject_HasSelection" _wrap_SelectMgr_SelectableObject_HasSelection) :bool
   (self :pointer)
-  (theMode :pointer))
+  (theMode :int))
 
 (cffi:defcfun ("_wrap_SelectMgr_SelectableObject_Selections" _wrap_SelectMgr_SelectableObject_Selections) :pointer
   (self :pointer))
@@ -1518,12 +1544,12 @@
   (theStyle :pointer)
   (theOwner :pointer))
 
-(cffi:defcfun ("_wrap_SelectMgr_SelectableObject_IsAutoHilight" _wrap_SelectMgr_SelectableObject_IsAutoHilight) :pointer
+(cffi:defcfun ("_wrap_SelectMgr_SelectableObject_IsAutoHilight" _wrap_SelectMgr_SelectableObject_IsAutoHilight) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_SelectMgr_SelectableObject_SetAutoHilight" _wrap_SelectMgr_SelectableObject_SetAutoHilight) :void
   (self :pointer)
-  (theAutoHilight :pointer))
+  (theAutoHilight :bool))
 
 (cffi:defcfun ("_wrap_SelectMgr_SelectableObject_GetHilightPresentation" _wrap_SelectMgr_SelectableObject_GetHilightPresentation) :pointer
   (self :pointer)
@@ -1535,7 +1561,7 @@
 
 (cffi:defcfun ("_wrap_SelectMgr_SelectableObject_ErasePresentations" _wrap_SelectMgr_SelectableObject_ErasePresentations) :void
   (self :pointer)
-  (theToRemove :pointer))
+  (theToRemove :bool))
 
 (cffi:defcfun ("_wrap_SelectMgr_SelectableObject_SetZLayer" _wrap_SelectMgr_SelectableObject_SetZLayer) :void
   (self :pointer)
@@ -1543,7 +1569,7 @@
 
 (cffi:defcfun ("_wrap_SelectMgr_SelectableObject_UpdateSelection__SWIG_0" _wrap_SelectMgr_SelectableObject_UpdateSelection__SWIG_0) :void
   (self :pointer)
-  (theMode :pointer))
+  (theMode :int))
 
 (cffi:defcfun ("_wrap_SelectMgr_SelectableObject_UpdateSelection__SWIG_1" _wrap_SelectMgr_SelectableObject_UpdateSelection__SWIG_1) :void
   (self :pointer))
@@ -1551,7 +1577,7 @@
 (cffi:defcfun ("_wrap_SelectMgr_SelectableObject_SetAssemblyOwner__SWIG_0" _wrap_SelectMgr_SelectableObject_SetAssemblyOwner__SWIG_0) :void
   (self :pointer)
   (theOwner :pointer)
-  (theMode :pointer))
+  (theMode :int))
 
 (cffi:defcfun ("_wrap_SelectMgr_SelectableObject_SetAssemblyOwner__SWIG_1" _wrap_SelectMgr_SelectableObject_SetAssemblyOwner__SWIG_1) :void
   (self :pointer)
@@ -1561,7 +1587,7 @@
   (self :pointer)
   (theOwners :pointer))
 
-(cffi:defcfun ("_wrap_SelectMgr_SelectableObject_GlobalSelectionMode" _wrap_SelectMgr_SelectableObject_GlobalSelectionMode) :pointer
+(cffi:defcfun ("_wrap_SelectMgr_SelectableObject_GlobalSelectionMode" _wrap_SelectMgr_SelectableObject_GlobalSelectionMode) :int
   (self :pointer))
 
 (cffi:defcfun ("_wrap_SelectMgr_SelectableObject_GlobalSelOwner" _wrap_SelectMgr_SelectableObject_GlobalSelOwner) :pointer
@@ -1570,29 +1596,20 @@
 (cffi:defcfun ("_wrap_SelectMgr_SelectableObject_GetAssemblyOwner" _wrap_SelectMgr_SelectableObject_GetAssemblyOwner) :pointer
   (self :pointer))
 
-(cffi:defcfun ("_wrap_SelectMgr_SelectableObject_DumpJson__SWIG_0" _wrap_SelectMgr_SelectableObject_DumpJson__SWIG_0) :void
-  (self :pointer)
-  (theOStream :pointer)
-  (theDepth :pointer))
-
-(cffi:defcfun ("_wrap_SelectMgr_SelectableObject_DumpJson__SWIG_1" _wrap_SelectMgr_SelectableObject_DumpJson__SWIG_1) :void
-  (self :pointer)
-  (theOStream :pointer))
-
 (cffi:defcfun ("_wrap_AIS_InteractiveObject_Type" _wrap_AIS_InteractiveObject_Type) AIS_KindOfInteractive
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveObject_Signature" _wrap_AIS_InteractiveObject_Signature) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveObject_Signature" _wrap_AIS_InteractiveObject_Signature) :int
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveObject_Redisplay__SWIG_0" _wrap_AIS_InteractiveObject_Redisplay__SWIG_0) :void
   (self :pointer)
-  (AllModes :pointer))
+  (AllModes :bool))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveObject_Redisplay__SWIG_1" _wrap_AIS_InteractiveObject_Redisplay__SWIG_1) :void
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveObject_HasInteractiveContext" _wrap_AIS_InteractiveObject_HasInteractiveContext) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveObject_HasInteractiveContext" _wrap_AIS_InteractiveObject_HasInteractiveContext) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveObject_InteractiveContext" _wrap_AIS_InteractiveObject_InteractiveContext) :pointer
@@ -1602,7 +1619,7 @@
   (self :pointer)
   (aCtx :pointer))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveObject_HasOwner" _wrap_AIS_InteractiveObject_HasOwner) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveObject_HasOwner" _wrap_AIS_InteractiveObject_HasOwner) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveObject_GetOwner" _wrap_AIS_InteractiveObject_GetOwner) :pointer
@@ -1615,7 +1632,7 @@
 (cffi:defcfun ("_wrap_AIS_InteractiveObject_ClearOwner" _wrap_AIS_InteractiveObject_ClearOwner) :void
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveObject_ProcessDragging" _wrap_AIS_InteractiveObject_ProcessDragging) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveObject_ProcessDragging" _wrap_AIS_InteractiveObject_ProcessDragging) :bool
   (self :pointer)
   (theCtx :pointer)
   (theView :pointer)
@@ -1627,34 +1644,25 @@
 (cffi:defcfun ("_wrap_AIS_InteractiveObject_GetContext" _wrap_AIS_InteractiveObject_GetContext) :pointer
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_InteractiveObject_HasPresentation" _wrap_AIS_InteractiveObject_HasPresentation) :pointer
+(cffi:defcfun ("_wrap_AIS_InteractiveObject_HasPresentation" _wrap_AIS_InteractiveObject_HasPresentation) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_InteractiveObject_Presentation" _wrap_AIS_InteractiveObject_Presentation) :pointer
   (self :pointer))
-
-(cffi:defcfun ("_wrap_AIS_InteractiveObject_DumpJson__SWIG_0" _wrap_AIS_InteractiveObject_DumpJson__SWIG_0) :void
-  (self :pointer)
-  (theOStream :pointer)
-  (theDepth :pointer))
-
-(cffi:defcfun ("_wrap_AIS_InteractiveObject_DumpJson__SWIG_1" _wrap_AIS_InteractiveObject_DumpJson__SWIG_1) :void
-  (self :pointer)
-  (theOStream :pointer))
 
 (cffi:defcfun ("_wrap_new_AIS_Axis__SWIG_0" _wrap_new_AIS_Axis__SWIG_0) :pointer
   (aComponent :pointer))
 
 (cffi:defcfun ("_wrap_new_AIS_Axis__SWIG_1" _wrap_new_AIS_Axis__SWIG_1) :pointer
   (aComponent :pointer)
-  (anAxisType :pointer))
+  (anAxisType AIS_TypeOfAxis))
 
 (cffi:defcfun ("_wrap_new_AIS_Axis__SWIG_2" _wrap_new_AIS_Axis__SWIG_2) :pointer
   (anAxis :pointer))
 
 (cffi:defcfun ("_wrap_new_AIS_Axis__SWIG_3" _wrap_new_AIS_Axis__SWIG_3) :pointer
   (theAxis :pointer)
-  (theLength :pointer))
+  (theLength :double))
 
 (cffi:defcfun ("_wrap_new_AIS_Axis__SWIG_4" _wrap_new_AIS_Axis__SWIG_4) :pointer
   (theAxis :pointer))
@@ -1675,27 +1683,27 @@
 (cffi:defcfun ("_wrap_AIS_Axis_SetAxis2Placement" _wrap_AIS_Axis_SetAxis2Placement) :void
   (self :pointer)
   (aComponent :pointer)
-  (anAxisType :pointer))
+  (anAxisType AIS_TypeOfAxis))
 
 (cffi:defcfun ("_wrap_AIS_Axis_SetAxis1Placement" _wrap_AIS_Axis_SetAxis1Placement) :void
   (self :pointer)
   (anAxis :pointer))
 
-(cffi:defcfun ("_wrap_AIS_Axis_TypeOfAxis" _wrap_AIS_Axis_TypeOfAxis) :pointer
+(cffi:defcfun ("_wrap_AIS_Axis_TypeOfAxis" _wrap_AIS_Axis_TypeOfAxis) AIS_TypeOfAxis
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_Axis_SetTypeOfAxis" _wrap_AIS_Axis_SetTypeOfAxis) :void
   (self :pointer)
-  (theTypeAxis :pointer))
+  (theTypeAxis AIS_TypeOfAxis))
 
-(cffi:defcfun ("_wrap_AIS_Axis_IsXYZAxis" _wrap_AIS_Axis_IsXYZAxis) :pointer
+(cffi:defcfun ("_wrap_AIS_Axis_IsXYZAxis" _wrap_AIS_Axis_IsXYZAxis) :bool
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_Axis_AcceptDisplayMode" _wrap_AIS_Axis_AcceptDisplayMode) :pointer
+(cffi:defcfun ("_wrap_AIS_Axis_AcceptDisplayMode" _wrap_AIS_Axis_AcceptDisplayMode) :bool
   (self :pointer)
-  (aMode :pointer))
+  (aMode :int))
 
-(cffi:defcfun ("_wrap_AIS_Axis_Signature" _wrap_AIS_Axis_Signature) :pointer
+(cffi:defcfun ("_wrap_AIS_Axis_Signature" _wrap_AIS_Axis_Signature) :int
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_Axis_Type" _wrap_AIS_Axis_Type) AIS_KindOfInteractive
@@ -1707,7 +1715,7 @@
 
 (cffi:defcfun ("_wrap_AIS_Axis_SetWidth" _wrap_AIS_Axis_SetWidth) :void
   (self :pointer)
-  (aValue :pointer))
+  (aValue :double))
 
 (cffi:defcfun ("_wrap_AIS_Axis_SetDisplayAspect" _wrap_AIS_Axis_SetDisplayAspect) :void
   (self :pointer)
@@ -1735,9 +1743,9 @@
 (cffi:defcfun ("_wrap_AIS_CameraFrustum_UnsetTransparency" _wrap_AIS_CameraFrustum_UnsetTransparency) :void
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_CameraFrustum_AcceptDisplayMode" _wrap_AIS_CameraFrustum_AcceptDisplayMode) :pointer
+(cffi:defcfun ("_wrap_AIS_CameraFrustum_AcceptDisplayMode" _wrap_AIS_CameraFrustum_AcceptDisplayMode) :bool
   (self :pointer)
-  (theMode :pointer))
+  (theMode :int))
 
 (cffi:defcfun ("_wrap_delete_AIS_CameraFrustum" _wrap_delete_AIS_CameraFrustum) :void
   (self :pointer))
@@ -1747,19 +1755,19 @@
 
 (cffi:defcfun ("_wrap_new_AIS_Circle__SWIG_1" _wrap_new_AIS_Circle__SWIG_1) :pointer
   (theCircle :pointer)
-  (theUStart :pointer)
-  (theUEnd :pointer)
-  (theIsFilledCircleSens :pointer))
+  (theUStart :double)
+  (theUEnd :double)
+  (theIsFilledCircleSens :bool))
 
 (cffi:defcfun ("_wrap_new_AIS_Circle__SWIG_2" _wrap_new_AIS_Circle__SWIG_2) :pointer
   (theCircle :pointer)
-  (theUStart :pointer)
-  (theUEnd :pointer))
+  (theUStart :double)
+  (theUEnd :double))
 
 (cffi:defcfun ("_wrap_AIS_Circle_Delete" _wrap_AIS_Circle_Delete) :void
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_Circle_Signature" _wrap_AIS_Circle_Signature) :pointer
+(cffi:defcfun ("_wrap_AIS_Circle_Signature" _wrap_AIS_Circle_Signature) :int
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_Circle_Type" _wrap_AIS_Circle_Type) AIS_KindOfInteractive
@@ -1779,11 +1787,11 @@
 
 (cffi:defcfun ("_wrap_AIS_Circle_SetFirstParam" _wrap_AIS_Circle_SetFirstParam) :void
   (self :pointer)
-  (theU :pointer))
+  (theU :double))
 
 (cffi:defcfun ("_wrap_AIS_Circle_SetLastParam" _wrap_AIS_Circle_SetLastParam) :void
   (self :pointer)
-  (theU :pointer))
+  (theU :double))
 
 (cffi:defcfun ("_wrap_AIS_Circle_SetColor" _wrap_AIS_Circle_SetColor) :void
   (self :pointer)
@@ -1791,7 +1799,7 @@
 
 (cffi:defcfun ("_wrap_AIS_Circle_SetWidth" _wrap_AIS_Circle_SetWidth) :void
   (self :pointer)
-  (aValue :pointer))
+  (aValue :double))
 
 (cffi:defcfun ("_wrap_AIS_Circle_UnsetColor" _wrap_AIS_Circle_UnsetColor) :void
   (self :pointer))
@@ -1799,40 +1807,36 @@
 (cffi:defcfun ("_wrap_AIS_Circle_UnsetWidth" _wrap_AIS_Circle_UnsetWidth) :void
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_Circle_IsFilledCircleSens" _wrap_AIS_Circle_IsFilledCircleSens) :pointer
+(cffi:defcfun ("_wrap_AIS_Circle_IsFilledCircleSens" _wrap_AIS_Circle_IsFilledCircleSens) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_Circle_SetFilledCircleSens" _wrap_AIS_Circle_SetFilledCircleSens) :void
   (self :pointer)
-  (theIsFilledCircleSens :pointer))
-
-(cffi:defcenum Aspect_TypeOfColorScaleData
-	:Aspect_TOCSD_AUTO
-	:Aspect_TOCSD_USER)
+  (theIsFilledCircleSens :bool))
 
 (cffi:defcfun ("_wrap_new_AIS_ColorScale" _wrap_new_AIS_ColorScale) :pointer)
 
 (cffi:defcfun ("_wrap_AIS_ColorScale_Delete" _wrap_AIS_ColorScale_Delete) :void
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_ColorScale_FindColor__SWIG_0" _wrap_AIS_ColorScale_FindColor__SWIG_0) :pointer
+(cffi:defcfun ("_wrap_AIS_ColorScale_FindColor__SWIG_0" _wrap_AIS_ColorScale_FindColor__SWIG_0) :bool
   (self :pointer)
-  (theValue :pointer)
+  (theValue :double)
   (theColor :pointer))
 
-(cffi:defcfun ("_wrap_AIS_ColorScale_GetMin" _wrap_AIS_ColorScale_GetMin) :pointer
+(cffi:defcfun ("_wrap_AIS_ColorScale_GetMin" _wrap_AIS_ColorScale_GetMin) :double
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_ColorScale_SetMin" _wrap_AIS_ColorScale_SetMin) :void
   (self :pointer)
-  (theMin :pointer))
+  (theMin :double))
 
-(cffi:defcfun ("_wrap_AIS_ColorScale_GetMax" _wrap_AIS_ColorScale_GetMax) :pointer
+(cffi:defcfun ("_wrap_AIS_ColorScale_GetMax" _wrap_AIS_ColorScale_GetMax) :double
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_ColorScale_SetMax" _wrap_AIS_ColorScale_SetMax) :void
   (self :pointer)
-  (theMax :pointer))
+  (theMax :double))
 
 (cffi:defcfun ("_wrap_AIS_ColorScale_GetRange" _wrap_AIS_ColorScale_GetRange) :void
   (self :pointer)
@@ -1841,13 +1845,13 @@
 
 (cffi:defcfun ("_wrap_AIS_ColorScale_SetRange" _wrap_AIS_ColorScale_SetRange) :void
   (self :pointer)
-  (theMin :pointer)
-  (theMax :pointer))
+  (theMin :double)
+  (theMax :double))
 
-(cffi:defcfun ("_wrap_AIS_ColorScale_HueMin" _wrap_AIS_ColorScale_HueMin) :pointer
+(cffi:defcfun ("_wrap_AIS_ColorScale_HueMin" _wrap_AIS_ColorScale_HueMin) :double
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_ColorScale_HueMax" _wrap_AIS_ColorScale_HueMax) :pointer
+(cffi:defcfun ("_wrap_AIS_ColorScale_HueMax" _wrap_AIS_ColorScale_HueMax) :double
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_ColorScale_HueRange" _wrap_AIS_ColorScale_HueRange) :void
@@ -1857,8 +1861,8 @@
 
 (cffi:defcfun ("_wrap_AIS_ColorScale_SetHueRange" _wrap_AIS_ColorScale_SetHueRange) :void
   (self :pointer)
-  (theMinAngle :pointer)
-  (theMaxAngle :pointer))
+  (theMinAngle :double)
+  (theMaxAngle :double))
 
 (cffi:defcfun ("_wrap_AIS_ColorScale_ColorRange" _wrap_AIS_ColorScale_ColorRange) :void
   (self :pointer)
@@ -1884,12 +1888,12 @@
   (self :pointer)
   (theType Aspect_TypeOfColorScaleData))
 
-(cffi:defcfun ("_wrap_AIS_ColorScale_GetNumberOfIntervals" _wrap_AIS_ColorScale_GetNumberOfIntervals) :pointer
+(cffi:defcfun ("_wrap_AIS_ColorScale_GetNumberOfIntervals" _wrap_AIS_ColorScale_GetNumberOfIntervals) :int
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_ColorScale_SetNumberOfIntervals" _wrap_AIS_ColorScale_SetNumberOfIntervals) :void
   (self :pointer)
-  (theNum :pointer))
+  (theNum :int))
 
 (cffi:defcfun ("_wrap_AIS_ColorScale_GetTitle" _wrap_AIS_ColorScale_GetTitle) :pointer
   (self :pointer))
@@ -1910,16 +1914,16 @@
 
 (cffi:defcfun ("_wrap_AIS_ColorScale_GetLabel" _wrap_AIS_ColorScale_GetLabel) :pointer
   (self :pointer)
-  (theIndex :pointer))
+  (theIndex :int))
 
 (cffi:defcfun ("_wrap_AIS_ColorScale_GetIntervalColor" _wrap_AIS_ColorScale_GetIntervalColor) :pointer
   (self :pointer)
-  (theIndex :pointer))
+  (theIndex :int))
 
 (cffi:defcfun ("_wrap_AIS_ColorScale_SetIntervalColor" _wrap_AIS_ColorScale_SetIntervalColor) :void
   (self :pointer)
   (theColor :pointer)
-  (theIndex :pointer))
+  (theIndex :int))
 
 (cffi:defcfun ("_wrap_AIS_ColorScale_GetLabels" _wrap_AIS_ColorScale_GetLabels) :void
   (self :pointer)
@@ -1945,52 +1949,52 @@
 
 (cffi:defcfun ("_wrap_AIS_ColorScale_SetUniformColors" _wrap_AIS_ColorScale_SetUniformColors) :void
   (self :pointer)
-  (theLightness :pointer)
-  (theHueFrom :pointer)
-  (theHueTo :pointer))
+  (theLightness :double)
+  (theHueFrom :double)
+  (theHueTo :double))
 
-(cffi:defcfun ("_wrap_AIS_ColorScale_GetLabelPosition" _wrap_AIS_ColorScale_GetLabelPosition) :pointer
+(cffi:defcfun ("_wrap_AIS_ColorScale_GetLabelPosition" _wrap_AIS_ColorScale_GetLabelPosition) Aspect_TypeOfColorScalePosition
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_ColorScale_SetLabelPosition" _wrap_AIS_ColorScale_SetLabelPosition) :void
   (self :pointer)
-  (thePos :pointer))
+  (thePos Aspect_TypeOfColorScalePosition))
 
-(cffi:defcfun ("_wrap_AIS_ColorScale_GetTitlePosition" _wrap_AIS_ColorScale_GetTitlePosition) :pointer
+(cffi:defcfun ("_wrap_AIS_ColorScale_GetTitlePosition" _wrap_AIS_ColorScale_GetTitlePosition) Aspect_TypeOfColorScalePosition
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_ColorScale_IsReversed" _wrap_AIS_ColorScale_IsReversed) :pointer
+(cffi:defcfun ("_wrap_AIS_ColorScale_IsReversed" _wrap_AIS_ColorScale_IsReversed) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_ColorScale_SetReversed" _wrap_AIS_ColorScale_SetReversed) :void
   (self :pointer)
-  (theReverse :pointer))
+  (theReverse :bool))
 
-(cffi:defcfun ("_wrap_AIS_ColorScale_IsSmoothTransition" _wrap_AIS_ColorScale_IsSmoothTransition) :pointer
+(cffi:defcfun ("_wrap_AIS_ColorScale_IsSmoothTransition" _wrap_AIS_ColorScale_IsSmoothTransition) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_ColorScale_SetSmoothTransition" _wrap_AIS_ColorScale_SetSmoothTransition) :void
   (self :pointer)
-  (theIsSmooth :pointer))
+  (theIsSmooth :bool))
 
-(cffi:defcfun ("_wrap_AIS_ColorScale_IsLabelAtBorder" _wrap_AIS_ColorScale_IsLabelAtBorder) :pointer
+(cffi:defcfun ("_wrap_AIS_ColorScale_IsLabelAtBorder" _wrap_AIS_ColorScale_IsLabelAtBorder) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_ColorScale_SetLabelAtBorder" _wrap_AIS_ColorScale_SetLabelAtBorder) :void
   (self :pointer)
-  (theOn :pointer))
+  (theOn :bool))
 
-(cffi:defcfun ("_wrap_AIS_ColorScale_IsLogarithmic" _wrap_AIS_ColorScale_IsLogarithmic) :pointer
+(cffi:defcfun ("_wrap_AIS_ColorScale_IsLogarithmic" _wrap_AIS_ColorScale_IsLogarithmic) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_ColorScale_SetLogarithmic" _wrap_AIS_ColorScale_SetLogarithmic) :void
   (self :pointer)
-  (isLogarithmic :pointer))
+  (isLogarithmic :bool))
 
 (cffi:defcfun ("_wrap_AIS_ColorScale_SetLabel" _wrap_AIS_ColorScale_SetLabel) :void
   (self :pointer)
   (theLabel :pointer)
-  (theIndex :pointer))
+  (theIndex :int))
 
 (cffi:defcfun ("_wrap_AIS_ColorScale_GetSize" _wrap_AIS_ColorScale_GetSize) :void
   (self :pointer)
@@ -1999,22 +2003,22 @@
 
 (cffi:defcfun ("_wrap_AIS_ColorScale_SetSize" _wrap_AIS_ColorScale_SetSize) :void
   (self :pointer)
-  (theBreadth :pointer)
-  (theHeight :pointer))
+  (theBreadth :int)
+  (theHeight :int))
 
-(cffi:defcfun ("_wrap_AIS_ColorScale_GetBreadth" _wrap_AIS_ColorScale_GetBreadth) :pointer
+(cffi:defcfun ("_wrap_AIS_ColorScale_GetBreadth" _wrap_AIS_ColorScale_GetBreadth) :int
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_ColorScale_SetBreadth" _wrap_AIS_ColorScale_SetBreadth) :void
   (self :pointer)
-  (theBreadth :pointer))
+  (theBreadth :int))
 
-(cffi:defcfun ("_wrap_AIS_ColorScale_GetHeight" _wrap_AIS_ColorScale_GetHeight) :pointer
+(cffi:defcfun ("_wrap_AIS_ColorScale_GetHeight" _wrap_AIS_ColorScale_GetHeight) :int
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_ColorScale_SetHeight" _wrap_AIS_ColorScale_SetHeight) :void
   (self :pointer)
-  (theHeight :pointer))
+  (theHeight :int))
 
 (cffi:defcfun ("_wrap_AIS_ColorScale_GetPosition" _wrap_AIS_ColorScale_GetPosition) :void
   (self :pointer)
@@ -2023,84 +2027,85 @@
 
 (cffi:defcfun ("_wrap_AIS_ColorScale_SetPosition" _wrap_AIS_ColorScale_SetPosition) :void
   (self :pointer)
-  (theX :pointer)
-  (theY :pointer))
+  (theX :int)
+  (theY :int))
 
-(cffi:defcfun ("_wrap_AIS_ColorScale_GetXPosition" _wrap_AIS_ColorScale_GetXPosition) :pointer
+(cffi:defcfun ("_wrap_AIS_ColorScale_GetXPosition" _wrap_AIS_ColorScale_GetXPosition) :int
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_ColorScale_SetXPosition" _wrap_AIS_ColorScale_SetXPosition) :void
   (self :pointer)
-  (theX :pointer))
+  (theX :int))
 
-(cffi:defcfun ("_wrap_AIS_ColorScale_GetYPosition" _wrap_AIS_ColorScale_GetYPosition) :pointer
+(cffi:defcfun ("_wrap_AIS_ColorScale_GetYPosition" _wrap_AIS_ColorScale_GetYPosition) :int
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_ColorScale_SetYPosition" _wrap_AIS_ColorScale_SetYPosition) :void
   (self :pointer)
-  (theY :pointer))
+  (theY :int))
 
-(cffi:defcfun ("_wrap_AIS_ColorScale_GetTextHeight" _wrap_AIS_ColorScale_GetTextHeight) :pointer
+(cffi:defcfun ("_wrap_AIS_ColorScale_GetTextHeight" _wrap_AIS_ColorScale_GetTextHeight) :int
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_ColorScale_SetTextHeight" _wrap_AIS_ColorScale_SetTextHeight) :void
   (self :pointer)
-  (theHeight :pointer))
+  (theHeight :int))
 
-(cffi:defcfun ("_wrap_AIS_ColorScale_TextWidth" _wrap_AIS_ColorScale_TextWidth) :pointer
+(cffi:defcfun ("_wrap_AIS_ColorScale_TextWidth" _wrap_AIS_ColorScale_TextWidth) :int
   (self :pointer)
   (theText :pointer))
 
-(cffi:defcfun ("_wrap_AIS_ColorScale_TextHeight" _wrap_AIS_ColorScale_TextHeight) :pointer
+(cffi:defcfun ("_wrap_AIS_ColorScale_TextHeight" _wrap_AIS_ColorScale_TextHeight) :int
   (self :pointer)
   (theText :pointer))
 
 (cffi:defcfun ("_wrap_AIS_ColorScale_TextSize" _wrap_AIS_ColorScale_TextSize) :void
   (self :pointer)
   (theText :pointer)
-  (theHeight :pointer)
+  (theHeight :int)
   (theWidth :pointer)
   (theAscent :pointer)
   (theDescent :pointer))
 
-(cffi:defcfun ("_wrap_AIS_ColorScale_AcceptDisplayMode" _wrap_AIS_ColorScale_AcceptDisplayMode) :pointer
+(cffi:defcfun ("_wrap_AIS_ColorScale_AcceptDisplayMode" _wrap_AIS_ColorScale_AcceptDisplayMode) :bool
   (self :pointer)
-  (theMode :pointer))
+  (theMode :int))
 
 (cffi:defcfun ("_wrap_AIS_ColorScale_Compute" _wrap_AIS_ColorScale_Compute) :void
   (self :pointer)
   (thePrsMgr :pointer)
   (thePresentation :pointer)
-  (theMode :pointer))
+  (theMode :int))
 
-(cffi:defcfun ("_wrap_AIS_ColorScale_FindColor__SWIG_1" _wrap_AIS_ColorScale_FindColor__SWIG_1) :pointer
-  (theValue :pointer)
-  (theMin :pointer)
-  (theMax :pointer)
-  (theColorsCount :pointer)
+(cffi:defcfun ("_wrap_AIS_ColorScale_ComputeSelection" _wrap_AIS_ColorScale_ComputeSelection) :void
+  (self :pointer)
+  (SelectMgr :pointer)
+  (theMode :int))
+
+(cffi:defcfun ("_wrap_AIS_ColorScale_FindColor__SWIG_1" _wrap_AIS_ColorScale_FindColor__SWIG_1) :bool
+  (theValue :double)
+  (theMin :double)
+  (theMax :double)
+  (theColorsCount :int)
   (theColorHlsMin :pointer)
   (theColorHlsMax :pointer)
   (theColor :pointer))
 
-(cffi:defcfun ("_wrap_AIS_ColorScale_FindColor__SWIG_2" _wrap_AIS_ColorScale_FindColor__SWIG_2) :pointer
-  (theValue :pointer)
-  (theMin :pointer)
-  (theMax :pointer)
-  (theColorsCount :pointer)
+(cffi:defcfun ("_wrap_AIS_ColorScale_FindColor__SWIG_2" _wrap_AIS_ColorScale_FindColor__SWIG_2) :bool
+  (theValue :double)
+  (theMin :double)
+  (theMax :double)
+  (theColorsCount :int)
   (theColor :pointer))
 
-(cffi:defcfun ("_wrap_AIS_ColorScale_hueToValidRange" _wrap_AIS_ColorScale_hueToValidRange) :pointer
-  (theHue :pointer))
+(cffi:defcfun ("_wrap_AIS_ColorScale_hueToValidRange" _wrap_AIS_ColorScale_hueToValidRange) :double
+  (theHue :double))
 
 (cffi:defcfun ("_wrap_AIS_ColorScale_MakeUniformColors" _wrap_AIS_ColorScale_MakeUniformColors) :pointer
-  (theNbColors :pointer)
-  (theLightness :pointer)
-  (theHueFrom :pointer)
-  (theHueTo :pointer))
-
-(cffi:defcenum PrsMgr_TypeOfPresentation3d
-	:PrsMgr_TOP_AllView
-	:PrsMgr_TOP_ProjectorDependent)
+  (theNbColors :int)
+  (theLightness :double)
+  (theHueFrom :double)
+  (theHueTo :double))
 
 (cffi:defcfun ("_wrap_new_AIS_ConnectedInteractive__SWIG_0" _wrap_new_AIS_ConnectedInteractive__SWIG_0) :pointer
   (aTypeOfPresentation3d PrsMgr_TypeOfPresentation3d))
@@ -2113,7 +2118,7 @@
 (cffi:defcfun ("_wrap_AIS_ConnectedInteractive_Type" _wrap_AIS_ConnectedInteractive_Type) AIS_KindOfInteractive
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_ConnectedInteractive_Signature" _wrap_AIS_ConnectedInteractive_Signature) :pointer
+(cffi:defcfun ("_wrap_AIS_ConnectedInteractive_Signature" _wrap_AIS_ConnectedInteractive_Signature) :int
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_ConnectedInteractive_Connect__SWIG_0" _wrap_AIS_ConnectedInteractive_Connect__SWIG_0) :void
@@ -2130,7 +2135,7 @@
   (theAnotherObj :pointer)
   (theLocation :pointer))
 
-(cffi:defcfun ("_wrap_AIS_ConnectedInteractive_HasConnection" _wrap_AIS_ConnectedInteractive_HasConnection) :pointer
+(cffi:defcfun ("_wrap_AIS_ConnectedInteractive_HasConnection" _wrap_AIS_ConnectedInteractive_HasConnection) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_ConnectedInteractive_ConnectedTo" _wrap_AIS_ConnectedInteractive_ConnectedTo) :pointer
@@ -2139,12 +2144,12 @@
 (cffi:defcfun ("_wrap_AIS_ConnectedInteractive_Disconnect" _wrap_AIS_ConnectedInteractive_Disconnect) :void
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_ConnectedInteractive_AcceptShapeDecomposition" _wrap_AIS_ConnectedInteractive_AcceptShapeDecomposition) :pointer
+(cffi:defcfun ("_wrap_AIS_ConnectedInteractive_AcceptShapeDecomposition" _wrap_AIS_ConnectedInteractive_AcceptShapeDecomposition) :bool
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_ConnectedInteractive_AcceptDisplayMode" _wrap_AIS_ConnectedInteractive_AcceptDisplayMode) :pointer
+(cffi:defcfun ("_wrap_AIS_ConnectedInteractive_AcceptDisplayMode" _wrap_AIS_ConnectedInteractive_AcceptDisplayMode) :bool
   (self :pointer)
-  (theMode :pointer))
+  (theMode :int))
 
 (cffi:defcfun ("_wrap_new_AIS_LightSource" _wrap_new_AIS_LightSource) :pointer
   (theLightSource :pointer))
@@ -2156,33 +2161,33 @@
   (self :pointer)
   (theLight :pointer))
 
-(cffi:defcfun ("_wrap_AIS_LightSource_ToDisplayName" _wrap_AIS_LightSource_ToDisplayName) :pointer
+(cffi:defcfun ("_wrap_AIS_LightSource_ToDisplayName" _wrap_AIS_LightSource_ToDisplayName) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_LightSource_SetDisplayName" _wrap_AIS_LightSource_SetDisplayName) :void
   (self :pointer)
-  (theToDisplay :pointer))
+  (theToDisplay :bool))
 
-(cffi:defcfun ("_wrap_AIS_LightSource_ToDisplayRange" _wrap_AIS_LightSource_ToDisplayRange) :pointer
+(cffi:defcfun ("_wrap_AIS_LightSource_ToDisplayRange" _wrap_AIS_LightSource_ToDisplayRange) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_LightSource_SetDisplayRange" _wrap_AIS_LightSource_SetDisplayRange) :void
   (self :pointer)
-  (theToDisplay :pointer))
+  (theToDisplay :bool))
 
-(cffi:defcfun ("_wrap_AIS_LightSource_Size" _wrap_AIS_LightSource_Size) :pointer
+(cffi:defcfun ("_wrap_AIS_LightSource_Size" _wrap_AIS_LightSource_Size) :double
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_LightSource_SetSize" _wrap_AIS_LightSource_SetSize) :void
   (self :pointer)
-  (theSize :pointer))
+  (theSize :double))
 
-(cffi:defcfun ("_wrap_AIS_LightSource_ArcSize" _wrap_AIS_LightSource_ArcSize) :pointer
+(cffi:defcfun ("_wrap_AIS_LightSource_ArcSize" _wrap_AIS_LightSource_ArcSize) :int
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_LightSource_SetArcSize" _wrap_AIS_LightSource_SetArcSize) :void
   (self :pointer)
-  (theSize :pointer))
+  (theSize :int))
 
 (cffi:defcfun ("_wrap_AIS_LightSource_IsZoomable" _wrap_AIS_LightSource_IsZoomable) :bool
   (self :pointer))
@@ -2202,12 +2207,12 @@
   (self :pointer)
   (theToHandle :bool))
 
-(cffi:defcfun ("_wrap_AIS_LightSource_NbArrows" _wrap_AIS_LightSource_NbArrows) :pointer
+(cffi:defcfun ("_wrap_AIS_LightSource_NbArrows" _wrap_AIS_LightSource_NbArrows) :int
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_LightSource_SetNbArrows" _wrap_AIS_LightSource_SetNbArrows) :void
   (self :pointer)
-  (theNbArrows :pointer))
+  (theNbArrows :int))
 
 (cffi:defcfun ("_wrap_AIS_LightSource_MarkerImage" _wrap_AIS_LightSource_MarkerImage) :pointer
   (self :pointer)
@@ -2227,19 +2232,19 @@
   (theType :pointer)
   (theIsEnabled :bool))
 
-(cffi:defcfun ("_wrap_AIS_LightSource_NbSplitsQuadric" _wrap_AIS_LightSource_NbSplitsQuadric) :pointer
+(cffi:defcfun ("_wrap_AIS_LightSource_NbSplitsQuadric" _wrap_AIS_LightSource_NbSplitsQuadric) :int
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_LightSource_SetNbSplitsQuadric" _wrap_AIS_LightSource_SetNbSplitsQuadric) :void
   (self :pointer)
-  (theNbSplits :pointer))
+  (theNbSplits :int))
 
-(cffi:defcfun ("_wrap_AIS_LightSource_NbSplitsArrow" _wrap_AIS_LightSource_NbSplitsArrow) :pointer
+(cffi:defcfun ("_wrap_AIS_LightSource_NbSplitsArrow" _wrap_AIS_LightSource_NbSplitsArrow) :int
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_LightSource_SetNbSplitsArrow" _wrap_AIS_LightSource_SetNbSplitsArrow) :void
   (self :pointer)
-  (theNbSplits :pointer))
+  (theNbSplits :int))
 
 (cffi:defcfun ("_wrap_AIS_LightSource_Type" _wrap_AIS_LightSource_Type) AIS_KindOfInteractive
   (self :pointer))
@@ -2247,13 +2252,17 @@
 (cffi:defcfun ("_wrap_delete_AIS_LightSource" _wrap_delete_AIS_LightSource) :void
   (self :pointer))
 
-(cffi:defcfun ("_wrap_new_AIS_Line" _wrap_new_AIS_Line) :pointer
+(cffi:defcfun ("_wrap_new_AIS_Line__SWIG_0" _wrap_new_AIS_Line__SWIG_0) :pointer
   (aLine :pointer))
+
+(cffi:defcfun ("_wrap_new_AIS_Line__SWIG_1" _wrap_new_AIS_Line__SWIG_1) :pointer
+  (aStartPoint :pointer)
+  (aEndPoint :pointer))
 
 (cffi:defcfun ("_wrap_AIS_Line_Delete" _wrap_AIS_Line_Delete) :void
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_Line_Signature" _wrap_AIS_Line_Signature) :pointer
+(cffi:defcfun ("_wrap_AIS_Line_Signature" _wrap_AIS_Line_Signature) :int
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_Line_Type" _wrap_AIS_Line_Type) AIS_KindOfInteractive
@@ -2262,10 +2271,11 @@
 (cffi:defcfun ("_wrap_AIS_Line_Line" _wrap_AIS_Line_Line) :pointer
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_Line_Points" _wrap_AIS_Line_Points) :void
-  (self :pointer)
-  (thePStart :pointer)
-  (thePEnd :pointer))
+(cffi:defcfun ("_wrap_AIS_Line_StartPoint" _wrap_AIS_Line_StartPoint) :pointer
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_AIS_Line_EndPoint" _wrap_AIS_Line_EndPoint) :pointer
+  (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_Line_SetLine" _wrap_AIS_Line_SetLine) :void
   (self :pointer)
@@ -2282,7 +2292,7 @@
 
 (cffi:defcfun ("_wrap_AIS_Line_SetWidth" _wrap_AIS_Line_SetWidth) :void
   (self :pointer)
-  (aValue :pointer))
+  (aValue :double))
 
 (cffi:defcfun ("_wrap_AIS_Line_UnsetColor" _wrap_AIS_Line_UnsetColor) :void
   (self :pointer))
@@ -2300,20 +2310,30 @@
 
 (cffi:defcfun ("_wrap_AIS_Manipulator_SetPart__SWIG_0" _wrap_AIS_Manipulator_SetPart__SWIG_0) :void
   (self :pointer)
-  (theAxisIndex :pointer)
+  (theAxisIndex :int)
   (theMode :pointer)
-  (theIsEnabled :pointer))
+  (theIsEnabled :bool))
 
 (cffi:defcfun ("_wrap_AIS_Manipulator_SetPart__SWIG_1" _wrap_AIS_Manipulator_SetPart__SWIG_1) :void
   (self :pointer)
   (theMode :pointer)
-  (theIsEnabled :pointer))
+  (theIsEnabled :bool))
 
 (cffi:defcfun ("_wrap_AIS_Manipulator_Attach__SWIG_0" _wrap_AIS_Manipulator_Attach__SWIG_0) :void
   (self :pointer)
-  (theObject :pointer))
+  (theObject :pointer)
+  (theOptions :pointer))
 
 (cffi:defcfun ("_wrap_AIS_Manipulator_Attach__SWIG_1" _wrap_AIS_Manipulator_Attach__SWIG_1) :void
+  (self :pointer)
+  (theObject :pointer))
+
+(cffi:defcfun ("_wrap_AIS_Manipulator_Attach__SWIG_2" _wrap_AIS_Manipulator_Attach__SWIG_2) :void
+  (self :pointer)
+  (theObject :pointer)
+  (theOptions :pointer))
+
+(cffi:defcfun ("_wrap_AIS_Manipulator_Attach__SWIG_3" _wrap_AIS_Manipulator_Attach__SWIG_3) :void
   (self :pointer)
   (theObject :pointer))
 
@@ -2323,12 +2343,12 @@
 
 (cffi:defcfun ("_wrap_AIS_Manipulator_SetModeActivationOnDetection" _wrap_AIS_Manipulator_SetModeActivationOnDetection) :void
   (self :pointer)
-  (theToEnable :pointer))
+  (theToEnable :bool))
 
-(cffi:defcfun ("_wrap_AIS_Manipulator_IsModeActivationOnDetection" _wrap_AIS_Manipulator_IsModeActivationOnDetection) :pointer
+(cffi:defcfun ("_wrap_AIS_Manipulator_IsModeActivationOnDetection" _wrap_AIS_Manipulator_IsModeActivationOnDetection) :bool
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_Manipulator_ProcessDragging" _wrap_AIS_Manipulator_ProcessDragging) :pointer
+(cffi:defcfun ("_wrap_AIS_Manipulator_ProcessDragging" _wrap_AIS_Manipulator_ProcessDragging) :bool
   (self :pointer)
   (theCtx :pointer)
   (theView :pointer)
@@ -2339,31 +2359,39 @@
 
 (cffi:defcfun ("_wrap_AIS_Manipulator_StartTransform" _wrap_AIS_Manipulator_StartTransform) :void
   (self :pointer)
-  (theX :pointer)
-  (theY :pointer)
+  (theX :int)
+  (theY :int)
   (theView :pointer))
 
 (cffi:defcfun ("_wrap_AIS_Manipulator_Transform__SWIG_0" _wrap_AIS_Manipulator_Transform__SWIG_0) :void
   (self :pointer)
   (aTrsf :pointer))
 
+(cffi:defcfun ("_wrap_AIS_Manipulator_RecomputeTransformation" _wrap_AIS_Manipulator_RecomputeTransformation) :void
+  (self :pointer)
+  (theCamera :pointer))
+
+(cffi:defcfun ("_wrap_AIS_Manipulator_RecomputeSelection" _wrap_AIS_Manipulator_RecomputeSelection) :void
+  (self :pointer)
+  (theMode :pointer))
+
 (cffi:defcfun ("_wrap_AIS_Manipulator_StopTransform__SWIG_0" _wrap_AIS_Manipulator_StopTransform__SWIG_0) :void
   (self :pointer)
-  (theToApply :pointer))
+  (theToApply :bool))
 
 (cffi:defcfun ("_wrap_AIS_Manipulator_StopTransform__SWIG_1" _wrap_AIS_Manipulator_StopTransform__SWIG_1) :void
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_Manipulator_Transform__SWIG_1" _wrap_AIS_Manipulator_Transform__SWIG_1) :pointer
   (self :pointer)
-  (theX :pointer)
-  (theY :pointer)
+  (theX :int)
+  (theY :int)
   (theView :pointer))
 
-(cffi:defcfun ("_wrap_AIS_Manipulator_ObjectTransformation" _wrap_AIS_Manipulator_ObjectTransformation) :pointer
+(cffi:defcfun ("_wrap_AIS_Manipulator_ObjectTransformation" _wrap_AIS_Manipulator_ObjectTransformation) :bool
   (self :pointer)
-  (theX :pointer)
-  (theY :pointer)
+  (theX :int)
+  (theY :int)
   (theView :pointer)
   (theTrsf :pointer))
 
@@ -2381,15 +2409,15 @@
 
 (cffi:defcfun ("_wrap_AIS_Manipulator_Object__SWIG_1" _wrap_AIS_Manipulator_Object__SWIG_1) :pointer
   (self :pointer)
-  (theIndex :pointer))
+  (theIndex :int))
 
-(cffi:defcfun ("_wrap_AIS_Manipulator_IsAttached" _wrap_AIS_Manipulator_IsAttached) :pointer
+(cffi:defcfun ("_wrap_AIS_Manipulator_IsAttached" _wrap_AIS_Manipulator_IsAttached) :bool
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_Manipulator_HasActiveMode" _wrap_AIS_Manipulator_HasActiveMode) :pointer
+(cffi:defcfun ("_wrap_AIS_Manipulator_HasActiveMode" _wrap_AIS_Manipulator_HasActiveMode) :bool
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_Manipulator_HasActiveTransformation" _wrap_AIS_Manipulator_HasActiveTransformation) :pointer
+(cffi:defcfun ("_wrap_AIS_Manipulator_HasActiveTransformation" _wrap_AIS_Manipulator_HasActiveTransformation) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_Manipulator_StartTransformation__SWIG_0" _wrap_AIS_Manipulator_StartTransformation__SWIG_0) :pointer
@@ -2397,23 +2425,27 @@
 
 (cffi:defcfun ("_wrap_AIS_Manipulator_StartTransformation__SWIG_1" _wrap_AIS_Manipulator_StartTransformation__SWIG_1) :pointer
   (self :pointer)
-  (theIndex :pointer))
+  (theIndex :int))
 
 (cffi:defcfun ("_wrap_AIS_Manipulator_SetZoomPersistence" _wrap_AIS_Manipulator_SetZoomPersistence) :void
   (self :pointer)
-  (theToEnable :pointer))
+  (theToEnable :bool))
 
-(cffi:defcfun ("_wrap_AIS_Manipulator_ZoomPersistence" _wrap_AIS_Manipulator_ZoomPersistence) :pointer
+(cffi:defcfun ("_wrap_AIS_Manipulator_ZoomPersistence" _wrap_AIS_Manipulator_ZoomPersistence) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_Manipulator_SetTransformPersistence" _wrap_AIS_Manipulator_SetTransformPersistence) :void
   (self :pointer)
   (theTrsfPers :pointer))
 
+(cffi:defcfun ("_wrap_AIS_Manipulator_SetSkinMode" _wrap_AIS_Manipulator_SetSkinMode) :void
+  (self :pointer)
+  (theSkinMode :pointer))
+
 (cffi:defcfun ("_wrap_AIS_Manipulator_ActiveMode" _wrap_AIS_Manipulator_ActiveMode) :pointer
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_Manipulator_ActiveAxisIndex" _wrap_AIS_Manipulator_ActiveAxisIndex) :pointer
+(cffi:defcfun ("_wrap_AIS_Manipulator_ActiveAxisIndex" _wrap_AIS_Manipulator_ActiveAxisIndex) :int
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_Manipulator_Position" _wrap_AIS_Manipulator_Position) :pointer
@@ -2423,22 +2455,32 @@
   (self :pointer)
   (thePosition :pointer))
 
-(cffi:defcfun ("_wrap_AIS_Manipulator_Size" _wrap_AIS_Manipulator_Size) :pointer
+(cffi:defcfun ("_wrap_AIS_Manipulator_Size" _wrap_AIS_Manipulator_Size) :float
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_Manipulator_SetSize" _wrap_AIS_Manipulator_SetSize) :void
   (self :pointer)
-  (theSideLength :pointer))
+  (theSideLength :float))
 
 (cffi:defcfun ("_wrap_AIS_Manipulator_SetGap" _wrap_AIS_Manipulator_SetGap) :void
   (self :pointer)
-  (theValue :pointer))
+  (theValue :float))
+
+(cffi:defcfun ("_wrap_AIS_Manipulator_SetTransformBehavior" _wrap_AIS_Manipulator_SetTransformBehavior) :void
+  (self :pointer)
+  (theSettings :pointer))
+
+(cffi:defcfun ("_wrap_AIS_Manipulator_ChangeTransformBehavior" _wrap_AIS_Manipulator_ChangeTransformBehavior) :pointer
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_AIS_Manipulator_TransformBehavior" _wrap_AIS_Manipulator_TransformBehavior) :pointer
+  (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_Manipulator_Compute__SWIG_0" _wrap_AIS_Manipulator_Compute__SWIG_0) :void
   (self :pointer)
   (thePrsMgr :pointer)
   (thePrs :pointer)
-  (theMode :pointer))
+  (theMode :int))
 
 (cffi:defcfun ("_wrap_AIS_Manipulator_Compute__SWIG_1" _wrap_AIS_Manipulator_Compute__SWIG_1) :void
   (self :pointer)
@@ -2448,9 +2490,9 @@
 (cffi:defcfun ("_wrap_AIS_Manipulator_ComputeSelection" _wrap_AIS_Manipulator_ComputeSelection) :void
   (self :pointer)
   (theSelection :pointer)
-  (theMode :pointer))
+  (theMode :int))
 
-(cffi:defcfun ("_wrap_AIS_Manipulator_IsAutoHilight" _wrap_AIS_Manipulator_IsAutoHilight) :pointer
+(cffi:defcfun ("_wrap_AIS_Manipulator_IsAutoHilight" _wrap_AIS_Manipulator_IsAutoHilight) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_Manipulator_ClearSelected" _wrap_AIS_Manipulator_ClearSelected) :void
@@ -2480,7 +2522,7 @@
 (cffi:defcfun ("_wrap_AIS_MediaPlayer_OpenInput" _wrap_AIS_MediaPlayer_OpenInput) :void
   (self :pointer)
   (thePath :pointer)
-  (theToWait :pointer))
+  (theToWait :bool))
 
 (cffi:defcfun ("_wrap_AIS_MediaPlayer_PresentFrame" _wrap_AIS_MediaPlayer_PresentFrame) :bool
   (self :pointer)
@@ -2513,10 +2555,10 @@
 (cffi:defcfun ("_wrap_AIS_MultipleConnectedInteractive_Type" _wrap_AIS_MultipleConnectedInteractive_Type) AIS_KindOfInteractive
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_MultipleConnectedInteractive_Signature" _wrap_AIS_MultipleConnectedInteractive_Signature) :pointer
+(cffi:defcfun ("_wrap_AIS_MultipleConnectedInteractive_Signature" _wrap_AIS_MultipleConnectedInteractive_Signature) :int
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_MultipleConnectedInteractive_HasConnection" _wrap_AIS_MultipleConnectedInteractive_HasConnection) :pointer
+(cffi:defcfun ("_wrap_AIS_MultipleConnectedInteractive_HasConnection" _wrap_AIS_MultipleConnectedInteractive_HasConnection) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_MultipleConnectedInteractive_Disconnect" _wrap_AIS_MultipleConnectedInteractive_Disconnect) :void
@@ -2526,7 +2568,7 @@
 (cffi:defcfun ("_wrap_AIS_MultipleConnectedInteractive_DisconnectAll" _wrap_AIS_MultipleConnectedInteractive_DisconnectAll) :void
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_MultipleConnectedInteractive_AcceptShapeDecomposition" _wrap_AIS_MultipleConnectedInteractive_AcceptShapeDecomposition) :pointer
+(cffi:defcfun ("_wrap_AIS_MultipleConnectedInteractive_AcceptShapeDecomposition" _wrap_AIS_MultipleConnectedInteractive_AcceptShapeDecomposition) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_MultipleConnectedInteractive_GetAssemblyOwner" _wrap_AIS_MultipleConnectedInteractive_GetAssemblyOwner) :pointer
@@ -2554,19 +2596,9 @@
   (theLocation :pointer)
   (theTrsfPers :pointer))
 
-(cffi:defcenum Select3D_TypeOfSensitivity
-	:Select3D_TOS_INTERIOR
-	:Select3D_TOS_BOUNDARY)
-
-(cffi:defcenum AIS_TypeOfPlane
-	:AIS_TOPL_Unknown
-	:AIS_TOPL_XYPlane
-	:AIS_TOPL_XZPlane
-	:AIS_TOPL_YZPlane)
-
 (cffi:defcfun ("_wrap_new_AIS_Plane__SWIG_0" _wrap_new_AIS_Plane__SWIG_0) :pointer
   (aComponent :pointer)
-  (aCurrentMode :pointer))
+  (aCurrentMode :bool))
 
 (cffi:defcfun ("_wrap_new_AIS_Plane__SWIG_1" _wrap_new_AIS_Plane__SWIG_1) :pointer
   (aComponent :pointer))
@@ -2574,7 +2606,7 @@
 (cffi:defcfun ("_wrap_new_AIS_Plane__SWIG_2" _wrap_new_AIS_Plane__SWIG_2) :pointer
   (aComponent :pointer)
   (aCenter :pointer)
-  (aCurrentMode :pointer))
+  (aCurrentMode :bool))
 
 (cffi:defcfun ("_wrap_new_AIS_Plane__SWIG_3" _wrap_new_AIS_Plane__SWIG_3) :pointer
   (aComponent :pointer)
@@ -2585,7 +2617,7 @@
   (aCenter :pointer)
   (aPmin :pointer)
   (aPmax :pointer)
-  (aCurrentMode :pointer))
+  (aCurrentMode :bool))
 
 (cffi:defcfun ("_wrap_new_AIS_Plane__SWIG_5" _wrap_new_AIS_Plane__SWIG_5) :pointer
   (aComponent :pointer)
@@ -2596,7 +2628,7 @@
 (cffi:defcfun ("_wrap_new_AIS_Plane__SWIG_6" _wrap_new_AIS_Plane__SWIG_6) :pointer
   (aComponent :pointer)
   (aPlaneType AIS_TypeOfPlane)
-  (aCurrentMode :pointer))
+  (aCurrentMode :bool))
 
 (cffi:defcfun ("_wrap_new_AIS_Plane__SWIG_7" _wrap_new_AIS_Plane__SWIG_7) :pointer
   (aComponent :pointer)
@@ -2607,35 +2639,35 @@
 
 (cffi:defcfun ("_wrap_AIS_Plane_SetSize__SWIG_0" _wrap_AIS_Plane_SetSize__SWIG_0) :void
   (self :pointer)
-  (aValue :pointer))
+  (aValue :double))
 
 (cffi:defcfun ("_wrap_AIS_Plane_SetSize__SWIG_1" _wrap_AIS_Plane_SetSize__SWIG_1) :void
   (self :pointer)
-  (Xval :pointer)
-  (YVal :pointer))
+  (Xval :double)
+  (YVal :double))
 
 (cffi:defcfun ("_wrap_AIS_Plane_UnsetSize" _wrap_AIS_Plane_UnsetSize) :void
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_Plane_Size" _wrap_AIS_Plane_Size) :pointer
+(cffi:defcfun ("_wrap_AIS_Plane_Size" _wrap_AIS_Plane_Size) :bool
   (self :pointer)
   (X :pointer)
   (Y :pointer))
 
-(cffi:defcfun ("_wrap_AIS_Plane_HasOwnSize" _wrap_AIS_Plane_HasOwnSize) :pointer
+(cffi:defcfun ("_wrap_AIS_Plane_HasOwnSize" _wrap_AIS_Plane_HasOwnSize) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_Plane_SetMinimumSize" _wrap_AIS_Plane_SetMinimumSize) :void
   (self :pointer)
-  (theValue :pointer))
+  (theValue :double))
 
 (cffi:defcfun ("_wrap_AIS_Plane_UnsetMinimumSize" _wrap_AIS_Plane_UnsetMinimumSize) :void
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_Plane_HasMinimumSize" _wrap_AIS_Plane_HasMinimumSize) :pointer
+(cffi:defcfun ("_wrap_AIS_Plane_HasMinimumSize" _wrap_AIS_Plane_HasMinimumSize) :bool
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_Plane_Signature" _wrap_AIS_Plane_Signature) :pointer
+(cffi:defcfun ("_wrap_AIS_Plane_Signature" _wrap_AIS_Plane_Signature) :int
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_Plane_Type" _wrap_AIS_Plane_Type) AIS_KindOfInteractive
@@ -2648,7 +2680,7 @@
   (self :pointer)
   (aComponent :pointer))
 
-(cffi:defcfun ("_wrap_AIS_Plane_PlaneAttributes" _wrap_AIS_Plane_PlaneAttributes) :pointer
+(cffi:defcfun ("_wrap_AIS_Plane_PlaneAttributes" _wrap_AIS_Plane_PlaneAttributes) :bool
   (self :pointer)
   (aComponent :pointer)
   (aCenter :pointer)
@@ -2680,19 +2712,19 @@
 (cffi:defcfun ("_wrap_AIS_Plane_TypeOfPlane" _wrap_AIS_Plane_TypeOfPlane) AIS_TypeOfPlane
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_Plane_IsXYZPlane" _wrap_AIS_Plane_IsXYZPlane) :pointer
+(cffi:defcfun ("_wrap_AIS_Plane_IsXYZPlane" _wrap_AIS_Plane_IsXYZPlane) :bool
   (self :pointer))
 
-(cffi:defcfun ("_wrap_AIS_Plane_CurrentMode" _wrap_AIS_Plane_CurrentMode) :pointer
+(cffi:defcfun ("_wrap_AIS_Plane_CurrentMode" _wrap_AIS_Plane_CurrentMode) :bool
   (self :pointer))
 
 (cffi:defcfun ("_wrap_AIS_Plane_SetCurrentMode" _wrap_AIS_Plane_SetCurrentMode) :void
   (self :pointer)
-  (theCurrentMode :pointer))
+  (theCurrentMode :bool))
 
-(cffi:defcfun ("_wrap_AIS_Plane_AcceptDisplayMode" _wrap_AIS_Plane_AcceptDisplayMode) :pointer
+(cffi:defcfun ("_wrap_AIS_Plane_AcceptDisplayMode" _wrap_AIS_Plane_AcceptDisplayMode) :bool
   (self :pointer)
-  (aMode :pointer))
+  (aMode :int))
 
 (cffi:defcfun ("_wrap_AIS_Plane_SetContext" _wrap_AIS_Plane_SetContext) :void
   (self :pointer)
@@ -2708,13 +2740,362 @@
 (cffi:defcfun ("_wrap_AIS_Plane_ComputeSelection" _wrap_AIS_Plane_ComputeSelection) :void
   (self :pointer)
   (theSelection :pointer)
-  (theMode :pointer))
+  (theMode :int))
 
 (cffi:defcfun ("_wrap_AIS_Plane_SetColor" _wrap_AIS_Plane_SetColor) :void
   (self :pointer)
   (aColor :pointer))
 
 (cffi:defcfun ("_wrap_AIS_Plane_UnsetColor" _wrap_AIS_Plane_UnsetColor) :void
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_new_AIS_Shape" _wrap_new_AIS_Shape) :pointer
+  (shap :pointer))
+
+(cffi:defcfun ("_wrap_AIS_Shape_Delete" _wrap_AIS_Shape_Delete) :void
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_AIS_Shape_Signature" _wrap_AIS_Shape_Signature) :int
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_AIS_Shape_Type" _wrap_AIS_Shape_Type) AIS_KindOfInteractive
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_AIS_Shape_AcceptShapeDecomposition" _wrap_AIS_Shape_AcceptShapeDecomposition) :bool
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_AIS_Shape_AcceptDisplayMode" _wrap_AIS_Shape_AcceptDisplayMode) :bool
+  (self :pointer)
+  (theMode :int))
+
+(cffi:defcfun ("_wrap_AIS_Shape_Shape" _wrap_AIS_Shape_Shape) :pointer
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_AIS_Shape_SetShape" _wrap_AIS_Shape_SetShape) :void
+  (self :pointer)
+  (theShape :pointer))
+
+(cffi:defcfun ("_wrap_AIS_Shape_Set" _wrap_AIS_Shape_Set) :void
+  (self :pointer)
+  (theShape :pointer))
+
+(cffi:defcfun ("_wrap_AIS_Shape_SetOwnDeviationCoefficient__SWIG_0" _wrap_AIS_Shape_SetOwnDeviationCoefficient__SWIG_0) :bool
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_AIS_Shape_SetOwnDeviationAngle__SWIG_0" _wrap_AIS_Shape_SetOwnDeviationAngle__SWIG_0) :bool
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_AIS_Shape_SetOwnDeviationCoefficient__SWIG_1" _wrap_AIS_Shape_SetOwnDeviationCoefficient__SWIG_1) :void
+  (self :pointer)
+  (aCoefficient :double))
+
+(cffi:defcfun ("_wrap_AIS_Shape_SetAngleAndDeviation" _wrap_AIS_Shape_SetAngleAndDeviation) :void
+  (self :pointer)
+  (anAngle :double))
+
+(cffi:defcfun ("_wrap_AIS_Shape_UserAngle" _wrap_AIS_Shape_UserAngle) :double
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_AIS_Shape_SetOwnDeviationAngle__SWIG_1" _wrap_AIS_Shape_SetOwnDeviationAngle__SWIG_1) :void
+  (self :pointer)
+  (anAngle :double))
+
+(cffi:defcfun ("_wrap_AIS_Shape_OwnDeviationCoefficient" _wrap_AIS_Shape_OwnDeviationCoefficient) :bool
+  (self :pointer)
+  (aCoefficient :pointer)
+  (aPreviousCoefficient :pointer))
+
+(cffi:defcfun ("_wrap_AIS_Shape_OwnDeviationAngle" _wrap_AIS_Shape_OwnDeviationAngle) :bool
+  (self :pointer)
+  (anAngle :pointer)
+  (aPreviousAngle :pointer))
+
+(cffi:defcfun ("_wrap_AIS_Shape_SetTypeOfHLR" _wrap_AIS_Shape_SetTypeOfHLR) :void
+  (self :pointer)
+  (theTypeOfHLR :pointer))
+
+(cffi:defcfun ("_wrap_AIS_Shape_TypeOfHLR" _wrap_AIS_Shape_TypeOfHLR) :pointer
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_AIS_Shape_SetColor" _wrap_AIS_Shape_SetColor) :void
+  (self :pointer)
+  (theColor :pointer))
+
+(cffi:defcfun ("_wrap_AIS_Shape_UnsetColor" _wrap_AIS_Shape_UnsetColor) :void
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_AIS_Shape_SetWidth" _wrap_AIS_Shape_SetWidth) :void
+  (self :pointer)
+  (aValue :double))
+
+(cffi:defcfun ("_wrap_AIS_Shape_UnsetWidth" _wrap_AIS_Shape_UnsetWidth) :void
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_AIS_Shape_SetMaterial" _wrap_AIS_Shape_SetMaterial) :void
+  (self :pointer)
+  (aName :pointer))
+
+(cffi:defcfun ("_wrap_AIS_Shape_UnsetMaterial" _wrap_AIS_Shape_UnsetMaterial) :void
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_AIS_Shape_SetTransparency" _wrap_AIS_Shape_SetTransparency) :void
+  (self :pointer)
+  (aValue :double))
+
+(cffi:defcfun ("_wrap_AIS_Shape_UnsetTransparency" _wrap_AIS_Shape_UnsetTransparency) :void
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_AIS_Shape_BoundingBox" _wrap_AIS_Shape_BoundingBox) :pointer
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_AIS_Shape_Color" _wrap_AIS_Shape_Color) :void
+  (self :pointer)
+  (aColor :pointer))
+
+(cffi:defcfun ("_wrap_AIS_Shape_Material" _wrap_AIS_Shape_Material) :pointer
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_AIS_Shape_Transparency" _wrap_AIS_Shape_Transparency) :double
+  (self :pointer))
+
+(cffi:defcenum Graphic3d_NameOfMaterial
+	:Graphic3d_NameOfMaterial_Brass
+	:Graphic3d_NameOfMaterial_Bronze
+	:Graphic3d_NameOfMaterial_Copper
+	:Graphic3d_NameOfMaterial_Gold
+	:Graphic3d_NameOfMaterial_Pewter
+	:Graphic3d_NameOfMaterial_Plastered
+	:Graphic3d_NameOfMaterial_Plastified
+	:Graphic3d_NameOfMaterial_Silver
+	:Graphic3d_NameOfMaterial_Steel
+	:Graphic3d_NameOfMaterial_Stone
+	:Graphic3d_NameOfMaterial_ShinyPlastified
+	:Graphic3d_NameOfMaterial_Satin
+	:Graphic3d_NameOfMaterial_Metalized
+	:Graphic3d_NameOfMaterial_Ionized
+	:Graphic3d_NameOfMaterial_Chrome
+	:Graphic3d_NameOfMaterial_Aluminum
+	:Graphic3d_NameOfMaterial_Obsidian
+	:Graphic3d_NameOfMaterial_Neon
+	:Graphic3d_NameOfMaterial_Jade
+	:Graphic3d_NameOfMaterial_Charcoal
+	:Graphic3d_NameOfMaterial_Water
+	:Graphic3d_NameOfMaterial_Glass
+	:Graphic3d_NameOfMaterial_Diamond
+	:Graphic3d_NameOfMaterial_Transparent
+	:Graphic3d_NameOfMaterial_DEFAULT
+	:Graphic3d_NameOfMaterial_UserDefined
+	(:Graphic3d_NOM_BRASS #.Graphic3d_NameOfMaterial_Brass)
+	(:Graphic3d_NOM_BRONZE #.Graphic3d_NameOfMaterial_Bronze)
+	(:Graphic3d_NOM_COPPER #.Graphic3d_NameOfMaterial_Copper)
+	(:Graphic3d_NOM_GOLD #.Graphic3d_NameOfMaterial_Gold)
+	(:Graphic3d_NOM_PEWTER #.Graphic3d_NameOfMaterial_Pewter)
+	(:Graphic3d_NOM_PLASTER #.Graphic3d_NameOfMaterial_Plastered)
+	(:Graphic3d_NOM_PLASTIC #.Graphic3d_NameOfMaterial_Plastified)
+	(:Graphic3d_NOM_SILVER #.Graphic3d_NameOfMaterial_Silver)
+	(:Graphic3d_NOM_STEEL #.Graphic3d_NameOfMaterial_Steel)
+	(:Graphic3d_NOM_STONE #.Graphic3d_NameOfMaterial_Stone)
+	(:Graphic3d_NOM_SHINY_PLASTIC #.Graphic3d_NameOfMaterial_ShinyPlastified)
+	(:Graphic3d_NOM_SATIN #.Graphic3d_NameOfMaterial_Satin)
+	(:Graphic3d_NOM_METALIZED #.Graphic3d_NameOfMaterial_Metalized)
+	(:Graphic3d_NOM_NEON_GNC #.Graphic3d_NameOfMaterial_Ionized)
+	(:Graphic3d_NOM_CHROME #.Graphic3d_NameOfMaterial_Chrome)
+	(:Graphic3d_NOM_ALUMINIUM #.Graphic3d_NameOfMaterial_Aluminum)
+	(:Graphic3d_NOM_OBSIDIAN #.Graphic3d_NameOfMaterial_Obsidian)
+	(:Graphic3d_NOM_NEON_PHC #.Graphic3d_NameOfMaterial_Neon)
+	(:Graphic3d_NOM_JADE #.Graphic3d_NameOfMaterial_Jade)
+	(:Graphic3d_NOM_CHARCOAL #.Graphic3d_NameOfMaterial_Charcoal)
+	(:Graphic3d_NOM_WATER #.Graphic3d_NameOfMaterial_Water)
+	(:Graphic3d_NOM_GLASS #.Graphic3d_NameOfMaterial_Glass)
+	(:Graphic3d_NOM_DIAMOND #.Graphic3d_NameOfMaterial_Diamond)
+	(:Graphic3d_NOM_TRANSPARENT #.Graphic3d_NameOfMaterial_Transparent)
+	(:Graphic3d_NOM_DEFAULT #.Graphic3d_NameOfMaterial_DEFAULT)
+	(:Graphic3d_NOM_UserDefined #.Graphic3d_NameOfMaterial_UserDefined))
+
+(cffi:defcenum Graphic3d_FresnelModel
+	(:Graphic3d_FM_SCHLICK #.0)
+	(:Graphic3d_FM_CONSTANT #.1)
+	(:Graphic3d_FM_CONDUCTOR #.2)
+	(:Graphic3d_FM_DIELECTRIC #.3))
+
+(cffi:defcenum Graphic3d_TypeOfReflection
+	(:Graphic3d_TOR_AMBIENT #.0)
+	:Graphic3d_TOR_DIFFUSE
+	:Graphic3d_TOR_SPECULAR
+	:Graphic3d_TOR_EMISSION)
+
+(cffi:defcfun ("_wrap_new_Graphic3d_Fresnel" _wrap_new_Graphic3d_Fresnel) :pointer)
+
+(cffi:defcfun ("_wrap_Graphic3d_Fresnel_Serialize" _wrap_Graphic3d_Fresnel_Serialize) :pointer
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_Graphic3d_Fresnel_FresnelType" _wrap_Graphic3d_Fresnel_FresnelType) Graphic3d_FresnelModel
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_Graphic3d_Fresnel_CreateSchlick" _wrap_Graphic3d_Fresnel_CreateSchlick) :pointer
+  (theSpecularColor :pointer))
+
+(cffi:defcfun ("_wrap_Graphic3d_Fresnel_CreateConstant" _wrap_Graphic3d_Fresnel_CreateConstant) :pointer
+  (theReflection :float))
+
+(cffi:defcfun ("_wrap_Graphic3d_Fresnel_CreateDielectric" _wrap_Graphic3d_Fresnel_CreateDielectric) :pointer
+  (theRefractionIndex :float))
+
+(cffi:defcfun ("_wrap_Graphic3d_Fresnel_CreateConductor__SWIG_0" _wrap_Graphic3d_Fresnel_CreateConductor__SWIG_0) :pointer
+  (theRefractionIndex :float)
+  (theAbsorptionIndex :float))
+
+(cffi:defcfun ("_wrap_Graphic3d_Fresnel_CreateConductor__SWIG_1" _wrap_Graphic3d_Fresnel_CreateConductor__SWIG_1) :pointer
+  (theRefractionIndex :pointer)
+  (theAbsorptionIndex :pointer))
+
+(cffi:defcfun ("_wrap_delete_Graphic3d_Fresnel" _wrap_delete_Graphic3d_Fresnel) :void
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_new_Graphic3d_MaterialAspect__SWIG_0" _wrap_new_Graphic3d_MaterialAspect__SWIG_0) :pointer)
+
+(cffi:defcfun ("_wrap_new_Graphic3d_MaterialAspect__SWIG_1" _wrap_new_Graphic3d_MaterialAspect__SWIG_1) :pointer
+  (theName Graphic3d_NameOfMaterial))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_Name" _wrap_Graphic3d_MaterialAspect_Name) Graphic3d_NameOfMaterial
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_RequestedName" _wrap_Graphic3d_MaterialAspect_RequestedName) Graphic3d_NameOfMaterial
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_StringName" _wrap_Graphic3d_MaterialAspect_StringName) :pointer
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_MaterialName__SWIG_0" _wrap_Graphic3d_MaterialAspect_MaterialName__SWIG_0) :string
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_SetMaterialName" _wrap_Graphic3d_MaterialAspect_SetMaterialName) :void
+  (self :pointer)
+  (theName :pointer))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_Reset" _wrap_Graphic3d_MaterialAspect_Reset) :void
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_Color" _wrap_Graphic3d_MaterialAspect_Color) :pointer
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_SetColor" _wrap_Graphic3d_MaterialAspect_SetColor) :void
+  (self :pointer)
+  (theColor :pointer))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_Transparency" _wrap_Graphic3d_MaterialAspect_Transparency) :float
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_Alpha" _wrap_Graphic3d_MaterialAspect_Alpha) :float
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_SetTransparency" _wrap_Graphic3d_MaterialAspect_SetTransparency) :void
+  (self :pointer)
+  (theValue :float))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_SetAlpha" _wrap_Graphic3d_MaterialAspect_SetAlpha) :void
+  (self :pointer)
+  (theValue :float))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_AmbientColor" _wrap_Graphic3d_MaterialAspect_AmbientColor) :pointer
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_SetAmbientColor" _wrap_Graphic3d_MaterialAspect_SetAmbientColor) :void
+  (self :pointer)
+  (theColor :pointer))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_DiffuseColor" _wrap_Graphic3d_MaterialAspect_DiffuseColor) :pointer
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_SetDiffuseColor" _wrap_Graphic3d_MaterialAspect_SetDiffuseColor) :void
+  (self :pointer)
+  (theColor :pointer))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_SpecularColor" _wrap_Graphic3d_MaterialAspect_SpecularColor) :pointer
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_SetSpecularColor" _wrap_Graphic3d_MaterialAspect_SetSpecularColor) :void
+  (self :pointer)
+  (theColor :pointer))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_EmissiveColor" _wrap_Graphic3d_MaterialAspect_EmissiveColor) :pointer
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_SetEmissiveColor" _wrap_Graphic3d_MaterialAspect_SetEmissiveColor) :void
+  (self :pointer)
+  (theColor :pointer))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_Shininess" _wrap_Graphic3d_MaterialAspect_Shininess) :float
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_SetShininess" _wrap_Graphic3d_MaterialAspect_SetShininess) :void
+  (self :pointer)
+  (theValue :float))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_IncreaseShine" _wrap_Graphic3d_MaterialAspect_IncreaseShine) :void
+  (self :pointer)
+  (theDelta :float))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_RefractionIndex" _wrap_Graphic3d_MaterialAspect_RefractionIndex) :float
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_SetRefractionIndex" _wrap_Graphic3d_MaterialAspect_SetRefractionIndex) :void
+  (self :pointer)
+  (theValue :float))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_BSDF" _wrap_Graphic3d_MaterialAspect_BSDF) :pointer
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_SetBSDF" _wrap_Graphic3d_MaterialAspect_SetBSDF) :void
+  (self :pointer)
+  (theBSDF :pointer))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_PBRMaterial" _wrap_Graphic3d_MaterialAspect_PBRMaterial) :pointer
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_SetPBRMaterial" _wrap_Graphic3d_MaterialAspect_SetPBRMaterial) :void
+  (self :pointer)
+  (thePBRMaterial :pointer))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_ReflectionMode" _wrap_Graphic3d_MaterialAspect_ReflectionMode) :bool
+  (self :pointer)
+  (theType Graphic3d_TypeOfReflection))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_MaterialType__SWIG_0" _wrap_Graphic3d_MaterialAspect_MaterialType__SWIG_0) :pointer
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_MaterialType__SWIG_1" _wrap_Graphic3d_MaterialAspect_MaterialType__SWIG_1) :bool
+  (self :pointer)
+  (theType :pointer))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_SetMaterialType" _wrap_Graphic3d_MaterialAspect_SetMaterialType) :void
+  (self :pointer)
+  (theType :pointer))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_IsDifferent" _wrap_Graphic3d_MaterialAspect_IsDifferent) :bool
+  (self :pointer)
+  (theOther :pointer))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_IsEqual" _wrap_Graphic3d_MaterialAspect_IsEqual) :bool
+  (self :pointer)
+  (theOther :pointer))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_NumberOfMaterials" _wrap_Graphic3d_MaterialAspect_NumberOfMaterials) :int)
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_MaterialName__SWIG_1" _wrap_Graphic3d_MaterialAspect_MaterialName__SWIG_1) :string
+  (theRank :int))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_MaterialType__SWIG_2" _wrap_Graphic3d_MaterialAspect_MaterialType__SWIG_2) :pointer
+  (theRank :int))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_MaterialFromName__SWIG_0" _wrap_Graphic3d_MaterialAspect_MaterialFromName__SWIG_0) :bool
+  (theName :string)
+  (theMat :pointer))
+
+(cffi:defcfun ("_wrap_Graphic3d_MaterialAspect_MaterialFromName__SWIG_1" _wrap_Graphic3d_MaterialAspect_MaterialFromName__SWIG_1) Graphic3d_NameOfMaterial
+  (theName :string))
+
+(cffi:defcfun ("_wrap_delete_Graphic3d_MaterialAspect" _wrap_delete_Graphic3d_MaterialAspect) :void
   (self :pointer))
 
 

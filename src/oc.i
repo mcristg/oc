@@ -21,6 +21,12 @@ void (* signal_lisp_error) (const char* message) = nullptr;
   %}
 
 %{
+#if defined(_MSC_VER)
+ #pragma warning( disable : 4996 )
+#elif defined(__GNUC__) || defined(__clang__)
+ #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
 #include <Standard_Failure.hxx>
 #include <Standard_ErrorHandler.hxx>
   %}
@@ -37,8 +43,8 @@ void (* signal_lisp_error) (const char* message) = nullptr;
 	}
   catch(Standard_Failure const& error)
     {
-      char *error_name = (char*) error.DynamicType()->Name();
-	    char *error_message = (char*) error.GetMessageString();
+        char *error_name = (char*) error.ExceptionType();
+	    char *error_message = (char*) error.what();
 	    std::string message;
 	    if (error_name) message += std::string(error_name) + "\n";
 	    if (error_message) message += std::string(error_message);
@@ -75,8 +81,8 @@ using namespace std;
 
 %include "standard/standard.i";
 %include "mmgt/mmgt-tshared.i";
-%include "gp/gp.i";
 %include "collections/tcol.i";
+%include "gp/gp.i";
 %include "top-abs/topabs.i";
 %include "topods/topods.i";
 %include "geom-abs/geomabs.i";
@@ -109,7 +115,6 @@ using namespace std;
 %include "cpnts/adaptor3d.i";
 %include "cpnts/cpnts.i";
 
-
 %{
 #include <TopExp.hxx>
   %}
@@ -120,15 +125,15 @@ class TopLoc_Location
 	public:
 	TopLoc_Location ();
 	TopLoc_Location (const gp_Trsf& T);
-	Standard_Boolean IsIdentity();
+	bool IsIdentity();
 	const gp_Trsf& Transformation();
 };
 
 class TopExp
 {
 	public:
-	static void Vertices(const TopoDS_Edge& E,TopoDS_Vertex& Vfirst,TopoDS_Vertex& Vlast,const Standard_Boolean CumOri = Standard_False) ;
-	static Standard_Boolean CommonVertex(const TopoDS_Edge& E1, const TopoDS_Edge& E2, TopoDS_Vertex& V) ;
+	static void Vertices(const TopoDS_Edge& E,TopoDS_Vertex& Vfirst,TopoDS_Vertex& Vlast,const bool CumOri = false) ;
+	static bool CommonVertex(const TopoDS_Edge& E1, const TopoDS_Edge& E2, TopoDS_Vertex& V) ;
 };
 
 /**
@@ -143,7 +148,7 @@ class TopExp_Explorer
 		const TopAbs_ShapeEnum ToAvoid = TopAbs_SHAPE);
 	void Init(const TopoDS_Shape& S, const TopAbs_ShapeEnum ToFind, 
 		const TopAbs_ShapeEnum ToAvoid = TopAbs_SHAPE) ;
-	Standard_Boolean More() const;
+	bool More() const;
 	void Next() ;
 	const TopoDS_Shape& Current();
 };
@@ -168,7 +173,7 @@ class BRepBndLib
  {
 	 public:
 	 GProp_GProps();
-	 Standard_Real Mass() const;
+	 double Mass() const;
  };
  
 /**
@@ -179,10 +184,10 @@ class BRepGProp
 {
 	public:
 	static void LinearProperties(const TopoDS_Shape& shape, GProp_GProps& properties);
-        static void VolumeProperties(const TopoDS_Shape& shape, GProp_GProps& properties, const Standard_Boolean onlyClosed = Standard_False) ;
-        static Standard_Real VolumeProperties(const TopoDS_Shape& shape, GProp_GProps& properties, const Standard_Real Eps, const Standard_Boolean onlyClosed = Standard_False) ;
+        static void VolumeProperties(const TopoDS_Shape& shape, GProp_GProps& properties, const bool onlyClosed = false) ;
+        static double VolumeProperties(const TopoDS_Shape& shape, GProp_GProps& properties, const double Eps, const bool onlyClosed = false) ;
         static void SurfaceProperties(const TopoDS_Shape& shape, GProp_GProps& properties) ;
-        static Standard_Real SurfaceProperties(const TopoDS_Shape& shape, GProp_GProps& properties, const Standard_Real Eps) ;
+        static double SurfaceProperties(const TopoDS_Shape& shape, GProp_GProps& properties, const double Eps) ;
 };
 
  
@@ -191,8 +196,8 @@ class ShapeAnalysis_FreeBounds
 {
 	public:
 	ShapeAnalysis_FreeBounds(const TopoDS_Shape& shape,
-		const Standard_Boolean splitclosed = Standard_False,
-		const Standard_Boolean splitopen = Standard_True);
+		const bool splitclosed = false,
+		const bool splitopen = true);
 	const TopoDS_Compound& GetClosedWires() const;
 	const TopoDS_Compound& GetOpenWires() const;
 };
@@ -202,11 +207,11 @@ class GCPnts_UniformDeflection
 {
 	public:
 	GCPnts_UniformDeflection();
-	void Initialize(Adaptor3d_Curve& C,const Standard_Real Deflection,
-		const Standard_Real U1,const Standard_Real U2,
-		const Standard_Boolean WithControl = Standard_True) ;
-	Standard_Integer NbPoints() const;
-	Standard_Real Parameter(const Standard_Integer Index) const;
+	void Initialize(Adaptor3d_Curve& C,const double Deflection,
+		const double U1,const double U2,
+		const bool WithControl = true) ;
+	int NbPoints() const;
+	double Parameter(const int Index) const;
 };
 
 %include "brep-mesh/brep-mesh.i";
@@ -219,11 +224,11 @@ class GeomAPI_ProjectPointOnSurf
 	GeomAPI_ProjectPointOnSurf(const gp_Pnt& P,
 		const Handle_Geom_Surface & Surface);
 	void Init(const gp_Pnt& P,const Handle_Geom_Surface & surface);
-	Standard_Integer NbPoints() const;	
-	Standard_Real LowerDistance() const;
-	const gp_Pnt Point(const Standard_Integer Index) const;
-	void LowerDistanceParameters(Standard_Real &U, Standard_Real &V) const;
-	void Parameters(const Standard_Integer Index, Standard_Real &U, Standard_Real &V) const;
+	int NbPoints() const;	
+	double LowerDistance() const;
+	const gp_Pnt Point(const int Index) const;
+	void LowerDistanceParameters(double &U, double &V) const;
+	void Parameters(const int Index, double &U, double &V) const;
 	gp_Pnt NearestPoint() const;
 };
 
@@ -234,8 +239,8 @@ class GeomAPI_ProjectPointOnSurf
 class BRepAlgo
 {
 	public:	
-	static Standard_Boolean IsValid(const TopoDS_Shape& S);
-	static Standard_Boolean IsTopologicallyValid(const TopoDS_Shape& S);
+	static bool IsValid(const TopoDS_Shape& S);
+	static bool IsTopologicallyValid(const TopoDS_Shape& S);
 };
 
 
@@ -250,7 +255,7 @@ class BRepAdaptor_Surface
 {
     public:	
     BRepAdaptor_Surface();
-    BRepAdaptor_Surface(const TopoDS_Face &F, const Standard_Boolean R=Standard_True);
+    BRepAdaptor_Surface(const TopoDS_Face &F, const bool R=true);
     void BRepAdaptor_Surface::UIntervals(NCollection_Array1<double>& T, GeomAbs_Shape S) const;
 };
 

@@ -32,13 +32,13 @@ void (* vis_signal_lisp_error) (const char* message) = nullptr;
 %exception {
   try
     {
-      OCC_CATCH_SIGNALS
+      //OCC_CATCH_SIGNALS
       $action
 	}
   catch(Standard_Failure const& error)
     {
-      char *error_name = (char*) error.DynamicType()->Name();
-	    char *error_message = (char*) error.GetMessageString();
+        char *error_name = (char*) error.ExceptionType();
+	    char *error_message = (char*) error.what();
 	    std::string message;
 	    if (error_name) message += std::string(error_name) + "\n";
 	    if (error_message) message += std::string(error_message);
@@ -70,6 +70,21 @@ enum AIS_DragAction {
   AIS_DragAction_Abort
 };
 
+enum PrsMgr_TypeOfPresentation3d { PrsMgr_TOP_AllView , PrsMgr_TOP_ProjectorDependent };
+
+enum AIS_TypeOfAxis { AIS_TOAX_Unknown , AIS_TOAX_XAxis , AIS_TOAX_YAxis , AIS_TOAX_ZAxis };
+
+enum Aspect_TypeOfColorScaleData { Aspect_TOCSD_AUTO , Aspect_TOCSD_USER };
+
+enum Aspect_TypeOfColorScalePosition { Aspect_TOCSP_NONE , Aspect_TOCSP_LEFT , Aspect_TOCSP_RIGHT , Aspect_TOCSP_CENTER };
+
+enum ManipulatorSkin { ManipulatorSkin_Shaded , ManipulatorSkin_Flat };
+
+enum Select3D_TypeOfSensitivity { Select3D_TOS_INTERIOR , Select3D_TOS_BOUNDARY };
+
+enum AIS_TypeOfPlane { AIS_TOPL_Unknown , AIS_TOPL_XYPlane , AIS_TOPL_XZPlane , AIS_TOPL_YZPlane };
+
+
 %{
 #include <Standard.hxx>
 #include <Standard_DefineAlloc.hxx>
@@ -79,7 +94,6 @@ enum AIS_DragAction {
 #include <V3d_Viewer.hxx>
 #include <V3d_View.hxx>
 #include <TopoDS_Shape.hxx>
-#include <SelectMgr_IndexedMapOfOwner.hxx>
 #include <Graphic3d_Structure.hxx>
 #include <PrsMgr_Presentation.hxx>
 #include <Geom_Line.hxx>
@@ -89,6 +103,9 @@ enum AIS_DragAction {
 #include <Geom_Point.hxx>
 #include <AIS_Plane.hxx>
 #include <Geom_Plane.hxx>
+
+#include <AIS_Shape.hxx>
+
 %}
 
 
@@ -96,3 +113,5 @@ enum AIS_DragAction {
 %include "ais/ais-animation.i";
 %include "ais/ais-interactive-context.i";
 %include "ais/ais-Interactive-object.i";
+
+%include "tkservice/graphic-3d.i";

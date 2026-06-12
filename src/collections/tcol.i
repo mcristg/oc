@@ -1,16 +1,22 @@
 
 %{
-#include <TColStd_HArray1OfBoolean.hxx>
+#include <NCollection_HArray1.hxx>
+typedef NCollection_HArray1<bool> TColStd_HArray1OfBoolean;
+typedef occ::handle<TColStd_HArray1OfBoolean> Handle_TColStd_HArray1OfBoolean;
 %}
 
 %{
-#include <TColgp_HArray1OfPnt.hxx>
+#include <gp_Pnt.hxx>
+
+typedef NCollection_HArray1<gp_Pnt> TColgp_HArray1OfPnt;
+typedef occ::handle<TColgp_HArray1OfPnt> Handle_TColgp_HArray1OfPnt;
+
 %}
 class TColgp_HArray1OfPnt {
 
   public:
-  TColgp_HArray1OfPnt(const Standard_Integer Low,const Standard_Integer Up);
-  void SetValue(const Standard_Integer Index,const gp_Pnt& Value);
+  TColgp_HArray1OfPnt(const int Low,const int Up);
+  void SetValue(const int Index,const gp_Pnt& Value);
 };
 
 /**
@@ -34,11 +40,11 @@ class Handle_TColStd_HArray1OfBoolean
 class TColgp_Array1OfVec {
 
   public:
-  TColgp_Array1OfVec(const Standard_Integer Low,const Standard_Integer Up);
-  void SetValue(const Standard_Integer Index,const gp_Vec& Value);
-  const gp_Vec Value(const Standard_Integer Index);
-  Standard_Integer Lower (void) const;
-  Standard_Integer Upper (void) const;
+  TColgp_Array1OfVec(const int Low,const int Up);
+  void SetValue(const int Index,const gp_Vec& Value);
+  const gp_Vec Value(const int Index);
+  int Lower (void) const;
+  int Upper (void) const;
 };
 %extend TColgp_Array1OfVec
 {
@@ -52,11 +58,11 @@ class TColgp_Array1OfVec {
 %nodefaultdtor TColgp_Array1OfPnt2d;
 class TColgp_Array1OfPnt2d {
  public:
-  TColgp_Array1OfPnt2d(const Standard_Integer theLower, const Standard_Integer theUpper);
-  void SetValue(const Standard_Integer theIndex, const gp_Pnt2d& Value);
-  const gp_Pnt2d Value(const Standard_Integer Index);
-  Standard_Integer Lower (void) const;
-  Standard_Integer Upper (void) const;
+  TColgp_Array1OfPnt2d(const int theLower, const int theUpper);
+  void SetValue(const int theIndex, const gp_Pnt2d& Value);
+  const gp_Pnt2d Value(const int Index);
+  int Lower (void) const;
+  int Upper (void) const;
 };
 %extend TColgp_Array1OfPnt2d
 {
@@ -64,17 +70,19 @@ class TColgp_Array1OfPnt2d {
     self->~TColgp_Array1OfPnt2d();
   }
 }
+
 %{
-#include <TColStd_Array1OfReal.hxx>
+typedef NCollection_Array1<double> TColStd_Array1OfReal;
   %}
+  
 %nodefaultdtor TColStd_Array1OfReal;
 class TColStd_Array1OfReal {
  public:
-  TColStd_Array1OfReal(const Standard_Integer theLower, const Standard_Integer theUpper);
-  void SetValue(const Standard_Integer theIndex, const Standard_Real& Value);
-  const Standard_Real Value(const Standard_Integer Index);
-  Standard_Integer Lower (void) const;
-  Standard_Integer Upper (void) const;
+  TColStd_Array1OfReal(const int theLower, const int theUpper);
+  void SetValue(const int theIndex, const double& Value);
+  const double Value(const int Index);
+  int Lower (void) const;
+  int Upper (void) const;
 };
 
 %extend TColStd_Array1OfReal
@@ -89,11 +97,11 @@ class TColStd_Array1OfReal {
 %nodefaultdtor TColStd_Array1OfInteger;
 class TColStd_Array1OfInteger {
  public:
-  TColStd_Array1OfInteger(const Standard_Integer theLower, const Standard_Integer theUpper);
-  void SetValue(const Standard_Integer theIndex, const Standard_Integer& Value);
-    const Standard_Integer Value(const Standard_Integer Index);
-    Standard_Integer Lower (void) const;
-    Standard_Integer Upper (void) const;
+  TColStd_Array1OfInteger(const int theLower, const int theUpper);
+  void SetValue(const int theIndex, const int& Value);
+    const int Value(const int Index);
+    int Lower (void) const;
+    int Upper (void) const;
 };
 
 %extend TColStd_Array1OfInteger
@@ -109,21 +117,21 @@ class TColStd_Array1OfInteger {
 class TColgp_Array1OfPnt {
 
   public:
-  TColgp_Array1OfPnt(const Standard_Integer Low,const Standard_Integer Up);
-  const gp_Pnt Value(const Standard_Integer Index);
-  void SetValue(const Standard_Integer Index,const gp_Pnt& Value);
-  Standard_Integer Lower (void) const;
-  Standard_Integer Upper (void) const;
+  TColgp_Array1OfPnt(const int Low,const int Up);
+  const gp_Pnt Value(const int Index);
+  void SetValue(const int Index,const gp_Pnt& Value);
+  int Lower (void) const;
+  int Upper (void) const;
 };
 %extend TColgp_Array1OfPnt
 {
   void Delete() {
     self->~TColgp_Array1OfPnt();
   }
-  void GetPoint(const Standard_Integer Index,
-		Standard_Real& x,
-		Standard_Real& y,
-		Standard_Real& z) {
+  void GetPoint(const int Index,
+		double& x,
+		double& y,
+		double& z) {
     gp_Pnt result = (self)->Value(Index);
     x = result.X();
     y = result.Y();
@@ -136,12 +144,12 @@ class TColgp_Array1OfPnt {
 %nodefaultdtor TColgp_Array2OfPnt;
 class TColgp_Array2OfPnt {
  public:
-  TColgp_Array2OfPnt(const Standard_Integer theRowLower,
-		     const Standard_Integer theRowUpper,
-		     const Standard_Integer theColLower,
-		     const Standard_Integer theColUpper);
-  void SetValue(const Standard_Integer theRow,
-		const Standard_Integer theCol,
+  TColgp_Array2OfPnt(const int theRowLower,
+		     const int theRowUpper,
+		     const int theColLower,
+		     const int theColUpper);
+  void SetValue(const int theRow,
+		const int theCol,
 		const gp_Pnt& Value);
 };
 %extend TColgp_Array2OfPnt
@@ -156,13 +164,13 @@ class TColgp_Array2OfPnt {
 %nodefaultdtor TColStd_Array2OfReal;
 class TColStd_Array2OfReal {
  public:
-  TColStd_Array2OfReal(const Standard_Integer theRowLower,
-		       const Standard_Integer theRowUpper,
-		       const Standard_Integer theColLower,
-		       const Standard_Integer theColUpper);
-  void SetValue(const Standard_Integer theRow,
-		const Standard_Integer theCol,
-		const Standard_Real& Value);
+  TColStd_Array2OfReal(const int theRowLower,
+		       const int theRowUpper,
+		       const int theColLower,
+		       const int theColUpper);
+  void SetValue(const int theRow,
+		const int theCol,
+		const double& Value);
 };
 %extend TColStd_Array2OfReal
 {

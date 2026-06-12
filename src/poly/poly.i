@@ -1,6 +1,11 @@
 
 %{
 #include <Poly_Triangulation.hxx>
+typedef occ::handle<Poly_Triangulation> Handle_Poly_Triangulation;
+typedef NCollection_HArray1<double> TColStd_HArray1OfReal;
+typedef occ::handle<TColStd_HArray1OfReal> Handle_TColStd_HArray1OfReal;
+typedef NCollection_Array1<Poly_Triangle> Poly_Array1OfTriangle;
+typedef NCollection_HArray1<bool> TColStd_HArray1OfBoolean;
   %}
 
 %rename(Poly_Triangulation) Handle_Poly_Triangulation;

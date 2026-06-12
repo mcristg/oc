@@ -5,15 +5,10 @@
 class BndLib_Add3dCurve
 {
  public:
-  static void Add (const Adaptor3d_Curve& C, const Standard_Real Tol, Bnd_Box& B);
-  static void Add (const Adaptor3d_Curve& C, const Standard_Real U1, const Standard_Real U2, const Standard_Real Tol, Bnd_Box& B);
-  static void AddOptimal (const Adaptor3d_Curve& C, const Standard_Real Tol, Bnd_Box& B);
+  static void Add (const Adaptor3d_Curve& C, const double Tol, Bnd_Box& B);
+  static void Add (const Adaptor3d_Curve& C, const double U1, const double U2, const double Tol, Bnd_Box& B);
+  static void AddOptimal (const Adaptor3d_Curve& C, const double Tol, Bnd_Box& B);
   static void AddOptimal (const Adaptor3d_Curve& C, 
-			  const Standard_Real U1, const Standard_Real U2, 
-			  const Standard_Real Tol, Bnd_Box& B);
-  static void AddGenCurv(const Adaptor3d_Curve& C, 
-			 const Standard_Real UMin,
-			 const Standard_Real UMax,
-			 const Standard_Real Tol,
-			 Bnd_Box& B);
+			  const double U1, const double U2, 
+			  const double Tol, Bnd_Box& B);
 };

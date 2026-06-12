@@ -43,6 +43,31 @@
 #include <Geom2d_BSplineCurve.hxx>
 #include <Geom2d_TrimmedCurve.hxx>
 
+typedef occ::handle<Geom_Geometry> Handle_Geom_Geometry;
+typedef occ::handle<Geom_BoundedCurve> Handle_Geom_BoundedCurve;
+typedef occ::handle<Geom_Conic> Handle_Geom_Conic;
+typedef occ::handle<Geom_ElementarySurface> Handle_Geom_ElementarySurface;
+typedef occ::handle<Geom_SweptSurface> Handle_Geom_SweptSurface;
+typedef occ::handle<Geom_BezierCurve> Handle_Geom_BezierCurve;
+typedef occ::handle<Geom_BSplineCurve> Handle_Geom_BSplineCurve;
+typedef occ::handle<Geom_Circle> Handle_Geom_Circle;
+typedef occ::handle<Geom_Ellipse> Handle_Geom_Ellipse;
+typedef occ::handle<Geom_TrimmedCurve> Handle_Geom_TrimmedCurve;
+typedef occ::handle<Geom_OffsetCurve> Handle_Geom_OffsetCurve;
+typedef occ::handle<Geom_Hyperbola> Handle_Geom_Hyperbola;
+typedef occ::handle<Geom_Line> Handle_Geom_Line;
+typedef occ::handle<Geom_Parabola> Handle_Geom_Parabola;
+typedef occ::handle<Geom_BezierSurface> Handle_Geom_BezierSurface;
+typedef occ::handle<Geom_BSplineSurface> Handle_Geom_BSplineSurface;
+typedef occ::handle<Geom_RectangularTrimmedSurface> Handle_Geom_RectangularTrimmedSurface;
+typedef occ::handle<Geom_SphericalSurface> Handle_Geom_SphericalSurface;
+typedef occ::handle<Geom_ToroidalSurface> Handle_Geom_ToroidalSurface;
+typedef occ::handle<Geom_OffsetSurface> Handle_Geom_OffsetSurface;
+typedef occ::handle<Geom_SurfaceOfRevolution> Handle_Geom_SurfaceOfRevolution;
+typedef occ::handle<Geom_ConicalSurface> Handle_Geom_ConicalSurface;
+typedef occ::handle<Geom_CylindricalSurface> Handle_Geom_CylindricalSurface;
+typedef occ::handle<Geom_SurfaceOfLinearExtrusion> Handle_Geom_SurfaceOfLinearExtrusion;
+typedef occ::handle<Geom_Plane> Handle_Geom_Plane;
 %}
 
 %rename(Geom_Geometry) Handle_Geom_Geometry;

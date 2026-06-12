@@ -1,5 +1,6 @@
 %{
 #include <Standard_Transient.hxx>
+typedef occ::handle<Standard_Transient> Handle_Standard_Transient;
   %}
 
 %nodefaultdtor Standard_Transient;
@@ -16,13 +17,13 @@ class Handle_Standard_Transient
 
 %extend Handle_Standard_Transient
 {
-  Standard_Integer GetRefCount() {
+  int GetRefCount() {
     return (*self)->GetRefCount();
   }
   void IncrementRefCounter() {
     (*self)->IncrementRefCounter();
   }
-  Standard_Integer DecrementRefCounter() {
+  int DecrementRefCounter() {
     return (* self)->DecrementRefCounter();
   }
   Standard_Transient *get() {

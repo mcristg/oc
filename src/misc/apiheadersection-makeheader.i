@@ -2,6 +2,9 @@
 %{
 #include <APIHeaderSection_MakeHeader.hxx>
 #include <StepData_StepModel.hxx>
+
+typedef occ::handle<StepData_StepModel> Handle_StepData_StepModel;
+typedef occ::handle<TCollection_HAsciiString> Handle_TCollection_HAsciiString;
 %}
 
 class APIHeaderSection_MakeHeader{

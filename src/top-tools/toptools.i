@@ -7,20 +7,20 @@ class TopTools_HSequenceOfShape
 {
  public:
   TopTools_HSequenceOfShape();
-  Standard_Boolean IsEmpty () const;
-  Standard_Integer Length () const;
+  bool IsEmpty () const;
+  int Length () const;
   void Clear ();
   void Append (const TopoDS_Shape& anItem);
   void Prepend (const TopoDS_Shape& anItem);
   void Reverse ();
-  void InsertBefore (const Standard_Integer anIndex, const TopoDS_Shape &anItem);
-  void InsertAfter (const Standard_Integer anIndex, const TopoDS_Shape &anItem);
-  void Exchange (const Standard_Integer anIndex, const Standard_Integer anOtherIndex);
-  void SetValue (const Standard_Integer anIndex, const TopoDS_Shape& anItem);
-  const TopoDS_Shape&	Value (const Standard_Integer anIndex) const;
-  TopoDS_Shape& ChangeValue (const Standard_Integer anIndex);
-  void Remove (const Standard_Integer anIndex);
-  void Remove (const Standard_Integer fromIndex, const Standard_Integer toIndex);
+  void InsertBefore (const int anIndex, const TopoDS_Shape &anItem);
+  void InsertAfter (const int anIndex, const TopoDS_Shape &anItem);
+  void Exchange (const int anIndex, const int anOtherIndex);
+  void SetValue (const int anIndex, const TopoDS_Shape& anItem);
+  const TopoDS_Shape&	Value (const int anIndex) const;
+  TopoDS_Shape& ChangeValue (const int anIndex);
+  void Remove (const int anIndex);
+  void Remove (const int fromIndex, const int toIndex);
   const TopTools_SequenceOfShape& Sequence () const ;
 };
 %{
@@ -44,11 +44,12 @@ class TopTools_ListOfShape {
 class TopTools_MapOfShape {
  public:
   TopTools_MapOfShape();
-  Standard_Boolean Add(const TopoDS_Shape &aKey);
-  Standard_Boolean Contains(const TopoDS_Shape &aKey) const;
+  bool Add(const TopoDS_Shape &aKey);
+  bool Contains(const TopoDS_Shape &aKey) const;
 };
 %{
-#include <TopTools_MapIteratorOfMapOfShape.hxx>
+typedef NCollection_Map<TopoDS_Shape, TopTools_ShapeMapHasher>::Iterator
+  TopTools_MapIteratorOfMapOfShape;
   %}
 
 class TopTools_MapIteratorOfMapOfShape {
