@@ -11,9 +11,7 @@
 %typemap(lispclass) double "cl:double-float";
 
 %{
-EXPORT void (* vis_signal_lisp_error) (const char* message);
-
-void (* vis_signal_lisp_error) (const char* message) = nullptr;
+EXTERN void (* signal_lisp_error) (const char* message);
   %}
 
 %insert(swiglisp) %{
@@ -44,25 +42,24 @@ void (* vis_signal_lisp_error) (const char* message) = nullptr;
 	    if (error_message) message += std::string(error_message);
 	    // log SWIG specific debug information
 	    message += "\nwrapper details:\n  * symname: $symname\n  * wrapname: $wrapname\n  * fulldecl: $fulldecl";
-	    vis_signal_lisp_error(message.c_str());
+	    signal_lisp_error(message.c_str());
     }
  }
 
-%insert(swiglisp) %{
-(cffi:defcvar "vis_signal_lisp_error" :pointer)
-  
-(cffi:defcallback signal-lisp-error :void ((message :string))
-    (cl:error "~S" message))
-
-(cl:defun init-vis ()
-  (cl:setf *vis-signal-lisp-error* (cffi:get-callback 'signal-lisp-error)))
-     %}
-
 enum  AIS_KindOfInteractive {
-  AIS_KindOfInteractive_None, AIS_KindOfInteractive_Datum, AIS_KindOfInteractive_Shape, AIS_KindOfInteractive_Object,
-  AIS_KindOfInteractive_Relation, AIS_KindOfInteractive_Dimension, AIS_KindOfInteractive_LightSource, AIS_KOI_None = AIS_KindOfInteractive_None,
-  AIS_KOI_Datum = AIS_KindOfInteractive_Datum, AIS_KOI_Shape = AIS_KindOfInteractive_Shape, AIS_KOI_Object = AIS_KindOfInteractive_Object,
-  AIS_KOI_Relation = AIS_KindOfInteractive_Relation, AIS_KOI_Dimension = AIS_KindOfInteractive_Dimension
+  AIS_KindOfInteractive_None, 
+  AIS_KindOfInteractive_Datum, 
+  AIS_KindOfInteractive_Shape,
+  AIS_KindOfInteractive_Object,
+  AIS_KindOfInteractive_Relation,
+  AIS_KindOfInteractive_Dimension,
+  AIS_KindOfInteractive_LightSource,
+  AIS_KOI_None = 0,
+  AIS_KOI_Datum,
+  AIS_KOI_Shape,
+  AIS_KOI_Object,
+  AIS_KOI_Relation,
+  AIS_KOI_Dimension
 };
 
 enum AIS_DragAction {
@@ -108,8 +105,15 @@ enum AIS_TypeOfPlane { AIS_TOPL_Unknown , AIS_TOPL_XYPlane , AIS_TOPL_XZPlane , 
 
 %}
 
+%{
+typedef occ::handle<Standard_Transient> Handle_Standard_Transient;
 
-%include "../mmgt/mmgt-tshared.i";     
+EXTERN int _wrap_Handle_Standard_Transient_GetRefCount (Handle_Standard_Transient *larg1);
+EXTERN void _wrap_Handle_Standard_Transient_IncrementRefCounter (Handle_Standard_Transient *larg1);
+EXTERN int _wrap_Handle_Standard_Transient_DecrementRefCounter (Handle_Standard_Transient *larg1);
+EXTERN Standard_Transient *_wrap_Handle_Standard_Transient_get (Handle_Standard_Transient *larg1);
+%}
+   
 %include "ais/ais-animation.i";
 %include "ais/ais-interactive-context.i";
 %include "ais/ais-Interactive-object.i";

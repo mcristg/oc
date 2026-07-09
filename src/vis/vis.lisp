@@ -56,15 +56,6 @@
 (cl:in-package #:oc)
   
 
-(cffi:defcvar "vis_signal_lisp_error" :pointer)
-  
-(cffi:defcallback signal-lisp-error :void ((message :string))
-    (cl:error "~S" message))
-
-(cl:defun init-vis ()
-  (cl:setf *vis-signal-lisp-error* (cffi:get-callback 'signal-lisp-error)))
-     
-
 (cffi:defcenum AIS_KindOfInteractive
 	:AIS_KindOfInteractive_None
 	:AIS_KindOfInteractive_Datum
@@ -73,12 +64,12 @@
 	:AIS_KindOfInteractive_Relation
 	:AIS_KindOfInteractive_Dimension
 	:AIS_KindOfInteractive_LightSource
-	(:AIS_KOI_None #.AIS_KindOfInteractive_None)
-	(:AIS_KOI_Datum #.AIS_KindOfInteractive_Datum)
-	(:AIS_KOI_Shape #.AIS_KindOfInteractive_Shape)
-	(:AIS_KOI_Object #.AIS_KindOfInteractive_Object)
-	(:AIS_KOI_Relation #.AIS_KindOfInteractive_Relation)
-	(:AIS_KOI_Dimension #.AIS_KindOfInteractive_Dimension))
+	(:AIS_KOI_None #.0)
+	:AIS_KOI_Datum
+	:AIS_KOI_Shape
+	:AIS_KOI_Object
+	:AIS_KOI_Relation
+	:AIS_KOI_Dimension)
 
 (cffi:defcenum AIS_DragAction
 	:AIS_DragAction_Start
@@ -120,18 +111,6 @@
 	:AIS_TOPL_XYPlane
 	:AIS_TOPL_XZPlane
 	:AIS_TOPL_YZPlane)
-
-(cffi:defcfun ("_wrap_Handle_Standard_Transient_GetRefCount" _wrap_Handle_Standard_Transient_GetRefCount) :int
-  (self :pointer))
-
-(cffi:defcfun ("_wrap_Handle_Standard_Transient_IncrementRefCounter" _wrap_Handle_Standard_Transient_IncrementRefCounter) :void
-  (self :pointer))
-
-(cffi:defcfun ("_wrap_Handle_Standard_Transient_DecrementRefCounter" _wrap_Handle_Standard_Transient_DecrementRefCounter) :int
-  (self :pointer))
-
-(cffi:defcfun ("_wrap_Handle_Standard_Transient_get" _wrap_Handle_Standard_Transient_get) :pointer
-  (self :pointer))
 
 (cffi:defcfun ("_wrap_new_AIS_Animation" _wrap_new_AIS_Animation) :pointer
   (theAnimationName :pointer))
@@ -2885,32 +2864,32 @@
 	:Graphic3d_NameOfMaterial_Transparent
 	:Graphic3d_NameOfMaterial_DEFAULT
 	:Graphic3d_NameOfMaterial_UserDefined
-	(:Graphic3d_NOM_BRASS #.Graphic3d_NameOfMaterial_Brass)
-	(:Graphic3d_NOM_BRONZE #.Graphic3d_NameOfMaterial_Bronze)
-	(:Graphic3d_NOM_COPPER #.Graphic3d_NameOfMaterial_Copper)
-	(:Graphic3d_NOM_GOLD #.Graphic3d_NameOfMaterial_Gold)
-	(:Graphic3d_NOM_PEWTER #.Graphic3d_NameOfMaterial_Pewter)
-	(:Graphic3d_NOM_PLASTER #.Graphic3d_NameOfMaterial_Plastered)
-	(:Graphic3d_NOM_PLASTIC #.Graphic3d_NameOfMaterial_Plastified)
-	(:Graphic3d_NOM_SILVER #.Graphic3d_NameOfMaterial_Silver)
-	(:Graphic3d_NOM_STEEL #.Graphic3d_NameOfMaterial_Steel)
-	(:Graphic3d_NOM_STONE #.Graphic3d_NameOfMaterial_Stone)
-	(:Graphic3d_NOM_SHINY_PLASTIC #.Graphic3d_NameOfMaterial_ShinyPlastified)
-	(:Graphic3d_NOM_SATIN #.Graphic3d_NameOfMaterial_Satin)
-	(:Graphic3d_NOM_METALIZED #.Graphic3d_NameOfMaterial_Metalized)
-	(:Graphic3d_NOM_NEON_GNC #.Graphic3d_NameOfMaterial_Ionized)
-	(:Graphic3d_NOM_CHROME #.Graphic3d_NameOfMaterial_Chrome)
-	(:Graphic3d_NOM_ALUMINIUM #.Graphic3d_NameOfMaterial_Aluminum)
-	(:Graphic3d_NOM_OBSIDIAN #.Graphic3d_NameOfMaterial_Obsidian)
-	(:Graphic3d_NOM_NEON_PHC #.Graphic3d_NameOfMaterial_Neon)
-	(:Graphic3d_NOM_JADE #.Graphic3d_NameOfMaterial_Jade)
-	(:Graphic3d_NOM_CHARCOAL #.Graphic3d_NameOfMaterial_Charcoal)
-	(:Graphic3d_NOM_WATER #.Graphic3d_NameOfMaterial_Water)
-	(:Graphic3d_NOM_GLASS #.Graphic3d_NameOfMaterial_Glass)
-	(:Graphic3d_NOM_DIAMOND #.Graphic3d_NameOfMaterial_Diamond)
-	(:Graphic3d_NOM_TRANSPARENT #.Graphic3d_NameOfMaterial_Transparent)
-	(:Graphic3d_NOM_DEFAULT #.Graphic3d_NameOfMaterial_DEFAULT)
-	(:Graphic3d_NOM_UserDefined #.Graphic3d_NameOfMaterial_UserDefined))
+	(:Graphic3d_NOM_BRASS #.0)
+	:Graphic3d_NOM_BRONZE
+	:Graphic3d_NOM_COPPER
+	:Graphic3d_NOM_GOLD
+	:Graphic3d_NOM_PEWTER
+	:Graphic3d_NOM_PLASTER
+	:Graphic3d_NOM_PLASTIC
+	:Graphic3d_NOM_SILVER
+	:Graphic3d_NOM_STEEL
+	:Graphic3d_NOM_STONE
+	:Graphic3d_NOM_SHINY_PLASTIC
+	:Graphic3d_NOM_SATIN
+	:Graphic3d_NOM_METALIZED
+	:Graphic3d_NOM_NEON_GNC
+	:Graphic3d_NOM_CHROME
+	:Graphic3d_NOM_ALUMINIUM
+	:Graphic3d_NOM_OBSIDIAN
+	:Graphic3d_NOM_NEON_PHC
+	:Graphic3d_NOM_JADE
+	:Graphic3d_NOM_CHARCOAL
+	:Graphic3d_NOM_WATER
+	:Graphic3d_NOM_GLASS
+	:Graphic3d_NOM_DIAMOND
+	:Graphic3d_NOM_TRANSPARENT
+	:Graphic3d_NOM_DEFAULT
+	:Graphic3d_NOM_UserDefined)
 
 (cffi:defcenum Graphic3d_FresnelModel
 	(:Graphic3d_FM_SCHLICK #.0)

@@ -11,7 +11,7 @@ class ShapeUpgrade_RemoveInternalWires : public ShapeUpgrade_Tool
 {
 	public:
 	ShapeUpgrade_RemoveInternalWires(const TopoDS_Shape& theShape);
-	Standard_Boolean Perform() ;
+	bool Perform() ;
 	TopoDS_Shape GetResult() const; 
 };
 
@@ -27,12 +27,12 @@ class ShapeUpgrade_RemoveInternalWires : public ShapeUpgrade_Tool
 		return self->MinArea();
 	}
 
-	void setRemoveFaceMode(Standard_Boolean b)
+	void setRemoveFaceMode(bool b)
 	{
 		self->RemoveFaceMode()=b;
 	}
 	
-	Standard_Boolean getRemoveFaceMode()
+	bool getRemoveFaceMode()
 	{
 		return self->RemoveFaceMode();
 	}
@@ -42,7 +42,7 @@ class ShapeUpgrade_ShapeDivide
 {
 	public:
 	TopoDS_Shape Result() const;
-	Standard_Boolean Perform(const Standard_Boolean newContext = Standard_True) ;
+	bool Perform(const bool newContext = true) ;
 };
 
 class ShapeUpgrade_ShapeDivideArea : public ShapeUpgrade_ShapeDivide

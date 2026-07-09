@@ -13,11 +13,11 @@ class BRepAlgoAPI_BooleanOperation: public BRepBuilderAPI_MakeShape
 	BRepAlgoAPI_BooleanOperation()=0;
 	public:
 	virtual const TopTools_ListOfShape& Modified(const TopoDS_Shape& aS) ;
-	virtual Standard_Boolean IsDeleted(const TopoDS_Shape& aS) ;
+	virtual bool IsDeleted(const TopoDS_Shape& aS) ;
 	virtual const TopTools_ListOfShape& Generated(const TopoDS_Shape& S) ;
-	virtual Standard_Boolean HasModified() const;
-	virtual Standard_Boolean HasGenerated() const;
-	virtual Standard_Boolean HasDeleted() const;
+	virtual bool HasModified() const;
+	virtual bool HasGenerated() const;
+	virtual bool HasDeleted() const;
 };
 
 class BRepAlgoAPI_Fuse: public BRepAlgoAPI_BooleanOperation

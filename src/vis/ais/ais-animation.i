@@ -5,6 +5,9 @@ typedef opencascade::handle<AIS_Animation> Handle_AIS_Animation;
 typedef opencascade::handle<Media_Timer> Handle_Media_Timer;
 %}
 
+%ignore Handle_Standard_Transient;
+class Handle_Standard_Transient {};
+
 %rename(AIS_Animation) Handle_AIS_Animation;
 
 %nodefaultdtor Handle_AIS_Animation;

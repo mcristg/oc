@@ -49,19 +49,19 @@ class Handle_ShapeAnalysis_Surface {};
 class ShapeFix
 {
  public:
-  static Standard_Boolean SameParameter(const TopoDS_Shape &shape, 
-                                        const Standard_Boolean enforce,
-                                        const Standard_Real preci = 0.0,
+  static bool SameParameter(const TopoDS_Shape &shape, 
+                                        const bool enforce,
+                                        const double preci = 0.0,
                                         const Message_ProgressRange &theProgress = Message_ProgressRange(),
                                         const opencascade::handle< ShapeExtend_BasicMsgRegistrator > &theMsgReg = 0);
   
-  static void EncodeRegularity (const TopoDS_Shape& shape, const Standard_Real tolang = 1.0e-10);
+  static void EncodeRegularity (const TopoDS_Shape& shape, const double tolang = 1.0e-10);
   
-  static TopoDS_Shape RemoveSmallEdges (TopoDS_Shape& shape, const Standard_Real Tolerance, Handle_ShapeBuild_ReShape& context);
+  static TopoDS_Shape RemoveSmallEdges (TopoDS_Shape& shape, const double Tolerance, Handle_ShapeBuild_ReShape& context);
   
-  static Standard_Boolean FixVertexPosition (TopoDS_Shape& theshape, const Standard_Real theTolerance, const Handle_ShapeBuild_ReShape& thecontext);
+  static bool FixVertexPosition (TopoDS_Shape& theshape, const double theTolerance, const Handle_ShapeBuild_ReShape& thecontext);
   
-  static Standard_Real LeastEdgeSize (TopoDS_Shape& theshape);
+  static double LeastEdgeSize (TopoDS_Shape& theshape);
 };
 
 %rename(ShapeFix_Root) Handle_ShapeFix_Root;
@@ -109,19 +109,19 @@ class Handle_ShapeFix_Root  : public Handle_Standard_Transient
   Handle_ShapeExtend_BasicMsgRegistrator MsgRegistrator() {
     return (*self)->MsgRegistrator();
   }
-  void SetPrecision (const Standard_Real preci) {
+  void SetPrecision (const double preci) {
     (*self)->SetPrecision(preci);
   }
-  Standard_Real Precision() {
+  double Precision() {
     return (*self)->Precision();
   }
-  void SetMinTolerance (const Standard_Real mintol) {
+  void SetMinTolerance (const double mintol) {
     (*self)->SetMinTolerance(mintol);
   }
-  Standard_Real MaxTolerance() {
+  double MaxTolerance() {
     return (*self)->MaxTolerance();
   }
-  Standard_Real LimitTolerance (const Standard_Real toler) {
+  double LimitTolerance (const double toler) {
     return (*self)->LimitTolerance(toler);
   }
   void SendMsg (const TopoDS_Shape& shape, const Message_Msg& message, const Message_Gravity gravity = Message_Info) {
@@ -159,10 +159,10 @@ class Handle_ShapeFix_Shape  : public Handle_ShapeFix_Root
   void Init(const TopoDS_Shape& shape) {
     (*self)->Init(shape);
   }
-    Standard_Boolean Perform () {
+    bool Perform () {
     return (*self)->Perform();
   } 
-  Standard_Boolean Perform (const Message_ProgressRange &theProgress) {
+  bool Perform (const Message_ProgressRange &theProgress) {
     return (*self)->Perform(theProgress);
   }    
   TopoDS_Shape Shape() {
@@ -183,7 +183,7 @@ class Handle_ShapeFix_Shape  : public Handle_ShapeFix_Root
   Handle_ShapeFix_Edge FixEdgeTool() {
     return (*self)->FixEdgeTool();
   }
-  Standard_Boolean Status (const ShapeExtend_Status status) {
+  bool Status (const ShapeExtend_Status status) {
     return (*self)->Status(status);
   }
 }
@@ -206,22 +206,22 @@ class Handle_ShapeFix_EdgeProjAux  : public Handle_Standard_Transient
   void Init (const TopoDS_Face& F, const TopoDS_Edge& E) {
     (*self)->Init(F, E);
   }
-  void Compute (const Standard_Real preci) {
+  void Compute (const double preci) {
     (*self)->Compute(preci);
   }
-  Standard_Boolean IsFirstDone() {
+  bool IsFirstDone() {
     return (*self)->IsFirstDone();
   }
-  Standard_Boolean IsLastDone() {
+  bool IsLastDone() {
     return (*self)->IsLastDone();
   }
-  Standard_Real FirstParam() {
+  double FirstParam() {
     return (*self)->FirstParam();
   }
-  Standard_Real LastParam() {
+  double LastParam() {
     return (*self)->LastParam();
   }
-  Standard_Boolean IsIso (const Handle_Geom2d_Curve& C) {
+  bool IsIso (const Handle_Geom2d_Curve& C) {
     return (*self)->IsIso(C);
   }
 }
@@ -243,49 +243,49 @@ class Handle_ShapeFix_Edge  : public Handle_Standard_Transient
   Handle_ShapeConstruct_ProjectCurveOnSurface Projector() {
     return (*self)->Projector();
   }
-  Standard_Boolean FixRemovePCurve (const TopoDS_Edge& edge, const TopoDS_Face& face) {
+  bool FixRemovePCurve (const TopoDS_Edge& edge, const TopoDS_Face& face) {
     return (*self)->FixRemovePCurve(edge, face);
   }
-  Standard_Boolean FixRemovePCurve (const TopoDS_Edge& edge, const Handle_Geom_Surface& surface, const TopLoc_Location& location) {
+  bool FixRemovePCurve (const TopoDS_Edge& edge, const Handle_Geom_Surface& surface, const TopLoc_Location& location) {
     return (*self)->FixRemovePCurve(edge, surface, location);
   }
-  Standard_Boolean FixRemoveCurve3d (const TopoDS_Edge& edge) {
+  bool FixRemoveCurve3d (const TopoDS_Edge& edge) {
     return (*self)->FixRemoveCurve3d(edge);
   }
-  Standard_Boolean FixAddPCurve (const TopoDS_Edge& edge, const TopoDS_Face& face, const Standard_Boolean isSeam, const Standard_Real prec = 0.0) {
+  bool FixAddPCurve (const TopoDS_Edge& edge, const TopoDS_Face& face, const bool isSeam, const double prec = 0.0) {
     return (*self)->FixAddPCurve(edge, face, isSeam, prec);
   }
-  Standard_Boolean FixAddPCurve (const TopoDS_Edge& edge, const Handle_Geom_Surface& surface, const TopLoc_Location& location, const Standard_Boolean isSeam, const Standard_Real prec = 0.0) {
+  bool FixAddPCurve (const TopoDS_Edge& edge, const Handle_Geom_Surface& surface, const TopLoc_Location& location, const bool isSeam, const double prec = 0.0) {
     return (*self)->FixAddPCurve(edge, surface, location, isSeam, prec);
   }
-  Standard_Boolean FixAddPCurve (const TopoDS_Edge& edge, const TopoDS_Face& face, const Standard_Boolean isSeam, const Handle_ShapeAnalysis_Surface& surfana, const Standard_Real prec = 0.0) {
+  bool FixAddPCurve (const TopoDS_Edge& edge, const TopoDS_Face& face, const bool isSeam, const Handle_ShapeAnalysis_Surface& surfana, const double prec = 0.0) {
     return (*self)->FixAddPCurve(edge, face, isSeam, surfana, prec);
   }
-  Standard_Boolean FixAddPCurve (const TopoDS_Edge& edge, const Handle_Geom_Surface& surface, const TopLoc_Location& location, const Standard_Boolean isSeam, const Handle_ShapeAnalysis_Surface& surfana, const Standard_Real prec = 0.0) {
+  bool FixAddPCurve (const TopoDS_Edge& edge, const Handle_Geom_Surface& surface, const TopLoc_Location& location, const bool isSeam, const Handle_ShapeAnalysis_Surface& surfana, const double prec = 0.0) {
     return (*self)->FixAddPCurve(edge, surface, location, isSeam, surfana, prec);
   }
-  Standard_Boolean FixAddCurve3d (const TopoDS_Edge& edge) {
+  bool FixAddCurve3d (const TopoDS_Edge& edge) {
     return (*self)->FixAddCurve3d(edge);
   }
-  Standard_Boolean FixVertexTolerance (const TopoDS_Edge& edge, const TopoDS_Face& face) {
+  bool FixVertexTolerance (const TopoDS_Edge& edge, const TopoDS_Face& face) {
     return (*self)->FixVertexTolerance(edge, face);
   }
-  Standard_Boolean FixVertexTolerance (const TopoDS_Edge& edge) {
+  bool FixVertexTolerance (const TopoDS_Edge& edge) {
     return (*self)->FixVertexTolerance(edge);
   }
-  Standard_Boolean FixReversed2d (const TopoDS_Edge& edge, const TopoDS_Face& face) {
+  bool FixReversed2d (const TopoDS_Edge& edge, const TopoDS_Face& face) {
     return (*self)->FixReversed2d(edge, face);
   }
-  Standard_Boolean FixReversed2d (const TopoDS_Edge& edge, const Handle_Geom_Surface& surface, const TopLoc_Location& location) {
+  bool FixReversed2d (const TopoDS_Edge& edge, const Handle_Geom_Surface& surface, const TopLoc_Location& location) {
     return (*self)->FixReversed2d(edge, surface, location);
   }
-  Standard_Boolean FixSameParameter (const TopoDS_Edge& edge, const Standard_Real tolerance = 0.0) {
+  bool FixSameParameter (const TopoDS_Edge& edge, const double tolerance = 0.0) {
     return (*self)->FixSameParameter(edge, tolerance);
   }
-  Standard_Boolean FixSameParameter (const TopoDS_Edge& edge, const TopoDS_Face& face, const Standard_Real tolerance = 0.0) {
+  bool FixSameParameter (const TopoDS_Edge& edge, const TopoDS_Face& face, const double tolerance = 0.0) {
     return (*self)->FixSameParameter(edge, face, tolerance);
   }
-  Standard_Boolean Status (const ShapeExtend_Status status) {
+  bool Status (const ShapeExtend_Status status) {
     return (*self)->Status(status);
   }
   void SetContext (const Handle_ShapeBuild_ReShape& context) {
@@ -303,7 +303,7 @@ class Handle_ShapeFix_Wire  : public Handle_ShapeFix_Root
   Handle_ShapeFix_Wire() {
     return new Handle_ShapeFix_Wire(new ShapeFix_Wire());
   }
-  Handle_ShapeFix_Wire(const TopoDS_Wire& wire, const TopoDS_Face& face, const Standard_Real prec) {
+  Handle_ShapeFix_Wire(const TopoDS_Wire& wire, const TopoDS_Face& face, const double prec) {
     return new Handle_ShapeFix_Wire(new ShapeFix_Wire(wire, face, prec));
   }
   void Delete() {
@@ -315,7 +315,7 @@ class Handle_ShapeFix_Wire  : public Handle_ShapeFix_Root
   void ClearStatuses() {
     (*self)->ClearStatuses();
   }
-  void Init (const TopoDS_Wire& wire, const TopoDS_Face& face, const Standard_Real prec) {
+  void Init (const TopoDS_Wire& wire, const TopoDS_Face& face, const double prec) {
     (*self)->Init(wire, face, prec);
   }
   void Init (const Handle_ShapeAnalysis_Wire& saw) {
@@ -338,21 +338,21 @@ class Handle_ShapeFix_Wire  : public Handle_ShapeFix_Root
     (*self)->SetSurface(surf, loc);
   }
   */
-  void SetMaxTailAngle (const Standard_Real theMaxTailAngle) {
+  void SetMaxTailAngle (const double theMaxTailAngle) {
     (*self)->SetMaxTailAngle(theMaxTailAngle);
   }
-  void SetMaxTailWidth (const Standard_Real theMaxTailWidth) {
+  void SetMaxTailWidth (const double theMaxTailWidth) {
     (*self)->SetMaxTailWidth(theMaxTailWidth);
   }
   /*
-  Standard_Boolean IsLoaded() {
+  bool IsLoaded() {
     return (*self)->IsLoaded();
   }
-  Standard_Boolean IsReady() {
+  bool IsReady() {
     return (*self)->IsReady();
     }
 */
-  Standard_Integer NbEdges() {
+  int NbEdges() {
     return (*self)->NbEdges();
   }
 
@@ -373,245 +373,245 @@ class Handle_ShapeFix_Wire  : public Handle_ShapeFix_Root
   TopoDS_Face& Face() {
     return (*self)->Face();
   }
-  Standard_Boolean GetTopologyMode() {
+  bool GetTopologyMode() {
     return *((*self)->ModifyTopologyMode());
   }
-  void SetTopologyMode(Standard_Boolean mode) {
+  void SetTopologyMode(bool mode) {
     *((*self)->ModifyTopologyMode()) = mode;
   }
-  Standard_Boolean GetGeometryMode() {
+  bool GetGeometryMode() {
     return *((*self)->ModifyGeometryMode());
   }
-  void SetGeometryMode(Standard_Boolean mode) {
+  void SetGeometryMode(bool mode) {
     *((*self)->ModifyGeometryMode()) = mode;
   }
-  Standard_Integer GetRemoveLoopMode() {
+  int GetRemoveLoopMode() {
     return *((*self)->ModifyRemoveLoopMode());
   }
-  void SetRemoveLoopMode(Standard_Integer mode) {
+  void SetRemoveLoopMode(int mode) {
     *((*self)->ModifyRemoveLoopMode()) = mode;
   }
-  Standard_Boolean GetClosedWireMode() {
+  bool GetClosedWireMode() {
     return *((*self)->ClosedWireMode());
   }
-  void SetClosedWireMode(Standard_Boolean mode) {
+  void SetClosedWireMode(bool mode) {
     *((*self)->ClosedWireMode()) = mode;
   }
-  Standard_Boolean GetPreferencePCurveMode() {
+  bool GetPreferencePCurveMode() {
     return *((*self)->PreferencePCurveMode());
   }
-  void SetPreferencePCurveMode(Standard_Boolean mode) {
+  void SetPreferencePCurveMode(bool mode) {
     *((*self)->PreferencePCurveMode()) = mode;
   }
-  Standard_Boolean GetFixGapsByRangesMode() {
+  bool GetFixGapsByRangesMode() {
     return *((*self)->FixGapsByRangesMode());
   }
-  void SetFixGapsByRangesMode(Standard_Boolean mode) {
+  void SetFixGapsByRangesMode(bool mode) {
     *((*self)->FixGapsByRangesMode()) = mode;
   }
-  Standard_Integer GetFixReorderMode() {
+  int GetFixReorderMode() {
     return *((*self)->FixReorderMode());
   }
-  void SetFixReorderMode(Standard_Integer mode) {
+  void SetFixReorderMode(int mode) {
     *((*self)->FixReorderMode()) = mode;
   }
-  Standard_Integer GetFixSmallMode() {
+  int GetFixSmallMode() {
     return *((*self)->FixSmallMode());
   }
-  void SetFixSmallMode(Standard_Integer mode) {
+  void SetFixSmallMode(int mode) {
     *((*self)->FixSmallMode()) = mode;
   }  
-  Standard_Integer GetFixConnectedMode() {
+  int GetFixConnectedMode() {
     return *((*self)->FixConnectedMode());
   }
-  void SetFixConnectedMode(Standard_Integer mode) {
+  void SetFixConnectedMode(int mode) {
     *((*self)->FixConnectedMode()) = mode;
   }
-  Standard_Integer GetFixEdgeCurvesMode() {
+  int GetFixEdgeCurvesMode() {
     return *((*self)->FixEdgeCurvesMode());
   }
-  void SetFixEdgeCurvesMode(Standard_Integer mode) {
+  void SetFixEdgeCurvesMode(int mode) {
     *((*self)->FixEdgeCurvesMode()) = mode;
   }
-  Standard_Integer GetFixDegeneratedMode() {
+  int GetFixDegeneratedMode() {
     return *((*self)->FixDegeneratedMode());
   }
-  void SetFixDegeneratedMode(Standard_Integer mode) {
+  void SetFixDegeneratedMode(int mode) {
     *((*self)->FixDegeneratedMode()) = mode;
   }
-  Standard_Integer GetFixSelfIntersectionMode() {
+  int GetFixSelfIntersectionMode() {
     return *((*self)->FixSelfIntersectionMode());
   }
-  void SetFixSelfIntersectionMode(Standard_Integer mode) {
+  void SetFixSelfIntersectionMode(int mode) {
     *((*self)->FixSelfIntersectionMode()) = mode;
   }
-  Standard_Integer GetFixLackingMode() {
+  int GetFixLackingMode() {
     return *((*self)->FixLackingMode());
   }
-  void SetFixLackingMode(Standard_Integer mode) {
+  void SetFixLackingMode(int mode) {
     *((*self)->FixLackingMode()) = mode;
   }
-  Standard_Integer GetFixGaps3dMode() {
+  int GetFixGaps3dMode() {
     return *((*self)->FixGaps3dMode());
   }
-  void SetFixGaps3dMode(Standard_Integer mode) {
+  void SetFixGaps3dMode(int mode) {
     *((*self)->FixGaps3dMode()) = mode;
   }
-  Standard_Integer GetFixGaps2dMode() {
+  int GetFixGaps2dMode() {
     return *((*self)->FixGaps2dMode());
   }
-  void SetFixGaps2dMode(Standard_Integer mode) {
+  void SetFixGaps2dMode(int mode) {
     *((*self)->FixGaps2dMode()) = mode;
   }
-  Standard_Integer GetFixReversed2dMode() {
+  int GetFixReversed2dMode() {
     return *((*self)->FixReversed2dMode());
   }
-  void SetFixReversed2dMode(Standard_Integer mode) {
+  void SetFixReversed2dMode(int mode) {
     *((*self)->FixReversed2dMode()) = mode;
   }
-  Standard_Integer GetFixRemovePCurveMode() {
+  int GetFixRemovePCurveMode() {
     return *((*self)->FixRemovePCurveMode());
   }
-  void SetFixRemovePCurveMode(Standard_Integer mode) {
+  void SetFixRemovePCurveMode(int mode) {
     *((*self)->FixRemovePCurveMode()) = mode;
   }
-  Standard_Integer GetFixAddPCurveMode() {
+  int GetFixAddPCurveMode() {
     return *((*self)->FixAddPCurveMode());
   }
-  void SetFixAddPCurveMode(Standard_Integer mode) {
+  void SetFixAddPCurveMode(int mode) {
     *((*self)->FixAddPCurveMode()) = mode;
   }
-  Standard_Integer GetFixRemoveCurve3dMode() {
+  int GetFixRemoveCurve3dMode() {
     return *((*self)->FixRemoveCurve3dMode());
   }
-  void SetFixRemoveCurve3dMode(Standard_Integer mode) {
+  void SetFixRemoveCurve3dMode(int mode) {
     *((*self)->FixRemoveCurve3dMode()) = mode;
   }
-  Standard_Integer GetFixAddCurve3dMode() {
+  int GetFixAddCurve3dMode() {
     return *((*self)->FixAddCurve3dMode());
   }
-  void SetFixAddCurve3dMode(Standard_Integer mode) {
+  void SetFixAddCurve3dMode(int mode) {
     *((*self)->FixAddCurve3dMode()) = mode;
   }
-  Standard_Integer GetFixSeamMode() {
+  int GetFixSeamMode() {
     return *((*self)->FixSeamMode());
   }
-  void SetFixSeamMode(Standard_Integer mode) {
+  void SetFixSeamMode(int mode) {
     *((*self)->FixSeamMode()) = mode;
   }
-  Standard_Integer GetFixShiftedMode() {
+  int GetFixShiftedMode() {
     return *((*self)->FixShiftedMode());
   }
-  void SetFixShiftedMode(Standard_Integer mode) {
+  void SetFixShiftedMode(int mode) {
     *((*self)->FixShiftedMode()) = mode;
   }
-  Standard_Integer GetFixSameParameterMode() {
+  int GetFixSameParameterMode() {
     return *((*self)->FixSameParameterMode());
   }
-  void SetFixSameParameterMode(Standard_Integer mode) {
+  void SetFixSameParameterMode(int mode) {
     *((*self)->FixSameParameterMode()) = mode;
   }  
-  Standard_Integer GetFixVertexToleranceMode() {
+  int GetFixVertexToleranceMode() {
     return *((*self)->FixVertexToleranceMode());
   }
-  void SetFixVertexToleranceMode(Standard_Integer mode) {
+  void SetFixVertexToleranceMode(int mode) {
     *((*self)->FixVertexToleranceMode()) = mode;
   }
-  Standard_Integer GetFixNotchedEdgesMode() {
+  int GetFixNotchedEdgesMode() {
     return *((*self)->FixNotchedEdgesMode());
   }
-  void SetFixNotchedEdgesMode(Standard_Integer mode) {
+  void SetFixNotchedEdgesMode(int mode) {
     *((*self)->FixNotchedEdgesMode()) = mode;
   }
-  Standard_Integer GetFixSelfIntersectingEdgeMode() {
+  int GetFixSelfIntersectingEdgeMode() {
     return *((*self)->FixSelfIntersectingEdgeMode());
   }
-  void SetFixSelfIntersectingEdgeMode(Standard_Integer mode) {
+  void SetFixSelfIntersectingEdgeMode(int mode) {
     *((*self)->FixSelfIntersectingEdgeMode()) = mode;
   }  
-  Standard_Integer GetFixIntersectingEdgesMode() {
+  int GetFixIntersectingEdgesMode() {
     return *((*self)->FixIntersectingEdgesMode());
   }
-  void SetFixIntersectingEdgesMode(Standard_Integer mode) {
+  void SetFixIntersectingEdgesMode(int mode) {
     *((*self)->FixIntersectingEdgesMode()) = mode;
   }
-  Standard_Integer GetFixNonAdjacentIntersectingEdgesMode() {
+  int GetFixNonAdjacentIntersectingEdgesMode() {
     return *((*self)->FixNonAdjacentIntersectingEdgesMode());
   }
-  void SetFixNonAdjacentIntersectingEdgesMode(Standard_Integer mode) {
+  void SetFixNonAdjacentIntersectingEdgesMode(int mode) {
     *((*self)->FixNonAdjacentIntersectingEdgesMode()) = mode;
   }
-  Standard_Integer GetFixTailMode() {
+  int GetFixTailMode() {
     return *((*self)->FixTailMode());
   }
-  void SetFixTailMode(Standard_Integer mode) {
+  void SetFixTailMode(int mode) {
     *((*self)->FixTailMode()) = mode;
   }
   */
-  Standard_Boolean Perform() {
+  bool Perform() {
     return (*self)->Perform();
   }
-  Standard_Boolean FixReorder() {
+  bool FixReorder() {
     return (*self)->FixReorder();
   }
-  Standard_Integer FixSmall (const Standard_Boolean lockvtx, const Standard_Real precsmall = 0.0) {
+  int FixSmall (const bool lockvtx, const double precsmall = 0.0) {
     return (*self)->FixSmall(lockvtx, precsmall);
   }
-  Standard_Boolean FixConnected (const Standard_Real prec = -1.0) {
+  bool FixConnected (const double prec = -1.0) {
     return (*self)->FixConnected(prec);
   }
-  Standard_Boolean FixEdgeCurves() {
+  bool FixEdgeCurves() {
     return (*self)->FixEdgeCurves();
   }
-  Standard_Boolean FixDegenerated() {
+  bool FixDegenerated() {
     return (*self)->FixDegenerated();
   }
-  Standard_Boolean FixSelfIntersection() {
+  bool FixSelfIntersection() {
     return (*self)->FixSelfIntersection();
   }
-  Standard_Boolean FixLacking (const Standard_Boolean force = Standard_False) {
+  bool FixLacking (const bool force = false) {
     return (*self)->FixLacking(force);
   }
-  Standard_Boolean FixClosed (const Standard_Real prec = -1.0) {
+  bool FixClosed (const double prec = -1.0) {
     return (*self)->FixClosed(prec);
   }
-  Standard_Boolean FixGaps3d() {
+  bool FixGaps3d() {
     return (*self)->FixGaps3d();
   }
-  Standard_Boolean FixGaps2d() {
+  bool FixGaps2d() {
     return (*self)->FixGaps2d();
   }
-  Standard_Boolean FixReorder (const ShapeAnalysis_WireOrder& wi) {
+  bool FixReorder (const ShapeAnalysis_WireOrder& wi) {
     return (*self)->FixReorder(wi);
   }
-  Standard_Boolean FixSmall (const Standard_Integer num, const Standard_Boolean lockvtx, const Standard_Real precsmall) {
+  bool FixSmall (const int num, const bool lockvtx, const double precsmall) {
     return (*self)->FixSmall(num, lockvtx, precsmall);
   }
-  Standard_Boolean FixConnected (const Standard_Integer num, const Standard_Real prec) {
+  bool FixConnected (const int num, const double prec) {
     return (*self)->FixConnected(num, prec);
   }
-  Standard_Boolean FixSeam (const Standard_Integer num) {
+  bool FixSeam (const int num) {
     return (*self)->FixSeam(num);
   }
-  Standard_Boolean FixShifted() {
+  bool FixShifted() {
     return (*self)->FixShifted();
   }
-  Standard_Boolean FixDegenerated (const Standard_Integer num) {
+  bool FixDegenerated (const int num) {
     return (*self)->FixDegenerated(num);
   }
-  Standard_Boolean FixLacking (const Standard_Integer num, const Standard_Boolean force = Standard_False) {
+  bool FixLacking (const int num, const bool force = false) {
     return (*self)->FixLacking(num, force);
   }
-  Standard_Boolean FixNotchedEdges() {
+  bool FixNotchedEdges() {
     return (*self)->FixNotchedEdges();
   }
-  Standard_Boolean FixGap3d (const Standard_Integer num, const Standard_Boolean convert = Standard_False) {
+  bool FixGap3d (const int num, const bool convert = false) {
     return (*self)->FixGap3d(num, convert);
   }
-  Standard_Boolean FixGap2d (const Standard_Integer num, const Standard_Boolean convert = Standard_False) {
+  bool FixGap2d (const int num, const bool convert = false) {
     return (*self)->FixGap2d(num, convert);
   }
-  Standard_Boolean FixTails() {
+  bool FixTails() {
     return (*self)->FixTails();
   }
 }
@@ -627,27 +627,27 @@ class Handle_ShapeFix_Wireframe: public Handle_ShapeFix_Root {};
   void Delete() {
     self->~Handle_ShapeFix_Wireframe();
   }  
-  Standard_Boolean FixWireGaps() {
+  bool FixWireGaps() {
     return (*self)->FixWireGaps();
   }
-  Standard_Boolean FixSmallEdges() {
+  bool FixSmallEdges() {
     return (*self)->FixSmallEdges();
   }
-  void SetLimitAngle(const Standard_Real theLimitAngle) {
+  void SetLimitAngle(const double theLimitAngle) {
     (*self)->SetLimitAngle(theLimitAngle);
   }
-  Standard_Real LimitAngle() {
+  double LimitAngle() {
     return (*self)->LimitAngle();
   }
   TopoDS_Shape Shape() {
     return (*self)->Shape();
   }
   /*
-  void SetDropSmallEdges(Standard_Boolean b)
+  void SetDropSmallEdges(bool b)
   {
     self->ModeDropSmallEdges()=b;
   }
-  Standard_Boolean GetDropSmallEdges()
+  bool GetDropSmallEdges()
   {
     return (*self)->ModeDropSmallEdges()!=0;
   }

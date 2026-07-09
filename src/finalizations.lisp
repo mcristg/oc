@@ -50,7 +50,7 @@
 			 (funcall free-fn ptr))
 		       :dont-save t)))
 
-(defmethod finalize ((object mmgt-tshared) &optional owner)
+(defmethod finalize ((object standard-transient) &optional owner)
   (declare (ignore owner))
   #+foreign-managed-finalizations
   (let ((type (type-of object))
@@ -504,8 +504,12 @@
 (defmethod foreign-free-fn ((object top-exp-explorer))
   #'_wrap_delete_TopExp_Explorer)
 
-(defmethod foreign-free-fn ((object gce2d-make-segment))
+(defmethod foreign-free-fn ((object gc-make-segment2d))
   #'_wrap_delete_GCe2d_MakeSegment)
+  
+;;deprecated  
+(defmethod foreign-free-fn ((object gce2d-make-segment))
+  #'_wrap_delete_GCe2d_MakeSegment)  
 
 (defmethod foreign-free-fn ((object topods-compound))
   #'_wrap_delete_TopoDS_Compound)

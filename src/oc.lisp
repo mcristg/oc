@@ -9366,9 +9366,8 @@
   (self :pointer)
   (Index :int))
 
-(cffi:defcfun ("_wrap_Geom_BSplineCurve_Poles" _wrap_Geom_BSplineCurve_Poles) :void
-  (self :pointer)
-  (P :pointer))
+(cffi:defcfun ("_wrap_Geom_BSplineCurve_Poles" _wrap_Geom_BSplineCurve_Poles) :pointer
+  (self :pointer))
 
 (cffi:defcfun ("_wrap_Geom_BSplineCurve_Weight" _wrap_Geom_BSplineCurve_Weight) :double
   (self :pointer)
@@ -9378,9 +9377,8 @@
   (self :pointer)
   (Index :int))
 
-(cffi:defcfun ("_wrap_Geom_BSplineCurve_Knots" _wrap_Geom_BSplineCurve_Knots) :void
-  (self :pointer)
-  (K :pointer))
+(cffi:defcfun ("_wrap_Geom_BSplineCurve_Knots" _wrap_Geom_BSplineCurve_Knots) :pointer
+  (self :pointer))
 
 (cffi:defcfun ("_wrap_Geom_BSplineCurve_Multiplicity" _wrap_Geom_BSplineCurve_Multiplicity) :int
   (self :pointer)
@@ -10990,6 +10988,36 @@
   (self :pointer))
 
 (cffi:defcfun ("_wrap_delete_GC_MakeSegment" _wrap_delete_GC_MakeSegment) :void
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_new_GC_MakeSegment2d__SWIG_0" _wrap_new_GC_MakeSegment2d__SWIG_0) :pointer
+  (P1 :pointer)
+  (P2 :pointer))
+
+(cffi:defcfun ("_wrap_new_GC_MakeSegment2d__SWIG_1" _wrap_new_GC_MakeSegment2d__SWIG_1) :pointer
+  (P1 :pointer)
+  (V :pointer)
+  (P2 :pointer))
+
+(cffi:defcfun ("_wrap_new_GC_MakeSegment2d__SWIG_2" _wrap_new_GC_MakeSegment2d__SWIG_2) :pointer
+  (Line :pointer)
+  (U1 :double)
+  (U2 :double))
+
+(cffi:defcfun ("_wrap_new_GC_MakeSegment2d__SWIG_3" _wrap_new_GC_MakeSegment2d__SWIG_3) :pointer
+  (Line :pointer)
+  (Point :pointer)
+  (Ulast :double))
+
+(cffi:defcfun ("_wrap_new_GC_MakeSegment2d__SWIG_4" _wrap_new_GC_MakeSegment2d__SWIG_4) :pointer
+  (Line :pointer)
+  (P1 :pointer)
+  (P2 :pointer))
+
+(cffi:defcfun ("_wrap_GC_MakeSegment2d_Value" _wrap_GC_MakeSegment2d_Value) :pointer
+  (self :pointer))
+
+(cffi:defcfun ("_wrap_delete_GC_MakeSegment2d" _wrap_delete_GC_MakeSegment2d) :void
   (self :pointer))
 
 (cffi:defcfun ("_wrap_GCE2d_Root_IsDone" _wrap_GCE2d_Root_IsDone) :bool

@@ -69,7 +69,7 @@
    (:file "src/collections/top-tools-map-of-shape")
    (:file "src/collections/top-tools-map-iterator-of-map-of-shape")
    
-   (:file "src/mmgt/mmgt-tshared")
+   (:file "src/stdt/standard-transient")
 
    (:file "src/geom2d/geom2d-transformation")
    (:file "src/geom2d/geom2d-geometry")
@@ -116,6 +116,8 @@
 
    (:file "src/gc/gc-make-arc-of-circle")
    (:file "src/gc/gc-make-segment")
+   (:file "src/gc/gc-make-segment2d")
+   
    (:file "src/gce2d/gce2d-make-segment")
    
    (:file "src/brep-builder-api/brep-builder-api-command")

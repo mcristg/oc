@@ -8,8 +8,8 @@ class ShapeAnalysis_Surface
 
 	ShapeAnalysis_Surface (const Handle_Geom_Surface &S);
 
-    Standard_Boolean HasSingularities (const Standard_Real preci) ;
-    Standard_Integer NbSingularities (const Standard_Real preci) ;
-    Standard_Boolean IsDegenerated (const gp_Pnt &P3d, const Standard_Real preci) ;
+    bool HasSingularities (const double preci) ;
+    int NbSingularities (const double preci) ;
+    bool IsDegenerated (const gp_Pnt &P3d, const double preci) ;
 
 };

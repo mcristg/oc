@@ -130,8 +130,8 @@
     (cffi:load-foreign-library (concatenate 'string *occt-lib-path* *freetype-lib*)))
   (loop for lib in *opencascade-libraries*
 	do (cffi:load-foreign-library (concatenate 'string *occt-lib-path* lib *opencascade-lib-extension*))
-	finally (cffi:load-foreign-library (concatenate 'string *oc-lib-path* *oc-swig-lib*))))
-
+	finally (cffi:load-foreign-library (concatenate 'string *oc-lib-path* *oc-swig-lib*))))        
+  
 (load-oc-libraries)
 
 

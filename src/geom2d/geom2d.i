@@ -93,10 +93,10 @@ class Handle_Geom2d_Geometry : public Handle_Standard_Transient
   {
     (*self)->Mirror(A);
   }
-  void Rotate (const gp_Pnt2d& P, const Standard_Real Ang) {
+  void Rotate (const gp_Pnt2d& P, const double Ang) {
     (*self)->Rotate(P, Ang);
   }
-  void Scale (const gp_Pnt2d& P, const Standard_Real S) {
+  void Scale (const gp_Pnt2d& P, const double S) {
     (*self)->Scale(P, S);
   }
   void Translate (const gp_Vec2d& V) {
@@ -111,10 +111,10 @@ class Handle_Geom2d_Geometry : public Handle_Standard_Transient
   Handle_Geom2d_Geometry Mirrored (const gp_Ax2d& A) {
     return (*self)->Mirrored(A);
   }
-  Handle_Geom2d_Geometry Rotated (const gp_Pnt2d& P, const Standard_Real Ang) {
+  Handle_Geom2d_Geometry Rotated (const gp_Pnt2d& P, const double Ang) {
     return (*self)->Rotated(P, Ang);
   }
-  Handle_Geom2d_Geometry Scaled (const gp_Pnt2d& P, const Standard_Real S) {
+  Handle_Geom2d_Geometry Scaled (const gp_Pnt2d& P, const double S) {
     return (*self)->Scaled(P, S);
   }
   Handle_Geom2d_Geometry Transformed (const gp_Trsf2d& T) {
@@ -141,22 +141,22 @@ class Handle_Geom2d_Point : public Handle_Geom2d_Geometry
 
 %extend Handle_Geom2d_Point
 {
-  Standard_Real Distance (const Handle_Geom2d_Point& Other) {
+  double Distance (const Handle_Geom2d_Point& Other) {
     return (*self)->Distance(Other);
   }
-  Standard_Real SquareDistance (const Handle_Geom2d_Point& Other) {
+  double SquareDistance (const Handle_Geom2d_Point& Other) {
     return (*self)->SquareDistance(Other);
   }
-  void Coord (Standard_Real& X, Standard_Real& Y) {
+  void Coord (double& X, double& Y) {
     (*self)->Coord(X, Y);
   }
   gp_Pnt2d Pnt2d() {
     return (*self)->Pnt2d();
   }
-  Standard_Real X() {
+  double X() {
     return (*self)->X();
   }
-  Standard_Real Y() {
+  double Y() {
     return (*self)->Y();
   }
 }
@@ -171,22 +171,22 @@ class Handle_Geom2d_CartesianPoint : public Handle_Geom2d_Point
   Handle_Geom2d_CartesianPoint(const gp_Pnt2d& P) {
     return new Handle_Geom2d_CartesianPoint(new Geom2d_CartesianPoint(P));
   }
-  Handle_Geom2d_CartesianPoint(const Standard_Real X, const Standard_Real Y) {
+  Handle_Geom2d_CartesianPoint(const double X, const double Y) {
     return new Handle_Geom2d_CartesianPoint(new Geom2d_CartesianPoint(X, Y));
   }
   void Delete() {
     self->~Handle_Geom2d_CartesianPoint();
   }
-  void SetCoord (const Standard_Real X, const Standard_Real Y) {
+  void SetCoord (const double X, const double Y) {
     (*self)->SetCoord(X, Y);
   }
   void SetPnt2d (const gp_Pnt2d& P) {
     (*self)->SetPnt2d(P);
   }
-  void SetX (const Standard_Real X) {
+  void SetX (const double X) {
     (*self)->SetX(X);
   }
-  void SetY (const Standard_Real Y) {
+  void SetY (const double Y) {
     (*self)->SetY(Y);
   }
 }
@@ -204,34 +204,34 @@ class Handle_Geom2d_Vector : public Handle_Geom2d_Geometry
   Handle_Geom2d_Vector Reversed() {
     return (*self)->Reversed();
   }
-  Standard_Real Angle (const Handle_Geom2d_Vector& Other) {
+  double Angle (const Handle_Geom2d_Vector& Other) {
     return (*self)->Angle(Other);
   }
-  void Coord (Standard_Real& X, Standard_Real& Y) {
+  void Coord (double& X, double& Y) {
     (*self)->Coord(X, Y);
   }
-  Standard_Real Magnitude() {
+  double Magnitude() {
     return (*self)->Magnitude();
   }
-  Standard_Real SquareMagnitude() {
+  double SquareMagnitude() {
     return (*self)->SquareMagnitude();
   }
-  Standard_Real X() {
+  double X() {
     return (*self)->X();
   }
-  Standard_Real Y() {
+  double Y() {
     return (*self)->Y();
   }
-  Standard_Real Crossed (const Handle_Geom2d_Vector& Other) {
+  double Crossed (const Handle_Geom2d_Vector& Other) {
     return (*self)->Crossed(Other);
   }
-  Standard_Real Dot (const Handle_Geom2d_Vector& Other) {
+  double Dot (const Handle_Geom2d_Vector& Other) {
     return (*self)->Dot(Other);
   }
   gp_Vec2d Vec2d() {
     return (*self)->Vec2d();
   }
-  Standard_Integer GeometryType()
+  int GeometryType()
   {
     if (STANDARD_TYPE(Geom2d_VectorWithMagnitude) == (*self)->DynamicType())
       {
@@ -255,7 +255,7 @@ class Handle_Geom2d_VectorWithMagnitude : public Handle_Geom2d_Vector
   Handle_Geom2d_VectorWithMagnitude(const gp_Vec2d& V) {
     return new Handle_Geom2d_VectorWithMagnitude(new Geom2d_VectorWithMagnitude(V));
   }
-  Handle_Geom2d_VectorWithMagnitude(const Standard_Real X, const Standard_Real Y) {
+  Handle_Geom2d_VectorWithMagnitude(const double X, const double Y) {
     return new Handle_Geom2d_VectorWithMagnitude(new Geom2d_VectorWithMagnitude(X, Y));
   }
   Handle_Geom2d_VectorWithMagnitude(const gp_Pnt2d& P1, const gp_Pnt2d& P2) {
@@ -264,16 +264,16 @@ class Handle_Geom2d_VectorWithMagnitude : public Handle_Geom2d_Vector
   void Delete() {
     self->~Handle_Geom2d_VectorWithMagnitude();
   }
-  void SetCoord (const Standard_Real X, const Standard_Real Y) {
+  void SetCoord (const double X, const double Y) {
     (*self)->SetCoord(X, Y);
   }
   void SetVec2d (const gp_Vec2d& V) {
     (*self)->SetVec2d(V);
   }
-  void SetX (const Standard_Real X) {
+  void SetX (const double X) {
     (*self)->SetX(X);
   }
-  void SetY (const Standard_Real Y) {
+  void SetY (const double Y) {
     (*self)->SetY(Y);
   }
   void Add (const Handle_Geom2d_Vector& Other) {
@@ -282,16 +282,16 @@ class Handle_Geom2d_VectorWithMagnitude : public Handle_Geom2d_Vector
   Handle_Geom2d_VectorWithMagnitude Added (const Handle_Geom2d_Vector& Other) {
     return (*self)->Added(Other);
   }
-  void Divide (const Standard_Real Scalar) {
+  void Divide (const double Scalar) {
     (*self)->Divide(Scalar);
   }
-  Handle_Geom2d_VectorWithMagnitude Divided (const Standard_Real Scalar) {
+  Handle_Geom2d_VectorWithMagnitude Divided (const double Scalar) {
     return (*self)->Divided(Scalar);
   }
-  Handle_Geom2d_VectorWithMagnitude Multiplied (const Standard_Real Scalar) {
+  Handle_Geom2d_VectorWithMagnitude Multiplied (const double Scalar) {
     return (*self)->Multiplied(Scalar);
   }
-  void Multiply (const Standard_Real Scalar) {
+  void Multiply (const double Scalar) {
     (*self)->Multiply(Scalar);
   }
   void Normalize() {
@@ -321,7 +321,7 @@ class Handle_Geom2d_Direction : public Handle_Geom2d_Vector
 
 %extend Handle_Geom2d_Direction
 {
-  Handle_Geom2d_Direction(const Standard_Real X, const Standard_Real Y) {
+  Handle_Geom2d_Direction(const double X, const double Y) {
     return new Handle_Geom2d_Direction(new Geom2d_Direction(X, Y));
   }
   Handle_Geom2d_Direction(const gp_Dir2d& V) {
@@ -330,16 +330,16 @@ class Handle_Geom2d_Direction : public Handle_Geom2d_Vector
   void Delete() {
     self->~Handle_Geom2d_Direction();
   }  
-  void SetCoord (const Standard_Real X, const Standard_Real Y) {
+  void SetCoord (const double X, const double Y) {
     (*self)->SetCoord(X, Y);
   }
   void SetDir2d (const gp_Dir2d& V) {
     (*self)->SetDir2d(V);
   }
-  void SetX (const Standard_Real X) {
+  void SetX (const double X) {
     (*self)->SetX(X);
   }
-  void SetY (const Standard_Real Y) {
+  void SetY (const double Y) {
     (*self)->SetY(Y);
   }
   gp_Dir2d Dir2d() {
@@ -379,7 +379,7 @@ class Handle_Geom2d_AxisPlacement : public Handle_Geom2d_Geometry
   void SetLocation (const gp_Pnt2d& P) {
     (*self)->SetLocation(P);
   }
-  Standard_Real Angle (const Handle_Geom2d_AxisPlacement& Other) {
+  double Angle (const Handle_Geom2d_AxisPlacement& Other) {
     return (*self)->Angle(Other);
   }
   gp_Ax2d Ax2d() {
@@ -416,10 +416,10 @@ class Handle_Geom2d_Transformation : public Handle_Standard_Transient
   void SetMirror (const gp_Ax2d& A) {
     (*self)->SetMirror(A);
   }
-  void SetRotation (const gp_Pnt2d& P, const Standard_Real Ang) {
+  void SetRotation (const gp_Pnt2d& P, const double Ang) {
     (*self)->SetRotation(P, Ang);
   }
-  void SetScale (const gp_Pnt2d& P, const Standard_Real S) {
+  void SetScale (const gp_Pnt2d& P, const double S) {
     (*self)->SetScale(P, S);
   }
   void SetTransformation (const gp_Ax2d& FromSystem1, const gp_Ax2d& ToSystem2) {
@@ -437,19 +437,19 @@ class Handle_Geom2d_Transformation : public Handle_Standard_Transient
   void SetTrsf2d (const gp_Trsf2d& T) {
     (*self)->SetTrsf2d(T);
   }
-  Standard_Boolean IsNegative() {
+  bool IsNegative() {
     return (*self)->IsNegative();
   }
   gp_TrsfForm Form() {
     return (*self)->Form();
   }
-  Standard_Real ScaleFactor() {
+  double ScaleFactor() {
     return (*self)->ScaleFactor();
   }
   gp_Trsf2d Trsf2d() {
     return (*self)->Trsf2d();
   }
-  Standard_Real Value (const Standard_Integer Row, const Standard_Integer Col) {
+  double Value (const int Row, const int Col) {
     return (*self)->Value(Row, Col);
   }
   void Invert() {
@@ -464,16 +464,16 @@ class Handle_Geom2d_Transformation : public Handle_Standard_Transient
   void Multiply (const Handle_Geom2d_Transformation& Other) {
     (*self)->Multiply(Other);
   }
-  void Power (const Standard_Integer N) {
+  void Power (const int N) {
     (*self)->Power(N);
   }
-  Handle_Geom2d_Transformation Powered (const Standard_Integer N) {
+  Handle_Geom2d_Transformation Powered (const int N) {
     return (*self)->Powered(N);
   }
   void PreMultiply (const Handle_Geom2d_Transformation& Other) {
     (*self)->PreMultiply(Other);
   }
-  void Transforms (Standard_Real& X, Standard_Real& Y) {
+  void Transforms (double& X, double& Y) {
     (*self)->Transforms(X, Y);
   }
   Handle_Geom2d_Transformation Copy() {
@@ -494,32 +494,32 @@ class Handle_Bisector_Curve : public Handle_Geom2d_Curve
 
 %extend Handle_Bisector_Curve
 {
-	Standard_Real Parameter(const gp_Pnt2d &P)
+	double Parameter(const gp_Pnt2d &P)
 	{
 		return (*self)->Parameter(P);
 	}
 	
-	Standard_Boolean IsExtendAtStart()
+	bool IsExtendAtStart()
 	{
 		return (*self)->IsExtendAtStart();
 	}
 	
-	Standard_Boolean IsExtendAtEnd()
+	bool IsExtendAtEnd()
 	{
 		return (*self)->IsExtendAtEnd();
 	}
 	
-	Standard_Integer NbIntervals()
+	int NbIntervals()
 	{
 		return (*self)->NbIntervals();
 	}
 	
-	Standard_Real IntervalFirst(const Standard_Integer index)
+	double IntervalFirst(const int index)
 	{
 		return (*self)->IntervalFirst(index);
 	}
 	
-	Standard_Real IntervalLast(const Standard_Integer index)
+	double IntervalLast(const int index)
 	{
 		return (*self)->IntervalLast(index);
 	}
@@ -543,8 +543,8 @@ class Handle_Bisector_BisecCC : public Handle_Bisector_Curve
 
 %extend Handle_Bisector_BisecCC
 {
-    Handle_Bisector_BisecCC(const Handle_Geom2d_Curve& Cu1, const Handle_Geom2d_Curve& Cu2, const Standard_Real Side1, const Standard_Real Side2, 
-            const gp_Pnt2d& Origin, const Standard_Real DistMax = 500){
+    Handle_Bisector_BisecCC(const Handle_Geom2d_Curve& Cu1, const Handle_Geom2d_Curve& Cu2, const double Side1, const double Side2, 
+            const gp_Pnt2d& Origin, const double DistMax = 500){
     return new Handle_Bisector_BisecCC(new Bisector_BisecCC(Cu1, Cu2, Side1, Side2, Origin, DistMax));
     }
 
@@ -558,7 +558,7 @@ class Handle_Bisector_BisecPC : public Handle_Bisector_Curve
 %extend Handle_Bisector_BisecPC
 {
 
-    Handle_Bisector_BisecPC(const Handle_Geom2d_Curve& Cu, const gp_Pnt2d& P, const Standard_Real Side, const Standard_Real DistMax = 500){
+    Handle_Bisector_BisecPC(const Handle_Geom2d_Curve& Cu, const gp_Pnt2d& P, const double Side, const double DistMax = 500){
         return new Handle_Bisector_BisecPC(new Bisector_BisecPC(Cu, P, Side, DistMax));
     }
 
@@ -569,60 +569,60 @@ class Handle_Bisector_BisecPC : public Handle_Bisector_Curve
   void Reverse() {
     (*self)->Reverse();
   }
-  Standard_Real ReversedParameter (const Standard_Real U) {
+  double ReversedParameter (const double U) {
     return (*self)->ReversedParameter(U);
   }
-  Standard_Real TransformedParameter (const Standard_Real U, const gp_Trsf2d& T) {
+  double TransformedParameter (const double U, const gp_Trsf2d& T) {
     return (*self)->TransformedParameter(U, T);
   }
-  Standard_Real ParametricTransformation (const gp_Trsf2d& T) {
+  double ParametricTransformation (const gp_Trsf2d& T) {
     return (*self)->ParametricTransformation(T);
   }
   Handle_Geom2d_Curve Reversed() {
     return (*self)->Reversed();
   }
-  Standard_Real FirstParameter() {
+  double FirstParameter() {
     return (*self)->FirstParameter();
   }
-  Standard_Real LastParameter() {
+  double LastParameter() {
     return (*self)->LastParameter();
   }
-  Standard_Boolean IsClosed() {
+  bool IsClosed() {
     return (*self)->IsClosed();
   }
-  Standard_Boolean IsPeriodic() {
+  bool IsPeriodic() {
     return (*self)->IsPeriodic();
   }
-  Standard_Real Period()
+  double Period()
   {
     return (*self)->Period();
   }
   GeomAbs_Shape Continuity() {
     return (*self)->Continuity();
   }
-  Standard_Boolean IsCN(const Standard_Integer N) {
+  bool IsCN(const int N) {
     return (*self)->IsCN(N);
   }
-  void D0 (const Standard_Real U, gp_Pnt2d& P) {
+  void D0 (const double U, gp_Pnt2d& P) {
     (*self)->D0(U, P);
   }
-  void D1 (const Standard_Real U, gp_Pnt2d& P, gp_Vec2d& V1) {
+  void D1 (const double U, gp_Pnt2d& P, gp_Vec2d& V1) {
     (*self)->D1(U, P, V1);
   }
-  void D2 (const Standard_Real U, gp_Pnt2d& P, gp_Vec2d& V1, gp_Vec2d& V2) {
+  void D2 (const double U, gp_Pnt2d& P, gp_Vec2d& V1, gp_Vec2d& V2) {
     (*self)->D2(U, P, V1, V2);
   }
-  void D3 (const Standard_Real U, gp_Pnt2d& P, gp_Vec2d& V1, gp_Vec2d& V2, gp_Vec2d& V3) {
+  void D3 (const double U, gp_Pnt2d& P, gp_Vec2d& V1, gp_Vec2d& V2, gp_Vec2d& V3) {
     (*self)->D3(U, P, V1, V2, V3);
   }
-  gp_Vec2d DN (const Standard_Real U, const Standard_Integer N) {
+  gp_Vec2d DN (const double U, const int N) {
     return (*self)->DN(U, N);
   }	  
-  gp_Pnt2d Value(const Standard_Real U)
+  gp_Pnt2d Value(const double U)
   {
     return (*self)->Value(U);
   }
-  Standard_Integer GeometryType()
+  int GeometryType()
   {
     if (STANDARD_TYPE(Geom2d_Line) == (*self)->DynamicType())
       {
@@ -729,37 +729,37 @@ class Handle_Geom2d_Line : public Handle_Geom2d_Curve
 	void Reverse() {
 	  (*self)->Reverse();
 	}
-	Standard_Real ReversedParameter (const Standard_Real U) {
+	double ReversedParameter (const double U) {
 	  return (*self)->ReversedParameter(U);
 	}
-	Standard_Real FirstParameter() {
+	double FirstParameter() {
 	  return (*self)->FirstParameter();
 	}
-	Standard_Real LastParameter() {
+	double LastParameter() {
 	  return (*self)->LastParameter();
 	}
-	Standard_Boolean IsClosed() {
+	bool IsClosed() {
 	  return (*self)->IsClosed();
 	}
-	Standard_Boolean IsPeriodic() {
+	bool IsPeriodic() {
 	  return (*self)->IsPeriodic();
 	}
 	GeomAbs_Shape Continuity() {
 	  return (*self)->Continuity();
 	}
-	Standard_Real Distance (const gp_Pnt2d& P) {
+	double Distance (const gp_Pnt2d& P) {
 	  return (*self)->Distance(P);
 	}
-	Standard_Boolean IsCN (const Standard_Integer N) {
+	bool IsCN (const int N) {
 	  return (*self)->IsCN(N);
 	}
 	void Transform (const gp_Trsf2d& T) {
 	  (*self)->Transform(T);
 	}
-	Standard_Real TransformedParameter (const Standard_Real U, const gp_Trsf2d& T) {
+	double TransformedParameter (const double U, const gp_Trsf2d& T) {
 	  return (*self)->TransformedParameter(U, T);
 	}
-	Standard_Real ParametricTransformation (const gp_Trsf2d& T) {
+	double ParametricTransformation (const gp_Trsf2d& T) {
 	  return (*self)->ParametricTransformation(T);
 	}
 
@@ -773,23 +773,23 @@ class Handle_Geom2d_OffsetCurve : public Handle_Geom2d_Curve
 %extend Handle_Geom2d_OffsetCurve
 {
 	//TODO check that this is not a big memory leak
-	Handle_Geom2d_OffsetCurve(const Handle_Geom2d_Curve& C, const Standard_Real Offset){
+	Handle_Geom2d_OffsetCurve(const Handle_Geom2d_Curve& C, const double Offset){
 		return new Handle_Geom2d_OffsetCurve(new Geom2d_OffsetCurve(C, Offset));
 	}
 	void Delete() {
 	  self->~Handle_Geom2d_OffsetCurve();
 	}  
-	void SetBasisCurve (const Handle_Geom2d_Curve& C, const Standard_Boolean isNotCheckC0 = Standard_False) {
+	void SetBasisCurve (const Handle_Geom2d_Curve& C, const bool isNotCheckC0 = false) {
 	  (*self)->SetBasisCurve(C, isNotCheckC0);
 
 	}
-	void SetOffsetValue (const Standard_Real D) {
+	void SetOffsetValue (const double D) {
 	  (*self)->SetOffsetValue(D);
 	}
 	Handle_Geom2d_Curve BasisCurve() {
 	  return (*self)->BasisCurve();
 	}
-	Standard_Real Offset() {
+	double Offset() {
 	  return (*self)->Offset();
 	}
 	GeomAbs_Shape GetBasisCurveContinuity() {
@@ -826,7 +826,7 @@ class Handle_Geom2d_Conic : public Handle_Geom2d_Curve
 		return (*self)->YAxis();
 	}
 	
-	Standard_Real Eccentricity()
+	double Eccentricity()
 	{
 		return (*self)->Eccentricity();
 	}
@@ -853,10 +853,10 @@ class Handle_Geom2d_Circle : public Handle_Geom2d_Conic
   Handle_Geom2d_Circle(const gp_Circ2d& C) {
     return new Handle_Geom2d_Circle(new Geom2d_Circle(C));
   }
-  Handle_Geom2d_Circle(const gp_Ax2d& A, const Standard_Real Radius, const Standard_Boolean Sense = Standard_True) {
+  Handle_Geom2d_Circle(const gp_Ax2d& A, const double Radius, const bool Sense = true) {
     return new Handle_Geom2d_Circle(new Geom2d_Circle(A, Radius, Sense));
   }
-  Handle_Geom2d_Circle(const gp_Ax22d& A, const Standard_Real R){
+  Handle_Geom2d_Circle(const gp_Ax22d& A, const double R){
     return new Handle_Geom2d_Circle(new Geom2d_Circle(A, R));
   }
   void Delete() {
@@ -865,13 +865,13 @@ class Handle_Geom2d_Circle : public Handle_Geom2d_Conic
   void SetCirc2d(const gp_Circ2d& C) {
     (*self)->SetCirc2d(C);
   }
-  void SetRadius(const Standard_Real R) {
+  void SetRadius(const double R) {
     (*self)->SetRadius(R);
   }
   gp_Circ2d Circ2d() {
     return (*self)->Circ2d();
   }
-  Standard_Real Radius() {
+  double Radius() {
     return (*self)->Radius();
   }
 }
@@ -886,10 +886,10 @@ class Handle_Geom2d_Ellipse : public Handle_Geom2d_Conic
   Handle_Geom2d_Ellipse(const gp_Elips2d& E) {
     return new Handle_Geom2d_Ellipse(new Geom2d_Ellipse(E));
   }
-  Handle_Geom2d_Ellipse(const gp_Ax2d& MajorAxis, const Standard_Real MajorRadius, const Standard_Real MinorRadius, const Standard_Boolean Sense = Standard_True) {
+  Handle_Geom2d_Ellipse(const gp_Ax2d& MajorAxis, const double MajorRadius, const double MinorRadius, const bool Sense = true) {
     return new Handle_Geom2d_Ellipse(new Geom2d_Ellipse(MajorAxis, MajorRadius, MinorRadius, Sense));
   }
-  Handle_Geom2d_Ellipse(const gp_Ax22d& Axis, const Standard_Real MajorRadius, const Standard_Real MinorRadius) {
+  Handle_Geom2d_Ellipse(const gp_Ax22d& Axis, const double MajorRadius, const double MinorRadius) {
     return new Handle_Geom2d_Ellipse(new Geom2d_Ellipse(Axis, MajorRadius, MinorRadius));
   }
   void Delete() {
@@ -898,10 +898,10 @@ class Handle_Geom2d_Ellipse : public Handle_Geom2d_Conic
   void SetElips2d(const gp_Elips2d& E) {
     (*self)->SetElips2d(E);
   }
-  void SetMajorRadius (const Standard_Real MajorRadius) {
+  void SetMajorRadius (const double MajorRadius) {
     (*self)->SetMajorRadius(MajorRadius);
   }
-  void SetMinorRadius (const Standard_Real MinorRadius) {
+  void SetMinorRadius (const double MinorRadius) {
     (*self)->SetMinorRadius(MinorRadius);
   }
   gp_Elips2d Elips2d() {
@@ -915,7 +915,7 @@ class Handle_Geom2d_Ellipse : public Handle_Geom2d_Conic
   {
     return (*self)->Directrix2();
   }
-  Standard_Real Focal()
+  double Focal()
   {
     return (*self)->Focal();
   }
@@ -927,15 +927,15 @@ class Handle_Geom2d_Ellipse : public Handle_Geom2d_Conic
   {
     return (*self)->Focus2();
   }
-  Standard_Real MajorRadius() 
+  double MajorRadius() 
   {
     return (*self)->MajorRadius();
   }
-  Standard_Real MinorRadius() 
+  double MinorRadius() 
   {
     return (*self)->MinorRadius();
   }
-  Standard_Real Parameter() {
+  double Parameter() {
     return (*self)->Parameter();
   }
 }
@@ -950,10 +950,10 @@ class Handle_Geom2d_Hyperbola : public Handle_Geom2d_Conic
   Handle_Geom2d_Hyperbola(const gp_Hypr2d& H) {
     return new Handle_Geom2d_Hyperbola(new Geom2d_Hyperbola(H));
   }
-  Handle_Geom2d_Hyperbola(const gp_Ax2d& MajorAxis, const Standard_Real MajorRadius, const Standard_Real MinorRadius, const Standard_Boolean Sense = Standard_True) {
+  Handle_Geom2d_Hyperbola(const gp_Ax2d& MajorAxis, const double MajorRadius, const double MinorRadius, const bool Sense = true) {
     return new Handle_Geom2d_Hyperbola(new Geom2d_Hyperbola(MajorAxis, MajorRadius, MinorRadius, Sense));
   }
-  Handle_Geom2d_Hyperbola(const gp_Ax22d& Axis, const Standard_Real MajorRadius, const Standard_Real MinorRadius){
+  Handle_Geom2d_Hyperbola(const gp_Ax22d& Axis, const double MajorRadius, const double MinorRadius){
     return new Handle_Geom2d_Hyperbola(new Geom2d_Hyperbola(Axis, MajorRadius, MinorRadius));
   }
   void Delete() {
@@ -962,10 +962,10 @@ class Handle_Geom2d_Hyperbola : public Handle_Geom2d_Conic
   void SetHypr2d (const gp_Hypr2d& H) {
     (*self)->SetHypr2d(H);
   }
-  void SetMajorRadius(const Standard_Real MajorRadius) {
+  void SetMajorRadius(const double MajorRadius) {
     (*self)->SetMajorRadius(MajorRadius);
   }
-  void SetMinorRadius(const Standard_Real MinorRadius) {
+  void SetMinorRadius(const double MinorRadius) {
     (*self)->SetMinorRadius(MinorRadius);
   }
   gp_Hypr2d Hypr2d() {
@@ -989,7 +989,7 @@ class Handle_Geom2d_Hyperbola : public Handle_Geom2d_Conic
   gp_Ax2d Directrix2() {
     return (*self)->Directrix2();
   }
-  Standard_Real Focal() {
+  double Focal() {
     return (*self)->Focal();
   }
   gp_Pnt2d Focus1() {
@@ -998,16 +998,16 @@ class Handle_Geom2d_Hyperbola : public Handle_Geom2d_Conic
   gp_Pnt2d Focus2() {
     return (*self)->Focus2();
   }
-  Standard_Real MajorRadius() {
+  double MajorRadius() {
     return (*self)->MajorRadius();
   }
-  Standard_Real MinorRadius() {
+  double MinorRadius() {
     return (*self)->MinorRadius();
   }
   gp_Hypr2d OtherBranch() {
     return (*self)->OtherBranch();
   }
-  Standard_Real Parameter() {
+  double Parameter() {
     return (*self)->Parameter();
   }
 }
@@ -1022,10 +1022,10 @@ class Handle_Geom2d_Parabola : public Handle_Geom2d_Conic
   Handle_Geom2d_Parabola(const gp_Parab2d& Prb) {
     return new Handle_Geom2d_Parabola(new Geom2d_Parabola(Prb));
   }
-  Handle_Geom2d_Parabola(const gp_Ax2d& MirrorAxis, const Standard_Real Focal, const Standard_Boolean Sense = Standard_True) {
+  Handle_Geom2d_Parabola(const gp_Ax2d& MirrorAxis, const double Focal, const bool Sense = true) {
     return new Handle_Geom2d_Parabola(new Geom2d_Parabola(MirrorAxis, Focal, Sense));
   }
-  Handle_Geom2d_Parabola(const gp_Ax22d& Axis, const Standard_Real Focal){
+  Handle_Geom2d_Parabola(const gp_Ax22d& Axis, const double Focal){
     return new Handle_Geom2d_Parabola(new Geom2d_Parabola(Axis, Focal));
   }
   Handle_Geom2d_Parabola(const gp_Ax2d& D, const gp_Pnt2d& F){
@@ -1034,7 +1034,7 @@ class Handle_Geom2d_Parabola : public Handle_Geom2d_Conic
   void Delete() {
     self->~Handle_Geom2d_Parabola();
   }  
-  void SetFocal(const Standard_Real Focal) {
+  void SetFocal(const double Focal) {
     (*self)->SetFocal(Focal);
   }
   void SetParab2d (const gp_Parab2d& Prb) {
@@ -1049,10 +1049,10 @@ class Handle_Geom2d_Parabola : public Handle_Geom2d_Conic
   gp_Pnt2d Focus() {
     return (*self)->Focus();
   }
-  Standard_Real Focal() {
+  double Focal() {
     return (*self)->Focal();
   }
-  Standard_Real Parameter() {
+  double Parameter() {
     return (*self)->Parameter();
   }
 }
@@ -1091,55 +1091,55 @@ class Handle_Geom2d_BezierCurve : public Handle_Geom2d_BoundedCurve
   void Delete() {
     self->~Handle_Geom2d_BezierCurve();
   }  
-  void Increase (const Standard_Integer Degree) {
+  void Increase (const int Degree) {
     (*self)->Increase(Degree);
   }
-  void InsertPoleAfter (const Standard_Integer Index, const gp_Pnt2d& P, const Standard_Real Weight = 1.0) {
+  void InsertPoleAfter (const int Index, const gp_Pnt2d& P, const double Weight = 1.0) {
     (*self)->InsertPoleAfter(Index, P, Weight);
   }
-  void InsertPoleBefore (const Standard_Integer Index, const gp_Pnt2d& P, const Standard_Real Weight = 1.0) {
+  void InsertPoleBefore (const int Index, const gp_Pnt2d& P, const double Weight = 1.0) {
     (*self)->InsertPoleAfter(Index, P, Weight);
   }
-  void RemovePole (const Standard_Integer Index) {
+  void RemovePole (const int Index) {
     (*self)->RemovePole(Index);
   }
-  void Segment (const Standard_Real U1, const Standard_Real U2) {
+  void Segment (const double U1, const double U2) {
     (*self)->Segment(U1, U2);
   }
-  void SetPole (const Standard_Integer Index, const gp_Pnt2d& P) {
+  void SetPole (const int Index, const gp_Pnt2d& P) {
     (*self)->SetPole(Index, P);
   }
-  void SetPole (const Standard_Integer Index, const gp_Pnt2d& P, const Standard_Real Weight) {
+  void SetPole (const int Index, const gp_Pnt2d& P, const double Weight) {
     (*self)->SetPole(Index, P, Weight);
   }
-  void SetWeight (const Standard_Integer Index, const Standard_Real Weight) {
+  void SetWeight (const int Index, const double Weight) {
     (*self)->SetWeight(Index, Weight);
   }
-  Standard_Boolean IsRational() {
+  bool IsRational() {
     return (*self)->IsRational();
   }
-  Standard_Integer Degree() {
+  int Degree() {
     return (*self)->Degree();
   }
-  Standard_Integer NbPoles() {
+  int NbPoles() {
     return (*self)->NbPoles();
   }
-  const gp_Pnt2d Pole(const Standard_Integer Index) {
+  const gp_Pnt2d Pole(const int Index) {
     return (*self)->Pole(Index);
   }
   const TColgp_Array1OfPnt2d Poles() {
     return (*self)->Poles();
   }
-  Standard_Real Weight(const Standard_Integer Index) {
+  double Weight(const int Index) {
     return (*self)->Weight(Index);
   }
   const TColStd_Array1OfReal* Weights() {
     return (*self)->Weights();
   }
-  static Standard_Integer MaxDegree() {
+  static int MaxDegree() {
     return Geom2d_BezierCurve::MaxDegree();
   }
-  void Resolution (const Standard_Real ToleranceUV, Standard_Real& UTolerance) {
+  void Resolution (const double ToleranceUV, double& UTolerance) {
     (*self)->Resolution(ToleranceUV, UTolerance);
   }
 }
@@ -1152,121 +1152,121 @@ class Handle_Geom2d_BSplineCurve : public Handle_Geom2d_BoundedCurve
 %extend Handle_Geom2d_BSplineCurve
 {
 	Handle_Geom2d_BSplineCurve(const TColgp_Array1OfPnt2d& Poles, const TColStd_Array1OfReal& Knots, 
-            const TColStd_Array1OfInteger& Multiplicities, const Standard_Integer Degree, 
-            const Standard_Boolean Periodic = Standard_False){
+            const TColStd_Array1OfInteger& Multiplicities, const int Degree, 
+            const bool Periodic = false){
 	    return new Handle_Geom2d_BSplineCurve(new Geom2d_BSplineCurve(Poles, Knots, Multiplicities,
             Degree, Periodic));
 	}
 
     Handle_Geom2d_BSplineCurve(const TColgp_Array1OfPnt2d& Poles, const TColStd_Array1OfReal& Weights, 
             const TColStd_Array1OfReal& Knots, const TColStd_Array1OfInteger& Multiplicities, 
-            const Standard_Integer Degree, const Standard_Boolean Periodic = Standard_False){
+            const int Degree, const bool Periodic = false){
         return new Handle_Geom2d_BSplineCurve(new Geom2d_BSplineCurve(Poles, Weights, Knots, 
             Multiplicities, Degree, Periodic));
     }
     void Delete() {
       self->~Handle_Geom2d_BSplineCurve();
     }  
-    void IncreaseDegree (const Standard_Integer Degree) {
+    void IncreaseDegree (const int Degree) {
       (*self)->IncreaseDegree(Degree);
     }
-    void IncreaseMultiplicity (const Standard_Integer Index, const Standard_Integer M) {
+    void IncreaseMultiplicity (const int Index, const int M) {
       (*self)->IncreaseMultiplicity(Index, M);
     }
-    void IncreaseMultiplicity (const Standard_Integer I1, const Standard_Integer I2, const Standard_Integer M) {
+    void IncreaseMultiplicity (const int I1, const int I2, const int M) {
       (*self)->IncreaseMultiplicity(I1, I2, M);
     }
-    void IncrementMultiplicity (const Standard_Integer I1, const Standard_Integer I2, const Standard_Integer M) {
+    void IncrementMultiplicity (const int I1, const int I2, const int M) {
       (*self)->IncrementMultiplicity(I1, I2, M);
     }
-    void InsertKnot (const Standard_Real U, const Standard_Integer M = 1, const Standard_Real ParametricTolerance = 0.0) {
+    void InsertKnot (const double U, const int M = 1, const double ParametricTolerance = 0.0) {
       (*self)->InsertKnot(U, M, ParametricTolerance);
     }
-    void InsertKnots (const TColStd_Array1OfReal& Knots, const TColStd_Array1OfInteger& Mults, const Standard_Real ParametricTolerance = 0.0, const Standard_Boolean Add = Standard_False){
+    void InsertKnots (const TColStd_Array1OfReal& Knots, const TColStd_Array1OfInteger& Mults, const double ParametricTolerance = 0.0, const bool Add = false){
       (*self)->InsertKnots(Knots, Mults, ParametricTolerance, Add);
     }
-    Standard_Boolean RemoveKnot (const Standard_Integer Index, const Standard_Integer M, const Standard_Real Tolerance) {
+    bool RemoveKnot (const int Index, const int M, const double Tolerance) {
       return (*self)->RemoveKnot(Index, M, Tolerance);
     }
-    void InsertPoleAfter (const Standard_Integer Index, const gp_Pnt2d& P, const Standard_Real Weight = 1.0) {
+    void InsertPoleAfter (const int Index, const gp_Pnt2d& P, const double Weight = 1.0) {
       (*self)->InsertPoleAfter(Index, P, Weight);
     }
-    void InsertPoleBefore (const Standard_Integer Index, const gp_Pnt2d& P, const Standard_Real Weight = 1.0) {
+    void InsertPoleBefore (const int Index, const gp_Pnt2d& P, const double Weight = 1.0) {
       (*self)->InsertPoleBefore(Index, P, Weight);
     }
-    void RemovePole (const Standard_Integer Index) {
+    void RemovePole (const int Index) {
       (*self)->RemovePole(Index);
     }
-    void Segment (const Standard_Real U1, const Standard_Real U2) {
+    void Segment (const double U1, const double U2) {
       (*self)->Segment(U1, U2);
     }
-    void SetKnot (const Standard_Integer Index, const Standard_Real K) {
+    void SetKnot (const int Index, const double K) {
       (*self)->SetKnot(Index, K);
     }
     void SetKnots (const TColStd_Array1OfReal& K) {
       (*self)->SetKnots(K);
     }
-    void SetKnot (const Standard_Integer Index, const Standard_Real K, const Standard_Integer M) {
+    void SetKnot (const int Index, const double K, const int M) {
       (*self)->SetKnot(Index, K, M);
     }
-    void PeriodicNormalization (Standard_Real& U) {
+    void PeriodicNormalization (double& U) {
       (*self)->PeriodicNormalization(U);
     }
     void SetPeriodic() {
       (*self)->SetPeriodic();
     }
-    void SetOrigin (const Standard_Integer Index) {
+    void SetOrigin (const int Index) {
       (*self)->SetOrigin(Index);
     }
     void SetNotPeriodic() {
       (*self)->SetNotPeriodic();
     }
-    void SetPole (const Standard_Integer Index, const gp_Pnt2d& P) {
+    void SetPole (const int Index, const gp_Pnt2d& P) {
       (*self)->SetPole(Index, P);
     }
-    void SetPole (const Standard_Integer Index, const gp_Pnt2d& P, const Standard_Real Weight) {
+    void SetPole (const int Index, const gp_Pnt2d& P, const double Weight) {
       (*self)->SetPole(Index, P, Weight);
     }
-    void SetWeight (const Standard_Integer Index, const Standard_Real Weight) {
+    void SetWeight (const int Index, const double Weight) {
       (*self)->SetWeight(Index, Weight);
     }
-    void MovePoint (const Standard_Real U, const gp_Pnt2d& P, const Standard_Integer Index1, const Standard_Integer Index2, Standard_Integer& FirstModifiedPole, Standard_Integer& LastModifiedPole) {
+    void MovePoint (const double U, const gp_Pnt2d& P, const int Index1, const int Index2, int& FirstModifiedPole, int& LastModifiedPole) {
       (*self)->MovePoint(U, P, Index1, Index2, FirstModifiedPole, LastModifiedPole);
     }
-    void MovePointAndTangent (const Standard_Real U, const gp_Pnt2d& P, const gp_Vec2d& Tangent, const Standard_Real Tolerance, const Standard_Integer StartingCondition, const Standard_Integer EndingCondition, Standard_Integer& ErrorStatus) {
+    void MovePointAndTangent (const double U, const gp_Pnt2d& P, const gp_Vec2d& Tangent, const double Tolerance, const int StartingCondition, const int EndingCondition, int& ErrorStatus) {
       return (*self)->MovePointAndTangent(U, P, Tangent, Tolerance, StartingCondition, EndingCondition, ErrorStatus);
     }
-    Standard_Boolean IsG1 (const Standard_Real theTf, const Standard_Real theTl, const Standard_Real theAngTol) {
+    bool IsG1 (const double theTf, const double theTl, const double theAngTol) {
       return (*self)->IsG1(theTf, theTl, theAngTol);
     }
-    Standard_Boolean IsRational() {
+    bool IsRational() {
       return (*self)->IsRational();
     }
-    Standard_Integer Degree() {
+    int Degree() {
       return (*self)->Degree();
     }
-    gp_Pnt2d LocalValue (const Standard_Real U, const Standard_Integer FromK1, const Standard_Integer ToK2) {
+    gp_Pnt2d LocalValue (const double U, const int FromK1, const int ToK2) {
       return (*self)->LocalValue(U, FromK1, ToK2);
     }
-    void LocalD0 (const Standard_Real U, const Standard_Integer FromK1, const Standard_Integer ToK2, gp_Pnt2d& P) {
+    void LocalD0 (const double U, const int FromK1, const int ToK2, gp_Pnt2d& P) {
       (*self)->LocalD0(U, FromK1, ToK2, P);
     }
-    void LocalD1 (const Standard_Real U, const Standard_Integer FromK1, const Standard_Integer ToK2, gp_Pnt2d& P, gp_Vec2d& V1) {
+    void LocalD1 (const double U, const int FromK1, const int ToK2, gp_Pnt2d& P, gp_Vec2d& V1) {
       (*self)->LocalD1(U, FromK1, ToK2, P, V1);
     }
-    void LocalD2 (const Standard_Real U, const Standard_Integer FromK1, const Standard_Integer ToK2, gp_Pnt2d& P, gp_Vec2d& V1, gp_Vec2d& V2) {
+    void LocalD2 (const double U, const int FromK1, const int ToK2, gp_Pnt2d& P, gp_Vec2d& V1, gp_Vec2d& V2) {
       (*self)->LocalD2(U, FromK1, ToK2, P, V1, V2);
     }
-    void LocalD3 (const Standard_Real U, const Standard_Integer FromK1, const Standard_Integer ToK2, gp_Pnt2d& P, gp_Vec2d& V1, gp_Vec2d& V2, gp_Vec2d& V3) {
+    void LocalD3 (const double U, const int FromK1, const int ToK2, gp_Pnt2d& P, gp_Vec2d& V1, gp_Vec2d& V2, gp_Vec2d& V3) {
       (*self)->LocalD3(U, FromK1, ToK2, P, V1, V2, V3);
     }
-    gp_Vec2d LocalDN (const Standard_Real U, const Standard_Integer FromK1, const Standard_Integer ToK2, const Standard_Integer N) {
+    gp_Vec2d LocalDN (const double U, const int FromK1, const int ToK2, const int N) {
       return (*self)->LocalDN(U, FromK1, ToK2, N);
     }
-    Standard_Integer FirstUKnotIndex() {
+    int FirstUKnotIndex() {
       return (*self)->FirstUKnotIndex();
     }
-    Standard_Real Knot(const Standard_Integer Index) {
+    double Knot(const int Index) {
         return (*self)->Knot(Index);
     }
     const TColStd_Array1OfReal& Knots() {
@@ -1278,40 +1278,40 @@ class Handle_Geom2d_BSplineCurve : public Handle_Geom2d_BoundedCurve
     GeomAbs_BSplKnotDistribution KnotDistribution() {
       return (*self)->KnotDistribution();
     }
-    Standard_Integer LastUKnotIndex() {
+    int LastUKnotIndex() {
       return (*self)->LastUKnotIndex();
     }
-    void LocateU (const Standard_Real U, const Standard_Real ParametricTolerance, Standard_Integer& I1, Standard_Integer& I2, const Standard_Boolean WithKnotRepetition = Standard_False) {
+    void LocateU (const double U, const double ParametricTolerance, int& I1, int& I2, const bool WithKnotRepetition = false) {
       (*self)->LocateU(U,  ParametricTolerance, I1, I2, WithKnotRepetition);
     }
-    Standard_Integer Multiplicity(const Standard_Integer Index) {
+    int Multiplicity(const int Index) {
         return (*self)->Multiplicity(Index);
     }
     const TColStd_Array1OfInteger& Multiplicities() {
       return (*self)->Multiplicities();
     }
-    Standard_Integer NbKnots() {
+    int NbKnots() {
         return(*self)->NbKnots();
     }
-    Standard_Integer NbPoles() {
+    int NbPoles() {
         return(*self)->NbPoles();
     }
-    const gp_Pnt2d& Pole(const Standard_Integer Index) {
+    const gp_Pnt2d& Pole(const int Index) {
         return (*self)->Pole(Index);
     }
     const TColgp_Array1OfPnt2d& Poles() {
       return (*self)->Poles();
     }
-    Standard_Real Weight(const Standard_Integer Index) {
+    double Weight(const int Index) {
         return (*self)->Weight(Index);
     }
     const TColStd_Array1OfReal* Weights() {
       return (*self)->Weights();
     }
-    static Standard_Integer MaxDegree() {
+    static int MaxDegree() {
       return Geom2d_BSplineCurve::MaxDegree();
     }
-    void Resolution (const Standard_Real ToleranceUV, Standard_Real& UTolerance) {
+    void Resolution (const double ToleranceUV, double& UTolerance) {
       (*self)->Resolution(ToleranceUV, UTolerance);
     }
 }
@@ -1323,7 +1323,7 @@ class Handle_Geom2d_TrimmedCurve : public Handle_Geom2d_BoundedCurve
 
 %extend Handle_Geom2d_TrimmedCurve
 {
-  Handle_Geom2d_TrimmedCurve(const Handle_Geom2d_Curve& C, const Standard_Real U1, const Standard_Real U2, const Standard_Boolean Sense = Standard_True)
+  Handle_Geom2d_TrimmedCurve(const Handle_Geom2d_Curve& C, const double U1, const double U2, const bool Sense = true)
     {
       return new Handle_Geom2d_TrimmedCurve(new Geom2d_TrimmedCurve(C, U1, U2, Sense));
     }
@@ -1333,7 +1333,7 @@ class Handle_Geom2d_TrimmedCurve : public Handle_Geom2d_BoundedCurve
   Handle_Geom2d_Curve BasisCurve() {
     return (*self)->BasisCurve();
   }
-  void SetTrim (const Standard_Real U1, const Standard_Real U2, const Standard_Boolean Sense = Standard_True, const Standard_Boolean theAdjustPeriodic = Standard_True) {
+  void SetTrim (const double U1, const double U2, const bool Sense = true, const bool theAdjustPeriodic = true) {
     (*self)->SetTrim(U1, U2, Sense, theAdjustPeriodic);
   }
 }

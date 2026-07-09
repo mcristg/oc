@@ -10,37 +10,37 @@ class BRepOffsetAPI_NormalProjection: public BRepBuilderAPI_MakeShape
 	BRepOffsetAPI_NormalProjection(const TopoDS_Shape& S);
 	void Init(const TopoDS_Shape& S) ;
 	void Add(const TopoDS_Shape& ToProj) ;
-	void SetParams(const Standard_Real Tol3D,const Standard_Real Tol2D,const GeomAbs_Shape InternalContinuity,const Standard_Integer MaxDegree,const Standard_Integer MaxSeg) ;
-	void SetMaxDistance(const Standard_Real MaxDist) ;
-	void SetLimit(const Standard_Boolean FaceBoundaries = Standard_True) ;
-	void Compute3d(const Standard_Boolean With3d = Standard_True) ;
+	void SetParams(const double Tol3D,const double Tol2D,const GeomAbs_Shape InternalContinuity,const int MaxDegree,const int MaxSeg) ;
+	void SetMaxDistance(const double MaxDist) ;
+	void SetLimit(const bool FaceBoundaries = true) ;
+	void Compute3d(const bool With3d = true) ;
 	virtual  void Build() ;
-	Standard_Boolean IsDone() const;
+	bool IsDone() const;
 	const TopoDS_Shape& Projection() const;
 	const TopoDS_Shape& Couple(const TopoDS_Edge& E) const;
 	virtual const TopTools_ListOfShape& Generated(const TopoDS_Shape& S) ;
 	const TopoDS_Shape& Ancestor(const TopoDS_Edge& E) const;
-	Standard_Boolean BuildWire(TopTools_ListOfShape& Liste) const;
+	bool BuildWire(TopTools_ListOfShape& Liste) const;
 };
 
 %{
 #include <BRepOffsetAPI_MakeOffsetShape.hxx>
   %}
 
-class BRepOffsetAPI_MakeOffsetShape  : public BRepBuilderAPI_MakeShape
+class BRepOffsetAPI_MakeOffsetShape : public BRepBuilderAPI_MakeShape
 {
 public:
 
   BRepOffsetAPI_MakeOffsetShape();
-  void PerformBySimple (const TopoDS_Shape &theS,const Standard_Real theOffsetValue); 
+  void PerformBySimple (const TopoDS_Shape &theS,const double theOffsetValue);
   void PerformByJoin (const TopoDS_Shape &S,
-                      const Standard_Real Offset,
-                      const Standard_Real Tol,
+                      const double Offset,
+                      const double Tol,
                       const BRepOffset_Mode Mode=BRepOffset_Skin,
-                      const Standard_Boolean Intersection=Standard_False,
-                      const Standard_Boolean SelfInter=Standard_False,
+                      const bool Intersection=false,
+                      const bool SelfInter=false,
                       const GeomAbs_JoinType Join=GeomAbs_Arc,
-                      const Standard_Boolean RemoveIntEdges=Standard_False,
+                      const bool RemoveIntEdges=false,
                       const Message_ProgressRange &theRange=Message_ProgressRange());				
 };
 
@@ -52,16 +52,16 @@ class BRepOffsetAPI_MakeThickSolid  : public BRepOffsetAPI_MakeOffsetShape
 {
  public:
   BRepOffsetAPI_MakeThickSolid();
-  void MakeThickSolidBySimple(const TopoDS_Shape &theS, const Standard_Real theOffsetValue);
+  void MakeThickSolidBySimple(const TopoDS_Shape &theS, const double theOffsetValue);
   void MakeThickSolidByJoin(const TopoDS_Shape &S,
                             const TopTools_ListOfShape &ClosingFaces,
-                            const Standard_Real Offset,
-                            const Standard_Real Tol,
+                            const double Offset,
+                            const double Tol,
                             const BRepOffset_Mode Mode = BRepOffset_Skin,
-                            const Standard_Boolean Intersection = Standard_False,
-                            const Standard_Boolean SelfInter = Standard_False,
+                            const bool Intersection = false,
+                            const bool SelfInter = false,
                             const GeomAbs_JoinType Join = GeomAbs_Arc,
-                            const Standard_Boolean RemoveIntEdges = Standard_False,
+                            const bool RemoveIntEdges = false,
                             const Message_ProgressRange &theRange = Message_ProgressRange());			       
   virtual void Build();
   
@@ -77,21 +77,21 @@ class BRepOffsetAPI_MakeThickSolid  : public BRepOffsetAPI_MakeOffsetShape
 class BRepOffsetAPI_ThruSections  : public BRepBuilderAPI_MakeShape
 {
  public:
-  BRepOffsetAPI_ThruSections(const Standard_Boolean isSolid = Standard_False, const Standard_Boolean ruled = Standard_False, const Standard_Real pres3d = 1.0e-06);
-  void Init (const Standard_Boolean isSolid = Standard_False, const Standard_Boolean ruled = Standard_False, const Standard_Real pres3d = 1.0e-06);
+  BRepOffsetAPI_ThruSections(const bool isSolid = false, const bool ruled = false, const double pres3d = 1.0e-06);
+  void Init (const bool isSolid = false, const bool ruled = false, const double pres3d = 1.0e-06);
   void AddWire (const TopoDS_Wire& wire);
   void AddVertex (const TopoDS_Vertex& aVertex);
-  void CheckCompatibility (const Standard_Boolean check = Standard_True);
-  void SetSmoothing (const Standard_Boolean UseSmoothing);
+  void CheckCompatibility (const bool check = true);
+  void SetSmoothing (const bool UseSmoothing);
   void SetParType (const Approx_ParametrizationType ParType);
   void SetContinuity (const GeomAbs_Shape C);
-  void SetCriteriumWeight (const Standard_Real W1, const Standard_Real W2, const Standard_Real W3);
-  void SetMaxDegree (const Standard_Integer MaxDeg);
+  void SetCriteriumWeight (const double W1, const double W2, const double W3);
+  void SetMaxDegree (const int MaxDeg);
   Approx_ParametrizationType ParType() const;
   GeomAbs_Shape Continuity() const;
-  Standard_Integer MaxDegree() const;
-  Standard_Boolean UseSmoothing() const;
-  void CriteriumWeight (Standard_Real& W1, Standard_Real& W2, Standard_Real& W3) const;
+  int MaxDegree() const;
+  bool UseSmoothing() const;
+  void CriteriumWeight (double& W1, double& W2, double& W3) const;
   const TopoDS_Shape& FirstShape() const;
   const TopoDS_Shape& LastShape() const;
   TopoDS_Shape GeneratedFace (const TopoDS_Shape& Edge) const;

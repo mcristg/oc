@@ -4,10 +4,10 @@ class BRepMesh_DiscretRoot
 	protected:
 	BRepMesh_DiscretRoot();
 	public:
-	/*	void SetDeflection(const Standard_Real D) ;
-	void SetAngle(const Standard_Real Ang) ;
-	Standard_Real Deflection() const;
-	Standard_Real Angle() const; */
+	/*	void SetDeflection(const double D) ;
+	void SetAngle(const double Ang) ;
+	double Deflection() const;
+	double Angle() const; */
 	virtual void Perform();
 };
 
@@ -17,16 +17,16 @@ class BRepMesh_IncrementalMesh : public BRepMesh_DiscretRoot
 	public:
 	BRepMesh_IncrementalMesh();
     BRepMesh_IncrementalMesh (const TopoDS_Shape &theShape,
-                              const Standard_Real theLinDeflection,
-                              const Standard_Boolean isRelative = Standard_False,
-                              const Standard_Real theAngDeflection = 0.5,
-                              const Standard_Boolean isInParallel = Standard_False);
+                              const double theLinDeflection,
+                              const bool isRelative = false,
+                              const double theAngDeflection = 0.5,
+                              const bool isInParallel = false);
  	/*BRepMesh_IncrementalMesh (const TopoDS_Shape &theShape,
  	                          const IMeshTools_Parameters &theParameters,
  	                          const Message_ProgressRange &theRange = Message_ProgressRange());*/
 	void Perform();
 //	void Update(const TopoDS_Shape& S) ;
-	Standard_Boolean IsModified() const;
+	bool IsModified() const;
 };
 
 /*
@@ -39,33 +39,33 @@ class BRepMesh_FaceAttribute
   BRepMesh_FaceAttribute(const TopoDS_Face&                    theFace,
 			 const BRepMesh::HDMapOfVertexInteger& theBoundaryVertices,
 			 const BRepMesh::HDMapOfIntegerPnt&    theBoundaryPoints,
-			 const Standard_Boolean                theAdaptiveMin);
+			 const bool                theAdaptiveMin);
   virtual ~BRepMesh_FaceAttribute();
   const Handle_BRepAdaptor_HSurface& Surface();
-  Standard_Boolean IsInitialized ();
+  bool IsInitialized ();
   void SetFace (const TopoDS_Face&     theFace, 
-		const Standard_Boolean theAdaptiveMin);
+		const bool theAdaptiveMin);
   const TopoDS_Face& Face();
   void SetBoundaryVertices(const BRepMesh::HDMapOfVertexInteger& theVertices);
   void SetBoundaryPoints(const BRepMesh::HDMapOfIntegerPnt& theBoundaryPoints);
-  Standard_Real ToleranceU() const;
-  Standard_Real ToleranceV() const;
-  Standard_Real GetDefFace() const;
-  void SetDefFace(const Standard_Real theDefFace);
-  Standard_Real GetUMin() const;
-  void SetUMin(const Standard_Real theUMin);
-  Standard_Real GetVMin() const;
-  Standard_Real GetUMax() const;
-  void SetUMax(const Standard_Real theUMax);
-  Standard_Real GetVMax() const;
-  void SetVMax(const Standard_Real theVMax);
-  Standard_Real GetDeltaX() const;
-  void SetDeltaX(const Standard_Real theDeltaX);
-  Standard_Real GetDeltaY() const;
-  void SetDeltaY(const Standard_Real theDeltaY);
-  Standard_Integer GetStatus() const;
+  double ToleranceU() const;
+  double ToleranceV() const;
+  double GetDefFace() const;
+  void SetDefFace(const double theDefFace);
+  double GetUMin() const;
+  void SetUMin(const double theUMin);
+  double GetVMin() const;
+  double GetUMax() const;
+  void SetUMax(const double theUMax);
+  double GetVMax() const;
+  void SetVMax(const double theVMax);
+  double GetDeltaX() const;
+  void SetDeltaX(const double theDeltaX);
+  double GetDeltaY() const;
+  void SetDeltaY(const double theDeltaY);
+  int GetStatus() const;
   void SetStatus(const BRepMesh_Status theStatus);
-  Standard_Boolean IsValid() const;
+  bool IsValid() const;
   void Clear();
   BRepMesh::HDMapOfIntegerListOfXY& ChangeLocation2D();
   BRepMesh::HDMapOfIntegerPnt& ChangeSurfacePoints();
@@ -74,14 +74,14 @@ class BRepMesh_FaceAttribute
   Handle_BRepMesh_DataStructureOfDelaun& ChangeStructure();
   BRepMesh::HClassifier& ChangeClassifier();
   BRepMesh::HVectorOfVertex& ChangeMeshNodes();
-  Standard_Integer LastPointId() const;
+  int LastPointId() const;
   gp_Pnt& GetPoint(const BRepMesh_Vertex& theVertex) const;
-  gp_Pnt& GetPoint(const Standard_Integer theIndex) const;
-  void AddNode(const Standard_Integer         theIndex,
+  gp_Pnt& GetPoint(const int theIndex) const;
+  void AddNode(const int         theIndex,
 	       const gp_XY&                   theUV,
 	       const BRepMesh_DegreeOfFreedom theMovability,
-	       Standard_Integer&              theNodeIndex,
-	       Standard_Integer&              theNodeOnEdgeIndex);
+	       int&              theNodeIndex,
+	       int&              theNodeOnEdgeIndex);
 };
 */
     
@@ -97,12 +97,12 @@ class BRepMesh_FastDiscret
   BRepMesh_FastDiscret (const Bnd_Box& B,
 			const Parameters& theParams);
   void Perform(const TopoDS_Shape& shape);
-  Standard_Integer Add(const TopoDS_Face& face);
+  int Add(const TopoDS_Face& face);
   void Process(const TopoDS_Face& face) const;
   Parameters& ChangeMeshParameters();
   void InitSharedFaces(const TopoDS_Shape& theShape);
-  Standard_Boolean GetFaceAttribute (const TopoDS_Face&              theFace, 
+  bool GetFaceAttribute (const TopoDS_Face&              theFace, 
 				     Handle_BRepMesh_FaceAttribute& theAttribute,
-				     const Standard_Boolean          isForceCreate = Standard_False) const;
+				     const bool          isForceCreate = false) const;
 };
 */

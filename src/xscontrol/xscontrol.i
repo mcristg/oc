@@ -20,11 +20,11 @@ class XSControl_Reader
 {
 	XSControl_Reader()=0;
 	public:
-	IFSelect_ReturnStatus ReadFile(const Standard_CString filename);
+	IFSelect_ReturnStatus ReadFile(const char* filename);
 	//IFSelect_ReturnStatus ReadFile(jbyte filename[]);
-	Standard_Integer TransferRoots() ;
+	int TransferRoots() ;
 	void ClearShapes();
-	Standard_Integer NbRootsForTransfer();
+	int NbRootsForTransfer();
 	TopoDS_Shape OneShape() const;
 };
 
@@ -87,8 +87,8 @@ class IGESControl_Reader: public XSControl_Reader
 		const Handle(Interface_InterfaceModel)& theModel = theSession->Model();
 		const Handle(XSControl_TransferReader)& aReader = theSession->TransferReader();
 		const Handle(Transfer_TransientProcess)& tp = aReader->TransientProcess();
-		Standard_Integer nb = theModel->NbEntities(); 
-		for(Standard_Integer i=1; i<=nb; i++) 
+		int nb = theModel->NbEntities(); 
+		for(int i=1; i<=nb; i++) 
 		{
 			Handle(IGESData_IGESEntity) ent = Handle(IGESData_IGESEntity)::DownCast(theModel->Value(i));
 
@@ -121,9 +121,9 @@ class IGESControl_Reader: public XSControl_Reader
 		const Handle(Interface_InterfaceModel)& theModel = theSession->Model();
 		const Handle(XSControl_TransferReader)& aReader = theSession->TransferReader();
 		const Handle(Transfer_TransientProcess)& tp = aReader->TransientProcess();
-		Standard_Integer nb = theModel->NbEntities();
+		int nb = theModel->NbEntities();
 		TopoDS_Shape retShape; 
-		for(Standard_Integer i=1; i<=nb; i++)
+		for(int i=1; i<=nb; i++)
 		{
 			Handle(IGESData_IGESEntity) ent = Handle(IGESData_IGESEntity)::DownCast(theModel->Value(i));
 
@@ -149,8 +149,8 @@ class IGESControl_Reader: public XSControl_Reader
 	{
 		const Handle(XSControl_WorkSession)& theSession = self->WS();
 		const Handle(Interface_InterfaceModel)& theModel = theSession->Model();
-		Standard_Integer nb = theModel->NbEntities();
-		for(Standard_Integer i=1; i<=nb; i++)
+		int nb = theModel->NbEntities();
+		for(int i=1; i<=nb; i++)
 		{
 			Handle(IGESData_IGESEntity) ent = Handle(IGESData_IGESEntity)::DownCast(theModel->Value(i));
 			if (ent.IsNull()) continue;
@@ -188,9 +188,9 @@ class STEPControl_Writer
 {
 	public:
 	STEPControl_Writer();
-	IFSelect_ReturnStatus Write(const Standard_CString filename);
+	IFSelect_ReturnStatus Write(const char* filename);
 	IFSelect_ReturnStatus Transfer(TopoDS_Shape theShape, STEPControl_StepModelType mode);
-	/*	Handle_StepData_StepModel Model(const Standard_Boolean newone); */
+	/*	Handle_StepData_StepModel Model(const bool newone); */
 };
 
 
@@ -219,9 +219,9 @@ class IGESControl_Writer
 {
 	public:
 	IGESControl_Writer();
-	IGESControl_Writer(const Standard_CString unit, const Standard_Integer modecr = 0);
-	Standard_Boolean Write(const Standard_CString filename);
-	Standard_Boolean AddShape(const TopoDS_Shape& sh);
+	IGESControl_Writer(const char* unit, const int modecr = 0);
+	bool Write(const char* filename);
+	bool AddShape(const TopoDS_Shape& sh);
 	void ComputeModel();
 };
 

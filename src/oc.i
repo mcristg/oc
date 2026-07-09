@@ -21,12 +21,6 @@ void (* signal_lisp_error) (const char* message) = nullptr;
   %}
 
 %{
-#if defined(_MSC_VER)
- #pragma warning( disable : 4996 )
-#elif defined(__GNUC__) || defined(__clang__)
- #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
 #include <Standard_Failure.hxx>
 #include <Standard_ErrorHandler.hxx>
   %}
@@ -108,7 +102,7 @@ using namespace std;
 %include "misc/shapeupgrade.i";
 %include "geom-api/geomapi.i";
 %include "gc/gc.i";
-%include "gce2d/gce2d.i";
+%include "gce2d/gce2d.i"; #using GCE2d_MakeSegment = class GC_MakeSegment2d’ is deprecated: GCE2d_MakeSegment is deprecated since OCCT 8.0.0. Use GC_MakeSegment2d instead.
 %include "bnd/bnd-box.i";
 %include "bnd-lib/bnd-lib.i";
 %include "cpnts/adaptor2d.i";

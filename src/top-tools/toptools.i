@@ -1,6 +1,10 @@
 
 %{
-#include <TopTools_HSequenceOfShape.hxx>
+#include <NCollection_Sequence.hxx>
+#include <NCollection_HSequence.hxx>
+
+typedef NCollection_Sequence<TopoDS_Shape> TopTools_SequenceOfShape;
+typedef NCollection_HSequence<TopoDS_Shape> TopTools_HSequenceOfShape;
 %}
 
 class TopTools_HSequenceOfShape
@@ -24,7 +28,9 @@ class TopTools_HSequenceOfShape
   const TopTools_SequenceOfShape& Sequence () const ;
 };
 %{
-#include <TopTools_ListOfShape.hxx>
+#include <NCollection_List.hxx>
+
+typedef NCollection_List<TopoDS_Shape> TopTools_ListOfShape;
 %}
 class TopTools_ListOfShape {
  public:
@@ -39,7 +45,10 @@ class TopTools_ListOfShape {
   }
 }
 %{
-  #include <TopTools_MapOfShape.hxx>
+#include <TopTools_ShapeMapHasher.hxx>
+#include <NCollection_Map.hxx>
+
+typedef NCollection_Map<TopoDS_Shape, TopTools_ShapeMapHasher> TopTools_MapOfShape;
   %}
 class TopTools_MapOfShape {
  public:

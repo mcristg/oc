@@ -51,7 +51,7 @@ swig_add_library(vis
                  OUTFILE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src/vis
                  SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/vis/vis.i
                 )
-target_link_libraries(vis ${OpenCASCADE_LIBRARIES})
+target_link_libraries(vis oc ${OpenCASCADE_LIBRARIES})
 
 set_target_properties(vis
     PROPERTIES

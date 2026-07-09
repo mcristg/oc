@@ -34,7 +34,9 @@ class Handle_TColStd_HArray1OfBoolean
 
 %{
 #include <NCollection_Array1.hxx>
-#include <TColgp_Array1OfVec.hxx>
+
+typedef NCollection_Array1<gp_Vec> TColgp_Array1OfVec;
+
   %}
 %nodefaultdtor TColgp_Array1OfVec;
 class TColgp_Array1OfVec {
@@ -53,7 +55,8 @@ class TColgp_Array1OfVec {
   }
 }
 %{
-#include <TColgp_Array1OfPnt2d.hxx>
+typedef NCollection_Array1<gp_Pnt2d> TColgp_Array1OfPnt2d;
+
   %}
 %nodefaultdtor TColgp_Array1OfPnt2d;
 class TColgp_Array1OfPnt2d {
@@ -92,7 +95,7 @@ class TColStd_Array1OfReal {
   }
 }
 %{
-#include <TColStd_Array1OfInteger.hxx>
+typedef NCollection_Array1<int> TColStd_Array1OfInteger;
   %}
 %nodefaultdtor TColStd_Array1OfInteger;
 class TColStd_Array1OfInteger {
@@ -111,7 +114,7 @@ class TColStd_Array1OfInteger {
   }
 }
 %{
-#include <TColgp_Array1OfPnt.hxx>
+typedef NCollection_Array1<gp_Pnt> TColgp_Array1OfPnt;
   %}
 %nodefaultdtor TColgp_Array1OfPnt;
 class TColgp_Array1OfPnt {
@@ -139,7 +142,8 @@ class TColgp_Array1OfPnt {
   }
 }
 %{
-#include <TColgp_Array2OfPnt.hxx>
+#include <NCollection_Array2.hxx>
+typedef NCollection_Array2<gp_Pnt> TColgp_Array2OfPnt;
   %}
 %nodefaultdtor TColgp_Array2OfPnt;
 class TColgp_Array2OfPnt {
@@ -159,7 +163,7 @@ class TColgp_Array2OfPnt {
   }
 }
 %{
-#include <TColStd_Array2OfReal.hxx>
+typedef NCollection_Array2<double> TColStd_Array2OfReal;
   %}
 %nodefaultdtor TColStd_Array2OfReal;
 class TColStd_Array2OfReal {

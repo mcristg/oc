@@ -68,6 +68,9 @@ typedef occ::handle<Geom_ConicalSurface> Handle_Geom_ConicalSurface;
 typedef occ::handle<Geom_CylindricalSurface> Handle_Geom_CylindricalSurface;
 typedef occ::handle<Geom_SurfaceOfLinearExtrusion> Handle_Geom_SurfaceOfLinearExtrusion;
 typedef occ::handle<Geom_Plane> Handle_Geom_Plane;
+
+#include <NCollection_Array2.hxx>
+typedef NCollection_Array2<gp_Pnt> TColgp_Array2OfPnt;
 %}
 
 %rename(Geom_Geometry) Handle_Geom_Geometry;
@@ -116,10 +119,10 @@ class Handle_Geom_Geometry : public Handle_Standard_Transient
   void Mirror (const gp_Ax2& A2) {
     (*self)->Mirror(A2);
   }
-  void Rotate (const gp_Ax1& A1, const Standard_Real Ang) {
+  void Rotate (const gp_Ax1& A1, const double Ang) {
     (*self)->Rotate(A1, Ang);
   }
-  void Scale (const gp_Pnt& P, const Standard_Real S) {
+  void Scale (const gp_Pnt& P, const double S) {
     (*self)->Scale(P, S);
   }
   void Translate (const gp_Vec& V) {
@@ -140,10 +143,10 @@ class Handle_Geom_Geometry : public Handle_Standard_Transient
   Handle_Geom_Geometry Mirrored (const gp_Ax2& A2) {
     return (*self)->Mirrored(A2);
   }
-  Handle_Geom_Geometry Rotated (const gp_Ax1& A1, const Standard_Real Ang) {
+  Handle_Geom_Geometry Rotated (const gp_Ax1& A1, const double Ang) {
     return (*self)->Rotated(A1, Ang);
   }
-  Handle_Geom_Geometry Scaled (const gp_Pnt& P, const Standard_Real S) {
+  Handle_Geom_Geometry Scaled (const gp_Pnt& P, const double S) {
     return (*self)->Scaled(P, S);
   }
   Handle_Geom_Geometry Transformed (const gp_Trsf& T) {
@@ -171,58 +174,58 @@ class Handle_Geom_Curve: public Handle_Geom_Geometry
   void Reverse() {
     (*self)->Reverse();
   }
-  Standard_Real ReversedParameter (const Standard_Real U) {
+  double ReversedParameter (const double U) {
     return (*self)->ReversedParameter(U);
   }
-  Standard_Real TransformedParameter (const Standard_Real U, const gp_Trsf& T) {
+  double TransformedParameter (const double U, const gp_Trsf& T) {
     return (*self)->TransformedParameter(U, T);
   }
-  Standard_Real ParametricTransformation (const gp_Trsf& T) {
+  double ParametricTransformation (const gp_Trsf& T) {
     return (*self)->ParametricTransformation(T);
   }
   Handle_Geom_Curve Reversed() {
     return (*self)->Reversed();
   }
-  Standard_Real FirstParameter() {
+  double FirstParameter() {
     return (*self)->FirstParameter();
   }  
-  Standard_Real LastParameter() {
+  double LastParameter() {
     return (*self)->LastParameter();
   }  
-  Standard_Boolean IsClosed() {
+  bool IsClosed() {
     return (*self)->IsClosed();
   }  
-  Standard_Boolean IsPeriodic() {
+  bool IsPeriodic() {
     return (*self)->IsPeriodic();
   }  
-  Standard_Real Period() {
+  double Period() {
     return (*self)->Period();
   }
   GeomAbs_Shape Continuity() {
     return (*self)->Continuity();
   }
-  Standard_Boolean IsCN (const Standard_Integer N) {
+  bool IsCN (const int N) {
     return (*self)->IsCN(N);
   }
-  void D0 (const Standard_Real U, gp_Pnt& P) {
+  void D0 (const double U, gp_Pnt& P) {
     (*self)->D0(U, P);
   }
-  void D1 (const Standard_Real U, gp_Pnt& P, gp_Vec& V1) {
+  void D1 (const double U, gp_Pnt& P, gp_Vec& V1) {
     (*self)->D1(U, P, V1);
   }
-  void D2 (const Standard_Real U, gp_Pnt& P, gp_Vec& V1, gp_Vec& V2) {
+  void D2 (const double U, gp_Pnt& P, gp_Vec& V1, gp_Vec& V2) {
     (*self)->D2(U, P, V1, V2);
   }
-  void D3 (const Standard_Real U, gp_Pnt& P, gp_Vec& V1, gp_Vec& V2, gp_Vec& V3) {
+  void D3 (const double U, gp_Pnt& P, gp_Vec& V1, gp_Vec& V2, gp_Vec& V3) {
     (*self)->D3(U, P, V1, V2, V3);
   }
-  gp_Vec DN (const Standard_Real U, const Standard_Integer N) {
+  gp_Vec DN (const double U, const int N) {
     return (*self)->DN(U, N);
   }
-  gp_Pnt Value(const Standard_Real U) {
+  gp_Pnt Value(const double U) {
     return (*self)->Value(U);
   }
-  Standard_Integer GeometryType()
+  int GeometryType()
   {
     if (STANDARD_TYPE(Geom_BezierCurve) == (*self)->DynamicType())
       {
@@ -279,73 +282,73 @@ class Handle_Geom_Surface: public Handle_Geom_Geometry
   Handle_Geom_Surface UReversed() {
     return (*self)->UReversed();
   }
-  Standard_Real UReversedParameter(const Standard_Real U) {
+  double UReversedParameter(const double U) {
     return (*self)->UReversedParameter(U);
   }
   void VReverse() {
     (*self)->VReverse();
   }
-  Standard_Real VReversedParameter(const Standard_Real V) {
+  double VReversedParameter(const double V) {
     return (*self)->VReversedParameter(V);
   }
-  void TransformParameters (Standard_Real& U, Standard_Real& V, const gp_Trsf& T) {
+  void TransformParameters (double& U, double& V, const gp_Trsf& T) {
     (*self)->TransformParameters(U, V, T);
   }
   gp_GTrsf2d ParametricTransformation (const gp_Trsf& T) {
     return (*self)->ParametricTransformation(T);
   }
-  void Bounds (Standard_Real& U1, Standard_Real& U2, Standard_Real& V1, Standard_Real& V2) {
+  void Bounds (double& U1, double& U2, double& V1, double& V2) {
     (*self)->Bounds(U1, U2, V1, V2);
   }
-  Standard_Boolean IsUClosed() {
+  bool IsUClosed() {
     return (*self)->IsUClosed();
   }  
-  Standard_Boolean IsVClosed() {
+  bool IsVClosed() {
     return (*self)->IsVClosed();
   }
-  Standard_Boolean IsUPeriodic() {
+  bool IsUPeriodic() {
     return (*self)->IsUPeriodic();
   }  
-  Standard_Real UPeriod() {
+  double UPeriod() {
     return (*self)->UPeriod();
   }  
-  Standard_Boolean IsVPeriodic() {
+  bool IsVPeriodic() {
     return (*self)->IsVPeriodic();
   }  
-  Standard_Real VPeriod() {
+  double VPeriod() {
     return (*self)->VPeriod();
   }
-  Handle_Geom_Curve UIso(const Standard_Real U) {
+  Handle_Geom_Curve UIso(const double U) {
     return (*self)->UIso(U);
   }
-  Handle_Geom_Curve VIso(const Standard_Real V) {
+  Handle_Geom_Curve VIso(const double V) {
     return (*self)->VIso(V);
   }
   GeomAbs_Shape Continuity() {
     return (*self)->Continuity();
   }
-  Standard_Boolean IsCNu (const Standard_Integer N) {
+  bool IsCNu (const int N) {
     return (*self)->IsCNu(N);
   }
-  Standard_Boolean IsCNv (const Standard_Integer N) {
+  bool IsCNv (const int N) {
     return (*self)->IsCNv(N);
   }
-  void D0 (const Standard_Real U, const Standard_Real V, gp_Pnt& P) {
+  void D0 (const double U, const double V, gp_Pnt& P) {
     (*self)->D0(U, V, P);
   }
-  void D1 (const Standard_Real U, const Standard_Real V, gp_Pnt& P, gp_Vec& D1U, gp_Vec& D1V) {
+  void D1 (const double U, const double V, gp_Pnt& P, gp_Vec& D1U, gp_Vec& D1V) {
     (*self)->D1(U, V, P, D1U, D1V);
   }
-  void D3 (const Standard_Real U, const Standard_Real V, gp_Pnt& P, gp_Vec& D1U, gp_Vec& D1V, gp_Vec& D2U, gp_Vec& D2V, gp_Vec& D2UV, gp_Vec& D3U, gp_Vec& D3V, gp_Vec& D3UUV, gp_Vec& D3UVV) {
+  void D3 (const double U, const double V, gp_Pnt& P, gp_Vec& D1U, gp_Vec& D1V, gp_Vec& D2U, gp_Vec& D2V, gp_Vec& D2UV, gp_Vec& D3U, gp_Vec& D3V, gp_Vec& D3UUV, gp_Vec& D3UVV) {
     (*self)->D3(U, V, P, D1U, D1V, D2U, D2V, D2UV, D3U, D3V, D3UUV, D3UVV);
   }
-  gp_Vec DN (const Standard_Real U, const Standard_Real V, const Standard_Integer Nu, const Standard_Integer Nv) {
+  gp_Vec DN (const double U, const double V, const int Nu, const int Nv) {
     return (*self)->DN(U, V, Nu, Nv);
   }
-  gp_Pnt Value(const Standard_Real U,const Standard_Real V) {
+  gp_Pnt Value(const double U,const double V) {
     return (*self)->Value(U, V);
   }  
-  Standard_Integer GeometryType()
+  int GeometryType()
   {
     if (STANDARD_TYPE(Geom_BezierSurface) == (*self)->DynamicType())
       {
@@ -430,7 +433,7 @@ class Handle_Geom_Conic : public Handle_Geom_Curve
   gp_Ax1 Axis() {
     return (*self)->Axis();
   }
-  Standard_Real Eccentricity() {
+  double Eccentricity() {
     return (*self)->Eccentricity();
   }
   gp_Pnt Location() {
@@ -512,62 +515,62 @@ class Handle_Geom_BezierCurve : public Handle_Geom_BoundedCurve {
   void Delete() {
     self->~Handle_Geom_BezierCurve();
   }  
-  void Increase (const Standard_Integer Degree) {
+  void Increase (const int Degree) {
     (*self)->Increase(Degree);
   }
-  void InsertPoleAfter (const Standard_Integer Index, const gp_Pnt& P) {
+  void InsertPoleAfter (const int Index, const gp_Pnt& P) {
     (*self)->InsertPoleAfter(Index, P);
   }
-  void InsertPoleAfter (const Standard_Integer Index, const gp_Pnt& P, const Standard_Real Weight) {
+  void InsertPoleAfter (const int Index, const gp_Pnt& P, const double Weight) {
 
     (*self)->InsertPoleAfter(Index, P, Weight);
   }
-  void InsertPoleBefore (const Standard_Integer Index, const gp_Pnt& P) {
+  void InsertPoleBefore (const int Index, const gp_Pnt& P) {
     (*self)->InsertPoleBefore(Index, P);
   }
-  void InsertPoleBefore (const Standard_Integer Index, const gp_Pnt& P, const Standard_Real Weight) {
+  void InsertPoleBefore (const int Index, const gp_Pnt& P, const double Weight) {
     (*self)->InsertPoleBefore(Index, P, Weight);
   }
-  void RemovePole (const Standard_Integer Index) {
+  void RemovePole (const int Index) {
     (*self)->RemovePole(Index);
   }
-  void Segment (const Standard_Real U1, const Standard_Real U2) {
+  void Segment (const double U1, const double U2) {
     (*self)->Segment(U1, U2);
   }
-  void SetPole (const Standard_Integer Index, const gp_Pnt& P) {
+  void SetPole (const int Index, const gp_Pnt& P) {
     (*self)->SetPole(Index, P);
   }
-  void SetPole (const Standard_Integer Index, const gp_Pnt& P, const Standard_Real Weight) {
+  void SetPole (const int Index, const gp_Pnt& P, const double Weight) {
     (*self)->SetPole(Index, P, Weight);
   }
-  void SetWeight (const Standard_Integer Index, const Standard_Real Weight) {
+  void SetWeight (const int Index, const double Weight) {
     (*self)->SetWeight(Index, Weight);
   }
-  Standard_Boolean IsRational() {
+  bool IsRational() {
     return (*self)->IsRational();
   }
-  Standard_Integer Degree() {
+  int Degree() {
     return (*self)->Degree();
   }
-  Standard_Integer NbPoles() {
+  int NbPoles() {
     return (*self)->NbPoles();
   }
-  gp_Pnt Pole(const Standard_Integer Index) {
+  gp_Pnt Pole(const int Index) {
     return (*self)->Pole(Index);
   }
   const TColgp_Array1OfPnt& Poles () {
     return (*self)->Poles();
   }
-  Standard_Real Weight(const Standard_Integer Index) {
+  double Weight(const int Index) {
     return (*self)->Weight(Index);
   }
   const TColStd_Array1OfReal* Weights() {
     return (*self)->Weights();
   }
-  void Resolution(Standard_Real Tolerance3d, Standard_Real& UTolerance) {
+  void Resolution(double Tolerance3d, double& UTolerance) {
     return (*self)->Resolution(Tolerance3d, UTolerance);
   }
-  static Standard_Integer MaxDegree() {
+  static int MaxDegree() {
     return Geom_BezierCurve::MaxDegree();
   }
 }
@@ -583,28 +586,28 @@ class Handle_Geom_BSplineCurve : public Handle_Geom_BoundedCurve {
 	//TODO check that this is not a big memory leak
 	Handle_Geom_BSplineCurve(const TColgp_Array1OfPnt& Poles, const TColStd_Array1OfReal& Weights,
 		    const TColStd_Array1OfReal& Knots, const TColStd_Array1OfInteger& Multiplicities,
-		    const Standard_Integer Degree, const Standard_Boolean Periodic = Standard_False,
-		    const Standard_Boolean CheckRational = Standard_True){
+		    const int Degree, const bool Periodic = false,
+		    const bool CheckRational = true){
 		return new Handle_Geom_BSplineCurve(new Geom_BSplineCurve(
 			Poles, Weights, Knots, Multiplicities, Degree, Periodic, CheckRational));
 	}
 
     //TODO check that this is not a big memory leak
     Handle_Geom_BSplineCurve(const TColgp_Array1OfPnt& Poles, const TColStd_Array1OfReal& Knots, 
-            const TColStd_Array1OfInteger& Multiplicities, const Standard_Integer Degree, 
-            const Standard_Boolean Periodic = Standard_False){
+            const TColStd_Array1OfInteger& Multiplicities, const int Degree, 
+            const bool Periodic = false){
         return new Handle_Geom_BSplineCurve(new Geom_BSplineCurve(Poles, Knots, Multiplicities, 
             Degree, Periodic));
     }
     void Delete() {
     self->~Handle_Geom_BSplineCurve();
   }  
-  void SetKnot(const Standard_Integer Index,const Standard_Real K)
+  void SetKnot(const int Index,const double K)
   {
     (*self)->SetKnot(Index,K);
   }
   
-  void SetKnot(const Standard_Integer Index,const Standard_Real K,const Standard_Integer M)
+  void SetKnot(const int Index,const double K,const int M)
   {
     (*self)->SetKnot(Index,K,M);
   }
@@ -619,38 +622,38 @@ class Handle_Geom_BSplineCurve : public Handle_Geom_BoundedCurve {
     (*self)->SetNotPeriodic();
   }
   
-  void SetOrigin(const Standard_Integer Index)
+  void SetOrigin(const int Index)
   {
      (*self)->SetOrigin(Index);
   }
 
-  void SetOrigin(const Standard_Real U,const Standard_Real Tol)
+  void SetOrigin(const double U,const double Tol)
   {
      (*self)->SetOrigin(U,Tol);
   }
   
-  void SetPole(const Standard_Integer Index,const gp_Pnt& P)
+  void SetPole(const int Index,const gp_Pnt& P)
   {
     (*self)->SetPole(Index,P);
   }
   
-  void SetPole(const Standard_Integer Index,const gp_Pnt& P,const Standard_Real Weight)
+  void SetPole(const int Index,const gp_Pnt& P,const double Weight)
   {
     (*self)->SetPole(Index,P,Weight);
   }
   
-  void MovePoint(const Standard_Real U,const gp_Pnt& P,const Standard_Integer Index1,const Standard_Integer Index2,Standard_Integer& FirstModifiedPole,Standard_Integer& LastModifiedPole)
+  void MovePoint(const double U,const gp_Pnt& P,const int Index1,const int Index2,int& FirstModifiedPole,int& LastModifiedPole)
   {
     (*self)->MovePoint(U,P,Index1,Index2,FirstModifiedPole,LastModifiedPole);
   }
 
-  void MovePointAndTangent(const Standard_Real U,const gp_Pnt& P,const gp_Vec& Tangent,const Standard_Real Tolerance,const Standard_Integer StartingCondition,const Standard_Integer EndingCondition)
+  void MovePointAndTangent(const double U,const gp_Pnt& P,const gp_Vec& Tangent,const double Tolerance,const int StartingCondition,const int EndingCondition)
   {
-    Standard_Integer ErrorStatus =0;
+    int ErrorStatus =0;
 	(*self)->MovePointAndTangent(U,P,Tangent,Tolerance,StartingCondition,EndingCondition,ErrorStatus);
   }
   
-  Standard_Boolean IsRational() const
+  bool IsRational() const
   {
     return (*self)->IsRational();
   }
@@ -660,19 +663,19 @@ class Handle_Geom_BSplineCurve : public Handle_Geom_BoundedCurve {
     return (*self)->Continuity();
   }
   
-  Standard_Integer Degree() const
+  int Degree() const
   {
     return (*self)->Degree();
   }
   
   /*
-  gp_Vec dN(const Standard_Real U,const Standard_Integer N) const
+  gp_Vec dN(const double U,const int N) const
   {
     return (*self)->DN(U,N);
   }
   */
   
-  gp_Pnt LocalValue(const Standard_Real U,const Standard_Integer FromK1,const Standard_Integer ToK2) const
+  gp_Pnt LocalValue(const double U,const int FromK1,const int ToK2) const
   {
     return (*self)->LocalValue(U,FromK1,ToK2);
   }
@@ -687,43 +690,42 @@ class Handle_Geom_BSplineCurve : public Handle_Geom_BoundedCurve {
     return (*self)->StartPoint();
   }
   
-  Standard_Integer NbKnots() const
+  int NbKnots() const
   {
     return (*self)->NbKnots();
   }
   
-  Standard_Integer NbPoles() const
+  int NbPoles() const
   {
     return (*self)->NbPoles();
   }
   
-  gp_Pnt Pole(const Standard_Integer Index) const
+  gp_Pnt Pole(const int Index) const
   {
     return (*self)->Pole(Index);
   }
-
-  void Poles(TColgp_Array1OfPnt& P)
+  const TColgp_Array1OfPnt &Poles() const
   {
-    (*self)->Poles(P);
+    return (*self)->Poles();
   }
 
-  Standard_Real Weight(const Standard_Integer Index) const
+  double Weight(const int Index) const
   {
     return (*self)->Weight(Index);
   }
   
-  Standard_Real Knot(const Standard_Integer Index) const
+  double Knot(const int Index) const
   {
     return (*self)->Knot(Index);
   }
 
-  void Knots(TColStd_Array1OfReal& K) 
+  const TColStd_Array1OfReal &Knots() const
   {
-    (*self)->Knots(K);
+    return (*self)->Knots();
   }
 
   
-  Standard_Integer Multiplicity(const Standard_Integer Index) const
+  int Multiplicity(const int Index) const
   {
     return (*self)->Multiplicity(Index);
   }
@@ -736,13 +738,13 @@ class Handle_Geom_Circle : public Handle_Geom_Conic {
 %extend Handle_Geom_Circle
 {
 	//TODO check that this is not a big memory leak
-  Handle_Geom_Circle(const gp_Ax2& A2, const Standard_Real R){
+  Handle_Geom_Circle(const gp_Ax2& A2, const double R){
     return new Handle_Geom_Circle(new Geom_Circle(A2, R));
   }
   void Delete() {
     self->~Handle_Geom_Circle();
   }  
-  Standard_Real Radius()
+  double Radius()
   {
     return (*self)->Radius();
   }
@@ -755,7 +757,7 @@ class Handle_Geom_Ellipse : public Handle_Geom_Conic {
 
 %extend Handle_Geom_Ellipse
 {
-  Handle_Geom_Ellipse(const gp_Ax2& A2, const Standard_Real majorRadius, const Standard_Real minorRadius){
+  Handle_Geom_Ellipse(const gp_Ax2& A2, const double majorRadius, const double minorRadius){
     return new Handle_Geom_Ellipse(new Geom_Ellipse(A2, majorRadius, minorRadius));
   }
   void Delete() {
@@ -771,7 +773,7 @@ class Handle_Geom_Ellipse : public Handle_Geom_Conic {
 		return (*self)->Directrix2();
 	}
     
-    Standard_Real FocalDistance()
+    double FocalDistance()
 	{
 		return (*self)->Focal();
 	}
@@ -786,19 +788,19 @@ class Handle_Geom_Ellipse : public Handle_Geom_Conic {
     	return (*self)->Focus2();
 	}
     
-    Standard_Real MajorRadius()
+    double MajorRadius()
 	{
 		return (*self)->MajorRadius();
 	}
   
-    Standard_Real MinorRadius()
+    double MinorRadius()
 	{
 		return (*self)->MinorRadius();
 	}
     
     //parameter =  (1 - e * e) * MajorRadius
     
-    Standard_Real Parameter()
+    double Parameter()
 	{
 		return (*self)->Parameter();
 	}
@@ -812,8 +814,8 @@ class Handle_Geom_TrimmedCurve : public Handle_Geom_BoundedCurve {
 %extend Handle_Geom_TrimmedCurve
 {
 
-    Handle_Geom_TrimmedCurve(const Handle_Geom_Curve& C, const Standard_Real U1, const Standard_Real U2, 
-        const Standard_Boolean Sense = Standard_True){
+    Handle_Geom_TrimmedCurve(const Handle_Geom_Curve& C, const double U1, const double U2, 
+        const bool Sense = true){
           return new Handle_Geom_TrimmedCurve(new Geom_TrimmedCurve(C, U1, U2, Sense));
     }
   void Delete() {
@@ -832,7 +834,7 @@ class Handle_Geom_OffsetCurve : public Handle_Geom_Curve {
 %extend Handle_Geom_OffsetCurve
 {
 
-    Handle_Geom_OffsetCurve(const Handle_Geom_Curve& C, const Standard_Real Offset, const gp_Dir& V){
+    Handle_Geom_OffsetCurve(const Handle_Geom_Curve& C, const double Offset, const gp_Dir& V){
           return new Handle_Geom_OffsetCurve(new Geom_OffsetCurve(C, Offset, V));
     }
     void Delete() {
@@ -843,12 +845,12 @@ class Handle_Geom_OffsetCurve : public Handle_Geom_Curve {
     	return (*self)->Direction();
     }
     
-    Standard_Real Offset()
+    double Offset()
     {
     	return (*self)->Offset();
     }
     /*
-    void getValueAt(Standard_Real u, gp_Pnt &p, gp_Pnt &pBasis, gp_Vec &v1Basis)
+    void getValueAt(double u, gp_Pnt &p, gp_Pnt &pBasis, gp_Vec &v1Basis)
     {
     	return (*self)->Value(u, p, pBasis, v1Basis);
     }
@@ -868,7 +870,7 @@ class Handle_Geom_Hyperbola : public Handle_Geom_Conic {
 {
 
 	//TODO check that this is not a big memory leak
-	Handle_Geom_Hyperbola(const gp_Ax2& A2, const Standard_Real majorRadius, const Standard_Real minorRadius){
+	Handle_Geom_Hyperbola(const gp_Ax2& A2, const double majorRadius, const double minorRadius){
 		return new Handle_Geom_Hyperbola(new Geom_Hyperbola(A2, majorRadius, minorRadius));
 	}
 	void Delete() {
@@ -909,7 +911,7 @@ class Handle_Geom_Hyperbola : public Handle_Geom_Conic {
 		return (*self)->Directrix2();
 	}
     
-    Standard_Real FocalDistance()
+    double FocalDistance()
 	{
 		return (*self)->Focal();
 	}
@@ -924,17 +926,17 @@ class Handle_Geom_Hyperbola : public Handle_Geom_Conic {
 		return (*self)->Focus2();
 	}
     
-    Standard_Real MajorRadius()
+    double MajorRadius()
 	{
 		return (*self)->MajorRadius();
 	}
   
-	Standard_Real MinorRadius()
+	double MinorRadius()
 	{
 		return (*self)->MinorRadius();
 	}
 
-    Standard_Real Parameter()
+    double Parameter()
 	{
 		return (*self)->Parameter();
 	}
@@ -981,7 +983,7 @@ class Handle_Geom_Parabola : public Handle_Geom_Conic {
 %extend Handle_Geom_Parabola
 {
 
-	Handle_Geom_Parabola(const gp_Ax2& A2, const Standard_Real Focal){
+	Handle_Geom_Parabola(const gp_Ax2& A2, const double Focal){
 		return new Handle_Geom_Parabola(new Geom_Parabola(A2, Focal));
 	}
 	void Delete() {
@@ -992,7 +994,7 @@ class Handle_Geom_Parabola : public Handle_Geom_Conic {
 		return (*self)->Directrix();
 	}
 	
-	Standard_Real FocalDistance()
+	double FocalDistance()
 	{
 		return (*self)->Focal();
 	}
@@ -1002,7 +1004,7 @@ class Handle_Geom_Parabola : public Handle_Geom_Conic {
 		return (*self)->Focus();
 	}
 
-	Standard_Real Parameter()
+	double Parameter()
 	{
 		return (*self)->Parameter();
 	}
@@ -1023,27 +1025,27 @@ class Handle_Geom_BezierSurface : public Handle_Geom_BoundedSurface {
 	  self->~Handle_Geom_BezierSurface();
 	}  
 
-	Standard_Integer NbUPoles()
+	int NbUPoles()
     {
         return (*self)->NbUPoles();
     }
    
-    Standard_Integer NbVPoles()
+    int NbVPoles()
     {
         return (*self)->NbVPoles();
     }
     
-    Standard_Integer UDegree()
+    int UDegree()
     {
         return (*self)->UDegree();
     }
     
-    Standard_Integer VDegree()
+    int VDegree()
     {
         return (*self)->VDegree();
     }
     
-    gp_Pnt Pole(const Standard_Integer indexU, const Standard_Integer indexV)
+    gp_Pnt Pole(const int indexU, const int indexV)
     {
         return (*self)->Pole(indexU, indexV);
     }
@@ -1055,24 +1057,24 @@ class Handle_Geom_BezierSurface : public Handle_Geom_BoundedSurface {
     //}
     
       
-    Standard_Real Weight(const Standard_Integer indexU, const Standard_Integer indexV)
+    double Weight(const int indexU, const int indexV)
     {
         return (*self)->Weight(indexU, indexV);
     }
     
-    Standard_Boolean IsURational()
+    bool IsURational()
     {
         return (*self)->IsURational();
     }
     
-    Standard_Boolean IsVRational()
+    bool IsVRational()
     {
         return (*self)->IsVRational();
     }
-    static Standard_Integer MaxDegree() {
+    static int MaxDegree() {
       return Geom_BezierSurface::MaxDegree();
     }
-    void Resolution(Standard_Real tolerance3d, Standard_Real& toleranceU, Standard_Real& toleranceV)
+    void Resolution(double tolerance3d, double& toleranceU, double& toleranceV)
     {
         return (*self)->Resolution(tolerance3d, toleranceU, toleranceV);
     }
@@ -1088,8 +1090,8 @@ class Handle_Geom_BSplineSurface : public Handle_Geom_BoundedSurface  {
 
     Handle_Geom_BSplineSurface(const TColgp_Array2OfPnt& Poles, const TColStd_Array2OfReal& Weights, const TColStd_Array1OfReal& UKnots, 
             const TColStd_Array1OfReal& VKnots, const TColStd_Array1OfInteger& UMults, const TColStd_Array1OfInteger& VMults, 
-            const Standard_Integer UDegree, const Standard_Integer VDegree, const Standard_Boolean UPeriodic = Standard_False, 
-            const Standard_Boolean VPeriodic = Standard_False) {
+            const int UDegree, const int VDegree, const bool UPeriodic = false, 
+            const bool VPeriodic = false) {
         return new Handle_Geom_BSplineSurface(new Geom_BSplineSurface(Poles, Weights, UKnots, VKnots, UMults, VMults,
             UDegree, VDegree, UPeriodic, VPeriodic));
     }
@@ -1097,57 +1099,57 @@ class Handle_Geom_BSplineSurface : public Handle_Geom_BoundedSurface  {
 	  self->~Handle_Geom_BSplineSurface();
 	}  
 
-	Standard_Boolean IsURational()
+	bool IsURational()
     {
         return (*self)->IsURational();
     }
     
-    Standard_Boolean IsVRational()
+    bool IsVRational()
     {
         return (*self)->IsVRational();
     }
     
-	Standard_Integer FirstUKnotIndex()
+	int FirstUKnotIndex()
     {
         return (*self)->FirstUKnotIndex();
     }
     
-	Standard_Integer FirstVKnotIndex()
+	int FirstVKnotIndex()
     {
         return (*self)->FirstVKnotIndex();
     }
     
-    Standard_Integer LastUKnotIndex()
+    int LastUKnotIndex()
     {
         return (*self)->LastUKnotIndex();
     }
     
-    Standard_Integer LastVKnotIndex()
+    int LastVKnotIndex()
     {
         return (*self)->LastVKnotIndex();
     }
     
-    Standard_Integer NbUPoles()
+    int NbUPoles()
     {
         return (*self)->NbUPoles();
     }
    
-    Standard_Integer NbVPoles()
+    int NbVPoles()
     {
         return (*self)->NbVPoles();
     }
     
-    Standard_Integer NbUKnots()
+    int NbUKnots()
     {
         return (*self)->NbUKnots();
     }
    
-    Standard_Integer NbVKnots()
+    int NbVKnots()
     {
         return (*self)->NbVKnots();
     }
     
-    gp_Pnt Pole(const Standard_Integer indexU, const Standard_Integer indexV)
+    gp_Pnt Pole(const int indexU, const int indexV)
     {
         return (*self)->Pole(indexU, indexV);
     }
@@ -1159,22 +1161,22 @@ class Handle_Geom_BSplineSurface : public Handle_Geom_BoundedSurface  {
     //}
     
      
-    Standard_Integer UDegree()
+    int UDegree()
     {
         return (*self)->UDegree();
     }
     
-    Standard_Integer VDegree()
+    int VDegree()
     {
         return (*self)->VDegree();
     }
      
-    Standard_Real UKnot(const Standard_Integer indexUKnot)
+    double UKnot(const int indexUKnot)
     {
         return (*self)->UKnot(indexUKnot);
     }
     
-    Standard_Real VKnot(const Standard_Integer indexVKnot)
+    double VKnot(const int indexVKnot)
     {
         return (*self)->VKnot(indexVKnot);
     }
@@ -1203,12 +1205,12 @@ class Handle_Geom_BSplineSurface : public Handle_Geom_BoundedSurface  {
     //    return (*self)->VKnotSequence(outArray);
     //}
     
-    Standard_Integer UMultiplicity(const Standard_Integer indexUKnot)
+    int UMultiplicity(const int indexUKnot)
     {
 		return (*self)->UMultiplicity(indexUKnot);
     }
     
-    Standard_Integer VMultiplicity(const Standard_Integer indexVKnot)
+    int VMultiplicity(const int indexVKnot)
     {
 		return (*self)->VMultiplicity(indexVKnot);
     }
@@ -1225,7 +1227,7 @@ class Handle_Geom_BSplineSurface : public Handle_Geom_BoundedSurface  {
     //    return (*self)->VMultiplicites(outArray);
     //}
     
-    Standard_Real Weight(const Standard_Integer indexU, const Standard_Integer indexV)
+    double Weight(const int indexU, const int indexV)
     {
         return (*self)->Weight(indexU, indexV);
     }
@@ -1235,10 +1237,10 @@ class Handle_Geom_BSplineSurface : public Handle_Geom_BoundedSurface  {
     //{
     //    return (*self)->Weights(outArray);
     //}
-    static Standard_Integer MaxDegree() {
+    static int MaxDegree() {
       return Geom_BSplineSurface::MaxDegree();
     }
-    void Resolution(Standard_Real tolerance3d, Standard_Real& toleranceU, Standard_Real& toleranceV)
+    void Resolution(double tolerance3d, double& toleranceU, double& toleranceV)
     {
       (*self)->Resolution(tolerance3d, toleranceU, toleranceV);
     }
@@ -1253,9 +1255,9 @@ class Handle_Geom_RectangularTrimmedSurface : public Handle_Geom_BoundedSurface 
 %extend Handle_Geom_RectangularTrimmedSurface
 {
 
-    Handle_Geom_RectangularTrimmedSurface(const Handle_Geom_Surface& S, const Standard_Real U1, const Standard_Real U2, 
-            const Standard_Real V1, const Standard_Real V2, const Standard_Boolean USense = Standard_True, 
-            const Standard_Boolean VSense = Standard_True){
+    Handle_Geom_RectangularTrimmedSurface(const Handle_Geom_Surface& S, const double U1, const double U2, 
+            const double V1, const double V2, const bool USense = true, 
+            const bool VSense = true){
         return new Handle_Geom_RectangularTrimmedSurface(new Geom_RectangularTrimmedSurface(S, U1, U2, V1, V2, USense, VSense));
      }
     void Delete() {
@@ -1267,7 +1269,7 @@ class Handle_Geom_RectangularTrimmedSurface : public Handle_Geom_BoundedSurface 
         return (*self)->BasisSurface();	
 	}
 
-    void Bounds(Standard_Real& u1, Standard_Real& u2, Standard_Real& v1, Standard_Real& v2) 
+    void Bounds(double& u1, double& u2, double& v1, double& v2) 
     {
         (*self)->Bounds(u1, u2, v1, v2);
     } 
@@ -1282,7 +1284,7 @@ class Handle_Geom_SphericalSurface : public Handle_Geom_ElementarySurface {
 %extend Handle_Geom_SphericalSurface
 {
 
-    Handle_Geom_SphericalSurface(const gp_Ax3& A3, const Standard_Real Radius){
+    Handle_Geom_SphericalSurface(const gp_Ax3& A3, const double Radius){
         return new Handle_Geom_SphericalSurface(new Geom_SphericalSurface(A3, Radius));
     }
     void Delete() {
@@ -1294,22 +1296,22 @@ class Handle_Geom_SphericalSurface : public Handle_Geom_ElementarySurface {
 	    return (*self)->Sphere();	
 	}
 
-    Standard_Real Area()
+    double Area()
 	{
 	    return (*self)->Area();	
 	}
     
-    void Coefficients(Standard_Real& outA1, Standard_Real& outA2, Standard_Real& outA3, Standard_Real& outB1, Standard_Real& outB2, Standard_Real& outB3, Standard_Real& outC1, Standard_Real& outC2, Standard_Real& outC3, Standard_Real& outD)
+    void Coefficients(double& outA1, double& outA2, double& outA3, double& outB1, double& outB2, double& outB3, double& outC1, double& outC2, double& outC3, double& outD)
 	{
 		return (*self)->Coefficients(outA1, outA2, outA3, outB1, outB2, outB3, outC1, outC2, outC3, outD);
 	}
     
-    Standard_Real Radius()
+    double Radius()
 	{   
 		return (*self)->Radius();	
 	}
     
-    Standard_Real Volume()
+    double Volume()
 	{   
 		return (*self)->Volume();	
 	}
@@ -1323,7 +1325,7 @@ class Handle_Geom_ToroidalSurface : public Handle_Geom_ElementarySurface {
 %extend Handle_Geom_ToroidalSurface
 {
 
-    Handle_Geom_ToroidalSurface(const gp_Ax3& A3, const Standard_Real MajorRadius, const Standard_Real MinorRadius){
+    Handle_Geom_ToroidalSurface(const gp_Ax3& A3, const double MajorRadius, const double MinorRadius){
         return new Handle_Geom_ToroidalSurface(new Geom_ToroidalSurface(A3, MajorRadius, MinorRadius));
     }
     void Delete() {
@@ -1334,7 +1336,7 @@ class Handle_Geom_ToroidalSurface : public Handle_Geom_ElementarySurface {
 	    return (*self)->Torus();	
 	}
 
-    Standard_Real Area()
+    double Area()
 	{
 	    return (*self)->Area();	
 	}
@@ -1345,17 +1347,17 @@ class Handle_Geom_ToroidalSurface : public Handle_Geom_ElementarySurface {
     //    return (*self)->Coefficients(outArray);
     //}
     
-    Standard_Real MajorRadius()
+    double MajorRadius()
 	{
 		return (*self)->MajorRadius();
 	}
   
-    Standard_Real MinorRadius()
+    double MinorRadius()
 	{
 		return (*self)->MinorRadius();
 	}
     
-    Standard_Real Volume()
+    double Volume()
 	{   
 		return (*self)->Volume();	
 	}
@@ -1368,13 +1370,13 @@ class Handle_Geom_OffsetSurface : public Handle_Geom_Surface {
 
 %extend Handle_Geom_OffsetSurface
 {
-    Handle_Geom_OffsetSurface(const Handle_Geom_Surface& S, const Standard_Real Offset){
+    Handle_Geom_OffsetSurface(const Handle_Geom_Surface& S, const double Offset){
         return new Handle_Geom_OffsetSurface(new Geom_OffsetSurface(S, Offset)); 
     }
     void Delete() {
       self->~Handle_Geom_OffsetSurface();
     }  
-    Standard_Real Offset()
+    double Offset()
 	{
 		return (*self)->Offset();	
 	}
@@ -1426,7 +1428,7 @@ class Handle_Geom_ConicalSurface : public Handle_Geom_ElementarySurface {
 {
 
 	//TODO check that this is not a big memory leak
-	Handle_Geom_ConicalSurface(const gp_Ax3& A3, const Standard_Real Ang, const Standard_Real Radius){
+	Handle_Geom_ConicalSurface(const gp_Ax3& A3, const double Ang, const double Radius){
 		return new Handle_Geom_ConicalSurface(new Geom_ConicalSurface(A3, Ang, Radius));
 	}
     void Delete() {
@@ -1442,17 +1444,17 @@ class Handle_Geom_ConicalSurface : public Handle_Geom_ElementarySurface {
 		return (*self)->Apex();	
 	}
 
-    void Coefficients(Standard_Real& outA1, Standard_Real& outA2, Standard_Real& outA3, Standard_Real& outB1, Standard_Real& outB2, Standard_Real& outB3, Standard_Real& outC1, Standard_Real& outC2, Standard_Real& outC3, Standard_Real& outD)
+    void Coefficients(double& outA1, double& outA2, double& outA3, double& outB1, double& outB2, double& outB3, double& outC1, double& outC2, double& outC3, double& outD)
     {
     	(*self)->Coefficients(outA1, outA2, outA3, outB1, outB2, outB3, outC1, outC2, outC3, outD);
     }
     
-    Standard_Real ReferenceRadius()
+    double ReferenceRadius()
 	{   
 		return (*self)->RefRadius();	
 	}
  
-    Standard_Real SemiAngle()
+    double SemiAngle()
 	{   
 		return (*self)->SemiAngle();	
 	}
@@ -1467,10 +1469,10 @@ class Handle_Geom_CylindricalSurface : public Handle_Geom_ElementarySurface {
 {
 
 	//TODO check that this is not a big memory leak
-	Handle_Geom_CylindricalSurface(const gp_Ax3& A3, const Standard_Real Radius){
+	Handle_Geom_CylindricalSurface(const gp_Ax3& A3, const double Radius){
 		return new Handle_Geom_CylindricalSurface(new Geom_CylindricalSurface(A3, Radius));
 	}
-	Handle_Geom_CylindricalSurface(const gp_Ax2& A2, const Standard_Real Radius){
+	Handle_Geom_CylindricalSurface(const gp_Ax2& A2, const double Radius){
 		return new Handle_Geom_CylindricalSurface(new Geom_CylindricalSurface(A2, Radius));
 	}
     void Delete() {
@@ -1481,12 +1483,12 @@ class Handle_Geom_CylindricalSurface : public Handle_Geom_ElementarySurface {
 		return (*self)->Cylinder();	
 	}
     
-    void Coefficients(Standard_Real& outA1, Standard_Real& outA2, Standard_Real& outA3, Standard_Real& outB1, Standard_Real& outB2, Standard_Real& outB3, Standard_Real& outC1, Standard_Real& outC2, Standard_Real& outC3, Standard_Real& outD)
+    void Coefficients(double& outA1, double& outA2, double& outA3, double& outB1, double& outB2, double& outB3, double& outC1, double& outC2, double& outC3, double& outD)
 	{
 		return (*self)->Coefficients(outA1, outA2, outA3, outB1, outB2, outB3, outC1, outC2, outC3, outD);
 	}
 
-    Standard_Real Radius()
+    double Radius()
 	{   
 		return (*self)->Radius();	
 	}
@@ -1525,7 +1527,7 @@ class Handle_Geom_Plane : public Handle_Geom_ElementarySurface {
 		return (*self)->Pln();	
 	}
 
-    void Coefficients(Standard_Real& outA, Standard_Real& outB, Standard_Real& outC, Standard_Real& outD)
+    void Coefficients(double& outA, double& outB, double& outC, double& outD)
 	{
 		return (*self)->Coefficients(outA, outB, outC, outD);
 	}

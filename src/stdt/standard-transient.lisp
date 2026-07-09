@@ -3,7 +3,7 @@
 (defmethod equal? (a b &key)
   (eq a b))
 
-(defmethod equal? ((h1 mmgt-tshared) (h2 mmgt-tshared) &key)
+(defmethod equal? ((h1 standard-transient) (h2 standard-transient) &key)
   (eq (cffi-sys:pointer-address (oc::_wrap_Handle_Standard_Transient_get (oc:ff-pointer h1)))
       (cffi-sys:pointer-address (oc::_wrap_Handle_Standard_Transient_get (oc:ff-pointer h2)))))
 

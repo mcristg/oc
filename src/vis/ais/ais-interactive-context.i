@@ -5,6 +5,9 @@
 typedef opencascade::handle<AIS_InteractiveContext> Handle_AIS_InteractiveContext;
 %}
 
+%ignore Handle_Standard_Transient;
+class Handle_Standard_Transient {};
+
 %rename(AIS_InteractiveContext) Handle_AIS_InteractiveContext;
 
 %nodefaultdtor Handle_AIS_InteractiveContext;

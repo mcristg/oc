@@ -61,13 +61,13 @@
 
 ;;
 
-(defclass mmgt-tshared (ff-pointer-mixin) ())
+(defclass standard-transient (ff-pointer-mixin) ())
 
 ;;
 
-(defclass geom2d-transformation (mmgt-tshared) ())
+(defclass geom2d-transformation (standard-transient) ())
 
-(defclass geom2d-geometry (mmgt-tshared) ())
+(defclass geom2d-geometry (standard-transient) ())
 
 (defclass geom2d-point (geom2d-geometry) ())
 
@@ -112,7 +112,7 @@
 (defclass bisector-bisecpc () ())
 ;;
 
-(defclass geom-geometry (mmgt-tshared) ())
+(defclass geom-geometry (standard-transient) ())
 
 (defclass geom-curve (geom-geometry) ())
 
@@ -168,11 +168,17 @@
 
 (defclass geom-surface-of-linear-extrusion (geom-swept-surface) ())
 
-;;
+;;deprecated
 
 (defclass gce2d-root (ff-pointer-mixin) ())
 
 (defclass gce2d-make-segment (gce2d-root) ())
+
+;;
+
+(defclass gc-root (ff-pointer-mixin) ())
+
+(defclass gc-make-segment2d (gc-root) ())
 
 ;;
 
