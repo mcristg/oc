@@ -49,7 +49,7 @@
 
 (defconstant +resolution+ 1.0d-37)
 	   
-(deftype pointer () #+SBCL 'sb-sys:system-area-pointer)
+(deftype pointer () 'cffi:foreign-pointer)
 
 (defparameter +null-pointer+ (load-time-value (make-pointer 0)))
 

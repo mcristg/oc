@@ -11,13 +11,11 @@
   (let ((type (type-of gpthing))
 	(ptr (gp:ptr gpthing)))
     (declare (ignorable type ptr))
-    #+SBCL
-    (sb-ext:finalize gpthing
-		     (lambda ()
-		       #+debug
-		       (format *debug-io* "~&Freeing native ~S: ~S" type ptr)
-		       (cffi:foreign-free ptr))
-		     :dont-save t)))
+    (tg:finalize gpthing
+		 (lambda ()
+		   #+debug
+		   (format *debug-io* "~&Freeing native ~S: ~S" type ptr)
+		   (cffi:foreign-free ptr)))))
 
 (defun finalize-gpthing-foreign (gpthing)
   (declare (ignorable gpthing))
@@ -26,14 +24,11 @@
 	(ptr (gp:ptr gpthing))
 	(free-fn (foreign-free-fn gpthing)))
     (declare (ignorable type ptr))
-    #+SBCL
-    (sb-ext:finalize gpthing
+    (tg:finalize gpthing
 		     (lambda ()
 		       #+debug
 		       (format *debug-io* "~&Freeing foreign ~S: ~S" type ptr)
-		       (funcall free-fn ptr))
-		     :dont-save t)))
-
+		       (funcall free-fn ptr)))))
 
 (defmethod finalize (object &optional (owner :foreign))
   (declare (ignorable owner))
@@ -42,13 +37,11 @@
 	(ptr (ff-pointer object))
 	(free-fn (foreign-free-fn object)))
     (declare (ignorable type ptr))
-      #+SBCL
-      (sb-ext:finalize object
+      (tg:finalize object
 		       (lambda ()
 			 #+debug
 			 (format *debug-io* "~&freeing ~S ~S: ~S" owner type ptr)
-			 (funcall free-fn ptr))
-		       :dont-save t)))
+			 (funcall free-fn ptr)))))
 
 (defmethod finalize ((object standard-transient) &optional owner)
   (declare (ignore owner))
@@ -57,13 +50,11 @@
 	(ptr (ff-pointer object))
 	(free-fn (foreign-free-fn object)))
     (declare (ignorable type ptr))
-    #+SBCL
-    (sb-ext:finalize object
+    (tg:finalize object
 		     (lambda ()
 		       #+debug
 		       (format *debug-io* "~&Ending Scope of foreign ~S: ~S" type ptr)
-		       (funcall free-fn ptr))
-		     :dont-save t)))
+		       (funcall free-fn ptr)))))
 
 (defmethod finalize ((object gp:xy) &optional (owner :foreign))
   (finalize-gpthing object :owner owner))
@@ -244,9 +235,6 @@
 
 (defmethod foreign-free-fn ((object gp:trsf))
   #'_wrap_delete_gp_Trsf)
-
-
-
 
 (defmethod foreign-free-fn ((object adaptor2d-curve2d))
   #'_wrap_delete_Adaptor2d_Curve2d)
