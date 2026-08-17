@@ -74,7 +74,7 @@ using namespace std;
   %}
 
 %include "standard/standard.i";
-%include "mmgt/mmgt-tshared.i";
+%include "stdt/standard-transient.i";
 %include "collections/tcol.i";
 %include "gp/gp.i";
 %include "top-abs/topabs.i";

@@ -1,9 +1,9 @@
 (in-package :gp)
 
-(defun dir2d (&rest args &key (xv 0.0d0) (yv 0.0d0)
-			   (v (vec2d 1.0d0 0.0d0))
-			   (coord (xy 1.0d0 0.0d0))
-			   &allow-other-keys)
+(defun dir2d (&rest args &key (xv nil) (yv nil)
+			   (v nil)
+			   (coord nil)
+			   &allow-other-keys)			   
   (let* ((pointer (foreign-alloc '(:struct gp-dir2d)))
 	 (struct (make-dir2d :ptr pointer)))
 

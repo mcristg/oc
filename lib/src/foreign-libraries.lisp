@@ -123,14 +123,14 @@
 (defparameter *opencascade-lib-extension*
   #+windows ".dll"
   #+darwin ".7.1.0.dylib"
-  #+linux ".so.8.0.0")
+  #+linux ".so.8.0.1")
 
 (defun load-oc-libraries ()
   (when *freetype-lib*
     (cffi:load-foreign-library (concatenate 'string *occt-lib-path* *freetype-lib*)))
   (loop for lib in *opencascade-libraries*
 	do (cffi:load-foreign-library (concatenate 'string *occt-lib-path* lib *opencascade-lib-extension*))
-	finally (cffi:load-foreign-library (concatenate 'string *oc-lib-path* *oc-swig-lib*))))        
+	finally (cffi:load-foreign-library (concatenate 'string *oc-lib-path* *oc-swig-lib*))))
   
 (load-oc-libraries)
 
