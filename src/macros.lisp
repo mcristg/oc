@@ -1,5 +1,6 @@
 (in-package :oc)
 
+#|
 (defparameter *topods-shapes-table* (make-hash-table))
 
 (defmacro with-topods-shape (&body ff-call)
@@ -27,6 +28,28 @@
 		   (setf (gethash hash-code *topods-shapes-table*) shape)
 		   #+NIL(oc:finalize shape)
 		   shape)))))))
+|#
+
+(defmacro with-topods-shape (&body ff-call)
+  `(let* ((ff-shape ,@ff-call)
+	  (shape-class
+	   (if (null-pointer-p ff-shape)
+	       nil
+	       (case (_wrap_TopoDS_Shape_ShapeType ff-shape)
+		 (:TopAbs_COMPOUND (load-time-value (find-class 'topods-compound)))
+		 (:TopAbs_COMPSOLID (load-time-value (find-class 'topods-compsolid)))
+		 (:TopAbs_SOLID (load-time-value (find-class 'topods-solid)))
+		 (:TopAbs_SHELL (load-time-value (find-class 'topods-shell)))
+		 (:TopAbs_FACE (load-time-value (find-class 'topods-face)))
+		 (:TopAbs_WIRE (load-time-value (find-class 'topods-wire)))
+		 (:TopAbs_EDGE (load-time-value (find-class 'topods-edge)))
+		 (:TopAbs_VERTEX (load-time-value (find-class 'topods-vertex)))
+		 (:TopAbs_SHAPE (load-time-value (find-class 'topods-shape))))))
+	  (shape (when shape-class (allocate-instance shape-class))))
+     (when shape-class
+       (setf (ff-pointer shape) ff-shape)
+       #+NIL(oc:finalize shape))	   
+     shape))
 
 (defmacro with-geom2d-curve (&body ff-call)
   `(let* ((ff-curve ,@ff-call)
